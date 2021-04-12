@@ -1,0 +1,753 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>    Spring Boot Apprentice Cookbook
+ | Antoine Veuiller</title>
+
+        <meta name="author" content="Antoine Veuiller">
+        <meta name="generator" content="Pelican v4.6.0">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous">
+
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?c73fffa6">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js" integrity="sha512-iceXjjbmB2rwoX93Ka6HAHP+B76IY1z0o3h+N1PeDtRSsyeetU3/0QKJqGyPJcX63zysNehggFwMC/bi7dvMig==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha512-/2sZKAsHDmHNoevKR/xsUKe+Bpf692q4tHNQs9VWWz0ujJ9JBM67iFYbIEdfDV9I2BaodgT5MIg/FTUmUv3oyQ==" crossorigin="anonymous"></script>
+
+            <script src="https://aveuiller.github.io/theme/js/main.min.js?86e1c044"></script>
+
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- Feeds -->
+            <link href="https://aveuiller.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - All posts - Atom Feed">
+            <link href="https://aveuiller.github.io/feeds/software-engineering.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - Category: Software Engineering - Atom Feed">
+
+        <meta name="keywords" content="Cheat sheet">
+
+    </head>
+
+    <body class="bg-transparent pt-4">
+
+        <div class="container">
+
+
+            <h1>
+                <a href="https://aveuiller.github.io" class="text-dark text-decoration-none">Antoine Veuiller</a>
+                <small class="text-secondary"><small></small></small>
+            </h1>
+
+            <nav class="navbar d-block navbar-expand-lg navbar-light bg-light shadow rounded-lg">
+
+                <a class="navbar-brand d-none" href="https://aveuiller.github.io" title="">Antoine Veuiller</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="plumage-navbar-collapse-1">
+
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/category/software-engineering.html">
+                                        Software Engineering
+<span class="sr-only">(current)</span>                                    </a>
+                                </li>
+                    </ul>
+
+
+                </div>
+
+            </nav>
+
+        </div>
+
+
+        <div class="container mt-5">
+
+
+            <div class="row">
+                <div class="
+                        col-md-9
+">
+    <h1>
+        <a href="https://aveuiller.github.io/spring_boot_apprentice_cookbook.html" rel="bookmark" title="Permalink to Spring Boot Apprentice Cookbook">Spring Boot Apprentice Cookbook</a>
+    </h1>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+                <div id="content" role="main" class="
+                        col-md-9
+">
+    
+
+    <h3>Availability Disclaimer</h3>
+<p>This article can be found on other sources:</p>
+<ul>
+<li>Medium: <a href="https://medium.com/@aveuiller/spring-boot-apprentice-cookbook-61db5a3f6450">Canonical link</a></li>
+</ul>
+<hr>
+<p><img alt="Spring Boot logo" src="https://cdn-images-1.medium.com/max/800/1*gxXLMIuJDHCH7fwIgEP1cg.png" class="img-fluid border rounded shadow"></p>
+<p><a href="https://spring.io/projects/spring-boot">Spring Boot</a> is a web framework built on top of the framework <a href="https://spring.io/projects/spring-framework">Spring</a>. It is designed for easier use and quicker implementation. It does so by configuring the application and its environment as automatically as possible. As a newcomer, I can say that it makes the framework really easy to get into.</p>
+<p>My learning led me to read most of the <a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#using-boot-structuring-your-code">reference documentation</a>, which is well written and gives you a lot of insights into the internal behavior of Spring Boot. This documentation gives a lot of details, so this article aims to take the counter approach and pinpoint the concepts you will need to implement an API using Spring Boot. I will complement each section with a set of links to related documentation, may you want to dig further.</p>
+<p>As a side note, this document will be using version 2.4.2 of the framework, on a Java project using Gradle as the build system. 
+However, the information remains applicable to any compatible language and build system.</p>
+<p>This article will cover the following aspects of creating an API with Spring Boot:</p>
+<ul>
+<li>Bootstrap the project</li>
+<li>Create REST endpoints</li>
+<li>Handle errors</li>
+<li>Connect to a persistence layer</li>
+<li>Paginate the results</li>
+<li>Test the application</li>
+<li>Package the Application</li>
+</ul>
+<h3>Bootstrap the project</h3>
+<p>This part may be the easiest, as Spring Boot is providing a package generator at <a href="https://start.spring.io/">https://start.spring.io/</a>. We can select all required modules and retrieve an archived project with the build system, dependencies, and main application class.</p>
+<p>Outside of this generator, to declare a RESTful API, our project should define the Spring Boot <em>starter web</em> dependency. 
+The <em>starter</em> dependencies are a set of ready to use features packaged by Spring Boot.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>plugins <span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>  id <span style="color: #BA2121">'org.springframework.boot'</span> version <span style="color: #BA2121">'2.4.2'</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span><span style="color: #666666">}</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>dependencies <span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>  implementation <span style="color: #BA2121">'org.springframework.boot:spring-boot-starter-web'</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span><span style="color: #666666">}</span>
+</code></pre></div>
+<p>The application’s main method should be contained in any class, on which we should apply the annotation <code>@SpringBootApplication</code>. This annotation is responsible for a lot of automatic configurations, namely the components injection and web server startup.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #AA22FF">@SpringBootApplication</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MyApplication</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>        SpringApplication.<span style="color: #7D9029">run</span>(MyApplication.<span style="color: #7D9029">class</span>, args);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>}
+</code></pre></div>
+<p>Starting the server is as simple as using the embedded command <code>./gradlew bootRun</code>. 
+The server will start, but we don’t have any endpoint to serve at the moment.</p>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation links:</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#using-boot-using-springbootapplication-annotation">@SpringBootApplication</a></p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#using-boot-starter">List of starter dependencies</a></p>
+</blockquote>
+<h3>Create a REST endpoint</h3>
+<p>To create a controller, we simply have to annotate any class with <code>@RestController</code>.
+We can then configure any method inside this controller as an endpoint using <code>@RequestMapping</code>.</p>
+<p><code>@RequestMapping</code> help us configuring the endpoint by providing an URL, the HTTP verb, the expected data type, and more. 
+It can be applied both on a class and a method, the configurations applied on the class will be inherited by the methods underneath and the path concatenated.</p>
+<p>To control our endpoint status codes we will return a<code>ResponseEntity</code>, holding both the response message and <code>HttpStatus</code>.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #AA22FF">@RestController</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/hello"</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>        consumes <span style="color: #666666">=</span> MediaType.<span style="color: #7D9029">ALL_VALUE</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>        produces <span style="color: #666666">=</span> MediaType.<span style="color: #7D9029">APPLICATION_JSON_VALUE</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HelloWorldController</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/world"</span>, method <span style="color: #666666">=</span> RequestMethod.<span style="color: #7D9029">GET</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    <span style="color: #008000; font-weight: bold">public</span> ResponseEntity<span style="color: #666666">&lt;</span>Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">index</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>        HashMap<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;</span> output <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashMap<span style="color: #666666">&lt;&gt;</span>();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>        output.<span style="color: #7D9029">put</span>(<span style="color: #BA2121">"message"</span>, <span style="color: #BA2121">"Hello World!"</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">new</span> ResponseEntity<span style="color: #666666">&lt;&gt;</span>(output, HttpStatus.<span style="color: #7D9029">OK</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>}
+</code></pre></div>
+<p>The <code>ResponseEntity</code> will be automatically transformed to an HTTP response, using the <code>HttpStatus</code> as response code and transforming the message to a JSON object.
+On top of transforming <em>Maps</em> to JSON objects, Spring Boot configure <a href="https://github.com/FasterXML/jackson">Jackson</a> to map all <code>public</code> attributes or getters of any class to a JSON object.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>$ curl -i <span style="color: #BA2121">"localhost:8080/hello/world"</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>HTTP/1.1 <span style="color: #666666">200</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span><span style="color: #666666">{</span><span style="color: #BA2121">"Hello"</span>:<span style="color: #BA2121">"World"</span><span style="color: #666666">}</span>
+</code></pre></div>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation links:</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#getting-started-first-application-annotations">@RestController and @RequestMapping</a></p>
+<p><a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html">@RequestMapping API doc</a></p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#howto-customize-the-jackson-objectmapper">Customize Json Serialization</a></p>
+</blockquote>
+<h3>Advanced endpoint configuration</h3>
+<p>Now that we have a controller, we may want to define dynamic HTTP endpoints. To do so, the main annotations to keep in mind are:</p>
+<ul>
+<li><code>@RequestBody</code> : Defines a body structure through a java Class.</li>
+<li><code>@PathVariable</code>: Defines a variable subpart of the endpoint URL.</li>
+<li><code>@RequestParam</code> : Defines a query parameter.</li>
+</ul>
+<p>The controller below showcases the three annotations with two endpoints, each returning a custom “Hello World” depending on the query.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #AA22FF">@RestController</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/hello"</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>        consumes <span style="color: #666666">=</span> MediaType.<span style="color: #7D9029">ALL_VALUE</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>        produces <span style="color: #666666">=</span> MediaType.<span style="color: #7D9029">APPLICATION_JSON_VALUE</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HelloWorldController</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #408080; font-style: italic">// The behavior is not representative of a typical POST request</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    <span style="color: #408080; font-style: italic">// and only here as a matter of example.</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    <span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">""</span>, method <span style="color: #666666">=</span> RequestMethod.<span style="color: #7D9029">POST</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #008000; font-weight: bold">public</span> ResponseEntity<span style="color: #666666">&lt;</span>Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">greetFromBody</span>(<span style="color: #AA22FF">@RequestBody</span> HelloBody helloBody) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>        HashMap<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;</span> output <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashMap<span style="color: #666666">&lt;&gt;</span>();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>        output.<span style="color: #7D9029">put</span>(<span style="color: #BA2121">"message"</span>, <span style="color: #BA2121">"Hello "</span> <span style="color: #666666">+</span> helloBody.<span style="color: #7D9029">getName</span>());
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">new</span> ResponseEntity<span style="color: #666666">&lt;&gt;</span>(output, HttpStatus.<span style="color: #7D9029">OK</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/{name}"</span>, method <span style="color: #666666">=</span> RequestMethod.<span style="color: #7D9029">GET</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>    <span style="color: #008000; font-weight: bold">public</span> ResponseEntity<span style="color: #666666">&lt;</span>Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">greet</span>(<span style="color: #AA22FF">@PathVariable</span> String name,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>                                                     <span style="color: #AA22FF">@RequestParam</span>(required <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>                                                                   defaultValue <span style="color: #666666">=</span> <span style="color: #BA2121">"0"</span>) <span style="color: #B00040">int</span> amount_exclamation) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>        HashMap<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;</span> output <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashMap<span style="color: #666666">&lt;&gt;</span>();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>        StringBuilder b <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> StringBuilder(<span style="color: #BA2121">"Hello "</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>        b.<span style="color: #7D9029">append</span>(name);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> amount_exclamation; i<span style="color: #666666">++</span>) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>            b.<span style="color: #7D9029">append</span>(<span style="color: #BA2121">"!"</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>        }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>        output.<span style="color: #7D9029">put</span>(<span style="color: #BA2121">"message"</span>, b.<span style="color: #7D9029">toString</span>());
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">new</span> ResponseEntity<span style="color: #666666">&lt;&gt;</span>(output, HttpStatus.<span style="color: #7D9029">OK</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>}
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HelloBody</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>    String name;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">HelloBody</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>        <span style="color: #408080; font-style: italic">// Used by Jackson</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>    <span style="color: #008000; font-weight: bold">public</span> String <span style="color: #0000FF">getName</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">name</span>;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>}
+</code></pre></div>
+<p>The endpoints defined above can be used as follows:</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>curl -i <span style="color: #BA2121">"localhost:8080/hello/jack?amount_exclamation=4"</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>HTTP/1.1 <span style="color: #666666">200</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span><span style="color: #666666">{</span><span style="color: #BA2121">"message"</span>:<span style="color: #BA2121">"Hello jack!!!!"</span><span style="color: #666666">}</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span><span style="color: #408080; font-style: italic"># -d automatically creates a POST request.</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>$ curl -i <span style="color: #BA2121">"localhost:8080/hello"</span> -d <span style="color: #BA2121">'{"name": "Bob"}'</span> -H <span style="color: #BA2121">"Content-Type: application/json"</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span>HTTP/1.1 <span style="color: #666666">200</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">8</span><span style="color: #666666">{</span><span style="color: #BA2121">"message"</span>:<span style="color: #BA2121">"Hello Bob"</span><span style="color: #666666">}</span>
+</code></pre></div>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation links:</p>
+<p><a href="https://docs.spring.io/spring-framework/docs/5.2.8.RELEASE/spring-framework-reference/web.html#mvc-ann-requestbody">@RequestBody</a></p>
+<p><a href="https://docs.spring.io/spring-framework/docs/5.2.8.RELEASE/spring-framework-reference/web.html#mvc-ann-requestmapping-uri-templates">@PathVariable</a></p>
+<p><a href="https://docs.spring.io/spring-framework/docs/5.2.8.RELEASE/spring-framework-reference/web.html#mvc-ann-requestparam">@RequestParam</a></p>
+</blockquote>
+<h3>Handle errors</h3>
+<p>By default, Spring Boot will return the HTTP code 200 for any successful request, 404 if the endpoint is not registered, and 500 for any error. We already saw that using <code>ResponseEntity</code> enables us to override this behavior for successful requests, but we still need to handle error codes more finely.</p>
+<p>To do so, we will define custom API exceptions that will be automatically transformed into HTTP codes. 
+This transformation is done by a class extending <code>ResponseEntityExceptionHandler</code> and annotated with <code>@ControllerAdvice</code>. 
+In this class, we can define methods to handle exceptions using the annotations <code>@ExceptionHandler</code> and <code>@ResponseStatus</code>.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #AA22FF">@ControllerAdvice</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MyApplicationControllerAdvice</span> <span style="color: #008000; font-weight: bold">extends</span> ResponseEntityExceptionHandler {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>    <span style="color: #AA22FF">@ExceptionHandler</span>(ApiException.<span style="color: #7D9029">class</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    <span style="color: #AA22FF">@ResponseStatus</span>(HttpStatus.<span style="color: #7D9029">BAD_REQUEST</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">handleBadRequest</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    <span style="color: #AA22FF">@ExceptionHandler</span>(NotFoundException.<span style="color: #7D9029">class</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #AA22FF">@ResponseStatus</span>(HttpStatus.<span style="color: #7D9029">NOT_FOUND</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">handleNotFound</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>}
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ApiException</span> <span style="color: #008000; font-weight: bold">extends</span> Exception {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>}
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">NotFoundException</span> <span style="color: #008000; font-weight: bold">extends</span> ApiException {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>}
+</code></pre></div>
+<p>After defining the <code>ControllerAdvice</code> in your project, any exception thrown by your controllers will be parsed and transformed to the bound <code>ResponseStatus</code>.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #AA22FF">@RestController</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/exception"</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ExceptionController</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    <span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/404"</span>, method <span style="color: #666666">=</span> RequestMethod.<span style="color: #7D9029">GET</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #008000; font-weight: bold">public</span> ResponseEntity<span style="color: #666666">&lt;</span>Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">notFound</span>() <span style="color: #008000; font-weight: bold">throws</span> NotFoundException {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>        <span style="color: #008000; font-weight: bold">throw</span> <span style="color: #008000; font-weight: bold">new</span> NotFoundException();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    }    
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/400"</span>, method <span style="color: #666666">=</span> RequestMethod.<span style="color: #7D9029">GET</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    <span style="color: #008000; font-weight: bold">public</span> ResponseEntity<span style="color: #666666">&lt;</span>Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">badRequest</span>() <span style="color: #008000; font-weight: bold">throws</span> ApiException {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>        <span style="color: #008000; font-weight: bold">throw</span> <span style="color: #008000; font-weight: bold">new</span> ApiException();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    <span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/500"</span>, method <span style="color: #666666">=</span> RequestMethod.<span style="color: #7D9029">GET</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #008000; font-weight: bold">public</span> ResponseEntity<span style="color: #666666">&lt;</span>Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">ise</span>() <span style="color: #008000; font-weight: bold">throws</span> Exception {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>        <span style="color: #008000; font-weight: bold">throw</span> <span style="color: #008000; font-weight: bold">new</span> Exception();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>}
+</code></pre></div>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>$ curl -i <span style="color: #BA2121">"localhost:8080/exception/500"</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>HTTP/1.1 <span style="color: #666666">500</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>$ curl -i <span style="color: #BA2121">"localhost:8080/exception/404"</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>HTTP/1.1 <span style="color: #666666">404</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span>$ curl -i <span style="color: #BA2121">"localhost:8080/exception/400"</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">8</span>HTTP/1.1 <span style="color: #666666">400</span>
+</code></pre></div>
+<p>Our exception handling is very simple and does not return any payload, but it is possible to implement exception parsing in the methods of <code>ResponseEntityExceptionHandler</code>.</p>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation links:</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-error-handling">ResponseEntityExceptionHandler</a></p>
+<p><a href="https://docs.spring.io/spring-framework/docs/5.2.8.RELEASE/spring-framework-reference/web.html#mvc-ann-controller-advice">@ControllerAdvice</a></p>
+<p><a href="https://docs.spring.io/spring-framework/docs/5.2.8.RELEASE/spring-framework-reference/web.html#mvc-ann-exceptionhandler">@ExceptionHandler</a></p>
+<p><a href="https://docs.spring.io/spring-framework/docs/5.2.8.RELEASE/spring-framework-reference/web.html#mvc-ann-exceptionhandler-return-values">@ResponseStatus</a></p>
+</blockquote>
+<h3>Connect to a persistence layer</h3>
+<h4>Configuration</h4>
+<p>To use a database, we will need the <em>Java Persistence API</em> (JPA) package and the implementation of any persistence layer.
+The former will install interface APIs, while the latter will provide the implementations and drivers.</p>
+<p>To pinpoint the minimal changes required to switch between two distinct databases, we will show the integration with both <a href="https://www.postgresql.org/">PostgreSQL</a> and <a href="https://www.h2database.com/html/main.html">H2</a> at the same time.
+First, let’s declare our dependencies:</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>dependencies <span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>  implementation <span style="color: #BA2121">'org.springframework.boot:spring-boot-starter-data-jpa'</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>  <span style="color: #408080; font-style: italic">// Dependencies to your used dbms</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>  implementation <span style="color: #BA2121">'org.postgresql:postgresql:42.2.1'</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>  implementation <span style="color: #BA2121">'com.h2database:h2:1.4.200'</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span><span style="color: #666666">}</span>
+</code></pre></div>
+<p>The second step is to configure the accesses in <code>application.properties</code>. The property file is the first and the last time we will have to worry about our persistence configuration. In this file, the 3 lines commented out are the only part to change to switch from PostgreSQL to H2.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #7D9029">spring.datasource.username</span><span style="color: #666666">=</span><span style="color: #BA2121">user</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #7D9029">spring.datasource.password</span><span style="color: #666666">=</span><span style="color: #BA2121">password</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span><span style="color: #7D9029">spring.datasource.generate-unique-name</span><span style="color: #666666">=</span><span style="color: #BA2121">true</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span><span style="color: #408080; font-style: italic"># Automatically create &amp; update the database schema from code.</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #7D9029">spring.jpa.hibernate.ddl-auto</span><span style="color: #666666">=</span><span style="color: #BA2121">update</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span><span style="color: #408080; font-style: italic">#spring.datasource.url=jdbc:h2:mem:database_name</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span><span style="color: #7D9029">spring.datasource.url</span><span style="color: #666666">=</span><span style="color: #BA2121">jdbc:postgresql://localhost:5432/database_name</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span><span style="color: #408080; font-style: italic">#spring.datasource.driver-class-name=org.h2.Driver</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span><span style="color: #7D9029">spring.datasource.driver-class-name</span><span style="color: #666666">=</span><span style="color: #BA2121">org.postgresql.Driver</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span><span style="color: #408080; font-style: italic">#spring.jpa.database-platform=org.hibernate.dialect.H2Dialect</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span><span style="color: #7D9029">spring.jpa.database-platform</span><span style="color: #666666">=</span><span style="color: #BA2121">org.hibernate.dialect.PostgreSQL10Dialect</span>
+</code></pre></div>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation links:</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-configure-datasource">Database configuration</a></p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#data-properties">Available properties</a></p>
+</blockquote>
+<h4>Define a model</h4>
+<p>Defining a model is as simple as using annotations defined on <a href="https://www.jcp.org/en/jsr/detail?id=317">JSR-317</a>. These annotations are available through the package <em>javax.persistence,</em> which is available through the JPA dependency.</p>
+<p>For instance, the code below creates a <em>Delivery</em> entity. Our entity identifier is the field <em>id</em>, which will be automatically initialized and increased on each new saved entity in the database thanks to the annotation <code>@GeneratedValue</code>.</p>
+<p><em>Note: All attributes publicly available will be set into the JSON representation of the entity in the API responses.</em></p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #AA22FF">@Entity</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #AA22FF">@Table</span>(name <span style="color: #666666">=</span> <span style="color: #BA2121">"delivery"</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Delivery</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>    <span style="color: #AA22FF">@Id</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    <span style="color: #AA22FF">@GeneratedValue</span>(strategy <span style="color: #666666">=</span> GenerationType.<span style="color: #7D9029">AUTO</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #B00040">long</span> id;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    <span style="color: #AA22FF">@Column</span>(nullable <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    <span style="color: #AA22FF">@NotNull</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #AA22FF">@Enumerated</span>(EnumType.<span style="color: #7D9029">STRING</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    DeliveryState state;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>    <span style="color: #AA22FF">@Column</span>(nullable <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>    <span style="color: #AA22FF">@NotNull</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    String location;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">Delivery</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>        <span style="color: #408080; font-style: italic">// Used by Jackson2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">Delivery</span>(<span style="color: #AA22FF">@NotNull</span> DeliveryState state, <span style="color: #AA22FF">@NotNull</span> String location) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>        <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">state</span> <span style="color: #666666">=</span> state;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>        <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">location</span> <span style="color: #666666">=</span> location;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">long</span> <span style="color: #0000FF">getId</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>        <span style="color: #008000; font-weight: bold">return</span> id;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>    <span style="color: #008000; font-weight: bold">public</span> DeliveryState <span style="color: #0000FF">getState</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>        <span style="color: #008000; font-weight: bold">return</span> state;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">setState</span>(DeliveryState state) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>        <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">state</span> <span style="color: #666666">=</span> state;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>    <span style="color: #008000; font-weight: bold">public</span> String <span style="color: #0000FF">getLocation</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>        <span style="color: #008000; font-weight: bold">return</span> location;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">setLocation</span>(String location) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>        <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">location</span> <span style="color: #666666">=</span> location;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>}
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span><span style="color: #008000; font-weight: bold">enum</span> DeliveryState {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>    PENDING, DELIVERING, WAITING_AT_ARRIVAL, RETURNING, RETURNED, PICKED_UP;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>}
+</code></pre></div>
+<p>To ensure consistency of our data class, we applied <code>@NotNull</code> validations from <a href="https://jcp.org/en/jsr/detail?id=303">JSR-303</a>, these validations can be enforced on endpoints as we will see during the next section. 
+The constraints are contained in the package <em>javax.validation.constraints</em>, available through the dependency <code>spring-boot-starter-validation</code>.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>dependencies <span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>  implementation <span style="color: #BA2121">'org.springframework.boot:spring-boot-starter-validation'</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span><span style="color: #666666">}</span>
+</code></pre></div>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation links:</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-entity-classes">Entity Declaration</a></p>
+<p><a href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/package-summary.html">javax.persistence API documentation (@Entity, @Column, @Enumerate, …)</a></p>
+<p><a href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/GeneratedValue.html">@GeneratedValue</a></p>
+<p><a href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html">javax.validation.constraints API documentation (@NotNull)</a></p>
+</blockquote>
+<h4>Expose the model</h4>
+<p>To interact with our models, we have to define a <a href="https://docs.spring.io/spring-data/commons/docs/2.4.2/api/org/springframework/data/repository/Repository.html">Repository</a>, for instance, a <code>CrudRepository</code>.
+Doing so is as easy as extending the class with an empty class. Spring Boot will automatically implement functions to interact with the entity.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #AA22FF">@Repository</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">interface</span> <span style="color: #0000FF; font-weight: bold">DeliveryRepository</span> <span style="color: #008000; font-weight: bold">extends</span> CrudRepository<span style="color: #666666">&lt;</span>Delivery, Long<span style="color: #666666">&gt;</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>}
+</code></pre></div>
+<p>We annotate this component <code>@Repository</code> to make it available to dependency injection. 
+Then we can inject and use the repository in any class, for example directly in a controller. 
+Using<code>@Autowired</code> will automatically retrieve the <code>@Repository</code> declared above_._</p>
+<p><em>Note:</em> <code>_@Repository_</code> <em>and</em> <code>_@Service_</code> <em>behave exactly as the main injection annotation</em><code>_@Component_</code><em>, it simply enables to mark a semantic difference.</em></p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #AA22FF">@RestController</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/delivery"</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>        consumes <span style="color: #666666">=</span> MediaType.<span style="color: #7D9029">APPLICATION_JSON_VALUE</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>        produces <span style="color: #666666">=</span> MediaType.<span style="color: #7D9029">APPLICATION_JSON_VALUE</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">DeliveryController</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">final</span> DeliveryRepository deliveryRepository;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    <span style="color: #AA22FF">@Autowired</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">DeliveryController</span>(DeliveryRepository deliveryRepository) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>        <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">deliveryRepository</span> <span style="color: #666666">=</span> deliveryRepository;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>    <span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">""</span>, method <span style="color: #666666">=</span> RequestMethod.<span style="color: #7D9029">POST</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    <span style="color: #008000; font-weight: bold">public</span> ResponseEntity<span style="color: #666666">&lt;</span>Delivery<span style="color: #666666">&gt;</span> <span style="color: #0000FF">post</span>(<span style="color: #AA22FF">@Valid</span> <span style="color: #AA22FF">@RequestBody</span> Delivery delivery) <span style="color: #008000; font-weight: bold">throws</span> ApiException {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>        <span style="color: #008000; font-weight: bold">try</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>            delivery <span style="color: #666666">=</span> deliveryRepository.<span style="color: #7D9029">save</span>(delivery);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>        } <span style="color: #008000; font-weight: bold">catch</span> (Exception e) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>            <span style="color: #008000; font-weight: bold">throw</span> <span style="color: #008000; font-weight: bold">new</span> ApiException();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>        }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">new</span> ResponseEntity<span style="color: #666666">&lt;&gt;</span>(delivery, HttpStatus.<span style="color: #7D9029">OK</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>    <span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/{id}"</span>, method <span style="color: #666666">=</span> RequestMethod.<span style="color: #7D9029">GET</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>    <span style="color: #008000; font-weight: bold">public</span> ResponseEntity<span style="color: #666666">&lt;</span>Delivery<span style="color: #666666">&gt;</span> <span style="color: #0000FF">get</span>(<span style="color: #AA22FF">@PathVariable</span> <span style="color: #B00040">long</span> id) <span style="color: #008000; font-weight: bold">throws</span> ApiException {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>        Optional<span style="color: #666666">&lt;</span>Delivery<span style="color: #666666">&gt;</span> delivery <span style="color: #666666">=</span> deliveryRepository.<span style="color: #7D9029">findById</span>(id);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>        <span style="color: #008000; font-weight: bold">if</span> (delivery.<span style="color: #7D9029">isEmpty</span>()) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>            <span style="color: #008000; font-weight: bold">throw</span> <span style="color: #008000; font-weight: bold">new</span> NotFoundException();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>        }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">new</span> ResponseEntity<span style="color: #666666">&lt;&gt;</span>(delivery.<span style="color: #7D9029">get</span>(), HttpStatus.<span style="color: #7D9029">OK</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>}
+</code></pre></div>
+<p>We used the annotation<code>@Valid</code> to ensure that our constraints defined above are met on the sent <em>Delivery</em> body.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>$ curl -i <span style="color: #BA2121">"localhost:8080/delivery"</span> -H <span style="color: #BA2121">'Content-Type: application/json'</span> <span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>  -X POST -d <span style="color: #BA2121">'{"state": "PENDING"}'</span>                  
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>HTTP/1.1 <span style="color: #666666">400</span> 
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>$ curl -i <span style="color: #BA2121">"localhost:8080/delivery/1"</span> -H <span style="color: #BA2121">'Content-Type: application/json'</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>HTTP/1.1 <span style="color: #666666">404</span> 
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>$ curl -i <span style="color: #BA2121">"localhost:8080/delivery"</span> -H <span style="color: #BA2121">'Content-Type: application/json'</span> <span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>  -X POST -d <span style="color: #BA2121">'{"state": "PENDING", "location":"Budapest"}'</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>HTTP/1.1 <span style="color: #666666">200</span> 
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span><span style="color: #666666">{</span><span style="color: #BA2121">"id"</span>:1,<span style="color: #BA2121">"state"</span>:<span style="color: #BA2121">"PENDING"</span>,<span style="color: #BA2121">"location"</span>:<span style="color: #BA2121">"Budapest"</span><span style="color: #666666">}</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>$ curl -i <span style="color: #BA2121">"localhost:8080/delivery/1"</span> -H <span style="color: #BA2121">'Content-Type: application/json'</span>                                                                                 <span style="color: #666666">130</span> ↵
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>HTTP/1.1 <span style="color: #666666">200</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span><span style="color: #666666">{</span><span style="color: #BA2121">"id"</span>:1,<span style="color: #BA2121">"state"</span>:<span style="color: #BA2121">"PENDING"</span>,<span style="color: #BA2121">"location"</span>:<span style="color: #BA2121">"Budapest"</span><span style="color: #666666">}</span>
+</code></pre></div>
+<p><em>Note: H2 is an in-memory database so the data will be wiped out at each server restart.</em></p>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation Links:</p>
+<p><a href="https://docs.spring.io/spring-data/commons/docs/2.4.2/api/org/springframework/data/repository/CrudRepository.html">CrudRepository API Documentation</a></p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#using-boot-spring-beans-and-dependency-injection">Spring Component Declaration</a></p>
+<p><a href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/package-summary.html">javax.validation API documentation (@Valid)</a></p>
+</blockquote>
+<h3>Paginate the results</h3>
+<p>This section illustrates how well Spring Boot integrates some classic features of a web API. 
+To paginate the access to our previous entity <em>Delivery,</em> we simply have to change the repository’s extended class from <code>CrudRepository</code> to <code>PagingAndSortingRepository</code>.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #AA22FF">@Repository</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">interface</span> <span style="color: #0000FF; font-weight: bold">DeliveryRepository</span> <span style="color: #008000; font-weight: bold">extends</span> PagingAndSortingRepository<span style="color: #666666">&lt;</span>Delivery, Long<span style="color: #666666">&gt;</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>}
+</code></pre></div>
+<p>This repository implementation provides a new method <code>findAll(Pageable)</code> returning a <code>Page</code>. 
+The class <code>Pageable</code> configures the page and page size to return.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #AA22FF">@RestController</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">"/delivery"</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>        consumes <span style="color: #666666">=</span> MediaType.<span style="color: #7D9029">APPLICATION_JSON_VALUE</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>        produces <span style="color: #666666">=</span> MediaType.<span style="color: #7D9029">APPLICATION_JSON_VALUE</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">DeliveryController</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">final</span> DeliveryRepository deliveryRepository;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    <span style="color: #AA22FF">@Autowired</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">DeliveryController</span>(DeliveryRepository deliveryRepository) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>        <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">deliveryRepository</span> <span style="color: #666666">=</span> deliveryRepository;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>    <span style="color: #AA22FF">@RequestMapping</span>(value <span style="color: #666666">=</span> <span style="color: #BA2121">""</span>, method <span style="color: #666666">=</span> RequestMethod.<span style="color: #7D9029">GET</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    <span style="color: #008000; font-weight: bold">public</span> ResponseEntity<span style="color: #666666">&lt;</span>Page<span style="color: #666666">&lt;</span>Delivery<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">index</span>(<span style="color: #AA22FF">@RequestParam</span>(required <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>, defaultValue <span style="color: #666666">=</span> <span style="color: #BA2121">"0"</span>) <span style="color: #B00040">int</span> page) {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>        Pageable pageable <span style="color: #666666">=</span> PageRequest.<span style="color: #7D9029">of</span>(page, <span style="color: #666666">50</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">new</span> ResponseEntity<span style="color: #666666">&lt;&gt;</span>(deliveryRepository.<span style="color: #7D9029">findAll</span>(pageable), HttpStatus.<span style="color: #7D9029">OK</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>}
+</code></pre></div>
+<p>The endpoint will then serve the whole <code>Page</code> object’s data upon request.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>$ curl <span style="color: #BA2121">"localhost:8080/delivery"</span> -H <span style="color: #BA2121">'Content-Type: application/json'</span> | jq                                                                                   <span style="color: #666666">4</span> ↵
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>  <span style="color: #BA2121">"content"</span>: <span style="color: #666666">[</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>    <span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>      <span style="color: #BA2121">"id"</span>: <span style="color: #666666">1</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>      <span style="color: #BA2121">"state"</span>: <span style="color: #BA2121">"PENDING"</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>      <span style="color: #BA2121">"location"</span>: <span style="color: #BA2121">"Budapest"</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    <span style="color: #666666">}</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>  <span style="color: #666666">]</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>  <span style="color: #BA2121">"pageable"</span>: <span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    <span style="color: #BA2121">"sort"</span>: <span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>      <span style="color: #BA2121">"sorted"</span>: false,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>      <span style="color: #BA2121">"unsorted"</span>: true,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>      <span style="color: #BA2121">"empty"</span>: <span style="color: #008000">true</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    <span style="color: #666666">}</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #BA2121">"offset"</span>: <span style="color: #666666">0</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>    <span style="color: #BA2121">"pageNumber"</span>: <span style="color: #666666">0</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>    <span style="color: #BA2121">"pageSize"</span>: <span style="color: #666666">50</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>    <span style="color: #BA2121">"paged"</span>: true,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>    <span style="color: #BA2121">"unpaged"</span>: <span style="color: #008000">false</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>  <span style="color: #666666">}</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>  <span style="color: #BA2121">"totalPages"</span>: <span style="color: #666666">1</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>  <span style="color: #BA2121">"totalElements"</span>: <span style="color: #666666">1</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>  <span style="color: #BA2121">"last"</span>: true,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>  <span style="color: #BA2121">"first"</span>: true,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>  <span style="color: #BA2121">"size"</span>: <span style="color: #666666">50</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>  <span style="color: #BA2121">"number"</span>: <span style="color: #666666">0</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>  <span style="color: #BA2121">"sort"</span>: <span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>    <span style="color: #BA2121">"sorted"</span>: false,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>    <span style="color: #BA2121">"unsorted"</span>: true,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>    <span style="color: #BA2121">"empty"</span>: <span style="color: #008000">true</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>  <span style="color: #666666">}</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>  <span style="color: #BA2121">"numberOfElements"</span>: <span style="color: #666666">1</span>,
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>  <span style="color: #BA2121">"empty"</span>: <span style="color: #008000">false</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span><span style="color: #666666">}</span>
+</code></pre></div>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation links:</p>
+<p><a href="https://docs.spring.io/spring-data/commons/docs/2.4.2/api/org/springframework/data/repository/PagingAndSortingRepository.html">PagingAndSortingRepository API Documentation</a></p>
+<p><a href="https://docs.spring.io/spring-data/commons/docs/2.4.2/api/org/springframework/data/domain/PageRequest.html">PageRequest API Documentation</a></p>
+<p><a href="https://docs.spring.io/spring-data/commons/docs/2.4.2/api/org/springframework/data/domain/Page.html">Page API Documentation</a></p>
+</blockquote>
+<h3>Test the application</h3>
+<p>Spring Boot provides every tool to easily test controllers with a set of APIs and <a href="https://en.wikipedia.org/wiki/Mock_object">mocks</a>. 
+Mostly, <code>MockMvc</code> will enable us to send requests and assert response content without having to worry about technicalities.</p>
+<p>As an example, we are testing the <em>POST</em> endpoint from the section above. One of these tests is successfully creating a <em>Delivery</em> entity, and the second one simulates an error coming from the database.</p>
+<p>To avoid relying on a physical instance of a persistence layer, we injected our DeliveryRepository instance using <code>@MockBean</code>, which creates and injects a mock of our component.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #AA22FF">@SpringBootTest</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #AA22FF">@AutoConfigureMockMvc</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">DeliveryControllerTest</span> {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>    <span style="color: #AA22FF">@Autowired</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    <span style="color: #008000; font-weight: bold">private</span> MockMvc mvc;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #AA22FF">@MockBean</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    DeliveryRepository deliveryRepository;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #AA22FF">@Test</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    <span style="color: #B00040">void</span> <span style="color: #0000FF">testPostDeliveryOk</span>() <span style="color: #008000; font-weight: bold">throws</span> Exception {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>        ObjectMapper mapper <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ObjectMapper();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>        Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;</span> delivery <span style="color: #666666">=</span> getValidDelivery();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>        String body <span style="color: #666666">=</span> mapper.<span style="color: #7D9029">writeValueAsString</span>(delivery);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>        MockHttpServletRequestBuilder accept <span style="color: #666666">=</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>                MockMvcRequestBuilders.<span style="color: #7D9029">post</span>(<span style="color: #BA2121">"/delivery"</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>                        .<span style="color: #7D9029">accept</span>(MediaType.<span style="color: #7D9029">APPLICATION_JSON</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>                        .<span style="color: #7D9029">contentType</span>(MediaType.<span style="color: #7D9029">APPLICATION_JSON</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>                        .<span style="color: #7D9029">content</span>(body);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>        mvc.<span style="color: #7D9029">perform</span>(accept).<span style="color: #7D9029">andExpect</span>(status().<span style="color: #7D9029">isOk</span>());
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>    <span style="color: #AA22FF">@Test</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>    <span style="color: #B00040">void</span> <span style="color: #0000FF">testPostPersistIssue</span>() <span style="color: #008000; font-weight: bold">throws</span> Exception {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>        ObjectMapper mapper <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ObjectMapper();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>        Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;</span> delivery <span style="color: #666666">=</span> getValidDelivery();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>        String body <span style="color: #666666">=</span> mapper.<span style="color: #7D9029">writeValueAsString</span>(delivery);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>        Mockito.<span style="color: #7D9029">when</span>(deliveryRepository.<span style="color: #7D9029">save</span>(Mockito.<span style="color: #7D9029">any</span>())).<span style="color: #7D9029">thenThrow</span>(<span style="color: #008000; font-weight: bold">new</span> RuntimeException());
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>        MockHttpServletRequestBuilder accept <span style="color: #666666">=</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>                MockMvcRequestBuilders.<span style="color: #7D9029">post</span>(<span style="color: #BA2121">"/delivery"</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>                        .<span style="color: #7D9029">accept</span>(MediaType.<span style="color: #7D9029">APPLICATION_JSON</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>                        .<span style="color: #7D9029">contentType</span>(MediaType.<span style="color: #7D9029">APPLICATION_JSON</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>                        .<span style="color: #7D9029">content</span>(body);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>        mvc.<span style="color: #7D9029">perform</span>(accept).<span style="color: #7D9029">andExpect</span>(status().<span style="color: #7D9029">is4xxClientError</span>());
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>    <span style="color: #008000; font-weight: bold">private</span> Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;</span> <span style="color: #0000FF">getValidDelivery</span>() {
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>        Map<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;</span> delivery <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashMap<span style="color: #666666">&lt;&gt;</span>();
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>        delivery.<span style="color: #7D9029">put</span>(<span style="color: #BA2121">"state"</span>, <span style="color: #BA2121">"PENDING"</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>        delivery.<span style="color: #7D9029">put</span>(<span style="color: #BA2121">"location"</span>, <span style="color: #BA2121">"Rome"</span>);
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>        <span style="color: #008000; font-weight: bold">return</span> delivery;
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>    }
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>}
+</code></pre></div>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation links:</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-testing-spring-boot-applications">@SpringBootTest</a></p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-testing-spring-boot-applications-testing-with-mock-environment">@AutoConfiguredMockMvc</a></p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-testing-spring-boot-applications-mocking-beans">@MockBean</a></p>
+<p><a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/servlet/MockMvc.html">MockMvc api Documentation</a></p>
+</blockquote>
+<h3>Package the application</h3>
+<p>Spring boot also eases the application packaging either as a standalone jar or a docker image.</p>
+<ul>
+<li>To create a ready to run <em>fat jar</em>, execute <code>./gradlew bootJar</code>.</li>
+<li>To build a <em>docker image</em>, execute <code>./gradlew bootBuildImage</code>.</li>
+</ul>
+<p>Note that docker does not like uppercase characters in the image name, but we can easily customize the image name and version.</p>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #408080; font-style: italic">// Only use lowercase on docker image name</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>tasks<span style="color: #666666">.</span><span style="color: #7D9029">named</span><span style="color: #666666">(</span><span style="color: #BA2121">"bootBuildImage"</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>    imageName <span style="color: #666666">=</span> <span style="color: #BA2121">"${rootProject.name.toLowerCase()}:${version}"</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span><span style="color: #666666">}</span>
+</code></pre></div>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>Documentation links:</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#getting-started-first-application-executable-jar">Create an application fat jar</a></p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-container-images">Configure Docker Image</a></p>
+</blockquote>
+<h3>Conclusion</h3>
+<p>Spring Boot can be used with a handful of annotations and will manage most of the configuration for you. 
+However, most of the configuration can be overridden to provide your own behavior if necessary. 
+This makes it a good framework to design proof of concepts while keeping room for optimization if the project grows specific needs.</p>
+<p>If you want to know more about the framework, I can’t stress enough the quality of the <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/">Reference Documentation</a>, which gives really good details.</p>
+<p>If you want to play around with some code, you can find all those concepts on an example delivery API <a href="https://github.com/aveuiller/frameworks-bootstrap/tree/master/SpringBoot">on GitHub</a>.</p>
+
+
+
+                </div>
+
+                    <div class="col-md-3">
+    <div class="card bg-light text-dark">
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+                <abbr title="2021-01-27T00:00:00+01:00"><i class="fas fa-calendar"></i> Wed 27 January 2021</abbr>
+            </li>
+
+                <li class="list-group-item">
+                    <address>
+                        <i class="fas fa-user"></i> By
+                            <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
+                    </address>
+                </li>
+
+                <li class="list-group-item">
+                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="3 articles in this category">Software Engineering</a>
+                            <a href="/tag/cheat-sheet.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Cheat sheet</a>
+                </li>
+
+
+
+        </ul>
+    </div>
+                        
+                    </div>
+
+            </div>
+
+        </div>
+
+        <footer class="container-fluid mt-5 p-4 small">
+            <div class="row mx-5">
+
+                    <div class="col-md-2">
+                            <h6>Social</h6>
+                            <ul class="list-unstyled">
+                                        <li><a href="http://twitter.com/AVeuiller">
+        <i class="fab fa-twitter fa-fw"></i>
+    Twitter
+</a></li>
+                                        <li><a href="https://stackoverflow.com/users/2564085/aveuiller">
+        <i class="fab fa-stack-overflow fa-fw"></i>
+    StackOverflow
+</a></li>
+                                        <li><a href="http://github.com/aveuiller">
+        <i class="fab fa-github fa-fw"></i>
+    GitHub
+</a></li>
+                                        <li><a href="https://aveuiller.medium.com/">
+        <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
+    Medium
+</a></li>
+                            </ul>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+
+                <div class="col-md-2">
+                    <h6>Browse content by</h6>
+                    <ul class="list-unstyled">
+                    </ul>
+                </div>
+
+                <div class="col-md-2 text-muted">
+                    <h6>Copyright notice</h6>
+                    <p class="small">
+                        © Copyright
+                        2020-2021
+                        Antoine Veuiller.
+                    </p>
+                </div>
+
+                <div class="col-md-2 text-muted">
+                    <h6>Disclaimer</h6>
+                    <p class="small">
+                            All opinions expressed in this site are my own
+                            personal opinions and are not endorsed by, nor
+                            do they represent the opinions of my previous,
+                            current and future employers or any of its
+                            affiliates, partners or customers.
+                    </p>
+                </div>
+
+                <div class="col-md-2">
+                        <h6>Feeds</h6>
+                        <ul class="list-unstyled small">
+                                <li>
+                                    <a href="https://aveuiller.github.io/feeds/all.atom.xml">
+                                        <i class="fas fa-atom fa-fw"></i> All posts (Atom)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://aveuiller.github.io/feeds/software-engineering.atom.xml">
+                                        <i class="fas fa-atom fa-fw"></i> Category: Software Engineering (Atom)
+                                    </a>
+                                </li>
+                        </ul>
+                </div>
+
+            </div>
+            <div class="row mt-3">
+
+                <div class="offset-3 col-6 small text-muted text-center">
+                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.<br>
+                    <a class="text-dark" href="https://github.com/kdeldycke/plumage">Plumage</a>
+                    theme by <a class="text-dark" href="https://kevin.deldycke.com">Kevin Deldycke</a>.
+                </div>
+
+                <div class="col-3 text-right d-flex flex-column">
+                    <a class="mt-auto" href="#"><i class="fas fa-arrow-up"></i> Back to top</a>
+                </div>
+
+            </div>
+        </footer>
+
+    </body>
+</html>
