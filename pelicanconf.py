@@ -1,13 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
+import plumage
+THEME = plumage.get_path()
+PLUGINS = [
+    "pelican_webassets",
+]
+
+
 AUTHOR = 'Antoine Veuiller'
 SITENAME = AUTHOR
-SITEURL = 'https://aveuiller.github.io'
-THEME = 'themes/plumage'
-
-# Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+SITEURL = 'http://localhost:8000'
+RELATIVE_URLS = False
 
 PATH = 'content'
 OUTPUT_PATH = 'output'
@@ -31,7 +35,19 @@ SOCIAL = (('Twitter', 'http://twitter.com/AVeuiller'),
 
 DEFAULT_PAGINATION = 10
 
+CODE_STYLE = "emacs"
+MARKDOWN = {
+    "extension_configs": {
+        "pymdownx.highlight": {
+            "linenums": True,
+            "linenums_style": "pymdownx-inline",
+            "noclasses": True
+        },
+        "pymdownx.superfences": {
+            "disable_indented_code_blocks": True,
+        },
+    },
+}
 
 # Custom Home page
-# DIRECT_TEMPLATES = (('index', 'tags', 'categories'))
 DIRECT_TEMPLATES = ["index", "tags", "categories", "authors", "archives", "search"]

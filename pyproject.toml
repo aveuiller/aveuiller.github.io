@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "blog"
+version = "1.0.0"
+description = "Antoine Veuiller's blog."
+authors = ["Antoine Veuiller <aveuiller@gmail.com>"]
+homepage = 'https://aveuiller.github.io'
+repository = 'https://github.com/aveuiller/aveuiller.github.io'
+
+[tool.poetry.dependencies]
+python = "3.9.*"
+pelican = {extras = ["Markdown"], version = "^4.5.0"}
+plumage = {git = "https://github.com/kdeldycke/plumage.git", branch = "main"}
+pygments = "^2.7.4"
+pymdown-extensions = "^8.1"
+typogrify = "^2.0.7"
+pelican-webassets = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
