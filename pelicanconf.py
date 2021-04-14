@@ -17,7 +17,6 @@ PATH = 'content'
 OUTPUT_PATH = 'output'
 
 TIMEZONE = 'Europe/Paris'
-
 DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
@@ -35,6 +34,7 @@ SOCIAL = (('Twitter', 'http://twitter.com/AVeuiller'),
 
 DEFAULT_PAGINATION = 10
 
+# Style
 CODE_STYLE = "emacs"
 MARKDOWN = {
     "extension_configs": {
@@ -49,5 +49,11 @@ MARKDOWN = {
     },
 }
 
+# Content
+SITE_THUMBNAIL = "/images/profile.jpg"
+# SITE_THUMBNAIL_TEXT = "Hello World"
+# LEFT_SIDEBAR = open('left_sidebar.html', 'r').read()
+# RIGHT_SIDEBAR = open('right_sidebar.html', 'r').read()
+
 # Custom Home page
-DIRECT_TEMPLATES = ["index", "tags", "categories", "authors", "archives", "search"]
+DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives', 'search']
