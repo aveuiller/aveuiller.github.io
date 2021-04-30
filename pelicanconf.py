@@ -38,6 +38,7 @@ DEFAULT_PAGINATION = 10
 CODE_STYLE = "emacs"
 MARKDOWN = {
     "extension_configs": {
+        'markdown.extensions.extra': {},
         "pymdownx.highlight": {
             "linenums": True,
             "linenums_style": "pymdownx-inline",

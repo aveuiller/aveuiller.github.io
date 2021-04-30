@@ -4,7 +4,7 @@ Date: 2021-01-27
 Category: Software Engineering
 Tags: Cheat sheet
 Author: Antoine Veuiller
-Summary: Spring Boot cheat sheet from a beginner for beginners
+Summary: Spring Boot cheat sheet to bootstrap an API
 -----
 
 ### Availability Disclaimer
