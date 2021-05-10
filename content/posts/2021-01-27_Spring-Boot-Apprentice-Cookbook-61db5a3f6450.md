@@ -1,4 +1,4 @@
-Title: Spring Boot Apprentice Cookbook
+Title: Spring Boot: Apprentice Cookbook
 Slug: spring_boot_apprentice_cookbook
 Date: 2021-01-27
 Category: Software Engineering
