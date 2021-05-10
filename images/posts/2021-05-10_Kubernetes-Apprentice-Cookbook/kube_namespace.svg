@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1394px" preserveAspectRatio="none" style="width:1354px;height:1394px;" version="1.1" viewBox="0 0 1354 1394" width="1354px" zoomAndPan="magnify"><defs><filter height="300%" id="fuau6nxycjny0" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[ae7709657f611b622ade1638c535e86e]
+cluster cluster--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="32,32,52,12,1320,12,1320,1340,1300,1360,32,1360,32,32" style="stroke:#00008B;stroke-width:4.0;"/><line style="stroke:#00008B;stroke-width:4.0;" x1="1300" x2="1320" y1="32" y2="12"/><line style="stroke:#00008B;stroke-width:4.0;" x1="32" x2="1300" y1="32" y2="32"/><line style="stroke:#00008B;stroke-width:4.0;" x1="1300" x2="1300" y1="32" y2="1360"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="104" x="616" y="65.0703">Cluster</text><!--MD5=[da4659bb21c015cf3403e413d86114fa]
+cluster ns--><polygon fill="#D3D3D3" filter="url(#fuau6nxycjny0)" points="80,364,100,344,764,344,764,594,744,614,80,614,80,364" style="stroke:#00008B;stroke-width:4.0;"/><line style="stroke:#00008B;stroke-width:4.0;" x1="744" x2="764" y1="364" y2="344"/><line style="stroke:#00008B;stroke-width:4.0;" x1="80" x2="744" y1="364" y2="364"/><line style="stroke:#00008B;stroke-width:4.0;" x1="744" x2="744" y1="364" y2="614"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="184" x="322" y="397.0703">«Namespace»</text><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="106" x="361" y="430.0469">Default</text><!--MD5=[35bb9f78a3fd9b13ed0932dc2c8e6e81]
+cluster ns2--><polygon fill="#D3D3D3" filter="url(#fuau6nxycjny0)" points="812,364,832,344,1272,344,1272,844,1252,864,812,864,812,364" style="stroke:#00008B;stroke-width:4.0;"/><line style="stroke:#00008B;stroke-width:4.0;" x1="1252" x2="1272" y1="364" y2="344"/><line style="stroke:#00008B;stroke-width:4.0;" x1="812" x2="1252" y1="364" y2="364"/><line style="stroke:#00008B;stroke-width:4.0;" x1="1252" x2="1252" y1="364" y2="864"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="184" x="942" y="397.0703">«Namespace»</text><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="114" x="977" y="430.0469">Another</text><!--MD5=[def5fc2027092aa19907d060444c16d6]
+entity storage_class--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="913,1256,933,1236,1171,1236,1171,1308.9766,1151,1328.9766,913,1328.9766,913,1256" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1151" x2="1171" y1="1256" y2="1236"/><line style="stroke:#00008B;stroke-width:2.0;" x1="913" x2="1151" y1="1256" y2="1256"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1151" x2="1151" y1="1256" y2="1328.9766"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="178" x="943" y="1303.0703">StorageClass</text><!--MD5=[107003500c5c42cbbef62457b4e1bbc7]
+entity volume--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="883,1010,903,990,1201,990,1201,1062.9766,1181,1082.9766,883,1082.9766,883,1010" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1181" x2="1201" y1="1010" y2="990"/><line style="stroke:#00008B;stroke-width:2.0;" x1="883" x2="1181" y1="1010" y2="1010"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1181" x2="1181" y1="1010" y2="1082.9766"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="238" x="913" y="1057.0703">PersistentVolume</text><!--MD5=[8cf11bc53eda00c4eb237662523d313b]
+entity kube_worker_1--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="764,112,784,92,1084,92,1084,197.9531,1064,217.9531,764,217.9531,764,112" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1064" x2="1084" y1="112" y2="92"/><line style="stroke:#00008B;stroke-width:2.0;" x1="764" x2="1064" y1="112" y2="112"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1064" x2="1064" y1="112" y2="217.9531"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="240" x="794" y="159.0703">«Virtual Machine»</text><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="98" x="865" y="192.0469">Node 1</text><!--MD5=[2325aae6759fd4ba936cf3c1a452902a]
+entity kube_worker_2--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="156,112,176,92,476,92,476,197.9531,456,217.9531,156,217.9531,156,112" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="456" x2="476" y1="112" y2="92"/><line style="stroke:#00008B;stroke-width:2.0;" x1="156" x2="456" y1="112" y2="112"/><line style="stroke:#00008B;stroke-width:2.0;" x1="456" x2="456" y1="112" y2="217.9531"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="240" x="186" y="159.0703">«Virtual Machine»</text><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="98" x="257" y="192.0469">Node 2</text><!--MD5=[170d1e280d6ec3687d8f31c5db621018]
+entity pod_A_1--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="572,476,592,456,732,456,732,561.9531,712,581.9531,572,581.9531,572,476" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="712" x2="732" y1="476" y2="456"/><line style="stroke:#00008B;stroke-width:2.0;" x1="572" x2="712" y1="476" y2="476"/><line style="stroke:#00008B;stroke-width:2.0;" x1="712" x2="712" y1="476" y2="581.9531"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="80" x="602" y="523.0703">«Pod»</text><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="78" x="603" y="556.0469">Pod 1</text><!--MD5=[8fe6a392644622de9f3f291eb09f27ec]
+entity pod_A_2--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="112,476,132,456,272,456,272,561.9531,252,581.9531,112,581.9531,112,476" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="252" x2="272" y1="476" y2="456"/><line style="stroke:#00008B;stroke-width:2.0;" x1="112" x2="252" y1="476" y2="476"/><line style="stroke:#00008B;stroke-width:2.0;" x1="252" x2="252" y1="476" y2="581.9531"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="80" x="142" y="523.0703">«Pod»</text><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="78" x="143" y="556.0469">Pod 2</text><!--MD5=[9760c7fc45bc3c09ab3394fa19d45171]
+entity pod_B_2--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="342,476,362,456,502,456,502,561.9531,482,581.9531,342,581.9531,342,476" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="482" x2="502" y1="476" y2="456"/><line style="stroke:#00008B;stroke-width:2.0;" x1="342" x2="482" y1="476" y2="476"/><line style="stroke:#00008B;stroke-width:2.0;" x1="482" x2="482" y1="476" y2="581.9531"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="80" x="372" y="523.0703">«Pod»</text><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="78" x="373" y="556.0469">Pod 3</text><!--MD5=[99a4e62d184658d7298883e54752935d]
+entity volume_claim--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="844,760,864,740,1240,740,1240,812.9766,1220,832.9766,844,832.9766,844,760" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1220" x2="1240" y1="760" y2="740"/><line style="stroke:#00008B;stroke-width:2.0;" x1="844" x2="1220" y1="760" y2="760"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1220" x2="1220" y1="760" y2="832.9766"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="316" x="874" y="807.0703">PersistentVolumeClaim</text><!--MD5=[746aac8716df899f89d794bd94e1b96e]
+entity pod_B_1--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="844,476,864,456,1004,456,1004,561.9531,984,581.9531,844,581.9531,844,476" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="984" x2="1004" y1="476" y2="456"/><line style="stroke:#00008B;stroke-width:2.0;" x1="844" x2="984" y1="476" y2="476"/><line style="stroke:#00008B;stroke-width:2.0;" x1="984" x2="984" y1="476" y2="581.9531"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="80" x="874" y="523.0703">«Pod»</text><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="78" x="875" y="556.0469">Pod 4</text><!--MD5=[7a33c241bff36612caaf2a1460749b8f]
+entity pod_C_1--><polygon fill="#FFFFFF" filter="url(#fuau6nxycjny0)" points="1074,476,1094,456,1234,456,1234,561.9531,1214,581.9531,1074,581.9531,1074,476" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1214" x2="1234" y1="476" y2="456"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1074" x2="1214" y1="476" y2="476"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1214" x2="1214" y1="476" y2="581.9531"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="80" x="1104" y="523.0703">«Pod»</text><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="78" x="1105" y="556.0469">Pod 5</text><!--MD5=[e6af8ffe48db9e4106f3d8ef1addb631]
+link pod_C_1 to volume_claim--><path d="M1127.74,582.66 C1108.62,627.54 1083,687.72 1064.76,730.58 " fill="none" id="pod_C_1-to-volume_claim" style="stroke:#00008B;stroke-width:2.0;"/><polygon fill="#00008B" points="1060.74,739.98,1075.1485,726.5489,1064.655,730.7782,1060.4257,720.2848,1060.74,739.98" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="60" x="1100" y="673.1367">Uses</text><!--MD5=[5b48d4a7a54a9e6be2be75b9d55d75f0]
+link kube_worker_1 to pod_A_1--><path d="M837.14,218.16 C815.54,235.9 793.58,256.36 776,278 C734.7,328.86 701.46,395.66 679.82,445.72 " fill="none" id="kube_worker_1-to-pod_A_1" style="stroke:#00008B;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#00008B" points="675.66,455.5,690.0685,442.0689,679.575,446.2982,675.3457,435.8048,675.66,455.5" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="128" x="778" y="305.1367">Hosted by</text><!--MD5=[7234bdb8d5a14347430f2b4089315670]
+link kube_worker_1 to pod_B_1--><path d="M924,218.06 C924,280.9 924,378.74 924,445.24 " fill="none" id="kube_worker_1-to-pod_B_1" style="stroke:#00008B;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#00008B" points="924,455.64,932,437.64,924,445.64,916,437.64,924,455.64" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="128" x="926" y="305.1367">Hosted by</text><!--MD5=[67f95a835a317da79b3093f57172d958]
+link kube_worker_1 to pod_C_1--><path d="M1010.58,218.52 C1030.78,235.98 1050.8,256.22 1066,278 C1101.56,329 1124.62,396.1 1138.16,446.2 " fill="none" id="kube_worker_1-to-pod_C_1" style="stroke:#00008B;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#00008B" points="1140.74,455.98,1143.8534,436.5299,1138.174,446.3148,1128.3891,440.6355,1140.74,455.98" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="128" x="1086" y="305.1367">Hosted by</text><!--MD5=[5ebe2fb5e1faf6865d5fdaa59a5805c9]
+link kube_worker_2 to pod_A_2--><path d="M244.32,218.08 C228.24,235.68 213.22,256.1 204,278 C181.72,330.9 180,396.32 183.14,445.34 " fill="none" id="kube_worker_2-to-pod_A_2" style="stroke:#00008B;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#00008B" points="183.86,455.54,190.5535,437.0144,183.1455,445.5656,174.5943,438.1576,183.86,455.54" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="128" x="206" y="305.1367">Hosted by</text><!--MD5=[929b404481d981a029fbd3819023e141]
+link kube_worker_2 to pod_B_2--><path d="M333.98,218.06 C352.48,280.9 381.3,378.74 400.88,445.24 " fill="none" id="kube_worker_2-to-pod_B_2" style="stroke:#00008B;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#00008B" points="403.94,455.64,406.5265,436.1128,401.1137,446.0477,391.1788,440.6349,403.94,455.64" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="128" x="360" y="305.1367">Hosted by</text><!--MD5=[d55d51f0ad6cc811561bdc74e357b7de]
+reverse link volume_claim to volume--><path d="M1042,842.84 C1042,887.12 1042,948.62 1042,989.78 " fill="none" id="volume_claim-backto-volume" style="stroke:#00008B;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#00008B" points="1042,832.54,1034,850.54,1042,842.54,1050,850.54,1042,832.54" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="54" x="1044" y="923.1367">Bind</text><!--MD5=[26c96c9292e7764a9a564ab94334eba2]
+reverse link volume to storage_class--><path d="M1042,1092.46 C1042,1135.76 1042,1195.56 1042,1235.9 " fill="none" id="volume-backto-storage_class" style="stroke:#00008B;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#00008B" points="1042,1082.38,1034,1100.38,1042,1092.38,1050,1100.38,1042,1082.38" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="94" x="1044" y="1169.1367">Creates</text><!--MD5=[cc5327211ba68bfde90899ba63731734]
+@startuml
+<style>
+' TODO: Export to a generic style sheet
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+
+    agent {
+        BackGroundColor palegreen
+    }
+    cloud {
+'        BackGroundColor lightgray
+        BackGroundColor white
+    }
+    database {
+        BackGroundColor white
+    }
+    node {
+        BackGroundColor white
+    }
+    actor {
+        LineColor black
+    }
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+' Force diagram as Component
+node Cluster as cluster
+node Cluster as cluster {
+    node "Node 1" as kube_worker_1 <<Virtual Machine>> {
+    }
+    node "Node 2" as kube_worker_2 <<Virtual Machine>> {
+    }
+
+    node "StorageClass" as storage_class
+    node "PersistentVolume" as volume
+
+    node "Default" as ns <<Namespace>> #lightgrey {
+        node "Pod 1" as pod_A_1 <<Pod>> {
+        }
+        node "Pod 2" as pod_A_2 <<Pod>> {
+        }
+        node "Pod 3" as pod_B_2 <<Pod>> {
+        }
+    }
+
+    node "Another" as ns2 <<Namespace>> #lightgrey {
+        node "Pod 4" as pod_B_1 <<Pod>> {
+        }
+        node "Pod 5" as pod_C_1 <<Pod>> {
+        }
+        node "PersistentVolumeClaim" as volume_claim
+
+        pod_C_1 - -> volume_claim: Uses
+    }
+
+    kube_worker_1 ..> pod_A_1: Hosted by
+    kube_worker_1 ..> pod_B_1: Hosted by
+    kube_worker_1 ..> pod_C_1: Hosted by
+
+    kube_worker_2 ..> pod_A_2: Hosted by
+    kube_worker_2 ..> pod_B_2: Hosted by
+
+'    volume ..> volume_claim
+    volume_claim <.. volume: Bind
+    volume <.. storage_class: Creates
+}
+@enduml
+
+@startuml
+<style>
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+
+    agent {
+        BackGroundColor palegreen
+    }
+    cloud {
+        BackGroundColor white
+    }
+    database {
+        BackGroundColor white
+    }
+    node {
+        BackGroundColor white
+    }
+    actor {
+        LineColor black
+    }
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+node Cluster as cluster
+node Cluster as cluster {
+    node "Node 1" as kube_worker_1 <<Virtual Machine>> {
+    }
+    node "Node 2" as kube_worker_2 <<Virtual Machine>> {
+    }
+
+    node "StorageClass" as storage_class
+    node "PersistentVolume" as volume
+
+    node "Default" as ns <<Namespace>> #lightgrey {
+        node "Pod 1" as pod_A_1 <<Pod>> {
+        }
+        node "Pod 2" as pod_A_2 <<Pod>> {
+        }
+        node "Pod 3" as pod_B_2 <<Pod>> {
+        }
+    }
+
+    node "Another" as ns2 <<Namespace>> #lightgrey {
+        node "Pod 4" as pod_B_1 <<Pod>> {
+        }
+        node "Pod 5" as pod_C_1 <<Pod>> {
+        }
+        node "PersistentVolumeClaim" as volume_claim
+
+        pod_C_1 - -> volume_claim: Uses
+    }
+
+    kube_worker_1 ..> pod_A_1: Hosted by
+    kube_worker_1 ..> pod_B_1: Hosted by
+    kube_worker_1 ..> pod_C_1: Hosted by
+
+    kube_worker_2 ..> pod_A_2: Hosted by
+    kube_worker_2 ..> pod_B_2: Hosted by
+
+    volume_claim <.. volume: Bind
+    volume <.. storage_class: Creates
+}
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 10:49:39 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: LU
+--></g></svg>

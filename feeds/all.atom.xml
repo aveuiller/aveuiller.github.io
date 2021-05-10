@@ -1,5 +1,690 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Antoine Veuiller</title><link href="https://aveuiller.github.io/" rel="alternate"></link><link href="https://aveuiller.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aveuiller.github.io/</id><updated>2021-01-27T00:00:00+01:00</updated><entry><title>Spring Boot Apprentice Cookbook</title><link href="https://aveuiller.github.io/spring_boot_apprentice_cookbook.html" rel="alternate"></link><published>2021-01-27T00:00:00+01:00</published><updated>2021-01-27T00:00:00+01:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-01-27:/spring_boot_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Spring Boot cheat sheet from a beginner for beginners&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Antoine Veuiller</title><link href="https://aveuiller.github.io/" rel="alternate"></link><link href="https://aveuiller.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aveuiller.github.io/</id><updated>2021-05-10T00:00:00+02:00</updated><entry><title>Kubernetes: Apprentice Cookbook</title><link href="https://aveuiller.github.io/kubernetes_apprentice_cookbook.html" rel="alternate"></link><published>2021-05-10T00:00:00+02:00</published><updated>2021-05-10T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-05-10:/kubernetes_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Kubernetes big picture and common use&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
+&lt;p&gt;This article can be found on other sources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/kubernetes-apprentice-cookbook-90d8c11ccfc3"&gt;Canonical link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;img alt="Kubernetes Logo" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_logo.png" /&gt;&lt;/p&gt;
+&lt;p&gt;You probably already heard of &lt;strong&gt;Kubernetes&lt;/strong&gt;, a powerful &lt;a href="https://www.redhat.com/en/topics/automation/what-is-orchestration"&gt;orchestrator&lt;/a&gt;
+that will ease deployment and automatically manage your applications on a set of machines, called a &lt;em&gt;Cluster&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;With great power comes great complexity, &lt;a href="https://www.theregister.com/2021/02/25/google_kubernetes_autopilot/"&gt;even in the eyes of Google&lt;/a&gt;.
+Thus, learning Kubernetes is oftentimes considered as cumbersome and complex, namely because of the number of new concepts you have to learn.
+On the other hand, those very same concepts can be found in other orchestrators.
+As a result, mastering them will ease your onboarding on other orchestrators, such as &lt;a href="https://docs.docker.com/engine/swarm/"&gt;Docker Swarm&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The aim of this article is to explain the most used concepts of Kubernetes relying on basic system administration concepts,
+then use some of these to deploy a simple web server and showcase the interactions between the different resources.
+Lastly, I will lay out the usual CLI interactions while working with Kubernetes.&lt;/p&gt;
+&lt;p&gt;This article mainly focuses on the developer side of a Kubernetes cluster, but I will leave some resources about cluster administration at the end.&lt;/p&gt;
+&lt;h2&gt;Terminology and concepts&lt;/h2&gt;
+&lt;h3&gt;Architecture&lt;/h3&gt;
+&lt;p&gt;The Kubernetes realm is the &lt;strong&gt;cluster&lt;/strong&gt;, everything needed is contained within this cluster.
+Inside it, you will find two types of nodes:
+the &lt;a href="https://kubernetes.io/docs/concepts/overview/components/#control-plane-components"&gt;Control Plane&lt;/a&gt; 
+and the &lt;a href="https://kubernetes.io/docs/concepts/architecture/nodes/"&gt;Worker Nodes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;control plane&lt;/strong&gt; is a centralized set of processes that manages the cluster resources, load balance, health, and more.
+A Kubernetes cluster usually has multiple controller nodes for availability and load balancing purposes.
+As a developer, you will most likely interact through the API gateway for interactions.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;worker node&lt;/strong&gt; is any kind of host running a local Kubernetes agent &lt;a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/"&gt;Kubelet&lt;/a&gt;
+and a communication process &lt;a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/"&gt;Kube-Proxy&lt;/a&gt;.
+The former handles the operations commanded by the &lt;strong&gt;control plane&lt;/strong&gt; on the local container runtime (&lt;em&gt;e.g.&lt;/em&gt; docker),
+while the latter redirects connectivity to the right pods.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Kubernetes Architecture" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_components.svg" /&gt;&lt;/p&gt;
+&lt;h3&gt;Namespaces&lt;/h3&gt;
+&lt;p&gt;After some time, a Kubernetes cluster may become huge and heavily used.
+In order to keep things well organized, Kubernetes created the concept of &lt;strong&gt;Namespace&lt;/strong&gt;.
+A namespace is basically a virtual cluster inside the actual cluster.&lt;/p&gt;
+&lt;p&gt;Most of the resources will be contained inside a namespace, thus unaware of resources from other namespaces.
+Only a few kinds of resources are completely agnostic of namespaces, and they define computational power or storage sources (&lt;em&gt;i.e.&lt;/em&gt; Nodes and PersistentVolumes).
+However, access to those can be limited by namespace using &lt;a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/"&gt;Quotas&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Namespace-aware resources will always be contained in a namespace as Kubernetes creates and uses a namespace named &lt;em&gt;default&lt;/em&gt; if nothing is specified.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Kubernetes Architecture" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_namespace.svg" /&gt;&lt;/p&gt;
+&lt;p&gt;There is no silver bullet on the way to use namespaces, as it widely depends on your organization and needs.
+However, we can note some usual namespaces usages:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Divide the cluster by team or project, to avoid naming conflict and help repartition of resources.&lt;/li&gt;
+&lt;li&gt;Divide the cluster by environment (&lt;em&gt;i.e.&lt;/em&gt; dev, staging, prod), to keep a consistent architecture.&lt;/li&gt;
+&lt;li&gt;Deploy with more granularity (&lt;em&gt;e.g.&lt;/em&gt; &lt;a href="https://martinfowler.com/bliki/BlueGreenDeployment.html"&gt;blue/green deployment&lt;/a&gt;), to quickly fall back on an untouched working environment in case of issue.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"&gt;Namespace Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/"&gt;Manage The Cluster Namespaces&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Glossary&lt;/h3&gt;
+&lt;p&gt;Kubernetes did a great work of remaining agnostic of any technology in their design.
+This means two things:  &lt;a href="https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/"&gt;handle multiple technologies under the hood&lt;/a&gt;
+and there is a whole new terminology to learn.&lt;/p&gt;
+&lt;p&gt;Fortunately, these concepts are pretty straightforward and can most of the time be compared to a unit element of classic system infrastructure.
+The table below will summarize the binding of the most basic concepts.
+The comparison might not be a hundred per cent accurate but rather here to help understand the need behind each concept.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Abstraction Layer&lt;/th&gt;
+&lt;th&gt;Physical Layer&lt;/th&gt;
+&lt;th&gt;Uses Namespace&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/"&gt;Pod&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Container&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;A Pod is the minimal work unit of Kubernetes, it is generally equivalent to one applicative container but it can be composed of multiple ones.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/"&gt;Replicaset&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Load Balancing&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;A ReplicaSet keeps track of and maintain the amount of instances expected and running for a given pod.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"&gt;Deployment&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;A Deployment keeps track of and maintain the required configuration for a pod and replicaset.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"&gt;StatefulSet&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;A StatefulSet is a Deployment with insurance on the start order and volume binding, to keep state consistent in time.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/architecture/nodes/"&gt;Node&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Host&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;A Node can be a physical or virtual machine that is ready to host pods.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/services-networking/service/"&gt;Service&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Network&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;A Service will define an entrypoint to a set of pods semantically tied together.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/services-networking/ingress/"&gt;Ingress&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Reverse Proxy&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;An Ingress publishes Services outside the Cluster.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/architecture/cloud-controller/#design"&gt;Cluster&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Datacenter&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;A Cluster is the set of available nodes, including the Kubernetes controllers.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"&gt;Namespace&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;➖&lt;/td&gt;
+&lt;td&gt;A Namespace defines an isolated pseudo cluster in the current cluster.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/storage/storage-classes/"&gt;StorageClass&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Disk&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;A StorageClass configures filesystems sources that can be used to dynamically create PersistentVolumes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/"&gt;PersistentVolume&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Disk Partition&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;A PersistentVolume describe any kind of filesystem ready to be mounted on a pod.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims"&gt;PersistentVolumeClaim&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;A PersistentVolumeClaim binds a PersistentVolume to a pod, which can then actively use it while running.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/configuration/configmap/"&gt;ConfigMap&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Environment Variables&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;A ConfigMap defines widely accessible properties.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://kubernetes.io/docs/concepts/configuration/secret/"&gt;Secret&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Secured Env. Var.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;A Secret defines widely accessible properties with potential encryption and access limitations.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/reference/glossary/?all=true"&gt;Official Kubernetes Glossary&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/"&gt;Official Concepts Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Definition files&lt;/h2&gt;
+&lt;p&gt;The resources in Kubernetes are created in a declarative fashion, and while it is possible to configure your application deployment through the command line,
+a good practice is to keep track of the resource definitions in a versioned environment.
+Sometimes named &lt;a href="https://www.gitops.tech/"&gt;GitOps&lt;/a&gt;, this practice is not only applicable for Kubernetes but widely applied for delivery systems,
+backed up by the &lt;a href="https://aws.amazon.com/devops/what-is-devops/"&gt;DevOps&lt;/a&gt; movement.&lt;/p&gt;
+&lt;p&gt;To this effect, Kubernetes proposes a &lt;a href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html"&gt;YAML&lt;/a&gt; representation of the resource declaration, and its structure can be summarized as follow:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;File type&lt;/th&gt;
+&lt;th&gt;Content&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;apiVersion&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;All files&lt;/td&gt;
+&lt;td&gt;Version to use while parsing the file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;kind&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;All files&lt;/td&gt;
+&lt;td&gt;Type of resource that the file is describing.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;metadata&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;All files&lt;/td&gt;
+&lt;td&gt;Resource identification and labeling.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;data&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Data centric files (Secret, ConfigMap)&lt;/td&gt;
+&lt;td&gt;Content entry point for data mapping.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;spec&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Most files (Pod, Deployment, Ingress, ...)&lt;/td&gt;
+&lt;td&gt;Content entry point for resource configuration.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;Watch out: some resources such as StorageClass do no use a single entry point as described above&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-apiversion-definition-guide.html"&gt;Guide on apiVersion&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://yaml.org/spec/1.2/spec.html"&gt;Yaml Specifications&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Metadata and labels&lt;/h3&gt;
+&lt;p&gt;The metadata entry is critical while creating any resource as it will enable Kubernetes and yourself to easily identify and select the resource.&lt;/p&gt;
+&lt;p&gt;In this entry, you will define a &lt;code&gt;name&lt;/code&gt; and a &lt;code&gt;namespace&lt;/code&gt; (defaults to &lt;code&gt;default&lt;/code&gt;),
+thanks to which the control plane will automatically be able to tell if the file is a new addition to the cluster or the revision of a previously loaded file.&lt;/p&gt;
+&lt;p&gt;On top of those elements, you can define a &lt;code&gt;labels&lt;/code&gt; section.
+It is composed of a set of key-value pairs to narrow down the context and content of your resource.
+Those labels can later be used in almost any CLI commands through &lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors"&gt;Selectors&lt;/a&gt;.
+As those entries are not used in the core behavior of Kubernetes,
+you can use any name you want, even if Kubernetes defines some &lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/"&gt;best practices recommendations&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Finally, you can also create an &lt;code&gt;annotations&lt;/code&gt; section, which is almost identical to &lt;code&gt;labels&lt;/code&gt; but not used by Kubernetes at all.
+Those can be used on the applicative side to trigger behaviors or simply add data to ease debugging.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 1&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;metadata&amp;gt; narrows down selection and identify the resource&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 2&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 3&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# The &amp;lt;name&amp;gt; entry is required and used to identify the resource&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 4&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: my-resource
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 5&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;namespace&lt;/span&gt;: my-namespace-or-default
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 6&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;labels&amp;gt; is optional but often needed for resource selection&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 7&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;labels&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 8&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;app&lt;/span&gt;: application-name
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 9&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;category&lt;/span&gt;: back
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;10&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;annotations&amp;gt; is optional and not needed for the configuration of Kubernetes&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;11&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;annotations&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;12&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;version&lt;/span&gt;: 4.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/"&gt;Naming and Identification&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/"&gt;Labels and Selectors&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/"&gt;Annotations&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Data centric configuration files&lt;/h3&gt;
+&lt;p&gt;Those files define key-value mappings that can be used later in other resources.
+Usually, those resources (&lt;em&gt;i.e.&lt;/em&gt; Secrets and ConfigMap) are loaded before anything else, 
+as it is more likely than not that your infrastructure files are dependent on them.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;apiVersion&lt;/span&gt;: v1
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 2&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;kind&amp;gt; defines the resource described in this file&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 3&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;kind&lt;/span&gt;: ConfigMap
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 4&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 5&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: my-config
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 6&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;data&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 7&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;data&amp;gt; configures data to load&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 8&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;configuration_key&lt;/span&gt;: &lt;span style="color: #BA2121"&gt;&amp;quot;configuration_value&amp;quot;&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 9&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;properties_entry&lt;/span&gt;: |
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;10&lt;/span&gt;    &lt;span style="color: #880000"&gt;# Any multiline content is accepted&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;11&lt;/span&gt;    &lt;span style="color: #880000"&gt;multiline_config=true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Infrastructure centric configuration files&lt;/h3&gt;
+&lt;p&gt;Those files define the infrastructure to deploy on the cluster, potentially using content from the data files.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;apiVersion&lt;/span&gt;: v1
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;2&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;kind&amp;gt; defines the resource described in this file&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;3&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;kind&lt;/span&gt;: Pod
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;4&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;5&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: my-web-server
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;6&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;spec&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;7&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;spec&amp;gt; is a domain specific description of the resource.&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;8&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# The specification entries will be very different from one kind to another&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Resources definition&lt;/h2&gt;
+&lt;p&gt;In this section, we will take a closer look at the configuration of the most used resources on a Kubernetes application.
+This is also the occasion to showcase the interactions between resources.&lt;/p&gt;
+&lt;p&gt;At the end of the section, we will have a running Nginx server and will be able to contact the server from outside the cluster.
+The following diagram summarizes the intended state:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Kubernetes Architecture" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_nginx.svg" /&gt;&lt;/p&gt;
+&lt;h3&gt;ConfigMap&lt;/h3&gt;
+&lt;p&gt;ConfigMap is used to hold properties that can be used later in your resources.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;apiVersion&lt;/span&gt;: v1
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;2&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;kind&lt;/span&gt;: ConfigMap
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;3&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;4&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-config
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;5&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;namespace&lt;/span&gt;: default
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;6&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;data&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;7&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;configuration_key&lt;/span&gt;: &lt;span style="color: #BA2121"&gt;&amp;quot;Configuration&lt;/span&gt;&lt;span style="color: #19177C"&gt; &lt;/span&gt;&lt;span style="color: #BA2121"&gt;value&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The configuration defined above can then be &lt;a href="https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods"&gt;selected from another resource definition&lt;/a&gt; with the following snippet:
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;valueFrom&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;2&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;configMapKeyRef&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;3&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-config
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;4&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;key&lt;/span&gt;: configuration_key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: ConfigMaps are only available in the namespace in which they are defined.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/configuration/configmap/"&gt;ConfigMap Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Secret&lt;/h3&gt;
+&lt;p&gt;All sensitive data should be put in Secret files (e.g. API keys, passphrases, …). 
+By default, the data is simply held as base64 encoded values without encryption. 
+However, Kubernetes proposes ways of mitigating leakage risks by
+&lt;a href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/"&gt;integrating a Role-Based Access Control&lt;/a&gt;
+or &lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/"&gt;encrypting secrets&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The Secret file defines a &lt;code&gt;type&lt;/code&gt; key at its root, which can be used to add validation on the keys declared in the &lt;code&gt;data&lt;/code&gt; entry.
+By default, the type is set to &lt;code&gt;Opaque&lt;/code&gt; which does not validate the entries at all.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;apiVersion&lt;/span&gt;: v1
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;2&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;kind&lt;/span&gt;: Secret
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;3&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;4&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-secrets
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;5&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# Opaque &amp;lt;type&amp;gt; can hold generic secrets, so no validation will be done.&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;6&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;type&lt;/span&gt;: Opaque
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;7&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;data&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;8&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# Secrets should be encoded in base64&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;9&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;secret_configuration_key&lt;/span&gt;: &lt;span style="color: #BA2121"&gt;&amp;quot;c2VjcmV0IHZhbHVl&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The secret defined above can then be &lt;a href="https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables"&gt;selected from another resource definition&lt;/a&gt; with the following snippet:
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;valueFrom&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;2&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;secretKeyRef&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;3&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-secrets
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;4&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;key&lt;/span&gt;: secret_configuration_key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: Secrets are only available in the namespace in which they are defined.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/configuration/secret/"&gt;Secrets Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/configuration/secret/#secret-types"&gt;Available Secret Types&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Pod&lt;/h3&gt;
+&lt;p&gt;A Pod definition file is pretty straightforward but can become pretty big due to the quantity of configuration available.
+The &lt;code&gt;name&lt;/code&gt; and &lt;code&gt;image&lt;/code&gt; fields are the only mandatory ones, but you might commonly use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ports&lt;/code&gt; to define the ports to open on both the container and pod. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;env&lt;/code&gt; to define the environment variables to load on the container.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;args&lt;/code&gt; and &lt;code&gt;entrypoint&lt;/code&gt; to customize the container startup sequence.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pods are usually not created as standalone resources on Kubernetes,
+as the best practice indicates to &lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/#working-with-pods"&gt;use pod as part of higher level definition&lt;/a&gt;
+(&lt;em&gt;e.g.&lt;/em&gt; Deployment).
+In those cases, the Pod file's content will simply be embedded in the other resource's file.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;apiVersion&lt;/span&gt;: v1
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 2&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;kind&lt;/span&gt;: Pod
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 3&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 4&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: my-web-server
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 5&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;spec&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 6&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;containers&amp;gt; is a list of container definition to embed in the pod&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 7&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;containers&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 8&lt;/span&gt;    - &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: web
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 9&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;image&lt;/span&gt;: nginx
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;10&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;ports&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;11&lt;/span&gt;        - &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: web
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;12&lt;/span&gt;          &lt;span style="color: #008000; font-weight: bold"&gt;containerPort&lt;/span&gt;: 80
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;13&lt;/span&gt;          &lt;span style="color: #008000; font-weight: bold"&gt;protocol&lt;/span&gt;: TCP
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;14&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;env&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;15&lt;/span&gt;        - &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: SOME_CONFIG
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;16&lt;/span&gt;          &lt;span style="color: #408080; font-style: italic"&gt;# Create a line &amp;quot;value: &amp;lt;config_entry&amp;gt;&amp;quot; from the ConfigMap data&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;17&lt;/span&gt;          &lt;span style="color: #008000; font-weight: bold"&gt;valueFrom&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;18&lt;/span&gt;            &lt;span style="color: #008000; font-weight: bold"&gt;configMapKeyRef&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;19&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-config
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;20&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;key&lt;/span&gt;: configuration_key
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;21&lt;/span&gt;        - &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: SOME_SECRET
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;22&lt;/span&gt;          &lt;span style="color: #408080; font-style: italic"&gt;# Create a line &amp;quot;value: &amp;lt;config_entry&amp;gt;&amp;quot; from the Secret data&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;23&lt;/span&gt;          &lt;span style="color: #008000; font-weight: bold"&gt;valueFrom&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;24&lt;/span&gt;            &lt;span style="color: #008000; font-weight: bold"&gt;secretKeyRef&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;25&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-secrets
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;26&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;key&lt;/span&gt;: secret_configuration_key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Note: Pods are only available in the namespace in which they are defined.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/"&gt;Pod Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/"&gt;Advanced Pod Configuration&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core"&gt;Fields available in Pod &amp;lt;spec&gt; entry&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#container-v1-core"&gt;Fields available in Pod &amp;lt;containers&gt; entry&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Deployment&lt;/h3&gt;
+&lt;p&gt;The Deployment is generally used as the atomic working unit since it will automatically:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a pod definition based on the &lt;code&gt;template&lt;/code&gt; entry.&lt;/li&gt;
+&lt;li&gt;Create a ReplicaSet on pods selected by the &lt;code&gt;selector&lt;/code&gt; entry, with the value of &lt;code&gt;replicas&lt;/code&gt; as a count of pods that should be running.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following file requests 3 instances of an Nginx server running at all times.
+The file may look a bit heavy, but most of it is the Pod definition copied from above.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;apiVersion&lt;/span&gt;: apps/v1
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 2&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;kind&lt;/span&gt;: Deployment
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 3&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 4&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: my-web-server-deployment
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 5&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;namespace&lt;/span&gt;: default
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 6&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;labels&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 7&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;app&lt;/span&gt;: webserver
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 8&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;spec&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 9&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;selector&amp;gt; should retrieve the Pod defined below, and possibly more&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;10&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;selector&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;11&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;matchLabels&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;12&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;app&lt;/span&gt;: webserver
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;13&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;instance&lt;/span&gt;: nginx-ws-deployment
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;14&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;replicas&amp;gt; asks for 3 pods running in parallel at all time&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;15&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;replicas&lt;/span&gt;: 3
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;16&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# The content of &amp;lt;template&amp;gt; is a Pod definition file, without &amp;lt;apiVersion&amp;gt; nor &amp;lt;kind&amp;gt;&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;17&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;template&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;18&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;19&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: my-web-server
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;20&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;namespace&lt;/span&gt;: default
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;21&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;labels&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;22&lt;/span&gt;        &lt;span style="color: #008000; font-weight: bold"&gt;app&lt;/span&gt;: webserver
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;23&lt;/span&gt;        &lt;span style="color: #008000; font-weight: bold"&gt;instance&lt;/span&gt;: nginx-ws-deployment
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;24&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;spec&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;25&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;containers&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;26&lt;/span&gt;        - &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: web
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;27&lt;/span&gt;          &lt;span style="color: #008000; font-weight: bold"&gt;image&lt;/span&gt;: nginx
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;28&lt;/span&gt;          &lt;span style="color: #008000; font-weight: bold"&gt;ports&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;29&lt;/span&gt;            - &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: web
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;30&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;containerPort&lt;/span&gt;: 80
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;31&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;protocol&lt;/span&gt;: TCP
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;32&lt;/span&gt;          &lt;span style="color: #008000; font-weight: bold"&gt;env&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;33&lt;/span&gt;            - &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: SOME_CONFIG
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;34&lt;/span&gt;              &lt;span style="color: #408080; font-style: italic"&gt;# Create a line &amp;quot;value: &amp;lt;config_entry&amp;gt;&amp;quot; from the ConfigMap data&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;35&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;valueFrom&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;36&lt;/span&gt;                &lt;span style="color: #008000; font-weight: bold"&gt;configMapKeyRef&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;37&lt;/span&gt;                  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-config
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;38&lt;/span&gt;                  &lt;span style="color: #008000; font-weight: bold"&gt;key&lt;/span&gt;: configuration_key
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;39&lt;/span&gt;            - &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: SOME_SECRET
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;40&lt;/span&gt;              &lt;span style="color: #408080; font-style: italic"&gt;# Create a line &amp;quot;value: &amp;lt;config_entry&amp;gt;&amp;quot; from the Secret data&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;41&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;valueFrom&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;42&lt;/span&gt;                &lt;span style="color: #008000; font-weight: bold"&gt;secretKeyRef&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;43&lt;/span&gt;                  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-secrets
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;44&lt;/span&gt;                  &lt;span style="color: #008000; font-weight: bold"&gt;key&lt;/span&gt;: secret_configuration_key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Note: Deployments are only available in the namespace in which they are defined.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"&gt;Deployment Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Service&lt;/h3&gt;
+&lt;p&gt;A pod might be deleted and recreated at any time.
+When it occurs the pod's IP address will change, which could result in a loss of connection if you are directly contacting it.
+To solve this issue, a Service provides a stable contact point to a set of Pods, while remaining agnostic of their state and configuration.
+Usually, Pods are chosen to be part of a Service through a &lt;code&gt;selector&lt;/code&gt; entry, thus based on its &lt;code&gt;labels&lt;/code&gt;.
+A Pod is selected if and only if all the labels in the selector are worn by the pod.&lt;/p&gt;
+&lt;p&gt;There are three types of services that are acting quite differently, among which you can select using the type entry.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;ClusterIP&lt;/strong&gt; service is bound to an internal IP from the cluster, hence only internally reachable.
+This is the type of service created by default and is suitable for binding different applications inside the same cluster.&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;NodePort&lt;/strong&gt; service will bind a port (by default in range 30000 to 32767) on the nodes hosting the selected pods.
+This enables you to contact the service directly through the node IP.
+That also means that your service will be as accessible as the virtual or physical machines hosting those pods.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: Using NodePort can pose security risks, as it enables a direct connection from outside the cluster.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;LoadBalancer&lt;/strong&gt; service will automatically create a &lt;a href="https://www.nginx.com/resources/glossary/load-balancing/"&gt;load balancer&lt;/a&gt;
+instance from the cloud service provider on which the cluster is running.
+This load balancer is created outside the cluster but will automatically be bound to the nodes hosting the selected pods.&lt;/p&gt;
+&lt;p&gt;This is an easy way to expose your service but can end up being costly as each service will be managed by a single load balancer.&lt;/p&gt;
+&lt;p&gt;If you are setting up your own Ingress as we will do here, you may want to use a &lt;code&gt;ClusterIp&lt;/code&gt; service, as other services are made for specific use cases.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;apiVersion&lt;/span&gt;: v1
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 2&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;kind&lt;/span&gt;: Service
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 3&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 4&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-service-clusterip
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 5&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;spec&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 6&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# ClusterIP is the default service &amp;lt;type&amp;gt;&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 7&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;type&lt;/span&gt;: ClusterIP
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 8&lt;/span&gt;  &lt;span style="color: #408080; font-style: italic"&gt;# Select all pods declaring a &amp;lt;label&amp;gt; entry &amp;quot;app: webserver&amp;quot;&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 9&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;selector&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;10&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;app&lt;/span&gt;: webserver
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;11&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;ports&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;12&lt;/span&gt;    - &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: http
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;13&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;protocol&lt;/span&gt;: TCP
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;14&lt;/span&gt;      &lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;port&amp;gt; is the port to bind on the service side&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;15&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;port&lt;/span&gt;: 80
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;16&lt;/span&gt;      &lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;targetPort&amp;gt; is the port to bind on the Pod side&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;17&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;targetPort&lt;/span&gt;: 80
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Note: Services are defined in a namespace but can be contacted from other namespaces.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/services-networking/service/"&gt;Service Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0"&gt;In Depth Service Comparison&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/"&gt;Create an External Load Balancer&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Ingress&lt;/h3&gt;
+&lt;p&gt;Ingress enables you to publish internal services without necessarily using a load balancer from cloud service providers.
+You usually need only one ingress per namespace, where you can bind as many routing &lt;code&gt;rules&lt;/code&gt; and &lt;code&gt;backends&lt;/code&gt; as you want.
+A backend will typically be an internally routed &lt;code&gt;ClusterIP&lt;/code&gt; service.&lt;/p&gt;
+&lt;p&gt;Please note that Kubernetes does not handle ingress resources by itself and relies on third-party implementations.
+As a result, you will have to choose and install an &lt;a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/"&gt;Ingress Controller&lt;/a&gt;
+before using any ingress resource.
+On the other hand, it makes the ingress resource customizable depending on the needs of your cluster.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 1&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;apiVersion&lt;/span&gt;: networking.k8s.io/v1
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 2&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;kind&lt;/span&gt;: Ingress
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 3&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;metadata&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 4&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-ingress
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 5&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;annotations&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 6&lt;/span&gt;    &lt;span style="color: #008000; font-weight: bold"&gt;nginx.ingress.kubernetes.io/rewrite-target&lt;/span&gt;: /
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 7&lt;/span&gt;&lt;span style="color: #008000; font-weight: bold"&gt;spec&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 8&lt;/span&gt;  &lt;span style="color: #008000; font-weight: bold"&gt;rules&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 9&lt;/span&gt;    &lt;span style="color: #408080; font-style: italic"&gt;# Using &amp;lt;host&amp;gt; redirects all request matching the given DNS name to this rule&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;10&lt;/span&gt;    - &lt;span style="color: #008000; font-weight: bold"&gt;host&lt;/span&gt;: &lt;span style="color: #BA2121"&gt;&amp;quot;*.minikube.internal&amp;quot;&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;11&lt;/span&gt;      &lt;span style="color: #008000; font-weight: bold"&gt;http&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;12&lt;/span&gt;        &lt;span style="color: #008000; font-weight: bold"&gt;paths&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;13&lt;/span&gt;          - &lt;span style="color: #008000; font-weight: bold"&gt;path&lt;/span&gt;: /welcome
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;14&lt;/span&gt;            &lt;span style="color: #008000; font-weight: bold"&gt;pathType&lt;/span&gt;: Prefix
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;15&lt;/span&gt;            &lt;span style="color: #008000; font-weight: bold"&gt;backend&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;16&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;service&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;17&lt;/span&gt;                &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-service-clusterip
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;18&lt;/span&gt;                &lt;span style="color: #008000; font-weight: bold"&gt;port&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;19&lt;/span&gt;                  &lt;span style="color: #008000; font-weight: bold"&gt;number&lt;/span&gt;: 80
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;20&lt;/span&gt;    &lt;span style="color: #408080; font-style: italic"&gt;# All other requests will be redirected through this rule&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;21&lt;/span&gt;    - &lt;span style="color: #008000; font-weight: bold"&gt;http&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;22&lt;/span&gt;        &lt;span style="color: #008000; font-weight: bold"&gt;paths&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;23&lt;/span&gt;          - &lt;span style="color: #008000; font-weight: bold"&gt;path&lt;/span&gt;: /
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;24&lt;/span&gt;            &lt;span style="color: #008000; font-weight: bold"&gt;pathType&lt;/span&gt;: Prefix
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;25&lt;/span&gt;            &lt;span style="color: #008000; font-weight: bold"&gt;backend&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;26&lt;/span&gt;              &lt;span style="color: #008000; font-weight: bold"&gt;service&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;27&lt;/span&gt;                &lt;span style="color: #008000; font-weight: bold"&gt;name&lt;/span&gt;: simple-web-service-clusterip
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;28&lt;/span&gt;                &lt;span style="color: #008000; font-weight: bold"&gt;port&lt;/span&gt;:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;29&lt;/span&gt;                  &lt;span style="color: #008000; font-weight: bold"&gt;number&lt;/span&gt;: 80
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Note: Ingresses are defined in the namespace but may contact services from other namespaces and are publicly accessible outside the cluster.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/services-networking/ingress/"&gt;Ingress Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/"&gt;Available Ingress Controllers&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/"&gt;Enable Ingress on Minikube&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.github.io/ingress-nginx/examples/rewrite/"&gt;Nginx Ingress Annotations&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;CLI Usage&lt;/h2&gt;
+&lt;h3&gt;Create and manage resources&lt;/h3&gt;
+&lt;p&gt;This section showcases the basic CLI commands to manipulate resources. 
+As said before, while it is possible to manually manage resources, a better practice is to use files.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;1&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# &amp;lt;kind&amp;gt; is the type of resource to create (e.g. deployment, secret, namespace, quota, ...)&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;2&lt;/span&gt;$ kubectl create &amp;lt;kind&amp;gt; &amp;lt;name&amp;gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;3&lt;/span&gt;$ kubectl edit   &amp;lt;kind&amp;gt; &amp;lt;name&amp;gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;4&lt;/span&gt;$ kubectl delete &amp;lt;kind&amp;gt; &amp;lt;name&amp;gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;5&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;6&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# All those commands can be used through a description file.&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;7&lt;/span&gt;$ kubectl create -f &amp;lt;resource&amp;gt;.yaml
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;8&lt;/span&gt;$ kubectl edit   -f &amp;lt;resource&amp;gt;.yaml
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;9&lt;/span&gt;$ kubectl delete -f &amp;lt;resource&amp;gt;.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To ease resources manipulations through files, you can reduce the interactions to the CLI to the two following commands:&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;1&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# Create and update any resource&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;2&lt;/span&gt;$ kubectl apply   -f &amp;lt;resource&amp;gt;.yaml
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;3&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# Delete any resource&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;4&lt;/span&gt;$ kubectl delete  -f &amp;lt;resource&amp;gt;.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Further reading:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/"&gt;Managing Resources&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Monitor and Debug&lt;/h3&gt;
+&lt;h4&gt;Fetch resources&lt;/h4&gt;
+&lt;p&gt;You can see all resources running through the CLI using &lt;code&gt;kubectl get &amp;lt;kind&amp;gt;&lt;/code&gt;.
+This command is pretty powerful and lets you filter the kind of resources to display or select the resources you want to see.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: if not specified, Kubernetes will work on the &lt;code&gt;default&lt;/code&gt; namespace. You can specify &lt;code&gt;-n &amp;lt;namespace&amp;gt;&lt;/code&gt; to work on a specific namespace or &lt;code&gt;-A&lt;/code&gt; to show every namespace.&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 1&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# Fetch everything&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 2&lt;/span&gt;$ kubectl get all
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 3&lt;/span&gt;NAME                                            READY   STATUS    RESTARTS   AGE
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 4&lt;/span&gt;pod/my-web-server-deployment-58c4fd887f-5vm2b   &lt;span style="color: #666666"&gt;1&lt;/span&gt;/1     Running   &lt;span style="color: #666666"&gt;0&lt;/span&gt;          128m
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 5&lt;/span&gt;pod/my-web-server-deployment-58c4fd887f-gq6lr   &lt;span style="color: #666666"&gt;1&lt;/span&gt;/1     Running   &lt;span style="color: #666666"&gt;0&lt;/span&gt;          128m
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 6&lt;/span&gt;pod/my-web-server-deployment-58c4fd887f-gs6qb   &lt;span style="color: #666666"&gt;1&lt;/span&gt;/1     Running   &lt;span style="color: #666666"&gt;0&lt;/span&gt;          128m
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 7&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 8&lt;/span&gt;NAME                                   TYPE           CLUSTER-IP       EXTERNAL-IP   PORT&lt;span style="color: #666666"&gt;(&lt;/span&gt;S&lt;span style="color: #666666"&gt;)&lt;/span&gt;                      AGE
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 9&lt;/span&gt;service/simple-web-service-clusterip   ClusterIP      &lt;span style="color: #666666"&gt;10&lt;/span&gt;.96.96.241     &amp;lt;none&amp;gt;        &lt;span style="color: #666666"&gt;80&lt;/span&gt;/TCP,443/TCP               60m
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;10&lt;/span&gt;service/simple-web-service-lb          LoadBalancer   &lt;span style="color: #666666"&gt;10&lt;/span&gt;.108.182.232   &amp;lt;pending&amp;gt;     &lt;span style="color: #666666"&gt;80&lt;/span&gt;:31095/TCP,443:31940/TCP   60m
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;11&lt;/span&gt;service/simple-web-service-np          NodePort       &lt;span style="color: #666666"&gt;10&lt;/span&gt;.101.77.203    &amp;lt;none&amp;gt;        &lt;span style="color: #666666"&gt;80&lt;/span&gt;:31899/TCP,443:31522/TCP   60m
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;12&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;13&lt;/span&gt;NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;14&lt;/span&gt;deployment.apps/my-web-server-deployment   &lt;span style="color: #666666"&gt;3&lt;/span&gt;/3     &lt;span style="color: #666666"&gt;3&lt;/span&gt;            &lt;span style="color: #666666"&gt;3&lt;/span&gt;           136m
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;15&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;16&lt;/span&gt;NAME                                                  DESIRED   CURRENT   READY   AGE
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;17&lt;/span&gt;replicaset.apps/my-web-server-deployment-58c4fd887f   &lt;span style="color: #666666"&gt;3&lt;/span&gt;         &lt;span style="color: #666666"&gt;3&lt;/span&gt;         &lt;span style="color: #666666"&gt;3&lt;/span&gt;       128m
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;18&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;19&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# We can ask for more details&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;20&lt;/span&gt;$ kubectl get deployment -o wide
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;21&lt;/span&gt;NAME                       READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES  SELECTOR
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;22&lt;/span&gt;my-web-server-deployment   &lt;span style="color: #666666"&gt;3&lt;/span&gt;/3     &lt;span style="color: #666666"&gt;3&lt;/span&gt;            &lt;span style="color: #666666"&gt;3&lt;/span&gt;           121m   web          nginx   &lt;span style="color: #19177C"&gt;app&lt;/span&gt;&lt;span style="color: #666666"&gt;=&lt;/span&gt;webserver
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;23&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;24&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# Some resources are not visible using &amp;quot;all&amp;quot; but available&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;25&lt;/span&gt;$ kubectl get configmap
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;26&lt;/span&gt;NAME                DATA   AGE
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;27&lt;/span&gt;kube-root-ca.crt    &lt;span style="color: #666666"&gt;1&lt;/span&gt;      38d
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;28&lt;/span&gt;simple-web-config   &lt;span style="color: #666666"&gt;3&lt;/span&gt;      3h17m
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Dig into a particular resource&lt;/h4&gt;
+&lt;p&gt;This section will show you how to dig into resources.
+Most of the required day-to-day operations are doable through the three following commands.&lt;/p&gt;
+&lt;p&gt;The first command will give you the resource's complete configuration, using &lt;code&gt;kubectl describe &amp;lt;kind&amp;gt;/&amp;lt;name&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 1&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# Let&amp;#39;s describe the ingress for the sake of example&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 2&lt;/span&gt;$ kubectl describe ingress/simple-web-ingress
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 3&lt;/span&gt;Name:             simple-web-ingress
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 4&lt;/span&gt;Namespace:        default
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 5&lt;/span&gt;Address:          &lt;span style="color: #666666"&gt;192&lt;/span&gt;.168.64.2
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 6&lt;/span&gt;Default backend:  default-http-backend:80 &lt;span style="color: #666666"&gt;(&lt;/span&gt;&amp;lt;error: endpoints &lt;span style="color: #BA2121"&gt;&amp;quot;default-http-backend&amp;quot;&lt;/span&gt; not found&amp;gt;&lt;span style="color: #666666"&gt;)&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 7&lt;/span&gt;Rules:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 8&lt;/span&gt;  Host                 Path  Backends
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt; 9&lt;/span&gt;  ----                 ----  --------
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;10&lt;/span&gt;  *.minikube.internal
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;11&lt;/span&gt;                       /welcome   simple-web-service-clusterip:80 &lt;span style="color: #666666"&gt;(172&lt;/span&gt;.17.0.4:80,172.17.0.5:80,172.17.0.6:80 + &lt;span style="color: #666666"&gt;1&lt;/span&gt; more...&lt;span style="color: #666666"&gt;)&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;12&lt;/span&gt;  *
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;13&lt;/span&gt;                       /   simple-web-service-clusterip:80 &lt;span style="color: #666666"&gt;(172&lt;/span&gt;.17.0.4:80,172.17.0.5:80,172.17.0.6:80 + &lt;span style="color: #666666"&gt;1&lt;/span&gt; more...&lt;span style="color: #666666"&gt;)&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;14&lt;/span&gt;Annotations:           nginx.ingress.kubernetes.io/rewrite-target: /
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;15&lt;/span&gt;Events:
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;16&lt;/span&gt;  Type    Reason  Age                 From                      Message
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;17&lt;/span&gt;  ----    ------  ----                ----                      -------
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;18&lt;/span&gt;  Normal  UPDATE  7m6s &lt;span style="color: #666666"&gt;(&lt;/span&gt;x6 over 23h&lt;span style="color: #666666"&gt;)&lt;/span&gt;  nginx-ingress-controller  Ingress default/simple-web-ingress
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Another important command is &lt;code&gt;kubectl logs &amp;lt;kind&amp;gt;/&amp;lt;name&amp;gt;&lt;/code&gt;, as you might expect it shows you the resources' logs if applicable.
+As the logs are produced by Pods,
+running such a command on a resource above a Pod will dig through Kubernetes to display the logs of a randomly chosen Pod underneath it.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;1&lt;/span&gt;$ kubectl logs deployments/my-web-server-deployment
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;2&lt;/span&gt;Found &lt;span style="color: #666666"&gt;3&lt;/span&gt; pods, using pod/my-web-server-deployment-755b499f77-4n5vn
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;3&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# [logs]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finally, it is sometimes useful to connect on a pod, you can do so with the command kubectl &lt;code&gt;exec -it &amp;lt;pod_name&amp;gt; -- /bin/bash&lt;/code&gt;.
+This will open an interactive shell on the pod, enabling you to interact with its content.&lt;/p&gt;
+&lt;div class="highlight" style="background: #f8f8f8"&gt;&lt;pre style="line-height: 125%;"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;1&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# As for logs, when called on any resource enclosing Pods,&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;2&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# Kubernetes will randomly chose one to  execute the action&lt;/span&gt;
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;3&lt;/span&gt;$ kubectl &lt;span style="color: #008000"&gt;exec&lt;/span&gt; -it deployment/my-web-server-deployment -- /bin/bash
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;4&lt;/span&gt;root@my-web-server-deployment-56c4554cf9-qwtm6:/# ls
+&lt;span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"&gt;5&lt;/span&gt;&lt;span style="color: #408080; font-style: italic"&gt;# [...]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;During this article, we saw the fundamentals behind deploying and publishing stateless services using Kubernetes.
+But you can do a lot more complex things with Kubernetes.
+If you want to learn more about it, I can recommend you to look at these resources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Read the &lt;a href="https://kubernetes.io/docs/reference/"&gt;Kubernetes reference documentation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Install a sandbox locally with &lt;a href="https://kubernetes.io/fr/docs/setup/learning-environment/minikube/"&gt;Minikube&lt;/a&gt;, and play with it.&lt;/li&gt;
+&lt;li&gt;Watch the video &lt;a href="https://youtu.be/X48VuDVv0do"&gt;Kubernetes Tutorial for Beginners - &lt;em&gt;TechWorld with Nana&lt;/em&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Manually bootstrap a Kubernetes cluster: &lt;a href="https://github.com/kelseyhightower/kubernetes-the-hard-way"&gt;Kubernetes The Hard Way&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Incidentally, there are multiple subjects I could not deeply talk about in this article and that may be of interest.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;On the developer side:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.io/docs/concepts/storage/volumes/"&gt;Volumes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"&gt;StatefulSets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors/"&gt;Selectors&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;On the cluster administrator side:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.io/docs/concepts/extend-kubernetes/operator/"&gt;Operators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/"&gt;Access control&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/"&gt;Secret encryption&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/"&gt;Quotas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/"&gt;Network Plugins&lt;/a&gt;
+  (&lt;em&gt;e.g.&lt;/em&gt; &lt;a href="https://github.com/contiv/vpp/blob/master/docs/ARCHITECTURE.md"&gt;VPP&lt;/a&gt; and &lt;a href="https://github.com/weaveworks/weave"&gt;Weaveworks&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Furthermore, if you are interested in the ecosystem around Kubernetes,
+you may want to take a look at the following technologies:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.openshift.com/blog/enterprise-kubernetes-with-openshift-part-one"&gt;Openshift&lt;/a&gt;
+  is wrapping Kubernetes with production friendly features. &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://helm.sh/"&gt;Helm&lt;/a&gt;
+  is a charts manager for Kubernetes helping improve re-usability of configuration files.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://argoproj.github.io/argo-cd/"&gt;ArgoCD&lt;/a&gt;
+  is keeping your Kubernetes Cluster up to date with your configurations from Git.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Appendix&lt;/h2&gt;
+&lt;h3&gt;Resources' repository&lt;/h3&gt;
+&lt;p&gt;The resources definitions used in this article are available in the following &lt;a href="https://github.com/aveuiller/frameworks-bootstrap/tree/feat_integrate_kube/Kubernetes"&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;CLI equivalents - Docker and Kubernetes&lt;/h3&gt;
+&lt;p&gt;Managing containers with Docker and pods with Kubernetes is very similar,
+as you can see on the following table describing equivalent operations between both technologies.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Operation&lt;/th&gt;
+&lt;th&gt;Docker&lt;/th&gt;
+&lt;th&gt;Kubernetes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Running containers&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;docker ps&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl get pods&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Configuration details&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;docker inspect &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl describe &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Show logs&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;docker logs &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl logs &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Enter container&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;docker exec -it &amp;lt;name&amp;gt; /bin/bash&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl exec -it &amp;lt;name&amp;gt; -- /bin/bash&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;*Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews*&lt;/code&gt;&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Cheat sheet"></category></entry><entry><title>Spring Boot: Apprentice Cookbook</title><link href="https://aveuiller.github.io/spring_boot_apprentice_cookbook.html" rel="alternate"></link><published>2021-01-27T00:00:00+01:00</published><updated>2021-01-27T00:00:00+01:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-01-27:/spring_boot_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Spring Boot cheat sheet to bootstrap an API&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
 &lt;p&gt;This article can be found on other sources:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/spring-boot-apprentice-cookbook-61db5a3f6450"&gt;Canonical link&lt;/a&gt;&lt;/li&gt;
