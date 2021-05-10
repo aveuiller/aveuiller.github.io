@@ -695,4 +695,4 @@ as you can see on the following table describing equivalent operations between b
 | Show logs              | `docker logs <name>`                | `kubectl logs <name>`                     |
 | Enter container        | `docker exec -it <name> /bin/bash`  | `kubectl exec -it <name> -- /bin/bash`    |
 
-`*Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews*`
+*Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews*`
