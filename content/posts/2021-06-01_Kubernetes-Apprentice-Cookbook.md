@@ -9,7 +9,9 @@ Summary: Kubernetes big picture and common use
 
 ### Availability Disclaimer
 
-- This article is available only here for the time being.
+This article can be found on other sources:
+
+- Medium: [Canonical link](https://medium.com/@aveuiller/kubernetes-apprentice-cookbook-90d8c11ccfc3)
 
 -----
 
