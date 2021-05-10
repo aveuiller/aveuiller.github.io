@@ -1,6 +1,6 @@
 Title: Kubernetes: Apprentice Cookbook
 Slug: kubernetes_apprentice_cookbook
-Date: 2021-06-01
+Date: 2021-05-10
 Category: Software Engineering
 Tags: Cheat sheet
 Author: Antoine Veuiller
@@ -15,7 +15,7 @@ This article can be found on other sources:
 
 -----
 
-![Kubernetes Logo](/images/posts/2021-06-01_Kubernetes-Apprentice-Cookbook/kube_logo.png)
+![Kubernetes Logo](/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_logo.png)
 
 
 You probably already heard of **Kubernetes**, a powerful [orchestrator](https://www.redhat.com/en/topics/automation/what-is-orchestration)
@@ -50,7 +50,7 @@ and a communication process [Kube-Proxy](https://kubernetes.io/docs/reference/co
 The former handles the operations commanded by the **control plane** on the local container runtime (_e.g._ docker),
 while the latter redirects connectivity to the right pods.
 
-![Kubernetes Architecture](/images/posts/2021-06-01_Kubernetes-Apprentice-Cookbook/kube_components.svg)
+![Kubernetes Architecture](/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_components.svg)
 
 ### Namespaces
 
@@ -64,7 +64,7 @@ However, access to those can be limited by namespace using [Quotas](https://kube
 
 Namespace-aware resources will always be contained in a namespace as Kubernetes creates and uses a namespace named *default* if nothing is specified.
 
-![Kubernetes Architecture](/images/posts/2021-06-01_Kubernetes-Apprentice-Cookbook/kube_namespace.svg)
+![Kubernetes Architecture](/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_namespace.svg)
 
 There is no silver bullet on the way to use namespaces, as it widely depends on your organization and needs.
 However, we can note some usual namespaces usages:
@@ -220,7 +220,7 @@ This is also the occasion to showcase the interactions between resources.
 At the end of the section, we will have a running Nginx server and will be able to contact the server from outside the cluster.
 The following diagram summarizes the intended state:
 
-![Kubernetes Architecture](/images/posts/2021-06-01_Kubernetes-Apprentice-Cookbook/kube_nginx.svg)
+![Kubernetes Architecture](/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_nginx.svg)
 
 ### ConfigMap
 
@@ -694,3 +694,5 @@ as you can see on the following table describing equivalent operations between b
 | Configuration details  | `docker inspect <name>`             | `kubectl describe <name>`                 |
 | Show logs              | `docker logs <name>`                | `kubectl logs <name>`                     |
 | Enter container        | `docker exec -it <name> /bin/bash`  | `kubectl exec -it <name> -- /bin/bash`    |
+
+`*Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews*`
