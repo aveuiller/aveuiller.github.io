@@ -30,7 +30,8 @@ AUTHOR_FEED_RSS = None
 SOCIAL = (('Twitter', 'http://twitter.com/AVeuiller'),
           ('StackOverflow', 'https://stackoverflow.com/users/2564085/aveuiller'),
           ('GitHub', 'http://github.com/aveuiller'),
-          ('Medium', 'https://aveuiller.medium.com/'),)
+          ('Medium', 'https://aveuiller.medium.com/'),
+          ('Dev.to', 'https://dev.to/aveuiller/'),)
 
 DEFAULT_PAGINATION = 10
 
