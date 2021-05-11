@@ -117,6 +117,7 @@
 <p>This article can be found on other sources:</p>
 <ul>
 <li>Medium: <a href="https://medium.com/@aveuiller/kubernetes-apprentice-cookbook-90d8c11ccfc3">Canonical link</a></li>
+<li>Dev.to: <a href="https://dev.to/aveuiller/kubernetes-apprentice-cookbook-4j6h">Canonical link</a></li>
 </ul>
 <hr>
 <p><img alt="Kubernetes Logo" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_logo.png" class="img-fluid border rounded shadow image-process-article-photo"></p>
@@ -152,7 +153,7 @@ A namespace is basically a virtual cluster inside the actual cluster.</p>
 Only a few kinds of resources are completely agnostic of namespaces, and they define computational power or storage sources (<em>i.e.</em> Nodes and PersistentVolumes).
 However, access to those can be limited by namespace using <a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">Quotas</a>.</p>
 <p>Namespace-aware resources will always be contained in a namespace as Kubernetes creates and uses a namespace named <em>default</em> if nothing is specified.</p>
-<p><img alt="Kubernetes Architecture" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_namespace.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p><img alt="Namespace Organization" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_namespace.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
 <p>There is no silver bullet on the way to use namespaces, as it widely depends on your organization and needs.
 However, we can note some usual namespaces usages:</p>
 <ol>
@@ -383,7 +384,7 @@ as it is more likely than not that your infrastructure files are dependent on th
 This is also the occasion to showcase the interactions between resources.</p>
 <p>At the end of the section, we will have a running Nginx server and will be able to contact the server from outside the cluster.
 The following diagram summarizes the intended state:</p>
-<p><img alt="Kubernetes Architecture" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_nginx.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p><img alt="Intended Deployment" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_nginx.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
 <h3>ConfigMap</h3>
 <p>ConfigMap is used to hold properties that can be used later in your resources.</p>
 <div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #008000; font-weight: bold">apiVersion</span>: v1
@@ -798,7 +799,7 @@ as you can see on the following table describing equivalent operations between b
 </tr>
 </tbody>
 </table>
-<p><em>Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews</em>`</p>
+<p><em>Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews</em></p>
 
 
 
