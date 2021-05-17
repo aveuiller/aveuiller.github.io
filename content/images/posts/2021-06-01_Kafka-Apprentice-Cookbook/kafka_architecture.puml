@@ -1,0 +1,92 @@
+@startuml
+<style>
+' TODO: Export to a generic style sheet
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+    BackGroundColor white
+    agent {
+        BackGroundColor palegreen
+    }
+    .Leader {
+        BackGroundColor gold
+    }
+    .Follower {
+        BackGroundColor lightgray
+    }
+    database {
+        BackGroundColor white
+    }
+    actor {
+        LineColor black
+    }
+    arrow {
+        LineColor black
+    }
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+node "Producer" as prod_1
+
+node "Kafka Server Ecosystem" as kafka {
+    node "Zookeeper Cluster" as zk_cluster {
+
+        node "Zookeeper 1" as zk_1
+        node "Zookeeper n" as zk_n
+    }
+
+    node "Kafka Cluster" as cluster {
+        node "Broker 1" as broker_1 {
+            collections "topic 1 - partition 0" <<Leader>> as t1p0l
+            collections "topic 1 - partition 2" <<Follower>> as t1p2r
+        }
+        node "Broker 2" as broker_2 {
+            collections "topic 1 - partition 0" <<Follower>> as t1p0r
+            collections "topic 1 - partition 1" <<Leader>> as t1p1l
+        }
+        node "Broker N" as broker_n {
+           collections "topic 1 - partition 2" <<Leader>> as t1p2l
+            collections "topic 1 - partition 1" <<Follower>> as t1p1r
+      }
+    }
+
+    node "Schema Registry Cluster" as reg {
+        node "Registry 1" as reg_1
+        node "Registry n" as reg_n
+    }
+
+    zk_cluster --> cluster: Manages
+    cluster    ..> reg: Fetch Schema
+
+    ' Formatting
+    t1p2r -[hidden]- t1p0l
+    t1p0r -[hidden]- t1p1l
+    t1p1r -[hidden]- t1p2l
+
+    t1p0l .> t1p0r
+    t1p1l .> t1p1r
+    t1p2l .> t1p2r
+}
+
+node "Consumer Group" as cg_a {
+    node "Consumer 1" as cons_a1
+    node "Consumer N" as cons_an
+}
+
+' Producer -> Kafka
+prod_1 -> cluster: Send Messages
+
+' Kaf-ka -> Consumer
+t1p0l <--- cons_an: Poll for messages
+t1p1l <--- cons_an: Poll for messages
+t1p2l <--- cons_a1: Poll for messages
+
+' Registry Handling
+prod_1 .> reg: Input Schema
+cg_a ..> reg: Fetch Schema
+
+
+@enduml

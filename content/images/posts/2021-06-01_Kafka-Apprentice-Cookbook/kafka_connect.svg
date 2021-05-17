@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="170px" preserveAspectRatio="none" style="width:1560px;height:170px;" version="1.1" viewBox="0 0 1560 170" width="1560px" zoomAndPan="magnify"><defs><filter height="300%" id="f1xmgc6wwhk2sr" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[2975947dbd53e11d08a72608f6781d9e]
+entity cluster--><polygon fill="#D3D3D3" filter="url(#f1xmgc6wwhk2sr)" points="588,49,608,29,850,29,850,101.9766,830,121.9766,588,121.9766,588,49" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="830" x2="850" y1="49" y2="29"/><line style="stroke:#00008B;stroke-width:2.0;" x1="588" x2="830" y1="49" y2="49"/><line style="stroke:#00008B;stroke-width:2.0;" x1="830" x2="830" y1="49" y2="121.9766"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="182" x="618" y="96.0703">Kafka Cluster</text><!--MD5=[c249f364d83a401275c0ae35335e5f45]
+entity source--><polygon fill="#FFFFFF" filter="url(#f1xmgc6wwhk2sr)" points="232,32,252,12,518,12,518,117.9531,498,137.9531,232,137.9531,232,32" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="498" x2="518" y1="32" y2="12"/><line style="stroke:#00008B;stroke-width:2.0;" x1="232" x2="498" y1="32" y2="32"/><line style="stroke:#00008B;stroke-width:2.0;" x1="498" x2="498" y1="32" y2="137.9531"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="122" x="304" y="79.0703">«Source»</text><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="206" x="262" y="112.0469">CSV Connector</text><!--MD5=[8f7f012ba5c8ae4ed0c9f9f0927cca3e]
+entity sink--><polygon fill="#FFFFFF" filter="url(#f1xmgc6wwhk2sr)" points="921,32,941,12,1285,12,1285,117.9531,1265,137.9531,921,137.9531,921,32" style="stroke:#00008B;stroke-width:2.0;"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1265" x2="1285" y1="32" y2="12"/><line style="stroke:#00008B;stroke-width:2.0;" x1="921" x2="1265" y1="32" y2="32"/><line style="stroke:#00008B;stroke-width:2.0;" x1="1265" x2="1265" y1="32" y2="137.9531"/><text fill="#000000" font-family="sans-serif" font-size="28" font-style="italic" lengthAdjust="spacing" textLength="86" x="1050" y="79.0703">«Sink»</text><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="284" x="951" y="112.0469">MongoDB Connector</text><!--MD5=[7468467f3b6b392f1d176d828c753b77]
+entity db--><path d="M1355,50 C1355,30 1441,30 1441,30 C1441,30 1527,30 1527,50 L1527,100.9766 C1527,120.9766 1441,120.9766 1441,120.9766 C1441,120.9766 1355,120.9766 1355,100.9766 L1355,50 " fill="#FFFFFF" filter="url(#f1xmgc6wwhk2sr)" style="stroke:#00008B;stroke-width:2.0;"/><path d="M1355,50 C1355,70 1441,70 1441,70 C1441,70 1527,70 1527,50 " fill="none" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="132" x="1375" y="105.0703">MongoDB</text><!--MD5=[35cf71decf07cb20d984a3b54eeabc8e]
+entity file_sink--><path d="M12,50 C12,30 87,30 87,30 C87,30 162,30 162,50 L162,100.9766 C162,120.9766 87,120.9766 87,120.9766 C87,120.9766 12,120.9766 12,100.9766 L12,50 " fill="#FFFFFF" filter="url(#f1xmgc6wwhk2sr)" style="stroke:#00008B;stroke-width:2.0;"/><path d="M12,50 C12,70 87,70 87,70 C87,70 162,70 162,50 " fill="none" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="110" x="32" y="105.0703">CSV File</text><!--MD5=[80ac469adeb054da5662bfb2bc1b7ea8]
+reverse link file_sink to source--><path d="M172.6,75 C192.18,75 211.74,75 231.32,75 " fill="none" id="file_sink-backto-source" style="stroke:#000000;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="162.38,75,180.38,83,172.38,75,180.38,67,162.38,75" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[159002deadf112b311f6c5ffa0852fd7]
+link source to cluster--><path d="M518.1,75 C537.94,75 557.76,75 577.58,75 " fill="none" id="source-to-cluster" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="587.96,75,569.96,67,577.96,75,569.96,83,587.96,75" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[f06a5ab9e5ad93dcf07c0b12b98d7297]
+link cluster to sink--><path d="M850.24,75 C870.14,75 890.04,75 909.94,75 " fill="none" id="cluster-to-sink" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="920.34,75,902.34,67,910.34,75,902.34,83,920.34,75" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[83bf224a65d5df5eeec4b5780529595a]
+link sink to db--><path d="M1285.2,75 C1304.9,75 1324.58,75 1344.28,75 " fill="none" id="sink-to-db" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="1354.58,75,1336.58,67,1344.58,75,1336.58,83,1354.58,75" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[85329dc81d971f1f59a4b7a2feda305e]
+@startuml
+<style>
+' TODO: Export to a generic style sheet
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+    BackGroundColor white
+
+    agent {
+        BackGroundColor palegreen
+    }
+    .Virtual {
+        BackGroundColor lightgray
+    }
+    database {
+        BackGroundColor white
+    }
+    actor {
+        LineColor black
+    }
+    arrow {
+        LineColor black
+    }
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+node "CSV Connector" as source <<Source>>
+node "MongoDB Connector" as sink <<Sink>>
+
+node "Kafka Cluster" as cluster #lightgrey {
+}
+
+database "MongoDB" as db
+database "CSV File" as file_sink
+
+file_sink <. source
+
+source -> cluster
+
+cluster -> sink
+sink -> db
+
+
+@enduml
+
+@startuml
+<style>
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+    BackGroundColor white
+
+    agent {
+        BackGroundColor palegreen
+    }
+    .Virtual {
+        BackGroundColor lightgray
+    }
+    database {
+        BackGroundColor white
+    }
+    actor {
+        LineColor black
+    }
+    arrow {
+        LineColor black
+    }
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+node "CSV Connector" as source <<Source>>
+node "MongoDB Connector" as sink <<Sink>>
+
+node "Kafka Cluster" as cluster #lightgrey {
+}
+
+database "MongoDB" as db
+database "CSV File" as file_sink
+
+file_sink <. source
+
+source -> cluster
+
+cluster -> sink
+sink -> db
+
+
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 10:49:39 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: LU
+--></g></svg>
