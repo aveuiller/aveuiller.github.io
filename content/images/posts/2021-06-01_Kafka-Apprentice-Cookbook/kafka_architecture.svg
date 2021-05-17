@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1345.2px" preserveAspectRatio="none" style="width:1524px;height:1345px;" version="1.1" viewBox="0 0 1524 1345" width="1524px" zoomAndPan="magnify"><defs><filter height="300%" id="f1cae607w3tcsg" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.4"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.8" dy="4.8" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[2e5a3d3009757c2339f40e553b0ed60f]
+cluster kafka--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="19.2,19.2,31.2,7.2,1362,7.2,1362,1102.8,1350,1114.8,19.2,1114.8,19.2,19.2" style="stroke:#00008B;stroke-width:2.4;"/><line style="stroke:#00008B;stroke-width:2.4;" x1="1350" x2="1362" y1="19.2" y2="7.2"/><line style="stroke:#00008B;stroke-width:2.4;" x1="19.2" x2="1350" y1="19.2" y2="19.2"/><line style="stroke:#00008B;stroke-width:2.4;" x1="1350" x2="1350" y1="19.2" y2="1114.8"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="205.2" x="583.2" y="39.0422">Kafka Server Ecosystem</text><!--MD5=[270a06cc05541a8e5bd0302549497d20]
+cluster zk_cluster--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="874.8,86.4,886.8,74.4,1299.6,74.4,1299.6,204,1287.6,216,874.8,216,874.8,86.4" style="stroke:#00008B;stroke-width:2.4;"/><line style="stroke:#00008B;stroke-width:2.4;" x1="1287.6" x2="1299.6" y1="86.4" y2="74.4"/><line style="stroke:#00008B;stroke-width:2.4;" x1="874.8" x2="1287.6" y1="86.4" y2="86.4"/><line style="stroke:#00008B;stroke-width:2.4;" x1="1287.6" x2="1287.6" y1="86.4" y2="216"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="158.4" x="1003.2" y="106.2422">Zookeeper Cluster</text><!--MD5=[ae7709657f611b622ade1638c535e86e]
+cluster cluster--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="57.6,306,69.6,294,894,294,894,1064.4,882,1076.4,57.6,1076.4,57.6,306" style="stroke:#00008B;stroke-width:2.4;"/><line style="stroke:#00008B;stroke-width:2.4;" x1="882" x2="894" y1="306" y2="294"/><line style="stroke:#00008B;stroke-width:2.4;" x1="57.6" x2="882" y1="306" y2="306"/><line style="stroke:#00008B;stroke-width:2.4;" x1="882" x2="882" y1="306" y2="1076.4"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="117.6" x="412.2" y="325.8422">Kafka Cluster</text><!--MD5=[fe714b8845e0f6b1330fc91ed5ce3b49]
+cluster broker_1--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="366,575.4,378,563.4,591.6,563.4,591.6,867.6,579.6,879.6,366,879.6,366,575.4" style="stroke:#00008B;stroke-width:2.4;"/><line style="stroke:#00008B;stroke-width:2.4;" x1="579.6" x2="591.6" y1="575.4" y2="563.4"/><line style="stroke:#00008B;stroke-width:2.4;" x1="366" x2="579.6" y1="575.4" y2="575.4"/><line style="stroke:#00008B;stroke-width:2.4;" x1="579.6" x2="579.6" y1="575.4" y2="879.6"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="73.2" x="437.4" y="595.2422">Broker 1</text><!--MD5=[46979a5a4abc66270181494afdbb132a]
+cluster broker_2--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="111.6,760.8,123.6,748.8,337.2,748.8,337.2,1026,325.2,1038,111.6,1038,111.6,760.8" style="stroke:#00008B;stroke-width:2.4;"/><line style="stroke:#00008B;stroke-width:2.4;" x1="325.2" x2="337.2" y1="760.8" y2="748.8"/><line style="stroke:#00008B;stroke-width:2.4;" x1="111.6" x2="325.2" y1="760.8" y2="760.8"/><line style="stroke:#00008B;stroke-width:2.4;" x1="325.2" x2="325.2" y1="760.8" y2="1038"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="73.2" x="183" y="780.6422">Broker 2</text><!--MD5=[d22678cfd1aa23c0659c7bbaa0588d0d]
+cluster broker_n--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="620.4,373.2,632.4,361.2,846,361.2,846,682.2,834,694.2,620.4,694.2,620.4,373.2" style="stroke:#00008B;stroke-width:2.4;"/><line style="stroke:#00008B;stroke-width:2.4;" x1="834" x2="846" y1="373.2" y2="361.2"/><line style="stroke:#00008B;stroke-width:2.4;" x1="620.4" x2="834" y1="373.2" y2="373.2"/><line style="stroke:#00008B;stroke-width:2.4;" x1="834" x2="834" y1="373.2" y2="694.2"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="75.6" x="690.6" y="393.0422">Broker N</text><!--MD5=[ef09c63a68a5eb4229ddbba664501688]
+cluster reg--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="942,570,954,558,1323.6,558,1323.6,687.6,1311.6,699.6,942,699.6,942,570" style="stroke:#00008B;stroke-width:2.4;"/><line style="stroke:#00008B;stroke-width:2.4;" x1="1311.6" x2="1323.6" y1="570" y2="558"/><line style="stroke:#00008B;stroke-width:2.4;" x1="942" x2="1311.6" y1="570" y2="570"/><line style="stroke:#00008B;stroke-width:2.4;" x1="1311.6" x2="1311.6" y1="570" y2="699.6"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="211.2" x="1022.4" y="589.8422">Schema Registry Cluster</text><!--MD5=[5e19cce15e5af42364f706e4836206f2]
+cluster cg_a--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="399.6,1195.2,411.6,1183.2,822,1183.2,822,1312.8,810,1324.8,399.6,1324.8,399.6,1195.2" style="stroke:#00008B;stroke-width:2.4;"/><line style="stroke:#00008B;stroke-width:2.4;" x1="810" x2="822" y1="1195.2" y2="1183.2"/><line style="stroke:#00008B;stroke-width:2.4;" x1="399.6" x2="810" y1="1195.2" y2="1195.2"/><line style="stroke:#00008B;stroke-width:2.4;" x1="810" x2="810" y1="1195.2" y2="1324.8"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="145.2" x="533.4" y="1215.0422">Consumer Group</text><!--MD5=[bfdb67aca21ad20bd2451144c58ea033]
+entity zk_1--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="1119.6,144,1131.6,132,1270.8,132,1270.8,175.7859,1258.8,187.7859,1119.6,187.7859,1119.6,144" style="stroke:#00008B;stroke-width:1.2;"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1258.8" x2="1270.8" y1="144" y2="132"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1119.6" x2="1258.8" y1="144" y2="144"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1258.8" x2="1258.8" y1="144" y2="187.7859"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="103.2" x="1137.6" y="172.2422">Zookeeper 1</text><!--MD5=[de70b5b4d5c26ddfb0c6406c633e420b]
+entity zk_n--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="926.4,144,938.4,132,1077.6,132,1077.6,175.7859,1065.6,187.7859,926.4,187.7859,926.4,144" style="stroke:#00008B;stroke-width:1.2;"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1065.6" x2="1077.6" y1="144" y2="132"/><line style="stroke:#00008B;stroke-width:1.2;" x1="926.4" x2="1065.6" y1="144" y2="144"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1065.6" x2="1065.6" y1="144" y2="187.7859"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="103.2" x="944.4" y="172.2422">Zookeeper n</text><!--MD5=[926d9ce97a6562c140de7925d97070d7]
+entity t1p0l--><rect fill="#FFD700" filter="url(#f1cae607w3tcsg)" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="390.6" y="801.6"/><rect fill="#FFD700" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="385.8" y="796.8"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-style="italic" lengthAdjust="spacing" textLength="72" x="440.4" y="822.6422">«Leader»</text><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="162" x="395.4" y="842.4281">topic 1 - partition 0</text><!--MD5=[56be4ff3688595e647d37728e662e60a]
+entity t1p2r--><rect fill="#D3D3D3" filter="url(#f1cae607w3tcsg)" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="390.6" y="616.2"/><rect fill="#D3D3D3" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="385.8" y="611.4"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-style="italic" lengthAdjust="spacing" textLength="87.6" x="432.6" y="637.2422">«Follower»</text><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="162" x="395.4" y="657.0281">topic 1 - partition 2</text><!--MD5=[3e65364a1e41d8d981fc29e3ad34494f]
+entity t1p0r--><rect fill="#D3D3D3" filter="url(#f1cae607w3tcsg)" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="136.2" y="801.6"/><rect fill="#D3D3D3" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="131.4" y="796.8"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-style="italic" lengthAdjust="spacing" textLength="87.6" x="178.2" y="822.6422">«Follower»</text><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="162" x="141" y="842.4281">topic 1 - partition 0</text><!--MD5=[3521babdf79d7dd19acb66f0f3c717ae]
+entity t1p1l--><rect fill="#FFD700" filter="url(#f1cae607w3tcsg)" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="136.2" y="960"/><rect fill="#FFD700" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="131.4" y="955.2"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-style="italic" lengthAdjust="spacing" textLength="72" x="186" y="981.0422">«Leader»</text><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="162" x="141" y="1000.8281">topic 1 - partition 1</text><!--MD5=[65b929cdeab73793bd3234f4020928e9]
+entity t1p2l--><rect fill="#FFD700" filter="url(#f1cae607w3tcsg)" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="645" y="616.2"/><rect fill="#FFD700" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="640.2" y="611.4"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-style="italic" lengthAdjust="spacing" textLength="72" x="694.8" y="637.2422">«Leader»</text><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="162" x="649.8" y="657.0281">topic 1 - partition 2</text><!--MD5=[b0b124784e3bfef113682431e606f71e]
+entity t1p1r--><rect fill="#D3D3D3" filter="url(#f1cae607w3tcsg)" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="645" y="414"/><rect fill="#D3D3D3" height="58.7719" style="stroke:#00008B;stroke-width:1.7999999999999998;" width="181.2" x="640.2" y="409.2"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-style="italic" lengthAdjust="spacing" textLength="87.6" x="687" y="435.0422">«Follower»</text><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="162" x="649.8" y="454.8281">topic 1 - partition 1</text><!--MD5=[934f1044ab5729c605dd5c0f05724af8]
+entity reg_1--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="1165.2,627.6,1177.2,615.6,1294.8,615.6,1294.8,659.3859,1282.8,671.3859,1165.2,671.3859,1165.2,627.6" style="stroke:#00008B;stroke-width:1.2;"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1282.8" x2="1294.8" y1="627.6" y2="615.6"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1165.2" x2="1282.8" y1="627.6" y2="627.6"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1282.8" x2="1282.8" y1="627.6" y2="671.3859"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="81.6" x="1183.2" y="655.8422">Registry 1</text><!--MD5=[45d16f66a3814e759d1515046538fec9]
+entity reg_n--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="993.6,627.6,1005.6,615.6,1123.2,615.6,1123.2,659.3859,1111.2,671.3859,993.6,671.3859,993.6,627.6" style="stroke:#00008B;stroke-width:1.2;"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1111.2" x2="1123.2" y1="627.6" y2="615.6"/><line style="stroke:#00008B;stroke-width:1.2;" x1="993.6" x2="1111.2" y1="627.6" y2="627.6"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1111.2" x2="1111.2" y1="627.6" y2="671.3859"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="81.6" x="1011.6" y="655.8422">Registry n</text><!--MD5=[79aa18176f4e2f3c5340813fe59d9a33]
+entity cons_a1--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="621.6,1252.8,633.6,1240.8,770.4,1240.8,770.4,1284.5859,758.4,1296.5859,621.6,1296.5859,621.6,1252.8" style="stroke:#00008B;stroke-width:1.2;"/><line style="stroke:#00008B;stroke-width:1.2;" x1="758.4" x2="770.4" y1="1252.8" y2="1240.8"/><line style="stroke:#00008B;stroke-width:1.2;" x1="621.6" x2="758.4" y1="1252.8" y2="1252.8"/><line style="stroke:#00008B;stroke-width:1.2;" x1="758.4" x2="758.4" y1="1252.8" y2="1296.5859"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="100.8" x="639.6" y="1281.0422">Consumer 1</text><!--MD5=[d66d7b57aec857d5f5ee55bd7c4b628b]
+entity cons_an--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="429,1252.8,441,1240.8,579,1240.8,579,1284.5859,567,1296.5859,429,1296.5859,429,1252.8" style="stroke:#00008B;stroke-width:1.2;"/><line style="stroke:#00008B;stroke-width:1.2;" x1="567" x2="579" y1="1252.8" y2="1240.8"/><line style="stroke:#00008B;stroke-width:1.2;" x1="429" x2="567" y1="1252.8" y2="1252.8"/><line style="stroke:#00008B;stroke-width:1.2;" x1="567" x2="567" y1="1252.8" y2="1296.5859"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="102" x="447" y="1281.0422">Consumer N</text><!--MD5=[7aefd2bb532d9417587bf7aaaaff10b6]
+entity prod_1--><polygon fill="#FFFFFF" filter="url(#f1cae607w3tcsg)" points="1381.2,425.4,1393.2,413.4,1503.6,413.4,1503.6,457.1859,1491.6,469.1859,1381.2,469.1859,1381.2,425.4" style="stroke:#00008B;stroke-width:1.2;"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1491.6" x2="1503.6" y1="425.4" y2="413.4"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1381.2" x2="1491.6" y1="425.4" y2="425.4"/><line style="stroke:#00008B;stroke-width:1.2;" x1="1491.6" x2="1491.6" y1="425.4" y2="469.1859"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="74.4" x="1399.2" y="453.6422">Producer</text><!--MD5=[90dcf7e4186a9db71054597319500d0e]
+link zk_cluster to cluster--><path d="M884.4,216.9485 C884.4,220.4144 884.4,223.9886 884.4,227.6558 C884.4,234.9901 884.4,242.6959 884.4,250.6495 C884.4,258.603 884.4,266.8042 884.4,275.1291 C884.4,279.2916 884.4,283.4849 884.4,287.6938 C884.4,288.746 884.4,289.7991 884.4,290.853 C884.4,291.38 884.4,291.9071 884.4,292.4344 C884.4,292.698 884.4,292.9617 884.4,293.2254 C884.4,293.3572 884.4,293.4891 884.4,293.621 C884.4,293.6869 884.4,293.7528 884.4,293.8188 " fill="none" id="zk_cluster-to-cluster" style="stroke:#000000;stroke-width:1.2;"/><polygon fill="#000000" points="884.4,293.8188,889.2,283.0188,884.4,287.8188,879.6,283.0188,884.4,293.8188" style="stroke:#000000;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="66" x="885.6" y="261.082">Manages</text><!--MD5=[583bba75a49d332d6d0e4dfb298ff2ca]
+link cluster to reg--><path d="M894.0771,470.97 C894.1696,471.245 894.2627,471.5216 894.3562,471.7996 C894.7302,472.9117 895.1122,474.0474 895.5017,475.2053 C901.7329,493.731 909.8738,517.935 918.0135,542.136 C926.1533,566.337 934.2919,590.535 940.5186,609.0487 C940.9077,610.2059 941.2894,611.3408 941.6632,612.4521 C941.7566,612.7299 941.8496,613.0063 941.942,613.2811 " fill="none" id="cluster-to-reg" style="stroke:#000000;stroke-width:1.2;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="941.942,613.2811,943.0488,601.5144,940.0293,607.5941,933.9496,604.5747,941.942,613.2811" style="stroke:#000000;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="103.2" x="913.2" y="525.082">Fetch Schema</text><!--MD5=[a6cd5d515f7dcbf52e3531537a04c989]
+link t1p2r to t1p0l--><!--MD5=[f53df99ba5030d53b3b3e684c98dc196]
+link t1p0r to t1p1l--><!--MD5=[ae4588c468fbca7a414b81a0a62b9104]
+link t1p1r to t1p2l--><!--MD5=[51827527aa178aed55797c5d48462735]
+link t1p0l to t1p0r--><path d="M385.728,828.6 C365.208,828.6 344.7,828.6 324.18,828.6 " fill="none" id="t1p0l-to-t1p0r" style="stroke:#000000;stroke-width:1.2;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="317.808,828.6,328.608,833.4,323.808,828.6,328.608,823.8,317.808,828.6" style="stroke:#000000;stroke-width:1.2;"/><!--MD5=[b189112256ab8f48f06b24cd6cff88cc]
+link t1p1l to t1p1r--><path d="M170.16,954.804 C147.216,938.508 122.94,916.272 110.4,889.2 C82.368,828.708 81.228,799.14 110.4,739.2 C206.376,541.992 483.624,474.948 633.768,452.76 " fill="none" id="t1p1l-to-t1p1r" style="stroke:#000000;stroke-width:1.2;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="639.936,451.86,628.5528,448.6815,633.9998,452.7325,629.9488,458.1794,639.936,451.86" style="stroke:#000000;stroke-width:1.2;"/><!--MD5=[46eb50060973a338f7abbfc19658ab66]
+link t1p2l to t1p2r--><path d="M640.128,643.2 C619.608,643.2 599.1,643.2 578.58,643.2 " fill="none" id="t1p2l-to-t1p2r" style="stroke:#000000;stroke-width:1.2;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="572.208,643.2,583.008,648,578.208,643.2,583.008,638.4,572.208,643.2" style="stroke:#000000;stroke-width:1.2;"/><!--MD5=[0ca26cd6f56f0a87b6dafa7809554a17]
+link prod_1 to cluster--><path d="M1381.116,441 C1310.79,441 1191.759,441 1087.848,441 C1035.8925,441 987.717,441 951.2996,441 C933.0909,441 917.8218,441 906.4894,441 C903.6563,441 901.0693,441 898.7439,441 C897.5812,441 896.4839,441 895.4539,441 C895.1965,441 894.9432,441 894.6941,441 " fill="none" id="prod_1-to-cluster" style="stroke:#000000;stroke-width:1.2;"/><polygon fill="#000000" points="894.6941,441,905.4941,445.8,900.6941,441,905.4941,436.2,894.6941,441" style="stroke:#000000;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="114" x="1076.016" y="433.282">Send Messages</text><!--MD5=[94a1e0bf6b8ae507169a861d91c777c2]
+reverse link t1p0l to cons_an--><path d="M480.948,867.048 C485.916,953.376 498.144,1165.5 502.464,1240.44 " fill="none" id="t1p0l-backto-cons_an" style="stroke:#000000;stroke-width:1.2;"/><polygon fill="#000000" points="480.576,860.556,476.4018,871.6129,480.9193,866.5462,485.986,871.0637,480.576,860.556" style="stroke:#000000;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="133.2" x="496.8" y="993.082">Poll for messages</text><!--MD5=[b2998ba73c03ef8b267dc7858899e421]
+reverse link t1p1l to cons_an--><path d="M240.66,1024.548 C258.072,1060.572 288.408,1115.82 326.4,1154.4 C362.028,1190.58 411.324,1220.724 448.944,1240.728 " fill="none" id="t1p1l-backto-cons_an" style="stroke:#000000;stroke-width:1.2;"/><polygon fill="#000000" points="237.972,1018.932,238.2975,1030.7461,240.5589,1024.3457,246.9594,1026.6071,237.972,1018.932" style="stroke:#000000;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="133.2" x="327.6" y="1150.282">Poll for messages</text><!--MD5=[78f2cf091f2501815fdb4c4c8a46e227]
+reverse link t1p2l to cons_a1--><path d="M730.98,681.528 C724.14,796.092 703.464,1142.22 697.584,1240.764 " fill="none" id="t1p2l-backto-cons_a1" style="stroke:#000000;stroke-width:1.2;"/><polygon fill="#000000" points="731.352,675.288,725.912,685.7802,730.9916,681.2772,735.4947,686.3568,731.352,675.288" style="stroke:#000000;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="133.2" x="718.8" y="915.082">Poll for messages</text><!--MD5=[94d61bdccedf51f31fb26a8be9b5b115]
+link prod_1 to reg--><path d="M1380.948,455.616 C1299.996,473.16 1153.14,504.564 1027.2,529.2 C1003.788,533.784 991.584,522.252 974.4,538.8 C970.3035,542.7465 966.8648,547.2504 963.9845,552.1189 C963.2645,553.3361 962.5793,554.576 961.9275,555.8357 C961.6016,556.4655 961.2841,557.1003 960.9746,557.7396 " fill="none" id="prod_1-to-reg" style="stroke:#000000;stroke-width:1.2;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="960.9746,557.7396,969.9999,550.1092,963.5883,552.3389,961.3587,545.9273,960.9746,557.7396" style="stroke:#000000;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="102" x="1118.4" y="525.082">Input Schema</text><!--MD5=[6513f81990502e4698e2aab42301abc2]
+link cg_a to reg--><path d="M822.1277,1223.683 C823.288,1218.4921 824.5374,1212.9023 825.8679,1206.9497 C828.5289,1195.0446 831.5142,1181.6888 834.7588,1167.1723 C847.7374,1109.1064 864.8662,1032.4703 881.9955,955.8315 C899.1248,879.1927 916.2544,802.5514 929.2344,744.4749 C932.4795,729.9558 935.4651,716.597 938.1266,704.6887 C939.4573,698.7345 940.707,693.1429 941.8676,687.9502 " fill="none" id="cg_a-to-reg" style="stroke:#000000;stroke-width:1.2;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="941.8676,687.9502,934.8275,697.4432,940.5589,693.8057,944.1964,699.5371,941.8676,687.9502" style="stroke:#000000;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="103.2" x="895.2" y="915.082">Fetch Schema</text><!--MD5=[2318dfd9cbfd59535ccfc772ecf1ee05]
+@startuml
+<style>
+' TODO: Export to a generic style sheet
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+    BackGroundColor white
+    agent {
+        BackGroundColor palegreen
+    }
+    .Leader {
+        BackGroundColor gold
+    }
+    .Follower {
+        BackGroundColor lightgray
+    }
+    database {
+        BackGroundColor white
+    }
+    actor {
+        LineColor black
+    }
+    arrow {
+        LineColor black
+    }
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+node "Producer" as prod_1
+
+node "Kafka Server Ecosystem" as kafka {
+    node "Zookeeper Cluster" as zk_cluster {
+
+        node "Zookeeper 1" as zk_1
+        node "Zookeeper n" as zk_n
+    }
+
+    node "Kafka Cluster" as cluster {
+        node "Broker 1" as broker_1 {
+            collections "topic 1 - partition 0" <<Leader>> as t1p0l
+            collections "topic 1 - partition 2" <<Follower>> as t1p2r
+        }
+        node "Broker 2" as broker_2 {
+            collections "topic 1 - partition 0" <<Follower>> as t1p0r
+            collections "topic 1 - partition 1" <<Leader>> as t1p1l
+        }
+        node "Broker N" as broker_n {
+           collections "topic 1 - partition 2" <<Leader>> as t1p2l
+            collections "topic 1 - partition 1" <<Follower>> as t1p1r
+      }
+    }
+
+    node "Schema Registry Cluster" as reg {
+        node "Registry 1" as reg_1
+        node "Registry n" as reg_n
+    }
+
+    zk_cluster - -> cluster: Manages
+    cluster    ..> reg: Fetch Schema
+
+    ' Formatting
+    t1p2r -[hidden]- t1p0l
+    t1p0r -[hidden]- t1p1l
+    t1p1r -[hidden]- t1p2l
+
+    t1p0l .> t1p0r
+    t1p1l .> t1p1r
+    t1p2l .> t1p2r
+}
+
+node "Consumer Group" as cg_a {
+    node "Consumer 1" as cons_a1
+    node "Consumer N" as cons_an
+}
+
+' Producer -> Kafka
+prod_1 -> cluster: Send Messages
+
+' Kaf-ka -> Consumer
+t1p0l <- - - cons_an: Poll for messages
+t1p1l <- - - cons_an: Poll for messages
+t1p2l <- - - cons_a1: Poll for messages
+
+' Registry Handling
+prod_1 .> reg: Input Schema
+cg_a ..> reg: Fetch Schema
+
+
+@enduml
+
+@startuml
+<style>
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+    BackGroundColor white
+    agent {
+        BackGroundColor palegreen
+    }
+    .Leader {
+        BackGroundColor gold
+    }
+    .Follower {
+        BackGroundColor lightgray
+    }
+    database {
+        BackGroundColor white
+    }
+    actor {
+        LineColor black
+    }
+    arrow {
+        LineColor black
+    }
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+node "Producer" as prod_1
+
+node "Kafka Server Ecosystem" as kafka {
+    node "Zookeeper Cluster" as zk_cluster {
+
+        node "Zookeeper 1" as zk_1
+        node "Zookeeper n" as zk_n
+    }
+
+    node "Kafka Cluster" as cluster {
+        node "Broker 1" as broker_1 {
+            collections "topic 1 - partition 0" <<Leader>> as t1p0l
+            collections "topic 1 - partition 2" <<Follower>> as t1p2r
+        }
+        node "Broker 2" as broker_2 {
+            collections "topic 1 - partition 0" <<Follower>> as t1p0r
+            collections "topic 1 - partition 1" <<Leader>> as t1p1l
+        }
+        node "Broker N" as broker_n {
+           collections "topic 1 - partition 2" <<Leader>> as t1p2l
+            collections "topic 1 - partition 1" <<Follower>> as t1p1r
+      }
+    }
+
+    node "Schema Registry Cluster" as reg {
+        node "Registry 1" as reg_1
+        node "Registry n" as reg_n
+    }
+
+    zk_cluster - -> cluster: Manages
+    cluster    ..> reg: Fetch Schema
+
+    t1p2r -[hidden]- t1p0l
+    t1p0r -[hidden]- t1p1l
+    t1p1r -[hidden]- t1p2l
+
+    t1p0l .> t1p0r
+    t1p1l .> t1p1r
+    t1p2l .> t1p2r
+}
+
+node "Consumer Group" as cg_a {
+    node "Consumer 1" as cons_a1
+    node "Consumer N" as cons_an
+}
+
+prod_1 -> cluster: Send Messages
+
+t1p0l <- - - cons_an: Poll for messages
+t1p1l <- - - cons_an: Poll for messages
+t1p2l <- - - cons_a1: Poll for messages
+
+prod_1 .> reg: Input Schema
+cg_a ..> reg: Fetch Schema
+
+
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 10:49:39 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: LU
+--></g></svg>
