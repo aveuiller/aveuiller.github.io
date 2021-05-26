@@ -5,20 +5,11 @@ componentDiagram {
     LineColor darkblue
     TextColor blue
     BackGroundColor white
-    agent {
-        BackGroundColor palegreen
-    }
     .Leader {
         BackGroundColor gold
     }
     .Follower {
         BackGroundColor lightgray
-    }
-    database {
-        BackGroundColor white
-    }
-    actor {
-        LineColor black
     }
     arrow {
         LineColor black
@@ -31,44 +22,30 @@ document {
 
 node "Producer" as prod_1
 
-node "Kafka Server Ecosystem" as kafka {
-    node "Zookeeper Cluster" as zk_cluster {
+node "Zookeeper Cluster" as zk_cluster {
 
-        node "Zookeeper 1" as zk_1
-        node "Zookeeper n" as zk_n
+    node "Zookeeper 1" as zk_1
+    node "Zookeeper N" as zk_n
+}
+
+node "Kafka Cluster" as cluster {
+    node "Broker 1" as broker_1 {
+        collections "topic 1 - partition 0" <<Leader>> as t1p0l
+        collections "topic 1 - partition 2" <<Follower>> as t1p2r
     }
-
-    node "Kafka Cluster" as cluster {
-        node "Broker 1" as broker_1 {
-            collections "topic 1 - partition 0" <<Leader>> as t1p0l
-            collections "topic 1 - partition 2" <<Follower>> as t1p2r
-        }
-        node "Broker 2" as broker_2 {
-            collections "topic 1 - partition 0" <<Follower>> as t1p0r
-            collections "topic 1 - partition 1" <<Leader>> as t1p1l
-        }
-        node "Broker N" as broker_n {
-           collections "topic 1 - partition 2" <<Leader>> as t1p2l
-            collections "topic 1 - partition 1" <<Follower>> as t1p1r
-      }
+    node "Broker 2" as broker_2 {
+        collections "topic 1 - partition 0" <<Follower>> as t1p0r
+        collections "topic 1 - partition 1" <<Leader>> as t1p1l
     }
+    node "Broker N" as broker_n {
+       collections "topic 1 - partition 2" <<Leader>> as t1p2l
+        collections "topic 1 - partition 1" <<Follower>> as t1p1r
+  }
+}
 
-    node "Schema Registry Cluster" as reg {
-        node "Registry 1" as reg_1
-        node "Registry n" as reg_n
-    }
-
-    zk_cluster --> cluster: Manages
-    cluster    ..> reg: Fetch Schema
-
-    ' Formatting
-    t1p2r -[hidden]- t1p0l
-    t1p0r -[hidden]- t1p1l
-    t1p1r -[hidden]- t1p2l
-
-    t1p0l .> t1p0r
-    t1p1l .> t1p1r
-    t1p2l .> t1p2r
+node "Schema Registry Cluster" as reg {
+    node "Registry 1" as reg_1
+    node "Registry N" as reg_n
 }
 
 node "Consumer Group" as cg_a {
@@ -76,13 +53,20 @@ node "Consumer Group" as cg_a {
     node "Consumer N" as cons_an
 }
 
+zk_cluster --> cluster: Manages
+cluster    .> reg: Fetch Schema
+
+t1p0l ..> t1p0r
+t1p1l ..> t1p1r
+t1p2l ..> t1p2r
+
 ' Producer -> Kafka
-prod_1 -> cluster: Send Messages
+prod_1 --> cluster: Send Messages
 
 ' Kaf-ka -> Consumer
-t1p0l <--- cons_an: Poll for messages
-t1p1l <--- cons_an: Poll for messages
-t1p2l <--- cons_a1: Poll for messages
+t1p0l <-- cons_an
+t1p1l <-- cons_a1
+t1p2l <-- cons_a1
 
 ' Registry Handling
 prod_1 .> reg: Input Schema
