@@ -2,8 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Antoine Veuiller - Software Engineering</title><link href="https://aveuiller.github.io/" rel="alternate"></link><link href="https://aveuiller.github.io/feeds/software-engineering.atom.xml" rel="self"></link><id>https://aveuiller.github.io/</id><updated>2021-05-10T00:00:00+02:00</updated><entry><title>Kubernetes: Apprentice Cookbook</title><link href="https://aveuiller.github.io/kubernetes_apprentice_cookbook.html" rel="alternate"></link><published>2021-05-10T00:00:00+02:00</published><updated>2021-05-10T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-05-10:/kubernetes_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Kubernetes big picture and common use&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
 &lt;p&gt;This article can be found on other sources:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/kubernetes-apprentice-cookbook-90d8c11ccfc3"&gt;Canonical link&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Dev.to: &lt;a href="https://dev.to/aveuiller/kubernetes-apprentice-cookbook-4j6h"&gt;Canonical link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hacker Noon: &lt;a href="https://hackernoon.com/the-apprentices-guide-to-kubernetes-qp3k3443"&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/kubernetes-apprentice-cookbook-90d8c11ccfc3"&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dev.to: &lt;a href="https://dev.to/aveuiller/kubernetes-apprentice-cookbook-4j6h"&gt;link&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;img alt="Kubernetes Logo" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_logo.png" /&gt;&lt;/p&gt;
@@ -688,7 +689,7 @@ as you can see on the following table describing equivalent operations between b
 &lt;p&gt;&lt;em&gt;Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews&lt;/em&gt;&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Cheat sheet"></category></entry><entry><title>Spring Boot: Apprentice Cookbook</title><link href="https://aveuiller.github.io/spring_boot_apprentice_cookbook.html" rel="alternate"></link><published>2021-01-27T00:00:00+01:00</published><updated>2021-01-27T00:00:00+01:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-01-27:/spring_boot_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Spring Boot cheat sheet to bootstrap an API&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
 &lt;p&gt;This article can be found on other sources:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/spring-boot-apprentice-cookbook-61db5a3f6450"&gt;Canonical link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/spring-boot-apprentice-cookbook-61db5a3f6450"&gt;link&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;img alt="Spring Boot logo" src="https://cdn-images-1.medium.com/max/800/1*gxXLMIuJDHCH7fwIgEP1cg.png" /&gt;&lt;/p&gt;
@@ -1219,7 +1220,7 @@ This makes it a good framework to design proof of concepts while keeping room fo
 &lt;p&gt;If you want to play around with some code, you can find all those concepts on an example delivery API &lt;a href="https://github.com/aveuiller/frameworks-bootstrap/tree/master/SpringBoot"&gt;on GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Cheat sheet"></category></entry><entry><title>Introduction to Flaky Tests by Example</title><link href="https://aveuiller.github.io/introduction_to_flaky_tests_by_example.html" rel="alternate"></link><published>2020-08-10T00:00:00+02:00</published><updated>2020-08-10T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2020-08-10:/introduction_to_flaky_tests_by_example.html</id><summary type="html">&lt;p&gt;Some real world examples of flaky tests&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
 &lt;p&gt;This article can be found on other sources:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/stories-of-flaky-test-encounters-in-the-wild-a152bf7151f5"&gt;Canonical link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/stories-of-flaky-test-encounters-in-the-wild-a152bf7151f5"&gt;link&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;img alt="Flakiness effect" src="https://cdn-images-1.medium.com/max/800/1*Fg6u08KdLaqYd4dJsS_Row.gif" /&gt;&lt;/p&gt;
@@ -1372,7 +1373,7 @@ Either the new test was injecting something new to the global state, or removing
 &lt;p&gt;If you are curious about the context that led to the apparition of those flaky tests, my former manager &lt;a href="https://kevin.deldycke.com/"&gt;Kevin Deldycke&lt;/a&gt; provides a more detailed view in a very interesting post: &lt;a href="https://kevin.deldycke.com/2020/10/billing-pipeline-critical-time-sensitive-system/"&gt;&lt;em&gt;Billing Pipeline: A Critical Time Sensitive System&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Testing"></category><category term="Best Practice"></category></entry><entry><title>About design patterns: Dependency Injection</title><link href="https://aveuiller.github.io/about_design_patterns-dependency_injection.html" rel="alternate"></link><published>2020-01-05T00:00:00+01:00</published><updated>2020-01-05T00:00:00+01:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2020-01-05:/about_design_patterns-dependency_injection.html</id><summary type="html">&lt;p&gt;A walk through dependency injection&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
 &lt;p&gt;This article can be found on other sources:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/about-design-patterns-dependency-injection-ab9c1742d4aa"&gt;Canonical link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/about-design-patterns-dependency-injection-ab9c1742d4aa"&gt;link&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;img alt="credit photo: Bamboo Complexity, taufuuu" src="https://cdn-images-1.medium.com/max/800/1*1WZ618ZBnWNaYy8-XzsX0g.jpeg" /&gt;&lt;/p&gt;
