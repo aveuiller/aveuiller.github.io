@@ -11,7 +11,7 @@ Summary: Some real world examples of flaky tests
 
 This article can be found on other sources:
 
-- Medium: [Canonical link](https://medium.com/@aveuiller/stories-of-flaky-test-encounters-in-the-wild-a152bf7151f5)
+- Medium: [link](https://medium.com/@aveuiller/stories-of-flaky-test-encounters-in-the-wild-a152bf7151f5)
 
 -----
 

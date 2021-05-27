@@ -11,7 +11,7 @@ Summary: Spring Boot cheat sheet to bootstrap an API
 
 This article can be found on other sources:
 
-- Medium: [Canonical link](https://medium.com/@aveuiller/spring-boot-apprentice-cookbook-61db5a3f6450)
+- Medium: [link](https://medium.com/@aveuiller/spring-boot-apprentice-cookbook-61db5a3f6450)
 
 -----
 

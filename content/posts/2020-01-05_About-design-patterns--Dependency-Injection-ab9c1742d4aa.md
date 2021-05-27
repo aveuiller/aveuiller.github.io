@@ -11,7 +11,7 @@ Summary: A walk through dependency injection
 
 This article can be found on other sources:
 
- - Medium: [Canonical link](https://medium.com/@aveuiller/about-design-patterns-dependency-injection-ab9c1742d4aa)
+ - Medium: [link](https://medium.com/@aveuiller/about-design-patterns-dependency-injection-ab9c1742d4aa)
 
 -----
 

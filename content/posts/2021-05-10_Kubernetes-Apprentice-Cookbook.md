@@ -11,8 +11,9 @@ Summary: Kubernetes big picture and common use
 
 This article can be found on other sources:
 
-- Medium: [Canonical link](https://medium.com/@aveuiller/kubernetes-apprentice-cookbook-90d8c11ccfc3)
-- Dev.to: [Canonical link](https://dev.to/aveuiller/kubernetes-apprentice-cookbook-4j6h)
+- Hacker Noon: [link](https://hackernoon.com/the-apprentices-guide-to-kubernetes-qp3k3443)
+- Medium: [link](https://medium.com/@aveuiller/kubernetes-apprentice-cookbook-90d8c11ccfc3)
+- Dev.to: [link](https://dev.to/aveuiller/kubernetes-apprentice-cookbook-4j6h)
 
 -----
 
