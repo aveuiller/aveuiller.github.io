@@ -2,9 +2,7 @@
 title: About Me
 ---
 
-## Presentation
-
-I am a software engineer specialized in backend development who tries to keep an eye on every aspect
+I am a software engineer specialized in backend development, but I try to keep an eye on every aspect
 of the information technology spectrum.
 
 I aim to design elegant, maintainable and reusable software systems and deploy those using DevOps practices.
@@ -12,17 +10,22 @@ I aim to design elegant, maintainable and reusable software systems and deploy t
 ## Opensource
 
 I try to redistribute to the opensource community as often as possible.
-Here is an extract of repositories I created:
+Here is an extract of libraries I created:
 
-- [Use JavaScript in Android with ease](https://github.com/APISENSE/rhino-android)!
-- [Deploy an Influx database on the fly to test your java code](https://github.com/APISENSE/embed-influxDB)!
+- [Rhino-Android](https://github.com/APISENSE/rhino-android): use JavaScript in Android with ease!
+- [Embed-InfluxDB](https://github.com/APISENSE/embed-influxDB): Deploy an Influx database on the fly to test your java code!
 
 ## Blogging
 
 In the same fashion as for open source, I aim to spread knowledge as much as possible.
-I already wrote a few articles, and am still actively looking for subject to write about.
+I already wrote a few articles, and am actively looking for subject to write about.
 
-You can find my articles on [the website home page](/)!
+You can find my articles on the following websites, chose the one that suits you most:
+
+- [This blog](/)
+- [Medium](https://aveuiller.medium.com/)
+- [Dev.to](https://dev.to/aveuiller)
+- [Hacker Noon](https://hackernoon.com/u/aveuiller)
 
 ## Career
 
