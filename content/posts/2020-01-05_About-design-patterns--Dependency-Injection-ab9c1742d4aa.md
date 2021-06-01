@@ -15,7 +15,7 @@ This article can be found on other sources:
 
 -----
 
-![credit photo: [Bamboo Complexity, taufuuu](https://www.flickr.com/photos/ghailon/13082228923/)](https://cdn-images-1.medium.com/max/800/1*1WZ618ZBnWNaYy8-XzsX0g.jpeg)
+![credit photo: [Bamboo Complexity, taufuuu](https://www.flickr.com/photos/ghailon/13082228923/)](/images/posts/2020-01-05_About-design-patterns--Dependency-Injection/bamboo_complexity.jpeg)
 
 ### What is dependency injection?
 

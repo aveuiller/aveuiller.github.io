@@ -15,7 +15,7 @@ This article can be found on other sources:
 
 -----
 
-![Flakiness effect](https://cdn-images-1.medium.com/max/800/1*Fg6u08KdLaqYd4dJsS_Row.gif)
+![Flakiness effect](/images/posts/2020-08-10_Introduction-to-Flaky-Tests-by-Example/red_light.gif)
 
 Tests are an essential part of software development as they give a ground truth about the code sanity. As developers, we reasonably expect our unit tests to give the same results if the source code does not change. It can happen, however, that the result of a unit test changes over multiple executions of a test suite without any change in the code. Such a test is named a flaky test.
 
@@ -24,7 +24,7 @@ A flaky test is not dangerous _per se_ but reduces the confidence a developer ca
 However, depending on the origin of the flakiness, one may find out only a few days, months or even years later that the tests are flaky.
 It may be hard to dive back into those and find the root causes, [so usually, we tend to put those tests aside to make them less annoying or we rerun them until success](https://martinfowler.com/articles/nonDeterminism.html).
 
-![Fingers crossed](https://cdn-images-1.medium.com/max/800/1*eFhEUMDPbFZbJyh66G1hQQ.gif)
+![Fingers crossed](/images/posts/2020-08-10_Introduction-to-Flaky-Tests-by-Example/fingers_crossed.gif)
 
 As a real-world example of flaky tests and the logic behind their resolution. I will talk about two interesting cases I had the opportunity to fix during my career.
 
