@@ -2,7 +2,7 @@ Title: Kubernetes: Apprentice Cookbook
 Slug: kubernetes_apprentice_cookbook
 Date: 2021-05-10
 Category: Software Engineering
-Tags: Cheat sheet
+Tags: Cheat sheet, DevOps, Kubernetes, Cloud
 Author: Antoine Veuiller
 Summary: Kubernetes big picture and common use
 -----

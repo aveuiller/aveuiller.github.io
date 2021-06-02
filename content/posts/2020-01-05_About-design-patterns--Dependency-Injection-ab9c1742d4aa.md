@@ -2,7 +2,7 @@ Title: About design patterns: Dependency Injection
 Slug: about_design_patterns-dependency_injection
 Date: 2020-01-05
 Category: Software Engineering
-Tags: Design Patterns, Dependency Injection, Best Practice
+Tags: Design Patterns, Best Practice, Software Architecture
 Author: Antoine Veuiller
 Summary: A walk through dependency injection
 -----

@@ -2,7 +2,7 @@ Title: Spring Boot: Apprentice Cookbook
 Slug: spring_boot_apprentice_cookbook
 Date: 2021-01-27
 Category: Software Engineering
-Tags: Cheat sheet
+Tags: Cheat sheet, Java, Spring Boot
 Author: Antoine Veuiller
 Summary: Spring Boot cheat sheet to bootstrap an API
 -----
