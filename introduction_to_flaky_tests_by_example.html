@@ -119,12 +119,12 @@
 <li>Medium: <a href="https://medium.com/@aveuiller/stories-of-flaky-test-encounters-in-the-wild-a152bf7151f5">link</a></li>
 </ul>
 <hr>
-<p><img alt="Flakiness effect" src="https://cdn-images-1.medium.com/max/800/1*Fg6u08KdLaqYd4dJsS_Row.gif" class="img-fluid border rounded shadow"></p>
+<p><img alt="Flakiness effect" src="/images/posts/2020-08-10_Introduction-to-Flaky-Tests-by-Example/red_light.gif" class="img-fluid border rounded shadow image-process-article-photo"></p>
 <p>Tests are an essential part of software development as they give a ground truth about the code sanity. As developers, we reasonably expect our unit tests to give the same results if the source code does not change. It can happen, however, that the result of a unit test changes over multiple executions of a test suite without any change in the code. Such a test is named a flaky test.</p>
 <p>A flaky test is not dangerous <em>per se</em> but reduces the confidence a developer can give to his test suite, diminishing the benefits of the latter. It is thus recommended to eradicate such issue as soon as possible.</p>
 <p>However, depending on the origin of the flakiness, one may find out only a few days, months or even years later that the tests are flaky.
 It may be hard to dive back into those and find the root causes, <a href="https://martinfowler.com/articles/nonDeterminism.html">so usually, we tend to put those tests aside to make them less annoying or we rerun them until success</a>.</p>
-<p><img alt="Fingers crossed" src="https://cdn-images-1.medium.com/max/800/1*eFhEUMDPbFZbJyh66G1hQQ.gif" class="img-fluid border rounded shadow"></p>
+<p><img alt="Fingers crossed" src="/images/posts/2020-08-10_Introduction-to-Flaky-Tests-by-Example/fingers_crossed.gif" class="img-fluid border rounded shadow image-process-article-photo"></p>
 <p>As a real-world example of flaky tests and the logic behind their resolution. I will talk about two interesting cases I had the opportunity to fix during my career.</p>
 <h3>Storytime!</h3>
 <p>During my career, I stumbled onto a couple of flaky tests issues. There are two instances that, in my opinion, are quite symptomatic of test flakiness, with quite different contexts.</p>

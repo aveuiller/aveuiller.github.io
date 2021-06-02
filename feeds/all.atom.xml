@@ -686,7 +686,7 @@ as you can see on the following table describing equivalent operations between b
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;em&gt;Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews&lt;/em&gt;&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Cheat sheet"></category></entry><entry><title>Spring Boot: Apprentice Cookbook</title><link href="https://aveuiller.github.io/spring_boot_apprentice_cookbook.html" rel="alternate"></link><published>2021-01-27T00:00:00+01:00</published><updated>2021-01-27T00:00:00+01:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-01-27:/spring_boot_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Spring Boot cheat sheet to bootstrap an API&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews&lt;/em&gt;&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Cheat sheet"></category><category term="DevOps"></category><category term="Kubernetes"></category><category term="Cloud"></category></entry><entry><title>Spring Boot: Apprentice Cookbook</title><link href="https://aveuiller.github.io/spring_boot_apprentice_cookbook.html" rel="alternate"></link><published>2021-01-27T00:00:00+01:00</published><updated>2021-01-27T00:00:00+01:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-01-27:/spring_boot_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Spring Boot cheat sheet to bootstrap an API&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
 &lt;p&gt;This article can be found on other sources:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/spring-boot-apprentice-cookbook-61db5a3f6450"&gt;link&lt;/a&gt;&lt;/li&gt;
@@ -1217,18 +1217,18 @@ Mostly, &lt;code&gt;MockMvc&lt;/code&gt; will enable us to send requests and ass
 However, most of the configuration can be overridden to provide your own behavior if necessary. 
 This makes it a good framework to design proof of concepts while keeping room for optimization if the project grows specific needs.&lt;/p&gt;
 &lt;p&gt;If you want to know more about the framework, I can’t stress enough the quality of the &lt;a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/"&gt;Reference Documentation&lt;/a&gt;, which gives really good details.&lt;/p&gt;
-&lt;p&gt;If you want to play around with some code, you can find all those concepts on an example delivery API &lt;a href="https://github.com/aveuiller/frameworks-bootstrap/tree/master/SpringBoot"&gt;on GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Cheat sheet"></category></entry><entry><title>Introduction to Flaky Tests by Example</title><link href="https://aveuiller.github.io/introduction_to_flaky_tests_by_example.html" rel="alternate"></link><published>2020-08-10T00:00:00+02:00</published><updated>2020-08-10T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2020-08-10:/introduction_to_flaky_tests_by_example.html</id><summary type="html">&lt;p&gt;Some real world examples of flaky tests&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
+&lt;p&gt;If you want to play around with some code, you can find all those concepts on an example delivery API &lt;a href="https://github.com/aveuiller/frameworks-bootstrap/tree/master/SpringBoot"&gt;on GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Cheat sheet"></category><category term="Java"></category><category term="Spring Boot"></category></entry><entry><title>Introduction to Flaky Tests by Example</title><link href="https://aveuiller.github.io/introduction_to_flaky_tests_by_example.html" rel="alternate"></link><published>2020-08-10T00:00:00+02:00</published><updated>2020-08-10T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2020-08-10:/introduction_to_flaky_tests_by_example.html</id><summary type="html">&lt;p&gt;Some real world examples of flaky tests&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
 &lt;p&gt;This article can be found on other sources:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/stories-of-flaky-test-encounters-in-the-wild-a152bf7151f5"&gt;link&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img alt="Flakiness effect" src="https://cdn-images-1.medium.com/max/800/1*Fg6u08KdLaqYd4dJsS_Row.gif" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Flakiness effect" src="/images/posts/2020-08-10_Introduction-to-Flaky-Tests-by-Example/red_light.gif" /&gt;&lt;/p&gt;
 &lt;p&gt;Tests are an essential part of software development as they give a ground truth about the code sanity. As developers, we reasonably expect our unit tests to give the same results if the source code does not change. It can happen, however, that the result of a unit test changes over multiple executions of a test suite without any change in the code. Such a test is named a flaky test.&lt;/p&gt;
 &lt;p&gt;A flaky test is not dangerous &lt;em&gt;per se&lt;/em&gt; but reduces the confidence a developer can give to his test suite, diminishing the benefits of the latter. It is thus recommended to eradicate such issue as soon as possible.&lt;/p&gt;
 &lt;p&gt;However, depending on the origin of the flakiness, one may find out only a few days, months or even years later that the tests are flaky.
 It may be hard to dive back into those and find the root causes, &lt;a href="https://martinfowler.com/articles/nonDeterminism.html"&gt;so usually, we tend to put those tests aside to make them less annoying or we rerun them until success&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Fingers crossed" src="https://cdn-images-1.medium.com/max/800/1*eFhEUMDPbFZbJyh66G1hQQ.gif" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Fingers crossed" src="/images/posts/2020-08-10_Introduction-to-Flaky-Tests-by-Example/fingers_crossed.gif" /&gt;&lt;/p&gt;
 &lt;p&gt;As a real-world example of flaky tests and the logic behind their resolution. I will talk about two interesting cases I had the opportunity to fix during my career.&lt;/p&gt;
 &lt;h3&gt;Storytime!&lt;/h3&gt;
 &lt;p&gt;During my career, I stumbled onto a couple of flaky tests issues. There are two instances that, in my opinion, are quite symptomatic of test flakiness, with quite different contexts.&lt;/p&gt;
@@ -1376,7 +1376,7 @@ Either the new test was injecting something new to the global state, or removing
 &lt;li&gt;Medium: &lt;a href="https://medium.com/@aveuiller/about-design-patterns-dependency-injection-ab9c1742d4aa"&gt;link&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img alt="credit photo: Bamboo Complexity, taufuuu" src="https://cdn-images-1.medium.com/max/800/1*1WZ618ZBnWNaYy8-XzsX0g.jpeg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="credit photo: Bamboo Complexity, taufuuu" src="/images/posts/2020-01-05_About-design-patterns--Dependency-Injection/bamboo_complexity.jpeg" /&gt;&lt;/p&gt;
 &lt;h3&gt;What is dependency injection?&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Dependency injection&lt;/em&gt; (DI) is a very simple concept that aims to decouple components of your software and ease their integration and testing. It does so by asking for their sub-components instead of creating them.&lt;/p&gt;
 &lt;p&gt;During this article, we will also mention &lt;em&gt;inversion of control&lt;/em&gt; (IoC), which is commonly used along with dependency injection. This pattern aims to avoid asking for implementations but rather interfaces while injecting dependencies.&lt;/p&gt;
@@ -1549,4 +1549,4 @@ The injection will then be bound to a specific name, “&lt;em&gt;temp_unit”&l
 &lt;li&gt;&lt;em&gt;Enhanced testability&lt;/em&gt;: Unit tests almost become a pleasure to write.&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Configurability&lt;/em&gt;: you can more easily swap injected instances.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href="https://github.com/aveuiller/design-tutorials"&gt;You can find the full code example in my design tutorials repository on GitHub&lt;/a&gt;&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Design Patterns"></category><category term="Dependency Injection"></category><category term="Best Practice"></category></entry></feed>
+&lt;p&gt;&lt;a href="https://github.com/aveuiller/design-tutorials"&gt;You can find the full code example in my design tutorials repository on GitHub&lt;/a&gt;&lt;/p&gt;</content><category term="Software Engineering"></category><category term="Design Patterns"></category><category term="Best Practice"></category><category term="Software Architecture"></category></entry></feed>
