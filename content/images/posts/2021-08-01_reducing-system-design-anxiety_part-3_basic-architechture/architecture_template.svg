@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1476px" preserveAspectRatio="none" style="width:1498px;height:1476px;background:#FFFFFF;" version="1.1" viewBox="0 0 1498 1476" width="1498px" zoomAndPan="magnify"><defs><filter height="300%" id="fyo4lu7pvpbie" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[99b31deea5d7419a569cd5090bf83263]
+cluster System--><polygon fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" points="32,268,148,268,162,312.9766,1464,312.9766,1464,1462,32,1462,32,268" style="stroke:#00008B;stroke-width:4.0;"/><line style="stroke:#00008B;stroke-width:4.0;" x1="32" x2="162" y1="312.9766" y2="312.9766"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="104" x="40" y="299.0703">System</text><!--MD5=[220413b00d161ab12727471208d507f8]
+cluster main_component--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="870" style="stroke:#00008B;stroke-width:4.0;" width="644" x="80" y="544"/><rect fill="#FFFFFF" height="20" style="stroke:#00008B;stroke-width:4.0;" width="30" x="684" y="554"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="680" y="558"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="680" y="566"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="246" x="279" y="597.0703">Main Component</text><!--MD5=[f02f6db55c6bb827b176242ee0e41788]
+cluster main_lb--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="206" style="stroke:#00008B;stroke-width:4.0;" width="396" x="254" y="646"/><rect fill="#FFFFFF" height="20" style="stroke:#00008B;stroke-width:4.0;" width="30" x="610" y="656"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="606" y="660"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="606" y="668"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="216" x="344" y="699.0703">Load Balancing</text><!--MD5=[3950d498a214aba340a3374c523f809e]
+cluster main_service--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="174" style="stroke:#00008B;stroke-width:4.0;" width="494" x="182" y="934"/><rect fill="#FFFFFF" height="20" style="stroke:#00008B;stroke-width:4.0;" width="30" x="636" y="944"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="632" y="948"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="632" y="956"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="100" x="379" y="987.0703">Service</text><!--MD5=[cd776bbbb7068fa5a9539135a8ea9326]
+cluster main_db--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="192" style="stroke:#00008B;stroke-width:4.0;" width="548" x="128" y="1174"/><rect fill="#FFFFFF" height="20" style="stroke:#00008B;stroke-width:4.0;" width="30" x="636" y="1184"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="632" y="1188"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="632" y="1196"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="132" x="336" y="1227.0703">Database</text><!--MD5=[44772d468965b3afa2ad6f127c1893f3]
+cluster auth_component--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="870" style="stroke:#00008B;stroke-width:4.0;" width="644" x="772" y="544"/><rect fill="#FFFFFF" height="20" style="stroke:#00008B;stroke-width:4.0;" width="30" x="1376" y="554"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="1372" y="558"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="1372" y="566"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="244" x="972" y="597.0703">Auth Component</text><!--MD5=[2580da0597fc1eca9b8c95b9da50b644]
+cluster auth_lb--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="206" style="stroke:#00008B;stroke-width:4.0;" width="396" x="858" y="646"/><rect fill="#FFFFFF" height="20" style="stroke:#00008B;stroke-width:4.0;" width="30" x="1214" y="656"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="1210" y="660"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="1210" y="668"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="216" x="948" y="699.0703">Load Balancing</text><!--MD5=[08641cc41e8137c4e8c4c9b9f43fef93]
+cluster auth_service--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="174" style="stroke:#00008B;stroke-width:4.0;" width="494" x="838" y="934"/><rect fill="#FFFFFF" height="20" style="stroke:#00008B;stroke-width:4.0;" width="30" x="1292" y="944"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="1288" y="948"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="1288" y="956"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="100" x="1035" y="987.0703">Service</text><!--MD5=[f56ed7a3b40f5440e6ee82f212abb7da]
+cluster auth_db--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="192" style="stroke:#00008B;stroke-width:4.0;" width="548" x="820" y="1174"/><rect fill="#FFFFFF" height="20" style="stroke:#00008B;stroke-width:4.0;" width="30" x="1328" y="1184"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="1324" y="1188"/><rect fill="#FFFFFF" height="4" style="stroke:#00008B;stroke-width:4.0;" width="8" x="1324" y="1196"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="132" x="1028" y="1227.0703">Database</text><!--MD5=[5f97cdfbafef6a5cbddfbf6bdd3803d1]
+entity gw--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="72.9766" style="stroke:#00008B;stroke-width:2.0;" width="206" x="771" y="358"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="166" x="791" y="405.0703">API Gateway</text><path d="M64,338 L64,449.8633 A0,0 0 0 0 64,449.8633 L700,449.8633 A0,0 0 0 0 700,449.8633 L700,402 L770.72,394 L700,386 L700,358 L680,338 L64,338 A0,0 0 0 0 64,338 " fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" style="stroke:#A80036;stroke-width:2.0;"/><path d="M680,338 L680,358 L700,358 L680,338 " fill="#FFFFFF" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="594" x="76" y="373.1367">An API Gateway can be overkill in lots of cases,</text><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="534" x="76" y="403.7578">so the redirection to services may be done</text><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="234" x="76" y="434.3789">using DNS entries.</text><!--MD5=[350d49b976f92f04fce98d7d541f7a4f]
+entity main_lb_1--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="72.9766" style="stroke:#00008B;stroke-width:2.0;" width="96" x="340" y="732"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="56" x="360" y="779.0703">LB 1</text><!--MD5=[1bb530043c24a2d963f849455c4b1662]
+entity main_lb_2--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="72.9766" style="stroke:#00008B;stroke-width:2.0;" width="96" x="506" y="732"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="56" x="526" y="779.0703">LB 2</text><!--MD5=[818b0aa053732928b4de08d51d643a23]
+entity main_s_1--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="72.9766" style="stroke:#00008B;stroke-width:2.0;" width="180" x="214" y="1004"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="140" x="234" y="1051.0703">Instance 1</text><!--MD5=[bf4a47f089f329217cabc9a925ababbe]
+entity main_s_2--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="72.9766" style="stroke:#00008B;stroke-width:2.0;" width="180" x="464" y="1004"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="140" x="484" y="1051.0703">Instance 2</text><!--MD5=[b8d17272b28a1c0bb743773bede6f83d]
+entity main_db_master--><path d="M160,1264 C160,1244 226,1244 226,1244 C226,1244 292,1244 292,1264 L292,1314.9766 C292,1334.9766 226,1334.9766 226,1334.9766 C226,1334.9766 160,1334.9766 160,1314.9766 L160,1264 " fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" style="stroke:#00008B;stroke-width:2.0;"/><path d="M160,1264 C160,1284 226,1284 226,1284 C226,1284 292,1284 292,1264 " fill="none" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="92" x="180" y="1319.0703">Master</text><!--MD5=[8379a6c73aaa081961cb38ee83b9bb3e]
+entity main_db_replica--><path d="M505,1264 C505,1244 574,1244 574,1244 C574,1244 643,1244 643,1264 L643,1314.9766 C643,1334.9766 574,1334.9766 574,1334.9766 C574,1334.9766 505,1334.9766 505,1314.9766 L505,1264 " fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" style="stroke:#00008B;stroke-width:2.0;"/><path d="M505,1264 C505,1284 574,1284 574,1284 C574,1284 643,1284 643,1264 " fill="none" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="98" x="525" y="1319.0703">Replica</text><!--MD5=[daf235ca7fabe14f737173a5f56dd8db]
+entity auth_lb_1--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="72.9766" style="stroke:#00008B;stroke-width:2.0;" width="96" x="944" y="732"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="56" x="964" y="779.0703">LB 1</text><!--MD5=[9e8e2a15b23c56f9c62980e39ab1c3d6]
+entity auth_lb_2--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="72.9766" style="stroke:#00008B;stroke-width:2.0;" width="96" x="1110" y="732"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="56" x="1130" y="779.0703">LB 2</text><!--MD5=[00c58b159a518a0d92403f14f7678126]
+entity auth_s_1--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="72.9766" style="stroke:#00008B;stroke-width:2.0;" width="180" x="870" y="1004"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="140" x="890" y="1051.0703">Instance 1</text><!--MD5=[42bf98d0e519ea3bf0104a2e6d80a135]
+entity auth_s_2--><rect fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" height="72.9766" style="stroke:#00008B;stroke-width:2.0;" width="180" x="1120" y="1004"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="140" x="1140" y="1051.0703">Instance 2</text><!--MD5=[a6f6b369cc8873d2007ff1ab4f00da4c]
+entity auth_db_master--><path d="M852,1264 C852,1244 918,1244 918,1244 C918,1244 984,1244 984,1264 L984,1314.9766 C984,1334.9766 918,1334.9766 918,1334.9766 C918,1334.9766 852,1334.9766 852,1314.9766 L852,1264 " fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" style="stroke:#00008B;stroke-width:2.0;"/><path d="M852,1264 C852,1284 918,1284 918,1284 C918,1284 984,1284 984,1264 " fill="none" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="92" x="872" y="1319.0703">Master</text><!--MD5=[9f28087387b73622b9f3f11ef6401ac1]
+entity auth_db_replica--><path d="M1197,1264 C1197,1244 1266,1244 1266,1244 C1266,1244 1335,1244 1335,1264 L1335,1314.9766 C1335,1334.9766 1266,1334.9766 1266,1334.9766 C1266,1334.9766 1197,1334.9766 1197,1314.9766 L1197,1264 " fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" style="stroke:#00008B;stroke-width:2.0;"/><path d="M1197,1264 C1197,1284 1266,1284 1266,1284 C1266,1284 1335,1284 1335,1264 " fill="none" style="stroke:#00008B;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="98" x="1217" y="1319.0703">Replica</text><!--MD5=[8fc3522a43f8c7199df5e09e5bb0188e]
+entity user--><ellipse cx="874" cy="28" fill="#FFFFFF" filter="url(#fyo4lu7pvpbie)" rx="16" ry="16" style="stroke:#00008B;stroke-width:4.0;"/><path d="M874,44 L874,98 M848,60 L900,60 M874,98 L848,128 M874,98 L900,128 " fill="none" filter="url(#fyo4lu7pvpbie)" style="stroke:#00008B;stroke-width:4.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="278" x="735" y="169.0703">User via website/API</text><!--MD5=[bb76fa08d78084a795092c19e40bbec0]
+link main_db_master to main_db_replica--><path d="M292.28,1289 C349.88,1289 433.46,1289 494.62,1289 " fill="none" id="main_db_master-to-main_db_replica" style="stroke:#000000;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="505,1289,487,1281,495,1289,487,1297,505,1289" style="stroke:#000000;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="140" x="328.5" y="1276.1367">Replication</text><!--MD5=[b29d7ce79274a276b999e6178495bae6]
+link main_lb_1 to main_s_1--><path d="M377.2,804.48 C362.06,852.74 334.6,940.4 317.94,993.5 " fill="none" id="main_lb_1-to-main_s_1" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="314.76,1003.64,327.7496,988.8323,317.733,994.0922,312.4731,984.0755,314.76,1003.64" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[aee69690dafaf287c9021063b9a64139]
+link main_lb_1 to main_s_2--><path d="M409.36,804.48 C439.5,853.14 494.46,941.86 527.26,994.82 " fill="none" id="main_lb_1-to-main_s_2" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="532.72,1003.64,530.041,984.1253,527.4535,995.1392,516.4396,992.5517,532.72,1003.64" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[7e9f4fd124e1b013e1cecfea31c18c63]
+link main_lb_2 to main_s_1--><path d="M532.2,804.18 C516.34,827.8 493.6,859.3 470,884 C453.4,901.36 445.98,902.08 428,918 C399.54,943.2 368.84,972.9 345.1,996.44 " fill="none" id="main_lb_2-to-main_s_1" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="337.96,1003.54,356.359,996.5061,345.0453,996.4832,345.0682,985.1695,337.96,1003.54" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[9ad67db751f0bce66f9b230fd001c90f]
+link main_lb_2 to main_s_2--><path d="M554,804.48 C554,852.74 554,940.4 554,993.5 " fill="none" id="main_lb_2-to-main_s_2" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="554,1003.64,562,985.64,554,993.64,546,985.64,554,1003.64" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[d5afa6d1a4aac110b84018d876c4499d]
+link main_s_1 to main_db_master--><path d="M293.16,1076.06 C280.18,1116.82 258.3,1185.54 243.06,1233.42 " fill="none" id="main_s_1-to-main_db_master" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="239.92,1243.3,252.9901,1228.5633,242.945,1233.7685,237.7397,1223.7233,239.92,1243.3" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[8e006861a62709735127fd27c4e9007d]
+link main_s_2 to main_db_master--><path d="M508.4,1076.06 C452.3,1117.96 356.62,1189.44 292.38,1237.42 " fill="none" id="main_s_2-to-main_db_master" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="283.92,1243.74,303.1374,1239.4168,291.9439,1237.772,293.5887,1226.5785,283.92,1243.74" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[654e7adbcb8a61a29070b254133b2ed2]
+link main_s_1 to main_db_replica--><path d="M341.54,1076.06 C387.4,1117.68 465.36,1188.42 518.24,1236.4 " fill="none" id="main_s_1-to-main_db_replica" style="stroke:#000000;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="525.84,1243.3,517.9232,1225.2632,518.4484,1236.5648,507.1468,1237.0899,525.84,1243.3" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[d0260c366d4488594cb5c0f6b62ccd73]
+link main_s_2 to main_db_replica--><path d="M556.78,1076.06 C560.1,1116.64 565.68,1184.96 569.58,1232.82 " fill="none" id="main_s_2-to-main_db_replica" style="stroke:#000000;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="570.44,1243.3,576.9706,1224.7164,569.638,1233.3322,561.0222,1225.9996,570.44,1243.3" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[7210c97aba1552de2af4f16b5cc0431c]
+link auth_db_master to auth_db_replica--><path d="M984.28,1289 C1041.88,1289 1125.46,1289 1186.62,1289 " fill="none" id="auth_db_master-to-auth_db_replica" style="stroke:#000000;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="1197,1289,1179,1281,1187,1289,1179,1297,1197,1289" style="stroke:#000000;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacing" textLength="140" x="1020.5" y="1276.1367">Replication</text><!--MD5=[b87e2d3edc4548c2caadde273535b31c]
+link auth_lb_1 to auth_s_1--><path d="M987.88,804.48 C982.12,852.74 971.66,940.4 965.32,993.5 " fill="none" id="auth_lb_1-to-auth_s_1" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="964.1,1003.64,974.2049,986.7317,965.3016,993.7125,958.3209,984.8091,964.1,1003.64" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[d318212fd2af87063e4c2e577d717bb4]
+link auth_lb_1 to auth_s_2--><path d="M1016.28,804.46 C1032.7,827.36 1055.1,857.9 1076,884 C1107.26,923 1144.74,965.78 1172.12,996.32 " fill="none" id="auth_lb_1-to-auth_s_2" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="1178.84,1003.82,1172.745,985.089,1172.1504,996.3871,1160.8523,995.7924,1178.84,1003.82" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[2806cba2527f7b6811eb98d895f85198]
+link auth_lb_2 to auth_s_1--><path d="M1133.8,804.06 C1117.58,826.8 1095.66,857.3 1076,884 C1048.06,921.94 1015.78,964.72 992.38,995.54 " fill="none" id="auth_lb_2-to-auth_s_1" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="986.02,1003.9,1003.2799,994.4082,992.0701,995.9378,990.5405,984.728,986.02,1003.9" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[be890c516c4526d1fe67a694b3d74e64]
+link auth_lb_2 to auth_s_2--><path d="M1164.7,804.48 C1174.06,852.74 1191.06,940.4 1201.36,993.5 " fill="none" id="auth_lb_2-to-auth_s_2" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="1203.34,1003.64,1207.7408,984.4402,1201.4229,993.8255,1192.0376,987.5076,1203.34,1003.64" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[81cb44d591ca9bcc6bc35d9ef108ecd1]
+link auth_s_1 to auth_db_master--><path d="M954.16,1076.06 C947.18,1116.82 935.4,1185.54 927.18,1233.42 " fill="none" id="auth_s_1-to-auth_db_master" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="925.5,1243.3,936.4197,1226.9061,927.1857,1233.4431,920.6487,1224.209,925.5,1243.3" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[88e093ef86004dc90da202c88ba45bad]
+link auth_s_2 to auth_db_master--><path d="M1169.4,1076.06 C1119.66,1117.8 1034.98,1188.84 977.8,1236.84 " fill="none" id="auth_s_2-to-auth_db_master" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="969.56,1243.74,988.4996,1238.3279,977.2305,1237.3241,978.2342,1226.055,969.56,1243.74" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[5b93f080ab129565aa2729e6c1559ddb]
+link auth_s_1 to auth_db_replica--><path d="M1002.54,1076.06 C1054.88,1117.96 1144.14,1189.44 1204.08,1237.42 " fill="none" id="auth_s_1-to-auth_db_replica" style="stroke:#000000;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="1211.96,1243.74,1202.8863,1226.2566,1204.1457,1237.5,1192.9023,1238.7595,1211.96,1243.74" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[75dedea19508aa6839de36f9885418e8]
+link auth_s_2 to auth_db_replica--><path d="M1217.78,1076.06 C1227.1,1116.82 1242.8,1185.54 1253.76,1233.42 " fill="none" id="auth_s_2-to-auth_db_replica" style="stroke:#000000;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#000000" points="1256.02,1243.3,1259.8049,1223.9693,1253.7902,1233.5518,1244.2078,1227.537,1256.02,1243.3" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[a44c5ebc8571b0cf060a30a22adac5de]
+link gw to auth_lb--><path d="M874,430.14 C874,475.23 874,557.295 874,629.015 C874,633.4975 874,637.9396 874,642.3297 C874,643.4272 874,644.5215 874,645.6124 " fill="none" id="gw-to-auth_lb" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="874,645.6124,882,627.6124,874,635.6124,866,627.6124,874,645.6124" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[7e970714478cb0636077c4d790bbf3d1]
+link gw to main_lb--><path d="M793.44,430.02 C774.2,437.32 753.56,444.48 734,450 C548.74,502.2 442.54,390.36 308,528 C289.575,546.85 277.9175,570.8363 270.8125,596.2891 C267.26,609.0155 264.8456,622.1085 263.2925,635.1095 C262.9042,638.3597 262.5698,641.6042 262.2848,644.8358 " fill="none" id="gw-to-main_lb" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="262.2848,644.8358,271.835,627.6081,263.1632,634.8744,255.8968,626.2027,262.2848,644.8358" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[f949e9508299cf6db62e829620b13794]
+link user to gw--><path d="M874,174.7 C874,230.4 874,302.04 874,347.52 " fill="none" id="user-to-gw" style="stroke:#000000;stroke-width:2.0;"/><polygon fill="#000000" points="874,357.92,882,339.92,874,347.92,866,339.92,874,357.92" style="stroke:#000000;stroke-width:2.0;"/><!--MD5=[107163947a4cefd649b43a704e29607f]
+@startuml
+<style>
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+    BackGroundColor white
+    arrow {
+        LineColor black
+    }
+}
+note {
+  BackGroundColor white
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+package "System" {
+    component "Main Component" as main_component {
+        component "Load Balancing" as main_lb {
+            agent "LB 1" as main_lb_1
+            agent "LB 2" as main_lb_2
+        }
+        component "Service" as main_service {
+            agent "Instance 1" as main_s_1
+            agent "Instance 2" as main_s_2
+        }
+
+        component "Database" as main_db {
+            database "Master" as main_db_master
+            database "Replica" as main_db_replica
+
+            main_db_master .> main_db_replica: Replication
+        }
+
+        ' Agent to Agent
+        main_lb_1 - -> main_s_1
+        main_lb_1 - -> main_s_2
+        main_lb_2 - -> main_s_1
+        main_lb_2 - -> main_s_2
+        main_s_1 - -> main_db_master
+        main_s_2 - -> main_db_master
+        main_s_1 ..> main_db_replica
+        main_s_2 ..> main_db_replica
+        
+        ' Component to Component
+'        main_lb - -> main_service
+'        main_service - -> main_db_master: RW
+'        main_service ..> main_db_replica: RO
+    }
+
+    component "Auth Component" as auth_component {
+        component "Load Balancing" as auth_lb {
+            agent "LB 1" as auth_lb_1
+            agent "LB 2" as auth_lb_2
+        }
+
+        component "Service" as auth_service {
+            agent "Instance 1" as auth_s_1
+            agent "Instance 2" as auth_s_2
+        }
+        component "Database" as auth_db {
+            database "Master" as auth_db_master
+            database "Replica" as auth_db_replica
+
+            auth_db_master .> auth_db_replica: Replication
+        }
+        
+        ' Agent to Agent
+        auth_lb_1 - -> auth_s_1
+        auth_lb_1 - -> auth_s_2
+        auth_lb_2 - -> auth_s_1
+        auth_lb_2 - -> auth_s_2
+        auth_s_1 - -> auth_db_master
+        auth_s_2 - -> auth_db_master
+        auth_s_1 ..> auth_db_replica
+        auth_s_2 ..> auth_db_replica
+    }
+
+    ' Useless if API GW
+'    auth_service <.. main_service: Depending on the Gateway
+    agent "API Gateway" as gw
+    note left
+        An API Gateway can be overkill in lots of cases,
+        so the redirection to services may be done
+        using DNS entries.
+    end note
+    gw - -> auth_lb
+    gw - -> main_lb
+}
+
+actor "User via website/API" as user
+user - -> gw
+
+@enduml
+
+@startuml
+<style>
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+    BackGroundColor white
+    arrow {
+        LineColor black
+    }
+}
+note {
+  BackGroundColor white
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+package "System" {
+    component "Main Component" as main_component {
+        component "Load Balancing" as main_lb {
+            agent "LB 1" as main_lb_1
+            agent "LB 2" as main_lb_2
+        }
+        component "Service" as main_service {
+            agent "Instance 1" as main_s_1
+            agent "Instance 2" as main_s_2
+        }
+
+        component "Database" as main_db {
+            database "Master" as main_db_master
+            database "Replica" as main_db_replica
+
+            main_db_master .> main_db_replica: Replication
+        }
+
+        main_lb_1 - -> main_s_1
+        main_lb_1 - -> main_s_2
+        main_lb_2 - -> main_s_1
+        main_lb_2 - -> main_s_2
+        main_s_1 - -> main_db_master
+        main_s_2 - -> main_db_master
+        main_s_1 ..> main_db_replica
+        main_s_2 ..> main_db_replica
+        
+    }
+
+    component "Auth Component" as auth_component {
+        component "Load Balancing" as auth_lb {
+            agent "LB 1" as auth_lb_1
+            agent "LB 2" as auth_lb_2
+        }
+
+        component "Service" as auth_service {
+            agent "Instance 1" as auth_s_1
+            agent "Instance 2" as auth_s_2
+        }
+        component "Database" as auth_db {
+            database "Master" as auth_db_master
+            database "Replica" as auth_db_replica
+
+            auth_db_master .> auth_db_replica: Replication
+        }
+        
+        auth_lb_1 - -> auth_s_1
+        auth_lb_1 - -> auth_s_2
+        auth_lb_2 - -> auth_s_1
+        auth_lb_2 - -> auth_s_2
+        auth_s_1 - -> auth_db_master
+        auth_s_2 - -> auth_db_master
+        auth_s_1 ..> auth_db_replica
+        auth_s_2 ..> auth_db_replica
+    }
+
+    agent "API Gateway" as gw
+    note left
+        An API Gateway can be overkill in lots of cases,
+        so the redirection to services may be done
+        using DNS entries.
+    end note
+    gw - -> auth_lb
+    gw - -> main_lb
+}
+
+actor "User via website/API" as user
+user - -> gw
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 14:40:07 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: LU
+--></g></svg>
