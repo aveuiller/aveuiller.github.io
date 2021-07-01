@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Antoine Veuiller - Software Engineering</title><link href="https://aveuiller.github.io/" rel="alternate"></link><link href="https://aveuiller.github.io/feeds/software-engineering.atom.xml" rel="self"></link><id>https://aveuiller.github.io/</id><updated>2021-06-29T00:00:00+02:00</updated><entry><title>Apache Kafka: Apprentice Cookbook</title><link href="https://aveuiller.github.io/kafka_apprentice_cookbook.html" rel="alternate"></link><published>2021-06-29T00:00:00+02:00</published><updated>2021-06-29T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-06-29:/kafka_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Apache Kafka is a distributed event streaming platform built over strong concepts. Let's dive into the possibilities it offers.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
-&lt;p&gt;This article is not yet published anywhere else.&lt;/p&gt;
-&lt;!--
-This article can be found on other sources:
-
-- Medium: [link]()
-- Dev.to: [link]()
---&gt;
+&lt;p&gt;This article can be found on other sources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hacker Noon: &lt;a href="https://hackernoon.com/the-apprentices-guide-to-apache-kafka-n31w35ef"&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Medium: &lt;a href="https://aveuiller.medium.com/557439273cee"&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dev.to: &lt;a href="https://dev.to/aveuiller/apache-kafka-apprentice-cookbook-26m"&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;img alt="Apache Kafka Logo" src="/images/posts/2021-06-01_Kafka-Apprentice-Cookbook/kafka_logo.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Apache Kafka is a distributed event streaming platform built over strong concepts.
