@@ -9,13 +9,13 @@ Summary: Apache Kafka is a distributed event streaming platform built over stron
 
 ### Availability Disclaimer
 
-This article is not yet published anywhere else.
-<!--
+
 This article can be found on other sources:
 
-- Medium: [link]()
-- Dev.to: [link]()
--->
+- Hacker Noon: [link](https://hackernoon.com/the-apprentices-guide-to-apache-kafka-n31w35ef)
+- Medium: [link](https://aveuiller.medium.com/557439273cee)
+- Dev.to: [link](https://dev.to/aveuiller/apache-kafka-apprentice-cookbook-26m)
+
 -----
 
 ![Apache Kafka Logo](/images/posts/2021-06-01_Kafka-Apprentice-Cookbook/kafka_logo.png)
