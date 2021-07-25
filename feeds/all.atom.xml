@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Antoine Veuiller</title><link href="https://aveuiller.github.io/" rel="alternate"></link><link href="https://aveuiller.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aveuiller.github.io/</id><updated>2021-06-29T00:00:00+02:00</updated><entry><title>Apache Kafka: Apprentice Cookbook</title><link href="https://aveuiller.github.io/kafka_apprentice_cookbook.html" rel="alternate"></link><published>2021-06-29T00:00:00+02:00</published><updated>2021-06-29T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-06-29:/kafka_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Apache Kafka is a distributed event streaming platform built over strong concepts. Let's dive into the possibilities it offers.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Antoine Veuiller</title><link href="https://aveuiller.github.io/" rel="alternate"></link><link href="https://aveuiller.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aveuiller.github.io/</id><updated>2021-07-26T00:00:00+02:00</updated><entry><title>Is GitHub Copilot a Threat to Developers? (Spoiler: It's Not)</title><link href="https://aveuiller.github.io/is_copilot_a_threat.html" rel="alternate"></link><published>2021-07-26T00:00:00+02:00</published><updated>2021-07-26T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-07-26:/is_copilot_a_threat.html</id><summary type="html">&lt;p&gt;GitHub Copilot provides potentially scary possibilities but can be a fine addition to the developers' tools.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
+&lt;p&gt;This article is only available here at the moment.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;img alt="Illustration" src="/images/posts/2021-07-26_abstraction_computer_science/copilot.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Computer science provides more and more abstraction layers with time, to the point that we don’t really know what’s running underneath.&lt;/p&gt;
+&lt;p&gt;GitHub recently released &lt;a href="https://copilot.github.com/"&gt;Copilot&lt;/a&gt; in technical preview.
+Copilot is an AI-based assistant that will automatically generate code from the context of your application, with the aim of easing software development.&lt;/p&gt;
+&lt;p&gt;A question that arises with simplification and automation in computer science is generally &lt;em&gt;“will the developer still be needed?”&lt;/em&gt;.
+And every time it happened, the answer was &lt;em&gt;“yes”&lt;/em&gt;.
+Abstraction in computer science reduces the cost of entering the domain, thus attracts a larger population.
+But it also usually creates opportunities with new technologies, practices, and more complex systems.&lt;/p&gt;
+&lt;p&gt;This short article aims to summarize the evolution of abstraction layers in computer science to help understand the impact that GitHub Copilot may have.&lt;/p&gt;
+&lt;h3&gt;A Bit of History&lt;/h3&gt;
+&lt;p&gt;The example that seems the oldest and most sensible would be the &lt;a href="https://en.wikipedia.org/wiki/Turing_machine"&gt;Turing Machine&lt;/a&gt;.
+It was created with the specific idea to break the cryptographic code &lt;a href="https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma"&gt;Enigma&lt;/a&gt;,
+but the concepts behind it are now considered as a &lt;a href="https://en.wikipedia.org/wiki/Turing_completeness"&gt;ground reference of algorithmic capabilities&lt;/a&gt; for programming languages.&lt;/p&gt;
+&lt;p&gt;Since then, we created processors, able to take a random set of instructions and process them generically.
+Those instructions were originally described using &lt;a href="https://en.wikipedia.org/wiki/Machine_code"&gt;machine code&lt;/a&gt;, which is hard to manipulate for a human.
+This is why programming languages of higher abstraction appeared.&lt;/p&gt;
+&lt;p&gt;Generally speaking, we can describe the goal of a programming language as to &lt;em&gt;write human-readable specifications that can be converted into machine code.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Evolution of Programming&lt;/h3&gt;
+&lt;p&gt;Programming languages evolved from &lt;em&gt;low (abstraction) level&lt;/em&gt; languages to &lt;em&gt;higher levels&lt;/em&gt;, each iteration adding automation and helpers to the common operations.
+Those abstractions can take many forms, from &lt;a href="https://en.wikipedia.org/wiki/Garbage_collection_%28computer_science%29"&gt;garbage collection&lt;/a&gt; to libraries
+&lt;a href="https://docs.python.org/3/library/csv.html?highlight=read#examples"&gt;reading CSV files&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These evolutions enable developers to add more complexity to their software, as there is less complexity on the technical parts.
+They can in turn abstract away even more for others. Thanks to this, taking on programming is becoming easier with time.
+We even see some programming languages using almost natural languages (e.g. &lt;a href="https://docs.behat.org/en/v2.5/guides/1.gherkin.html"&gt;Gherkin&lt;/a&gt;)
+and requiring next to zero computer science knowledge to write.&lt;/p&gt;
+&lt;p&gt;This does not mean that people will stop using languages with lower abstraction levels.
+On the contrary, even if they are generally harder to master and more verbose, they can be way more flexible for some use cases,
+memory management for instance.&lt;/p&gt;
+&lt;p&gt;We can also note the appearance of Machine Learning, creating dynamic processes over data that would have been tedious to analyse, either by hand or through specific code.
+This enables writing potentially complex behaviours with a few lines of code in some cases. 
+Even then, there is some &lt;a href="https://cloud.google.com/automl"&gt;automation&lt;/a&gt; of it to the point where you only have to provide data to get working results.&lt;/p&gt;
+&lt;p&gt;That being said, having a minimum of knowledge on the layers underneath remains very important to really comprehend the code execution.
+Otherwise, it would be difficult to adapt to issues that may, and will, arise.&lt;/p&gt;
+&lt;h3&gt;Evolution of Infrastructure&lt;/h3&gt;
+&lt;p&gt;We talked about code, but the same kind of evolution happened on the servers too.
+At first, companies were starting on personal computers until they could get a hold of some space in a datacenter, renting one or more &lt;em&gt;baremetal&lt;/em&gt; servers.
+This was costly and required technical knowledge for both the installation and deployment processes.&lt;/p&gt;
+&lt;p&gt;The virtualization technology evolved to the point where you can now rent a &lt;em&gt;virtual machine&lt;/em&gt; hosted on a physical host anywhere through 
+&lt;a href="https://www.redhat.com/en/topics/cloud-computing/what-are-cloud-providers"&gt;cloud providers&lt;/a&gt;. 
+This tremendously reduces the costs and enhances accessibility, but still requires technical knowledge to administrate correctly the machine on top of the deployments pipelines.&lt;/p&gt;
+&lt;p&gt;Since more recently, the technology of &lt;em&gt;containerization&lt;/em&gt; is heavily used with powerful tools like &lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; and 
+&lt;a href="https://aveuiller.medium.com/kubernetes-apprentice-cookbook-90d8c11ccfc3"&gt;Kubernetes&lt;/a&gt;. 
+Those tools can help you deploy applications on a VM without necessarily mastering the system underneath*.
+In the same fashion as machine learning, there are projects aiming to further &lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview"&gt;reduce the knowledge required&lt;/a&gt;
+to use such technologies.&lt;/p&gt;
+&lt;p&gt;On top of that, a new abstraction layer called &lt;em&gt;serverless&lt;/em&gt; is emerging.
+This enables you to directly execute code on a remote container, without having to take care of the hosting problematics at all.
+While this is currently mostly used for stateless operations, there are no doubts about the growth of use cases and tools around this ecosystem.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;*Note: Those tools may be better used with knowledge on the underlying layer, but you can redirect your learning to a more practical proficiency.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;A Glimpse on The Future of Copilot&lt;/h3&gt;
+&lt;p&gt;GitHub Copilot is a pretty interesting advancement in software engineering, even if not completely on point at the moment.
+According to the FAQ, the system gets the generation right around 50% of the time, and it is recommended to stay wary of the generated code.&lt;/p&gt;
+&lt;p&gt;If we look a bit differently on GitHub Copilot, we can consider this as a new programming language.
+The input of this language is the documentation and function name and those are &lt;a href="https://en.wiktionary.org/wiki/transcompiler"&gt;transpiled&lt;/a&gt; into source code for another programming language.&lt;/p&gt;
+&lt;p&gt;The generation is today limited to methods but we can imagine that this will evolve to classes or even packages.
+We can also imagine the generation becoming almost flawless for well-known use cases.&lt;/p&gt;
+&lt;p&gt;Even if everything is one day working on a larger scale and flawlessly, the generated code will still require developers to handle the direction it takes,
+and connect the even bigger pictures altogether.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;In regard to what we just saw, it makes no doubt that GitHub Copilot will further abstract development and ease the creation of software.
+This breakthrough has the power to move the development industry, as other abstraction layers did before.&lt;/p&gt;
+&lt;p&gt;Having said that, developers will probably never lack opportunities, as the scope of the projects will get bigger thanks to this new abstraction layer.
+The day to day work done as a developer may change, but developers will still be required for a long time.&lt;/p&gt;
+&lt;p&gt;As a matter of comparison, we already saw system administration positions evolve to SRE, still working on providing reliable hardware, but on a scale never seen before.
+In the same way, developers may evolve to something close, adapting to the new tools.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thanks to Sarra Habchi for the review&lt;/em&gt;&lt;/p&gt;</content><category term="Around Computer Science"></category><category term="showerthoughs"></category></entry><entry><title>Apache Kafka: Apprentice Cookbook</title><link href="https://aveuiller.github.io/kafka_apprentice_cookbook.html" rel="alternate"></link><published>2021-06-29T00:00:00+02:00</published><updated>2021-06-29T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-06-29:/kafka_apprentice_cookbook.html</id><summary type="html">&lt;p&gt;Apache Kafka is a distributed event streaming platform built over strong concepts. Let's dive into the possibilities it offers.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
 &lt;p&gt;This article can be found on other sources:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Hacker Noon: &lt;a href="https://hackernoon.com/the-apprentices-guide-to-apache-kafka-n31w35ef"&gt;link&lt;/a&gt;&lt;/li&gt;

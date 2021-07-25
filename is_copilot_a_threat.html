@@ -1,0 +1,316 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>    Is GitHub Copilot a Threat to Developers? (Spoiler: It's Not)
+ | Antoine Veuiller</title>
+
+        <meta name="author" content="Antoine Veuiller">
+        <meta name="generator" content="Pelican v4.6.0">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous">
+
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?c73fffa6">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9565WT2VE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F9565WT2VE');
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js" integrity="sha512-iceXjjbmB2rwoX93Ka6HAHP+B76IY1z0o3h+N1PeDtRSsyeetU3/0QKJqGyPJcX63zysNehggFwMC/bi7dvMig==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha512-/2sZKAsHDmHNoevKR/xsUKe+Bpf692q4tHNQs9VWWz0ujJ9JBM67iFYbIEdfDV9I2BaodgT5MIg/FTUmUv3oyQ==" crossorigin="anonymous"></script>
+
+            <script src="https://aveuiller.github.io/theme/js/main.min.js?86e1c044"></script>
+
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- Feeds -->
+            <link href="https://aveuiller.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - All posts - Atom Feed">
+            <link href="https://aveuiller.github.io/feeds/around-computer-science.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - Category: Around Computer Science - Atom Feed">
+
+        <meta name="keywords" content="showerthoughs">
+
+    </head>
+
+    <body class="bg-transparent pt-4">
+
+        <div class="container">
+
+                <a href="https://aveuiller.github.io" class="avatar-container float-left mx-4">
+                    <div class="avatar ">
+                        <div class="side"><img src="/images/profile.jpg" class="img-fluid"></div>
+                    </div>
+                </a>
+
+            <h1>
+                <a href="https://aveuiller.github.io" class="text-dark text-decoration-none">Antoine Veuiller</a>
+                <small class="text-secondary"><small></small></small>
+            </h1>
+
+            <nav class="navbar d-block navbar-expand-lg navbar-light bg-light shadow rounded-lg">
+
+                <a class="navbar-brand d-none" href="https://aveuiller.github.io" title="">Antoine Veuiller</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="plumage-navbar-collapse-1">
+
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/pages/about-me.html">
+                                        About Me
+                                    </a>
+                                </li>
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/category/around-computer-science.html">
+                                        Around Computer Science
+<span class="sr-only">(current)</span>                                    </a>
+                                </li>
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/category/software-engineering.html">
+                                        Software Engineering
+                                    </a>
+                                </li>
+                    </ul>
+
+
+                </div>
+
+            </nav>
+
+        </div>
+
+
+        <div class="container mt-5">
+
+
+            <div class="row">
+                <div class="
+                        col-md-9
+">
+    <h1>
+        <a href="https://aveuiller.github.io/is_copilot_a_threat.html" rel="bookmark" title="Permalink to Is GitHub Copilot a Threat to Developers? (Spoiler: It's Not)">Is GitHub Copilot a Threat to Developers? (Spoiler: It's Not)</a>
+    </h1>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+                <div id="content" role="main" class="
+                        col-md-9
+">
+    
+
+    <h3>Availability Disclaimer</h3>
+<p>This article is only available here at the moment.</p>
+<hr>
+<p><img alt="Illustration" src="/images/posts/2021-07-26_abstraction_computer_science/copilot.png" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p>Computer science provides more and more abstraction layers with time, to the point that we don’t really know what’s running underneath.</p>
+<p>GitHub recently released <a href="https://copilot.github.com/">Copilot</a> in technical preview.
+Copilot is an AI-based assistant that will automatically generate code from the context of your application, with the aim of easing software development.</p>
+<p>A question that arises with simplification and automation in computer science is generally <em>“will the developer still be needed?”</em>.
+And every time it happened, the answer was <em>“yes”</em>.
+Abstraction in computer science reduces the cost of entering the domain, thus attracts a larger population.
+But it also usually creates opportunities with new technologies, practices, and more complex systems.</p>
+<p>This short article aims to summarize the evolution of abstraction layers in computer science to help understand the impact that GitHub Copilot may have.</p>
+<h3>A Bit of History</h3>
+<p>The example that seems the oldest and most sensible would be the <a href="https://en.wikipedia.org/wiki/Turing_machine">Turing Machine</a>.
+It was created with the specific idea to break the cryptographic code <a href="https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma">Enigma</a>,
+but the concepts behind it are now considered as a <a href="https://en.wikipedia.org/wiki/Turing_completeness">ground reference of algorithmic capabilities</a> for programming languages.</p>
+<p>Since then, we created processors, able to take a random set of instructions and process them generically.
+Those instructions were originally described using <a href="https://en.wikipedia.org/wiki/Machine_code">machine code</a>, which is hard to manipulate for a human.
+This is why programming languages of higher abstraction appeared.</p>
+<p>Generally speaking, we can describe the goal of a programming language as to <em>write human-readable specifications that can be converted into machine code.</em></p>
+<h3>Evolution of Programming</h3>
+<p>Programming languages evolved from <em>low (abstraction) level</em> languages to <em>higher levels</em>, each iteration adding automation and helpers to the common operations.
+Those abstractions can take many forms, from <a href="https://en.wikipedia.org/wiki/Garbage_collection_%28computer_science%29">garbage collection</a> to libraries
+<a href="https://docs.python.org/3/library/csv.html?highlight=read#examples">reading CSV files</a>.</p>
+<p>These evolutions enable developers to add more complexity to their software, as there is less complexity on the technical parts.
+They can in turn abstract away even more for others. Thanks to this, taking on programming is becoming easier with time.
+We even see some programming languages using almost natural languages (e.g. <a href="https://docs.behat.org/en/v2.5/guides/1.gherkin.html">Gherkin</a>)
+and requiring next to zero computer science knowledge to write.</p>
+<p>This does not mean that people will stop using languages with lower abstraction levels.
+On the contrary, even if they are generally harder to master and more verbose, they can be way more flexible for some use cases,
+memory management for instance.</p>
+<p>We can also note the appearance of Machine Learning, creating dynamic processes over data that would have been tedious to analyse, either by hand or through specific code.
+This enables writing potentially complex behaviours with a few lines of code in some cases. 
+Even then, there is some <a href="https://cloud.google.com/automl">automation</a> of it to the point where you only have to provide data to get working results.</p>
+<p>That being said, having a minimum of knowledge on the layers underneath remains very important to really comprehend the code execution.
+Otherwise, it would be difficult to adapt to issues that may, and will, arise.</p>
+<h3>Evolution of Infrastructure</h3>
+<p>We talked about code, but the same kind of evolution happened on the servers too.
+At first, companies were starting on personal computers until they could get a hold of some space in a datacenter, renting one or more <em>baremetal</em> servers.
+This was costly and required technical knowledge for both the installation and deployment processes.</p>
+<p>The virtualization technology evolved to the point where you can now rent a <em>virtual machine</em> hosted on a physical host anywhere through 
+<a href="https://www.redhat.com/en/topics/cloud-computing/what-are-cloud-providers">cloud providers</a>. 
+This tremendously reduces the costs and enhances accessibility, but still requires technical knowledge to administrate correctly the machine on top of the deployments pipelines.</p>
+<p>Since more recently, the technology of <em>containerization</em> is heavily used with powerful tools like <a href="https://www.docker.com/">Docker</a> and 
+<a href="https://aveuiller.medium.com/kubernetes-apprentice-cookbook-90d8c11ccfc3">Kubernetes</a>. 
+Those tools can help you deploy applications on a VM without necessarily mastering the system underneath*.
+In the same fashion as machine learning, there are projects aiming to further <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview">reduce the knowledge required</a>
+to use such technologies.</p>
+<p>On top of that, a new abstraction layer called <em>serverless</em> is emerging.
+This enables you to directly execute code on a remote container, without having to take care of the hosting problematics at all.
+While this is currently mostly used for stateless operations, there are no doubts about the growth of use cases and tools around this ecosystem.</p>
+<p><em>*Note: Those tools may be better used with knowledge on the underlying layer, but you can redirect your learning to a more practical proficiency.</em></p>
+<h3>A Glimpse on The Future of Copilot</h3>
+<p>GitHub Copilot is a pretty interesting advancement in software engineering, even if not completely on point at the moment.
+According to the FAQ, the system gets the generation right around 50% of the time, and it is recommended to stay wary of the generated code.</p>
+<p>If we look a bit differently on GitHub Copilot, we can consider this as a new programming language.
+The input of this language is the documentation and function name and those are <a href="https://en.wiktionary.org/wiki/transcompiler">transpiled</a> into source code for another programming language.</p>
+<p>The generation is today limited to methods but we can imagine that this will evolve to classes or even packages.
+We can also imagine the generation becoming almost flawless for well-known use cases.</p>
+<p>Even if everything is one day working on a larger scale and flawlessly, the generated code will still require developers to handle the direction it takes,
+and connect the even bigger pictures altogether.</p>
+<h3>Conclusion</h3>
+<p>In regard to what we just saw, it makes no doubt that GitHub Copilot will further abstract development and ease the creation of software.
+This breakthrough has the power to move the development industry, as other abstraction layers did before.</p>
+<p>Having said that, developers will probably never lack opportunities, as the scope of the projects will get bigger thanks to this new abstraction layer.
+The day to day work done as a developer may change, but developers will still be required for a long time.</p>
+<p>As a matter of comparison, we already saw system administration positions evolve to SRE, still working on providing reliable hardware, but on a scale never seen before.
+In the same way, developers may evolve to something close, adapting to the new tools.</p>
+<p><em>Thanks to Sarra Habchi for the review</em></p>
+
+
+
+                </div>
+
+                    <div class="col-md-3">
+    <div class="card bg-light text-dark">
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+                <abbr title="2021-07-26T00:00:00+02:00"><i class="fas fa-calendar"></i> Mon 26 July 2021</abbr>
+            </li>
+
+                <li class="list-group-item">
+                    <address>
+                        <i class="fas fa-user"></i> By
+                            <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
+                    </address>
+                </li>
+
+                <li class="list-group-item">
+                                <a href="https://aveuiller.github.io/category/around-computer-science.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="1 article in this category">Around Computer Science</a>
+                            <a href="/tag/showerthoughs.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">showerthoughs</a>
+                </li>
+
+
+
+        </ul>
+    </div>
+                        
+                    </div>
+
+            </div>
+
+        </div>
+
+        <footer class="container-fluid mt-5 p-4 small">
+            <div class="row mx-5">
+
+                    <div class="col-md-2">
+                            <h6>Social</h6>
+                            <ul class="list-unstyled">
+                                        <li><a href="http://twitter.com/AVeuiller">
+        <i class="fab fa-twitter fa-fw"></i>
+    Twitter
+</a></li>
+                                        <li><a href="https://stackoverflow.com/users/2564085/aveuiller">
+        <i class="fab fa-stack-overflow fa-fw"></i>
+    StackOverflow
+</a></li>
+                                        <li><a href="http://github.com/aveuiller">
+        <i class="fab fa-github fa-fw"></i>
+    GitHub
+</a></li>
+                                        <li><a href="https://aveuiller.medium.com/">
+        <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
+    Medium
+</a></li>
+                                        <li><a href="https://dev.to/aveuiller/">
+        <img src="https://www.google.com/s2/favicons?domain=dev.to" width="16" height="16" class="link-icon" alt="dev.to icon">
+    Dev.to
+</a></li>
+                            </ul>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+
+                <div class="col-md-2">
+                    <h6>Browse content by</h6>
+                    <ul class="list-unstyled">
+                    </ul>
+                </div>
+
+                <div class="col-md-2 text-muted">
+                    <h6>Copyright notice</h6>
+                    <p class="small">
+                        © Copyright
+                        2020-2021
+                        Antoine Veuiller.
+                    </p>
+                </div>
+
+                <div class="col-md-2 text-muted">
+                    <h6>Disclaimer</h6>
+                    <p class="small">
+                            All opinions expressed in this site are my own
+                            personal opinions and are not endorsed by, nor
+                            do they represent the opinions of my previous,
+                            current and future employers or any of its
+                            affiliates, partners or customers.
+                    </p>
+                </div>
+
+                <div class="col-md-2">
+                        <h6>Feeds</h6>
+                        <ul class="list-unstyled small">
+                                <li>
+                                    <a href="https://aveuiller.github.io/feeds/all.atom.xml">
+                                        <i class="fas fa-atom fa-fw"></i> All posts (Atom)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://aveuiller.github.io/feeds/around-computer-science.atom.xml">
+                                        <i class="fas fa-atom fa-fw"></i> Category: Around Computer Science (Atom)
+                                    </a>
+                                </li>
+                        </ul>
+                </div>
+
+            </div>
+            <div class="row mt-3">
+
+                <div class="offset-3 col-6 small text-muted text-center">
+                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.<br>
+                    <a class="text-dark" href="https://github.com/kdeldycke/plumage">Plumage</a>
+                    theme by <a class="text-dark" href="https://kevin.deldycke.com">Kevin Deldycke</a>.
+                </div>
+
+                <div class="col-3 text-right d-flex flex-column">
+                    <a class="mt-auto" href="#"><i class="fas fa-arrow-up"></i> Back to top</a>
+                </div>
+
+            </div>
+        </footer>
+
+    </body>
+</html>
