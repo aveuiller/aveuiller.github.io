@@ -1,0 +1,52 @@
+@startuml
+<style>
+' TODO: Export to a generic style sheet
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+    BackGroundColor white
+    arrow {
+        LineColor black
+    }
+}
+note {
+  BackGroundColor white
+}
+document {
+  BackGroundColor white
+}
+
+
+</style>
+
+
+actor       "End user" as user
+component   "Web Interface" as ui
+component   "Domain API" as entrypoint
+component   "Authentication API" as auth_api
+queue       "Event Bus" as bus
+note right
+ The model should be considered public
+end note
+component   "Worker" as worker
+database    "Storage" as db
+
+
+user        --> entrypoint   : scripted API Call
+user        --> ui           : Interact
+ui          -> entrypoint   : API Call
+note on link
+ This is a public API
+end note
+
+entrypoint  -> auth_api     : Check
+note on link
+ This should be considered
+ as a public API
+end note
+
+entrypoint  --> bus         : Publish
+bus         <.. worker      : Subscribe
+worker      -> db           : Store
+
+@enduml
