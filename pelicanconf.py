@@ -3,10 +3,19 @@
 
 import plumage
 THEME = plumage.get_path()
+
+STATIC_PATHS = [
+    'static/ads.txt',
+    'images'
+]
+
+EXTRA_PATH_METADATA = {
+    "static/ads.txt": {"path": "ads.txt"},
+}
+
 PLUGINS = [
     "pelican_webassets",
 ]
-
 
 AUTHOR = 'Antoine Veuiller'
 SITENAME = AUTHOR
@@ -54,8 +63,8 @@ MARKDOWN = {
 # Content
 SITE_THUMBNAIL = "/images/profile.jpg"
 # SITE_THUMBNAIL_TEXT = "Hello World"
-LEFT_SIDEBAR = open('left_sidebar.html', 'r').read()
-# RIGHT_SIDEBAR = open('right_sidebar.html', 'r').read()
+# LEFT_SIDEBAR = open('left_sidebar.html', 'r').read()
+RIGHT_SIDEBAR = open('right_sidebar.html', 'r').read()
 
 # Custom Home page
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives', 'search']
