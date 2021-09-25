@@ -1,0 +1,83 @@
+@startuml
+<style>
+' TODO: Export to a generic style sheet
+componentDiagram {
+    LineColor blue
+    TextColor blue
+
+    agent {
+        BackGroundColor palegreen
+    }
+    .Virtual {
+        BackGroundColor lightgray
+    }
+    database {
+        BackGroundColor white
+    }
+    actor {
+        LineColor black
+    }
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+title Kubernetes Cluster Architecture
+
+actor "Command Line Interface" as cli
+actor "Calls to application" as ext_call
+
+cloud Cluster as cluster <<Virtual>> {
+    node "Kubernetes Controller(s)" as controller <<Concrete>> {
+        agent "API Server" as c_api_gw
+        agent "Controller Manager" as c_mngr
+
+        c_api_gw --> c_mngr
+    }
+
+    node "Node 1" as kube_worker_1 <<Concrete>> {
+        agent "Kubelet" as kubelet_1
+        cloud "Pod A" as pod_A_1 <<Virtual>> {
+            agent "Application container" as container_A_1
+        }
+
+'        kubelet_1 --> container_A_1
+    }
+
+    node "Node N" as kube_worker_2 <<Concrete>> {
+        agent "Kubelet" as kubelet_2
+        cloud "Pod A" as pod_A_2 <<Virtual>> {
+            agent "Application container" as container_A_2
+        }
+        cloud "Pod B" as pod_B_2 <<Virtual>> {
+            agent "Application container" as container_B_2
+        }
+
+'        kubelet_2 --> container_A_2
+'        kubelet_2 --> container_B_2
+    }
+
+    cloud "Service A" as service_a <<Virtual>> {
+    }
+
+    cloud "Service B" as service_b <<Virtual>> {
+    }
+
+    cloud "Ingress" as ingress <<Virtual>> {
+    }
+
+    container_A_1 <-- service_a
+    container_A_2 <-- service_a
+    container_B_2 <-- service_b
+
+    service_a <-- ingress
+    service_b <-- ingress
+}
+
+c_mngr --> kubelet_1
+c_mngr --> kubelet_2
+
+cli -> c_api_gw
+ingress <-- ext_call
+@enduml
