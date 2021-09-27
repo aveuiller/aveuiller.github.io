@@ -64,7 +64,7 @@ MARKDOWN = {
 SITE_THUMBNAIL = "/images/profile.jpg"
 # SITE_THUMBNAIL_TEXT = "Hello World"
 # LEFT_SIDEBAR = open('left_sidebar.html', 'r').read()
-RIGHT_SIDEBAR = open('right_sidebar.html', 'r').read()
+# RIGHT_SIDEBAR = open('right_sidebar.html', 'r').read()
 
 # Custom Home page
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives', 'search']
