@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Antoine Veuiller</title><link href="https://aveuiller.github.io/" rel="alternate"></link><link href="https://aveuiller.github.io/feeds/all.atom.xml" rel="self"></link><id>https://aveuiller.github.io/</id><updated>2021-07-26T00:00:00+02:00</updated><entry><title>Is GitHub Copilot a Threat to Developers? (Spoiler: It's Not)</title><link href="https://aveuiller.github.io/is_copilot_a_threat.html" rel="alternate"></link><published>2021-07-26T00:00:00+02:00</published><updated>2021-07-26T00:00:00+02:00</updated><author><name>Antoine Veuiller</name></author><id>tag:aveuiller.github.io,2021-07-26:/is_copilot_a_threat.html</id><summary type="html">&lt;p&gt;GitHub Copilot provides potentially scary possibilities but can be a fine addition to the developers' tools.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Availability Disclaimer&lt;/h3&gt;
-&lt;p&gt;This article is only available here at the moment.&lt;/p&gt;
+&lt;p&gt;This article can be found on other sources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hacker Noon: &lt;a href="https://hackernoon.com/will-github-copilot-replace-developers-spoiler-no-jh5r35fl"&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Medium: &lt;a href="https://medium.com/geekculture/towards-abstraction-of-computer-science-cc68e4c30654"&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dev.to: &lt;a href="https://dev.to/aveuiller/is-github-copilot-a-threat-to-developers-spoiler-it-s-not-5ee1"&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;img alt="Illustration" src="/images/posts/2021-07-26_abstraction_computer_science/copilot.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Computer science provides more and more abstraction layers with time, to the point that we don’t really know what’s running underneath.&lt;/p&gt;
