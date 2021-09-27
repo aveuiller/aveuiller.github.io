@@ -9,13 +9,11 @@ Summary: GitHub Copilot provides potentially scary possibilities but can be a fi
 
 ### Availability Disclaimer
 
-This article is only available here at the moment.
+This article can be found on other sources:
 
-[comment]: <> (This article can be found on other sources:)
-
-[comment]: <> (- Medium: [link]&#40;&#41;)
-
-[comment]: <> (- Dev.to: [link]&#40;&#41;)
+- Hacker Noon: [link](https://hackernoon.com/will-github-copilot-replace-developers-spoiler-no-jh5r35fl)
+- Medium: [link](https://medium.com/geekculture/towards-abstraction-of-computer-science-cc68e4c30654)
+- Dev.to: [link](https://dev.to/aveuiller/is-github-copilot-a-threat-to-developers-spoiler-it-s-not-5ee1)
 
 -----
 
