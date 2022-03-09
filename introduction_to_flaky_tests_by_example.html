@@ -8,7 +8,7 @@
  | Antoine Veuiller</title>
 
         <meta name="author" content="Antoine Veuiller">
-        <meta name="generator" content="Pelican v4.6.0">
+        <meta name="generator" content="Pelican v4.7.1">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
@@ -78,6 +78,11 @@
                                     </a>
                                 </li>
 <li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/pages/collaborations.html">
+                                        Collaborations
+                                    </a>
+                                </li>
+<li class="nav-item ">
                                     <a class="nav-link" href="https://aveuiller.github.io/category/around-computer-science.html">
                                         Around Computer Science
                                     </a>
@@ -139,21 +144,21 @@ It may be hard to dive back into those and find the root causes, <a href="https:
 I was told that this wasn’t a big deal since we don’t need to deploy this project at the beginning of a month.
 The priority of fixing those tests was so low that it has remained like this for years before we took the time to tackle this issue.</p>
 <p></p><div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_data</span>(input_datetime, data):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>    <span style="color: #408080; font-style: italic"># Store the data along with the input date</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>    <span style="color: #408080; font-style: italic"># [...]</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>    <span style="color: #3D7B7B; font-style: italic"># Store the data along with the input date</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>    <span style="color: #3D7B7B; font-style: italic"># [...]</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">retrieve_data</span>(lower_date):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #408080; font-style: italic"># Retrieve all data from lower date to now </span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #408080; font-style: italic"># [...]</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #3D7B7B; font-style: italic"># Retrieve all data from lower date to now </span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #3D7B7B; font-style: italic"># [...]</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">compute_stats</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #408080; font-style: italic"># Compute some statistics about stored data</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #3D7B7B; font-style: italic"># Compute some statistics about stored data</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    month <span style="color: #666666">=</span> arrow<span style="color: #666666">.</span>get()<span style="color: #666666">.</span>floor(<span style="color: #BA2121">'month'</span>) 
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    data <span style="color: #666666">=</span> retrieve_data(month)
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(data)
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_compute_stats</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #408080; font-style: italic"># Test method checking the behaviour of compute_stats</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #3D7B7B; font-style: italic"># Test method checking the behaviour of compute_stats</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>    now <span style="color: #666666">=</span> arrow<span style="color: #666666">.</span>get()
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>    add_data(now<span style="color: #666666">.</span>shift(days<span style="color: #666666">=-5</span>))
@@ -170,21 +175,21 @@ The faulty feature was computing statistics about the current month. As the deve
 <p>Fortunately, and thanks to some previously well-thought environment on the project, we had a central method to provide the current date, which was initially intended to prevent the use of a wrong timezone.</p>
 <p>By mixing this method to the awesome <a href="https://docs.python.org/3/library/unittest.mock.html#the-patchers">patch decorator</a> of python mock library (which is part of the standard <em>unittest</em> library since 3.3), we solved the issue with a simple modification.</p>
 <div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_data</span>(input_datetime, data):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>    <span style="color: #408080; font-style: italic"># Store the data along with the input date</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>    <span style="color: #408080; font-style: italic"># [...]</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>    <span style="color: #3D7B7B; font-style: italic"># Store the data along with the input date</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>    <span style="color: #3D7B7B; font-style: italic"># [...]</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">retrieve_data</span>(lower_date):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #408080; font-style: italic"># Retrieve all data from lower date to now </span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #408080; font-style: italic"># [...]</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #3D7B7B; font-style: italic"># Retrieve all data from lower date to now </span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #3D7B7B; font-style: italic"># [...]</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">compute_stats</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #408080; font-style: italic"># Compute some statistics about stored data</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #3D7B7B; font-style: italic"># Compute some statistics about stored data</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    month <span style="color: #666666">=</span> arrow<span style="color: #666666">.</span>get()<span style="color: #666666">.</span>floor(<span style="color: #BA2121">'month'</span>) 
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    data <span style="color: #666666">=</span> retrieve_data(month)
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(data)
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_compute_stats</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #408080; font-style: italic"># Test method checking the behaviour of compute_stats</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #3D7B7B; font-style: italic"># Test method checking the behaviour of compute_stats</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>    now <span style="color: #666666">=</span> arrow<span style="color: #666666">.</span>get()
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>    add_data(now<span style="color: #666666">.</span>shift(days<span style="color: #666666">=-5</span>))
@@ -197,21 +202,21 @@ The faulty feature was computing statistics about the current month. As the deve
 <h4>Story 2: We use that configuration!</h4>
 <p>In another project, while creating a new feature we happened to break tests unrelated to our changes. This case could have been tedious to pinpoint, fortunately, due to the project organization, we were certain that the new feature did not affect the code covered by the now failing tests.</p>
 <p>The code below is a synthetic representation of what happened, a global <em>config</em> object was interacting with both the existing and new features.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #408080; font-style: italic"># Global state configuration</span>
+<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #3D7B7B; font-style: italic"># Global state configuration</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>config <span style="color: #666666">=</span> {}
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">existing_feature</span>():
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #BA2121">"common_entry"</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #AA22FF; font-weight: bold">in</span> config:
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>(<span style="color: #BA2121">"Not configured"</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span>(<span style="color: #BA2121">"Not configured"</span>)
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    <span style="color: #408080; font-style: italic"># Process [...]</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    <span style="color: #3D7B7B; font-style: italic"># Process [...]</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">True</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">our_new_feature</span>():
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #BA2121">"common_entry"</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #AA22FF; font-weight: bold">in</span> config:
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>(<span style="color: #BA2121">"Not configured"</span>)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span>(<span style="color: #BA2121">"Not configured"</span>)
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    <span style="color: #408080; font-style: italic"># Process [...]</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    <span style="color: #3D7B7B; font-style: italic"># Process [...]</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">True</span>
 </code></pre></div>
 <p>From the isolation of the two features, we knew that the new tests had to be the ones creating a faulty global state. There were globally two possibilities for the faulty state.
@@ -282,7 +287,7 @@ Either the new test was injecting something new to the global state, or removing
         <ul class="list-group list-group-flush">
 
             <li class="list-group-item">
-                <abbr title="2020-08-10T00:00:00+02:00"><i class="fas fa-calendar"></i> Mon 10 August 2020</abbr>
+                <abbr title="2020-08-10T00:00:00+02:00"><i class="fas fa-calendar"></i> lun. 10 août 2020</abbr>
             </li>
 
                 <li class="list-group-item">
