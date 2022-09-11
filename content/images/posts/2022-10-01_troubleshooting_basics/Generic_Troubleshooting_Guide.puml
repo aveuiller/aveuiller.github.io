@@ -1,0 +1,74 @@
+@startuml
+!theme mars
+
+title "Generic Troubleshooting Guide"
+
+start
+:Check Alert;
+:Read Runbook;
+note left
+    The runbook may give a way of solving
+    the alert right away, but it is recommended
+    to ensure that there are no piggybacking issue.
+end note
+
+fork
+    Partition Analysis {
+        :Define Scope and Criticality;
+
+        :Check Host Metrics
+        (CPU, RAM, Load, Disk state);
+        :Check Process Metrics
+        (CPU, RAM);
+        :Check Applicative Metrics
+        (Requests per second, Queued Operations, ...);
+
+        :Check Applicative Logs;
+        :Check Network State (Ports Open, Listening, Load);
+
+        if (Anomaly With Known Fix Detected) is (false) then
+            note left
+                Any of these checks may show an anomaly;
+                To select depending on the situation.
+            end note
+            :Check Extended Logs (Kernel, Related Applications);
+            split
+                :Check Process Configuration
+                 (Files, Environment);
+            split again
+                :Check Process State;
+                :Check Open File Handles;
+                :Check Remote Connections;
+            split again
+                :Check Application State;
+                :Check Memory Profile;
+                :Attach Debugger;
+            endsplit
+        else (true)
+        endif
+    }
+
+    Partition Correction {
+        split
+            :Isolate From Production;
+        split again
+            :Apply Temporary Fix;
+        endsplit
+
+        :Deeper Analysis To Find Root Cause;
+
+        :Apply Long Term Fix;
+    }
+fork again
+    :Keep Track Of All Events and Actions
+    (with precise timestamp);
+endfork
+
+Partition Post-Mortem {
+    :Write Down All Events From Server Side;
+    :Write Down All Actions Taken;
+    :Describe Root Cause & Corrective Actions;
+    :Update Runbook & Alerts (if needed);
+}
+stop
+@enduml

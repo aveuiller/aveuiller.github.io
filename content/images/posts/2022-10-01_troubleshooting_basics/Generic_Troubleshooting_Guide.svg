@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1610px" preserveAspectRatio="none" style="width:1199px;height:1610px;background:#F9F9F9;" version="1.1" viewBox="0 0 1199 1610" width="1199px" zoomAndPan="magnify"><defs/><g><rect fill="#F9F9F9" height="27.6094" id="_title" rx="3.5" ry="3.5" style="stroke:none;stroke-width:1.0;" width="232" x="482" y="15"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="222" x="487" y="34.5332">Generic Troubleshooting Guide</text><ellipse cx="616.5" cy="58.6094" fill="#222222" rx="10" ry="10" style="stroke:#222222;stroke-width:1.0;"/><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="575.5" y="88.6094"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="62" x="585.5" y="111.0664">Check Alert</text><path d="M252,133.7031 L252,192.7578 A0,0 0 0 0 252,192.7578 L545,192.7578 A0,0 0 0 0 545,192.7578 L545,167.2305 L565,163.2305 L545,159.2305 L545,143.7031 L535,133.7031 L252,133.7031 A0,0 0 0 0 252,133.7031 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.5;"/><path d="M535,133.7031 L535,143.7031 L545,143.7031 L535,133.7031 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.5;"/><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="258" y="152.1982">The runbook may give a way of solving</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="247" x="258" y="168.5498">the alert right away, but it is recommended</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="272" x="258" y="184.9014">to ensure that there are no piggybacking issue.</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="103" x="565" y="145.6836"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="575" y="168.1406">Read Runbook</text><rect fill="#555555" height="6" rx="2.5" ry="2.5" style="stroke:#555555;stroke-width:1.0;" width="1177" x="11" y="212.7578"/><rect fill="none" height="797.793" rx="3.5" ry="3.5" style="stroke:#000000;stroke-width:1.5;" width="923" x="23" y="228.7578"/><path d="M85,228.7578 L85,239.3672 L75,249.3672 L23,249.3672 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52" x="26" y="244.291">Analysis</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="170" x="550.5" y="266.3672"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="150" x="560.5" y="288.8242">Define Scope and Criticality</text><rect fill="#F1F1F1" height="50.1875" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="180" x="545.5" y="321.4609"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="555.5" y="343.918">Check Host Metrics</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="160" x="555.5" y="359.0117">(CPU, RAM, Load, Disk state)</text><rect fill="#F1F1F1" height="50.1875" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="146" x="562.5" y="391.6484"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="126" x="572.5" y="414.1055">Check Process Metrics</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="65" x="572.5" y="429.1992">(CPU, RAM)</text><rect fill="#F1F1F1" height="50.1875" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="276" x="497.5" y="461.8359"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="138" x="507.5" y="484.293">Check Applicative Metrics</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="256" x="507.5" y="499.3867">(Requests per second, Queued Operations, ...)</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="147" x="562" y="532.0234"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="127" x="572" y="554.4805">Check Applicative Logs</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="298" x="486.5" y="587.1172"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="278" x="496.5" y="609.5742">Check Network State (Ports Open, Listening, Load)</text><path d="M33,813.9648 L33,856.668 L311,856.668 L311,823.9648 L301,813.9648 L33,813.9648 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.5;"/><path d="M301,813.9648 L301,823.9648 L311,823.9648 L301,813.9648 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.5;"/><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="257" x="39" y="832.46">Any of these checks may show an anomaly;</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="213" x="39" y="848.8115">To select depending on the situation.</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="306" x="482.5" y="691.1289"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="286" x="492.5" y="713.5859">Check Extended Logs (Kernel, Related Applications)</text><line style="stroke:#191919;stroke-width:1.5;" x1="445.5" x2="841.5" y1="761.2227" y2="761.2227"/><rect fill="#F1F1F1" height="50.1875" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="181" x="355" y="845.2695"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="161" x="365" y="867.7266">Check Process Configuration</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="110" x="368" y="882.8203">(Files, Environment)</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="135" x="584" y="782.7227"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="115" x="594" y="805.1797">Check Process State</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="161" x="571" y="852.8164"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="141" x="581" y="875.2734">Check Open File Handles</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="175" x="564" y="915.457"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="155" x="574" y="937.9141">Check Remote Connections</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="149" x="767" y="782.7227"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="129" x="777" y="805.1797">Check Application State</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="139" x="772" y="852.8164"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="119" x="782" y="875.2734">Check Memory Profile</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="111" x="786" y="915.457"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="91" x="796" y="937.9141">Attach Debugger</text><line style="stroke:#191919;stroke-width:1.5;" x1="445.5" x2="841.5" y1="970.5508" y2="970.5508"/><polygon fill="#F1F1F1" points="552,642.2109,719,642.2109,731,654.2109,719,666.2109,552,666.2109,540,654.2109,552,642.2109" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="24" x="639.5" y="677.6299">false</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="167" x="552" y="658.7119">Anomaly With Known Fix Detected</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="19" x="731" y="651.7939">true</text><polygon fill="#F1F1F1" points="635.5,990.5508,647.5,1002.5508,635.5,1014.5508,623.5,1002.5508,635.5,990.5508" style="stroke:#181818;stroke-width:0.5;"/><rect fill="none" height="234.8906" rx="3.5" ry="3.5" style="stroke:#000000;stroke-width:1.5;" width="356" x="457.5" y="1036.5508"/><path d="M533.5,1036.5508 L533.5,1047.1602 L523.5,1057.1602 L457.5,1057.1602 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="460.5" y="1052.084">Correction</text><line style="stroke:#191919;stroke-width:1.5;" x1="557" x2="725" y1="1074.1602" y2="1074.1602"/><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="151" x="481.5" y="1094.1602"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="131" x="491.5" y="1116.6172">Isolate From Production</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="129" x="660.5" y="1094.1602"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="109" x="670.5" y="1116.6172">Apply Temporary Fix</text><line style="stroke:#191919;stroke-width:1.5;" x1="557" x2="725" y1="1149.2539" y2="1149.2539"/><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="223" x="524" y="1169.2539"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="203" x="534" y="1191.7109">Deeper Analysis To Find Root Cause</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="130" x="570.5" y="1224.3477"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="110" x="580.5" y="1246.8047">Apply Long Term Fix</text><rect fill="#F1F1F1" height="50.1875" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="220" x="956" y="723.9414"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="200" x="966" y="746.3984">Keep Track Of All Events and Actions</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="136" x="966" y="761.4922">(with precise timestamp)</text><rect fill="#555555" height="6" rx="2.5" ry="2.5" style="stroke:#555555;stroke-width:1.0;" width="1177" x="11" y="1291.4414"/><rect fill="none" height="249.9844" rx="3.5" ry="3.5" style="stroke:#000000;stroke-width:1.5;" width="271" x="481" y="1307.4414"/><path d="M571,1307.4414 L571,1318.0508 L561,1328.0508 L481,1328.0508 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="484" y="1322.9746">Post-Mortem</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="237" x="498" y="1345.0508"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="217" x="508" y="1367.5078">Write Down All Events From Server Side</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="179" x="527" y="1400.1445"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="159" x="537" y="1422.6016">Write Down All Actions Taken</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="251" x="491" y="1455.2383"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="231" x="501" y="1477.6953">Describe Root Cause &amp; Corrective Actions</text><rect fill="#F1F1F1" height="35.0938" rx="3.5" ry="3.5" style="stroke:#181818;stroke-width:0.5;" width="220" x="506.5" y="1510.332"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="200" x="516.5" y="1532.7891">Update Runbook &amp; Alerts (if needed)</text><ellipse cx="616.5" cy="1588.4258" fill="none" rx="11" ry="11" style="stroke:#222222;stroke-width:1.0;"/><ellipse cx="616.5" cy="1588.4258" fill="#222222" rx="6" ry="6" style="stroke:#111111;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="616.5" x2="616.5" y1="68.6094" y2="88.6094"/><polygon fill="#191919" points="612.5,78.6094,616.5,88.6094,620.5,78.6094,616.5,82.6094" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="616.5" x2="616.5" y1="123.7031" y2="145.6836"/><polygon fill="#191919" points="612.5,135.6836,616.5,145.6836,620.5,135.6836,616.5,139.6836" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="301.4609" y2="321.4609"/><polygon fill="#191919" points="631.5,311.4609,635.5,321.4609,639.5,311.4609,635.5,315.4609" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="371.6484" y2="391.6484"/><polygon fill="#191919" points="631.5,381.6484,635.5,391.6484,639.5,381.6484,635.5,385.6484" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="441.8359" y2="461.8359"/><polygon fill="#191919" points="631.5,451.8359,635.5,461.8359,639.5,451.8359,635.5,455.8359" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="512.0234" y2="532.0234"/><polygon fill="#191919" points="631.5,522.0234,635.5,532.0234,639.5,522.0234,635.5,526.0234" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="567.1172" y2="587.1172"/><polygon fill="#191919" points="631.5,577.1172,635.5,587.1172,639.5,577.1172,635.5,581.1172" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="651.5" x2="651.5" y1="817.8164" y2="852.8164"/><polygon fill="#191919" points="647.5,842.8164,651.5,852.8164,655.5,842.8164,651.5,846.8164" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="651.5" x2="651.5" y1="887.9102" y2="915.457"/><polygon fill="#191919" points="647.5,905.457,651.5,915.457,655.5,905.457,651.5,909.457" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="841.5" x2="841.5" y1="817.8164" y2="852.8164"/><polygon fill="#191919" points="837.5,842.8164,841.5,852.8164,845.5,842.8164,841.5,846.8164" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="841.5" x2="841.5" y1="887.9102" y2="915.457"/><polygon fill="#191919" points="837.5,905.457,841.5,915.457,845.5,905.457,841.5,909.457" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="445.5" x2="445.5" y1="762.7227" y2="845.2695"/><polygon fill="#191919" points="441.5,835.2695,445.5,845.2695,449.5,835.2695,445.5,839.2695" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="651.5" x2="651.5" y1="762.7227" y2="782.7227"/><polygon fill="#191919" points="647.5,772.7227,651.5,782.7227,655.5,772.7227,651.5,776.7227" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="841.5" x2="841.5" y1="762.7227" y2="782.7227"/><polygon fill="#191919" points="837.5,772.7227,841.5,782.7227,845.5,772.7227,841.5,776.7227" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="445.5" x2="445.5" y1="895.457" y2="970.5508"/><polygon fill="#191919" points="441.5,960.5508,445.5,970.5508,449.5,960.5508,445.5,964.5508" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="651.5" x2="651.5" y1="950.5508" y2="970.5508"/><polygon fill="#191919" points="647.5,960.5508,651.5,970.5508,655.5,960.5508,651.5,964.5508" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="841.5" x2="841.5" y1="950.5508" y2="970.5508"/><polygon fill="#191919" points="837.5,960.5508,841.5,970.5508,845.5,960.5508,841.5,964.5508" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="726.2227" y2="761.2227"/><polygon fill="#191919" points="631.5,751.2227,635.5,761.2227,639.5,751.2227,635.5,755.2227" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="666.2109" y2="691.1289"/><polygon fill="#191919" points="631.5,681.1289,635.5,691.1289,639.5,681.1289,635.5,685.1289" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="731" x2="930" y1="654.2109" y2="654.2109"/><polygon fill="#191919" points="926,825.3164,930,835.3164,934,825.3164,930,829.3164" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="930" x2="930" y1="654.2109" y2="1002.5508"/><line style="stroke:#191919;stroke-width:1.0;" x1="930" x2="647.5" y1="1002.5508" y2="1002.5508"/><polygon fill="#191919" points="657.5,998.5508,647.5,1002.5508,657.5,1006.5508,653.5,1002.5508" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="972.0508" y2="990.5508"/><polygon fill="#191919" points="631.5,980.5508,635.5,990.5508,639.5,980.5508,635.5,984.5508" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="622.2109" y2="642.2109"/><polygon fill="#191919" points="631.5,632.2109,635.5,642.2109,639.5,632.2109,635.5,636.2109" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="557" x2="557" y1="1075.6602" y2="1094.1602"/><polygon fill="#191919" points="553,1084.1602,557,1094.1602,561,1084.1602,557,1088.1602" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="725" x2="725" y1="1075.6602" y2="1094.1602"/><polygon fill="#191919" points="721,1084.1602,725,1094.1602,729,1084.1602,725,1088.1602" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="557" x2="557" y1="1129.2539" y2="1149.2539"/><polygon fill="#191919" points="553,1139.2539,557,1149.2539,561,1139.2539,557,1143.2539" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="725" x2="725" y1="1129.2539" y2="1149.2539"/><polygon fill="#191919" points="721,1139.2539,725,1149.2539,729,1139.2539,725,1143.2539" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="1150.7539" y2="1169.2539"/><polygon fill="#191919" points="631.5,1159.2539,635.5,1169.2539,639.5,1159.2539,635.5,1163.2539" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="1204.3477" y2="1224.3477"/><polygon fill="#191919" points="631.5,1214.3477,635.5,1224.3477,639.5,1214.3477,635.5,1218.3477" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="1014.5508" y2="1074.1602"/><polygon fill="#191919" points="631.5,1064.1602,635.5,1074.1602,639.5,1064.1602,635.5,1068.1602" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="218.7578" y2="266.3672"/><polygon fill="#191919" points="631.5,256.3672,635.5,266.3672,639.5,256.3672,635.5,260.3672" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="1066" x2="1066" y1="218.7578" y2="723.9414"/><polygon fill="#191919" points="1062,713.9414,1066,723.9414,1070,713.9414,1066,717.9414" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="635.5" x2="635.5" y1="1259.4414" y2="1291.4414"/><polygon fill="#191919" points="631.5,1281.4414,635.5,1291.4414,639.5,1281.4414,635.5,1285.4414" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="1066" x2="1066" y1="774.1289" y2="1291.4414"/><polygon fill="#191919" points="1062,1281.4414,1066,1291.4414,1070,1281.4414,1066,1285.4414" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="616.5" x2="616.5" y1="180.7773" y2="212.7578"/><polygon fill="#191919" points="612.5,202.7578,616.5,212.7578,620.5,202.7578,616.5,206.7578" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="616.5" x2="616.5" y1="1380.1445" y2="1400.1445"/><polygon fill="#191919" points="612.5,1390.1445,616.5,1400.1445,620.5,1390.1445,616.5,1394.1445" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="616.5" x2="616.5" y1="1435.2383" y2="1455.2383"/><polygon fill="#191919" points="612.5,1445.2383,616.5,1455.2383,620.5,1445.2383,616.5,1449.2383" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="616.5" x2="616.5" y1="1490.332" y2="1510.332"/><polygon fill="#191919" points="612.5,1500.332,616.5,1510.332,620.5,1500.332,616.5,1504.332" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="616.5" x2="616.5" y1="1297.4414" y2="1345.0508"/><polygon fill="#191919" points="612.5,1335.0508,616.5,1345.0508,620.5,1335.0508,616.5,1339.0508" style="stroke:#191919;stroke-width:1.0;"/><line style="stroke:#191919;stroke-width:1.0;" x1="616.5" x2="616.5" y1="1545.4258" y2="1577.4258"/><polygon fill="#191919" points="612.5,1567.4258,616.5,1577.4258,620.5,1567.4258,616.5,1571.4258" style="stroke:#191919;stroke-width:1.0;"/><!--MD5=[df181959aa1b4940208ea844fe82eb97]
+@startuml
+!theme mars
+
+title "Generic Troubleshooting Guide"
+
+start
+:Check Alert;
+:Read Runbook;
+note left
+    The runbook may give a way of solving
+    the alert right away, but it is recommended
+    to ensure that there are no piggybacking issue.
+end note
+
+fork
+    Partition Analysis {
+        :Define Scope and Criticality;
+
+        :Check Host Metrics
+        (CPU, RAM, Load, Disk state);
+        :Check Process Metrics
+        (CPU, RAM);
+        :Check Applicative Metrics
+        (Requests per second, Queued Operations, ...);
+
+        :Check Applicative Logs;
+        :Check Network State (Ports Open, Listening, Load);
+
+        if (Anomaly With Known Fix Detected) is (false) then
+            note left
+                Any of these checks may show an anomaly;
+                To select depending on the situation.
+            end note
+            :Check Extended Logs (Kernel, Related Applications);
+            split
+                :Check Process Configuration
+                 (Files, Environment);
+            split again
+                :Check Process State;
+                :Check Open File Handles;
+                :Check Remote Connections;
+            split again
+                :Check Application State;
+                :Check Memory Profile;
+                :Attach Debugger;
+            endsplit
+        else (true)
+        endif
+    }
+
+    Partition Correction {
+        split
+            :Isolate From Production;
+        split again
+            :Apply Temporary Fix;
+        endsplit
+
+        :Deeper Analysis To Find Root Cause;
+
+        :Apply Long Term Fix;
+    }
+fork again
+    :Keep Track Of All Events and Actions
+    (with precise timestamp);
+endfork
+
+Partition Post-Mortem {
+    :Write Down All Events From Server Side;
+    :Write Down All Actions Taken;
+    :Describe Root Cause & Corrective Actions;
+    :Update Runbook & Alerts (if needed);
+}
+stop
+@enduml
+
+@startuml
+skinparam BackgroundColor F9F9F9
+skinparam shadowing false
+skinparam RoundCorner 7
+skinparam ArrowColor 191919
+skinparam FontColor 191919
+skinparam SequenceLifeLineBorderColor 393939
+skinparam SequenceGroupHeaderFontColor 191919
+skinparam SequenceGroupFontColor 393939
+skinparam SequenceGroupBorderColor 393939
+skinparam SequenceGroupBorderThickness 1
+
+skinparam sequenceDivider {
+    BorderColor 191919
+    BorderThickness 1
+    FontColor 191919
+}
+
+skinparam participant {
+    BackgroundColor E55756
+    BorderColor 191919
+    FontColor F9F9F9
+    BorderThickness 1.5
+}
+
+skinparam database {
+    BackgroundColor A4DBD8
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam entity {
+    BackgroundColor EFBABC
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam note {
+    BackgroundColor e5e5e5
+    BorderColor 191919
+    FontColor 191919
+    BorderThickness 1.5
+}
+
+skinparam actor {
+    BackgroundColor 191919
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam boundary {
+    BackgroundColor EFBABC
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam control {
+    BackgroundColor EFBABC
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam collections {
+    BackgroundColor E55756
+    BorderColor 191919
+    FontColor 191919
+    BorderThickness 1.5
+}
+
+skinparam queue {
+    BackgroundColor E55756
+    BorderColor 191919
+    FontColor FFF
+    BorderThickness 1.5
+}
+
+title "Generic Troubleshooting Guide"
+
+start
+:Check Alert;
+:Read Runbook;
+note left
+    The runbook may give a way of solving
+    the alert right away, but it is recommended
+    to ensure that there are no piggybacking issue.
+end note
+
+fork
+    Partition Analysis {
+        :Define Scope and Criticality;
+
+        :Check Host Metrics
+        (CPU, RAM, Load, Disk state);
+        :Check Process Metrics
+        (CPU, RAM);
+        :Check Applicative Metrics
+        (Requests per second, Queued Operations, ...);
+
+        :Check Applicative Logs;
+        :Check Network State (Ports Open, Listening, Load);
+
+        if (Anomaly With Known Fix Detected) is (false) then
+            note left
+                Any of these checks may show an anomaly;
+                To select depending on the situation.
+            end note
+            :Check Extended Logs (Kernel, Related Applications);
+            split
+                :Check Process Configuration
+                 (Files, Environment);
+            split again
+                :Check Process State;
+                :Check Open File Handles;
+                :Check Remote Connections;
+            split again
+                :Check Application State;
+                :Check Memory Profile;
+                :Attach Debugger;
+            endsplit
+        else (true)
+        endif
+    }
+
+    Partition Correction {
+        split
+            :Isolate From Production;
+        split again
+            :Apply Temporary Fix;
+        endsplit
+
+        :Deeper Analysis To Find Root Cause;
+
+        :Apply Long Term Fix;
+    }
+fork again
+    :Keep Track Of All Events and Actions
+    (with precise timestamp);
+endfork
+
+Partition Post-Mortem {
+    :Write Down All Events From Server Side;
+    :Write Down All Actions Taken;
+    :Describe Root Cause & Corrective Actions;
+    :Update Runbook & Alerts (if needed);
+}
+stop
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 13:01:30 EDT 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>
