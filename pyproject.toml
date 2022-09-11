@@ -7,7 +7,7 @@ homepage = 'https://aveuiller.github.io'
 repository = 'https://github.com/aveuiller/aveuiller.github.io'
 
 [tool.poetry.dependencies]
-python = "3.*.*"
+python = ">=3.6,<4.0"
 pelican = {extras = ["Markdown"], version = "^4.5.0"}
 plumage = {git = "https://github.com/kdeldycke/plumage.git", branch = "main"}
 pygments = "^2.7.4"
