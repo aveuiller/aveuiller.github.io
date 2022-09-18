@@ -35,6 +35,8 @@ Thanks to that, I feel that I can be comfortable in any company size, and work o
 
 My experience in reverse chronological order can be summarized as follows:
 
+ - __DevOps Engineer__ at [Squarepoint Capital](https://www.squarepoint-capital.com/)
+   <img style="position:relative;width:220px;height:60px;" src="/images/about_me/squarepoint_logo.png" alt="Logo SFEIR">
  - __Software engineering consultant__ at [SFEIR](https://www.sfeir.com/)
    <img style="position:relative;width:140px;height:80px;" src="/images/about_me/sfeir_logo.png" alt="Logo SFEIR">
  - __Software engineer__ and __Technical leader__ at [Scaleway](https://www.scaleway.com/)
