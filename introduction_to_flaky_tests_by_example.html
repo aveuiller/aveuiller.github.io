@@ -8,7 +8,7 @@
  | Antoine Veuiller</title>
 
         <meta name="author" content="Antoine Veuiller">
-        <meta name="generator" content="Pelican v4.7.1">
+        <meta name="generator" content="Pelican v4.8.0">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
@@ -143,108 +143,91 @@ It may be hard to dive back into those and find the root causes, <a href="https:
 <p>I entered a project where continuous integration was broken during the 5 first days of each month. 
 I was told that this wasn’t a big deal since we don’t need to deploy this project at the beginning of a month.
 The priority of fixing those tests was so low that it has remained like this for years before we took the time to tackle this issue.</p>
-<p></p><div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_data</span>(input_datetime, data):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>    <span style="color: #3D7B7B; font-style: italic"># Store the data along with the input date</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>    <span style="color: #3D7B7B; font-style: italic"># [...]</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">retrieve_data</span>(lower_date):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #3D7B7B; font-style: italic"># Retrieve all data from lower date to now </span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #3D7B7B; font-style: italic"># [...]</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">compute_stats</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #3D7B7B; font-style: italic"># Compute some statistics about stored data</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    month <span style="color: #666666">=</span> arrow<span style="color: #666666">.</span>get()<span style="color: #666666">.</span>floor(<span style="color: #BA2121">'month'</span>) 
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    data <span style="color: #666666">=</span> retrieve_data(month)
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(data)
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_compute_stats</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #3D7B7B; font-style: italic"># Test method checking the behaviour of compute_stats</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>    now <span style="color: #666666">=</span> arrow<span style="color: #666666">.</span>get()
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>    add_data(now<span style="color: #666666">.</span>shift(days<span style="color: #666666">=-5</span>))
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>    add_data(now<span style="color: #666666">.</span>shift(days<span style="color: #666666">=-1</span>))
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>    stat <span style="color: #666666">=</span> compute_stats()
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>    <span style="color: #008000; font-weight: bold">assert</span> stat <span style="color: #666666">==</span> <span style="color: #666666">2</span>, <span style="color: #BA2121">"We retrieve the two data input"</span>
-</code></pre></div>
-The faulty feature was computing statistics about the current month. As the developer creating the initial tests wanted to take all cases into consideration, he created a test that gave as input multiple dates relative to the current <em>datetime</em>.
+<p>```python
+def add_data(input_datetime, data):
+    # Store the data along with the input date
+    # [...]</p>
+<p>def retrieve_data(lower_date):
+    # Retrieve all data from lower date to now 
+    # [...]</p>
+<p>def compute_stats():
+    # Compute some statistics about stored data
+    month = arrow.get().floor('month') 
+    data = retrieve_data(month)
+    return len(data)</p>
+<p>def test_compute_stats():
+    # Test method checking the behaviour of compute_stats
+    now = arrow.get()</p>
+<p>add_data(now.shift(days=-5))
+    add_data(now.shift(days=-1))
+    stat = compute_stats()</p>
+<p>assert stat == 2, "We retrieve the two data input"
+```
+The faulty feature was computing statistics about the current month. As the developer creating the initial tests wanted to take all cases into consideration, he created a test that gave as input multiple dates relative to the current <em>datetime</em>.</p>
 <p>Among those inputs, one was <em>5 days before the current date,</em> and the test was always computing the statistics as if it was part of the same month. As a result, it led to the tests being faulty at the beginning of each month. We can then imagine that the flakiness was detected under one to three weeks after the feature development and from then on, ignored.</p>
 <p>This test is time-dependent because <em>compute_stats</em> will call for the date of analysis itself. As a result, the computation will always be dependent on the current date. One way of fixing such issues would be to sandbox the execution of the tests in order to control the current date.</p>
 <p>At first, we wanted to rely on <a href="https://medium.com/swlh/about-design-patterns-dependency-injection-ab9c1742d4aa">dependency injection</a> and make <em>compute_stats</em> ask for a month to compute the statistics. This would create an easy way of sandboxing the execution and also potentially open the door to new features. However, in this project, this wasn’t trivial to implement because there was a lot of code dependent on this feature.</p>
 <p>Another way of doing so would be to inject the value directly to the method. Python has a very good library to sandbox the tests when using the built-in <em>datetime</em> objects: <a href="https://github.com/spulec/freezegun">freezegun</a>. Once again, and unfortunately for us, the project was using <a href="https://github.com/crsmithdev/arrow">arrow</a> so this was not a possibility.</p>
 <p>Fortunately, and thanks to some previously well-thought environment on the project, we had a central method to provide the current date, which was initially intended to prevent the use of a wrong timezone.</p>
 <p>By mixing this method to the awesome <a href="https://docs.python.org/3/library/unittest.mock.html#the-patchers">patch decorator</a> of python mock library (which is part of the standard <em>unittest</em> library since 3.3), we solved the issue with a simple modification.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_data</span>(input_datetime, data):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>    <span style="color: #3D7B7B; font-style: italic"># Store the data along with the input date</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>    <span style="color: #3D7B7B; font-style: italic"># [...]</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">retrieve_data</span>(lower_date):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #3D7B7B; font-style: italic"># Retrieve all data from lower date to now </span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    <span style="color: #3D7B7B; font-style: italic"># [...]</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">compute_stats</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #3D7B7B; font-style: italic"># Compute some statistics about stored data</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    month <span style="color: #666666">=</span> arrow<span style="color: #666666">.</span>get()<span style="color: #666666">.</span>floor(<span style="color: #BA2121">'month'</span>) 
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    data <span style="color: #666666">=</span> retrieve_data(month)
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(data)
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_compute_stats</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #3D7B7B; font-style: italic"># Test method checking the behaviour of compute_stats</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>    now <span style="color: #666666">=</span> arrow<span style="color: #666666">.</span>get()
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>    add_data(now<span style="color: #666666">.</span>shift(days<span style="color: #666666">=-5</span>))
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>    add_data(now<span style="color: #666666">.</span>shift(days<span style="color: #666666">=-1</span>))
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>    stat <span style="color: #666666">=</span> compute_stats()
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>    <span style="color: #008000; font-weight: bold">assert</span> stat <span style="color: #666666">==</span> <span style="color: #666666">2</span>, <span style="color: #BA2121">"We retrieve the two data input"</span>
-</code></pre></div>
+<p>````python
+def add_data(input_datetime, data):
+    # Store the data along with the input date
+    # [...]</p>
+<p>def retrieve_data(lower_date):
+    # Retrieve all data from lower date to now 
+    # [...]</p>
+<p>def compute_stats():
+    # Compute some statistics about stored data
+    month = arrow.get().floor('month') 
+    data = retrieve_data(month)
+    return len(data)</p>
+<p>def test_compute_stats():
+    # Test method checking the behaviour of compute_stats
+    now = arrow.get()</p>
+<p>add_data(now.shift(days=-5))
+    add_data(now.shift(days=-1))
+    stat = compute_stats()</p>
+<p>assert stat == 2, "We retrieve the two data input"
+````</p>
 <p>By sandboxing the execution to a given point in time, we ensured the reproducibility of the build at any given time.</p>
 <h4>Story 2: We use that configuration!</h4>
 <p>In another project, while creating a new feature we happened to break tests unrelated to our changes. This case could have been tedious to pinpoint, fortunately, due to the project organization, we were certain that the new feature did not affect the code covered by the now failing tests.</p>
 <p>The code below is a synthetic representation of what happened, a global <em>config</em> object was interacting with both the existing and new features.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #3D7B7B; font-style: italic"># Global state configuration</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>config <span style="color: #666666">=</span> {}
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">existing_feature</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #BA2121">"common_entry"</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #AA22FF; font-weight: bold">in</span> config:
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span>(<span style="color: #BA2121">"Not configured"</span>)
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    <span style="color: #3D7B7B; font-style: italic"># Process [...]</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">True</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">our_new_feature</span>():
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #BA2121">"common_entry"</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #AA22FF; font-weight: bold">in</span> config:
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span>(<span style="color: #BA2121">"Not configured"</span>)
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    <span style="color: #3D7B7B; font-style: italic"># Process [...]</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">True</span>
-</code></pre></div>
+<p>```python</p>
+<h1>Global state configuration</h1>
+<p>config = {}</p>
+<p>def existing_feature():
+    if "common_entry" not in config:
+        raise ValueError("Not configured")</p>
+<p># Process [...]
+    return True</p>
+<p>def our_new_feature():
+    if "common_entry" not in config:
+        raise ValueError("Not configured")</p>
+<p># Process [...]
+    return True
+```</p>
 <p>From the isolation of the two features, we knew that the new tests had to be the ones creating a faulty global state. There were globally two possibilities for the faulty state.
 Either the new test was injecting something new to the global state, or removing something essential to the existing test.</p>
 <p>The test cases below were always run in the specific order <em>ConfiguredFeatureTest, ExistingFeatureTestCase</em> before integrating the new feature, then in the order <em>ConfiguredFeatureTest, NewFeatureTestCase, ExistingFeatureTestCase.</em></p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ConfiguredFeatureTest</span>(unittest<span style="color: #666666">.</span>TestCase):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">setUp</span>(<span style="color: #008000">self</span>):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>        config[<span style="color: #BA2121">"entry"</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">"anything"</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_configured</span>(<span style="color: #008000">self</span>):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>        <span style="color: #008000">self</span><span style="color: #666666">.</span>assertIsNotNone(config<span style="color: #666666">.</span>get(<span style="color: #BA2121">"entry"</span>))
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ExistingFeatureTestCase</span>(unittest<span style="color: #666666">.</span>TestCase):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_feature_one</span>(<span style="color: #008000">self</span>):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>        <span style="color: #008000">self</span><span style="color: #666666">.</span>assertTrue(existing_feature())
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">NewFeatureTestCase</span>(unittest<span style="color: #666666">.</span>TestCase):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">setUp</span>(<span style="color: #008000">self</span>):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>        config[<span style="color: #BA2121">"entry"</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">"anything"</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">tearDown</span>(<span style="color: #008000">self</span>):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>        config<span style="color: #666666">.</span>clear()
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_new_feature</span>(<span style="color: #008000">self</span>):
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>        <span style="color: #008000">self</span><span style="color: #666666">.</span>assertTrue(our_new_feature())
-</code></pre></div>
+<p>````python
+class ConfiguredFeatureTest(unittest.TestCase):
+    def setUp(self):
+        config["entry"] = "anything"</p>
+<p>def test_configured(self):
+        self.assertIsNotNone(config.get("entry"))</p>
+<p>class ExistingFeatureTestCase(unittest.TestCase):
+    def test_feature_one(self):
+        self.assertTrue(existing_feature())</p>
+<p>class NewFeatureTestCase(unittest.TestCase):
+    def setUp(self):
+        config["entry"] = "anything"</p>
+<p>def tearDown(self):
+        config.clear()</p>
+<p>def test_new_feature(self):
+        self.assertTrue(our_new_feature())
+````</p>
 <p>In order to understand the behaviour of the existing test, we ran it alone, both with and without the new changes. It appeared that the test was failing in both cases. This gave us the information that this test was using an existing global state, and that we might be cleaning this state. So we took a deeper interest in the <em>tearDown</em> method.</p>
 <p>It happened that the global configuration was injected and cleared in our new test suite. This configuration was used but rarely cleared in other tests. As a result, the existing test was relying on the execution of the previous ones to succeed. Clearing the configuration removed the context required by the existing test, thus made it fail.</p>
 <p>By “chance” the tests were always run in the right order for years. This situation could have been detected way earlier by using a random execution order for tests. <a href="https://github.com/pytest-dev/pytest-randomly">It happens that python has simple modules to do so</a>.</p>
@@ -298,8 +281,8 @@ Either the new test was injecting something new to the global state, or removing
                 </li>
 
                 <li class="list-group-item">
-                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="5 articles in this category">Software Engineering</a>
-                            <a href="/tag/best-practice.html" data-toggle="tooltip" class="badge badge-secondary" title="2 articles with this tag">Best Practice</a>
+                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="6 articles in this category">Software Engineering</a>
+                            <a href="/tag/best-practice.html" data-toggle="tooltip" class="badge badge-secondary" title="3 articles with this tag">Best Practice</a>
                             <a href="/tag/testing.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Testing</a>
                 </li>
 
@@ -355,7 +338,7 @@ Either the new test was injecting something new to the global state, or removing
                     <h6>Copyright notice</h6>
                     <p class="small">
                         © Copyright
-                        2020-2021
+                        2020-2022
                         Antoine Veuiller.
                     </p>
                 </div>

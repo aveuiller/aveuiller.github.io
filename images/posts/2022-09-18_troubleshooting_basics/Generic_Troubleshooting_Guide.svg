@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1944.7917px" preserveAspectRatio="none" style="width:734px;height:1944px;background:#00000000;" version="1.1" viewBox="0 0 734 1944" width="734.375px" zoomAndPan="magnify"><defs><linearGradient id="g1jtpo0f5rv2rb0" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#565656"/><stop offset="100%" stop-color="#484848"/></linearGradient><linearGradient id="g1jtpo0f5rv2rb1" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#3A3A3A"/><stop offset="100%" stop-color="#262626"/></linearGradient><linearGradient id="g1jtpo0f5rv2rb2" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#565656"/><stop offset="100%" stop-color="#3A3A3A"/></linearGradient></defs><g><rect fill="url(#g1jtpo0f5rv2rb0)" height="51.2916" id="_title" rx="4.1667" ry="4.1667" style="stroke:#3A3A3A;stroke-width:1.0416666666666667;" width="344.7917" x="193.4896" y="20.8333"/><text fill="#FEFEFE" font-family="&quot;Verdana&quot;" font-size="20.8333" font-weight="bold" lengthAdjust="spacing" textLength="321.875" x="204.9479" y="54.5625">Generic Troubleshooting Guide</text><ellipse cx="388.0208" cy="94" fill="#0060A8" rx="10.4167" ry="10.4167" style="stroke:#262626;stroke-width:1.0416666666666667;"/><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="89.5833" x="343.2292" y="125.25"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="66.6667" x="354.6875" y="150.0709">Check Alert</text><path d="M10.4167,175.6084 L10.4167,247.5171 A0,0 0 0 0 10.4167,247.5171 L314.5833,247.5171 A0,0 0 0 0 314.5833,247.5171 L314.5833,215.7294 L335.4167,211.5628 L314.5833,207.3961 L314.5833,186.0251 L304.1667,175.6084 L10.4167,175.6084 A0,0 0 0 0 10.4167,175.6084 " fill="#0060A8" style="stroke:#262626;stroke-width:1.0416666666666667;"/><path d="M304.1667,175.6084 L304.1667,186.0251 L314.5833,186.0251 L304.1667,175.6084 " fill="#0060A8" style="stroke:#262626;stroke-width:1.0416666666666667;"/><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="222.9167" x="46.3542" y="199.3877">The runbook may give a way of solving</text><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="248.9583" x="33.3333" y="216.4128">the alert right away, but it is recommended</text><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="271.875" x="21.875" y="233.4379">to ensure that there are no piggybacking issue.</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="105.2083" x="335.4167" y="191.5919"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="82.2917" x="346.875" y="216.4128">Read Runbook</text><rect fill="#00FF00" height="6.25" rx="2.6042" ry="2.6042" style="stroke:#00FF00;stroke-width:1.0416666666666667;" width="672.9167" x="50.5208" y="268.3505"/><rect fill="none" height="1010.6692" rx="4.1667" ry="4.1667" style="stroke:#303030;stroke-width:1.0416666666666667;" width="333.3333" x="89.5833" y="285.0171"/><path d="M158.3333,285.0171 L158.3333,305.1672 L147.9167,315.5839 L89.5833,315.5839 " fill="none" style="stroke:#303030;stroke-width:1.0416666666666667;"/><text fill="#3A3A3A" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="47.9167" x="97.9167" y="304.6297">Analysis</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="182.2917" x="165.1042" y="333.2922"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="159.375" x="176.5625" y="358.1132">Define Scope and Criticality</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="56.9669" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="187.5" x="162.5" y="394.0674"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="112.5" x="200" y="418.8883">Check Host Metrics</text><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="164.5833" x="173.9583" y="435.9134">(CPU, RAM, Load, Disk state)</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="56.9669" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="154.1667" x="179.1667" y="471.8676"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="131.25" x="190.625" y="496.6885">Check Process Metrics</text><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="66.6667" x="222.9167" y="513.7136">(CPU, RAM)</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="56.9669" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="287.5" x="112.5" y="549.6678"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="148.9583" x="181.7708" y="574.4888">Check Applicative Metrics</text><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="264.5833" x="123.9583" y="591.5139">(Requests per second, Queued Operations, ...)</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="155.2083" x="178.6458" y="627.4681"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="132.2917" x="190.1042" y="652.289">Check Applicative Logs</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="312.5" x="100" y="688.2432"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="289.5833" x="111.4583" y="713.0641">Check Network State (Ports Open, Listening, Load)</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="56.9669" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="192.7083" x="159.8958" y="809.1269"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="122.9167" x="194.7917" y="833.9478">Check Extended Logs</text><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="169.7917" x="171.3542" y="850.973">(Kernel, Related Applications)</text><rect fill="none" height="360.8425" rx="4.1667" ry="4.1667" style="stroke:#303030;stroke-width:1.0416666666666667;" width="210.4167" x="151.0417" y="876.5105"/><path d="M265.625,876.5105 L265.625,896.6606 L255.2083,907.0773 L151.0417,907.0773 " fill="none" style="stroke:#303030;stroke-width:1.0416666666666667;"/><text fill="#3A3A3A" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="93.75" x="159.375" y="896.1231">Optional Checks</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="56.9669" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="189.5833" x="161.4583" y="924.7856"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="166.6667" x="172.9167" y="949.6065">Check Process Configuration</text><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="114.5833" x="200.5208" y="966.6316">(Files, Environment)</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="166.6667" x="172.9167" y="1002.5858"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="143.75" x="184.375" y="1027.4068">Check Open File Handles</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="181.25" x="165.625" y="1063.361"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="158.3333" x="177.0833" y="1088.1819">Check Remote Connections</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="151.0417" x="180.7292" y="1124.1361"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="128.125" x="192.1875" y="1148.957">Check Memory Profile</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="121.875" x="195.3125" y="1184.9112"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="98.9583" x="206.7708" y="1209.7321">Attach Debugger</text><polygon fill="url(#g1jtpo0f5rv2rb2)" points="152.6042,749.2142,359.8958,749.2142,372.3958,762.9351,359.8958,776.656,152.6042,776.656,140.1042,762.9351,152.6042,749.2142" style="stroke:#3A3A3A;stroke-width:1.0416666666666667;"/><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="28.125" x="265.625" y="795.2269">false</text><text fill="#FEFEFE" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="196.875" x="157.8125" y="767.7852">Anomaly With Known Fix Detected</text><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="23.9583" x="377.6042" y="754.0643">true</text><polygon fill="url(#g1jtpo0f5rv2rb2)" points="256.25,1258.1863,268.75,1270.6863,256.25,1283.1863,243.75,1270.6863,256.25,1258.1863" style="stroke:#3A3A3A;stroke-width:1.0416666666666667;"/><rect fill="none" height="263.9338" rx="4.1667" ry="4.1667" style="stroke:#303030;stroke-width:1.0416666666666667;" width="382.2917" x="65.1042" y="1306.103"/><path d="M147.3958,1306.103 L147.3958,1326.2531 L136.9792,1336.6698 L65.1042,1336.6698 " fill="none" style="stroke:#303030;stroke-width:1.0416666666666667;"/><text fill="#3A3A3A" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="61.4583" x="73.4375" y="1325.7156">Correction</text><line style="stroke:#303030;stroke-width:1.5625;" x1="170.8333" x2="351.5625" y1="1354.3781" y2="1354.3781"/><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="161.4583" x="90.1042" y="1375.2114"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="138.5417" x="101.5625" y="1400.0324">Isolate From Production</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="141.6667" x="280.7292" y="1375.2114"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="118.75" x="292.1875" y="1400.0324">Apply Temporary Fix</text><line style="stroke:#303030;stroke-width:1.5625;" x1="170.8333" x2="351.5625" y1="1435.9865" y2="1435.9865"/><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="231.25" x="140.625" y="1456.8199"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="208.3333" x="152.0833" y="1481.6408">Deeper Analysis To Find Root Cause</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="139.5833" x="186.4583" y="1517.595"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="116.6667" x="197.9167" y="1542.4159">Apply Long Term Fix</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="56.9669" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="234.375" x="476.5625" y="924.2311"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="211.4583" x="488.0208" y="949.052">Keep Track Of All Events and Actions</text><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="143.75" x="521.875" y="966.0771">(with precise timestamp)</text><rect fill="#00FF00" height="6.25" rx="2.6042" ry="2.6042" style="stroke:#00FF00;stroke-width:1.0416666666666667;" width="672.9167" x="50.5208" y="1590.8701"/><rect fill="none" height="283.0423" rx="4.1667" ry="4.1667" style="stroke:#303030;stroke-width:1.0416666666666667;" width="286.4583" x="244.7917" y="1607.5368"/><path d="M341.6667,1607.5368 L341.6667,1627.6869 L331.25,1638.1036 L244.7917,1638.1036 " fill="none" style="stroke:#303030;stroke-width:1.0416666666666667;"/><text fill="#3A3A3A" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="76.0417" x="253.125" y="1627.1494">Post-Mortem</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="253.125" x="261.4583" y="1655.8119"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="230.2083" x="272.9167" y="1680.6328">Write Down All Events From Server Side</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="192.7083" x="291.6667" y="1716.587"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="169.7917" x="303.125" y="1741.408">Write Down All Actions Taken</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="265.625" x="255.2083" y="1777.3621"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="242.7083" x="266.6667" y="1802.1831">Describe Root Cause &amp; Corrective Actions</text><rect fill="url(#g1jtpo0f5rv2rb1)" height="39.9418" rx="4.1667" ry="4.1667" style="stroke:#262626;stroke-width:1.0416666666666667;" width="168.75" x="303.6458" y="1838.1373"/><text fill="#FFF200" font-family="&quot;Verdana&quot;" font-size="12.5" lengthAdjust="spacing" textLength="145.8333" x="315.1042" y="1862.9582">Update Runbook &amp; Alerts</text><ellipse cx="388.0208" cy="1922.8707" fill="none" rx="11.4583" ry="11.4583" style="stroke:#262626;stroke-width:1.0416666666666667;"/><ellipse cx="388.0208" cy="1922.8707" fill="#262626" rx="6.25" ry="6.25" style="stroke:#131313;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="388.0208" x2="388.0208" y1="104.4166" y2="125.25"/><polygon fill="#303030" points="383.8542,114.8333,388.0208,125.25,392.1875,114.8333,388.0208,119" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="388.0208" x2="388.0208" y1="165.1918" y2="191.5919"/><polygon fill="#303030" points="383.8542,181.1752,388.0208,191.5919,392.1875,181.1752,388.0208,185.3419" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="373.234" y2="394.0674"/><polygon fill="#303030" points="252.0833,383.6507,256.25,394.0674,260.4167,383.6507,256.25,387.8174" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="451.0343" y2="471.8676"/><polygon fill="#303030" points="252.0833,461.4509,256.25,471.8676,260.4167,461.4509,256.25,465.6176" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="528.8345" y2="549.6678"/><polygon fill="#303030" points="252.0833,539.2512,256.25,549.6678,260.4167,539.2512,256.25,543.4178" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="606.6347" y2="627.4681"/><polygon fill="#303030" points="252.0833,617.0514,256.25,627.4681,260.4167,617.0514,256.25,621.2181" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="667.4099" y2="688.2432"/><polygon fill="#303030" points="252.0833,677.8265,256.25,688.2432,260.4167,677.8265,256.25,681.9932" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="981.7525" y2="1002.5858"/><polygon fill="#303030" points="252.0833,992.1692,256.25,1002.5858,260.4167,992.1692,256.25,996.3358" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="1042.5276" y2="1063.361"/><polygon fill="#303030" points="252.0833,1052.9443,256.25,1063.361,260.4167,1052.9443,256.25,1057.111" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="1103.3027" y2="1124.1361"/><polygon fill="#303030" points="252.0833,1113.7194,256.25,1124.1361,260.4167,1113.7194,256.25,1117.8861" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="1164.0779" y2="1184.9112"/><polygon fill="#303030" points="252.0833,1174.4945,256.25,1184.9112,260.4167,1174.4945,256.25,1178.6612" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="866.0938" y2="924.7856"/><polygon fill="#303030" points="252.0833,914.3689,256.25,924.7856,260.4167,914.3689,256.25,918.5356" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="776.656" y2="809.1269"/><polygon fill="#303030" points="252.0833,798.7102,256.25,809.1269,260.4167,798.7102,256.25,802.8769" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="372.3958" x2="384.8958" y1="762.9351" y2="762.9351"/><polygon fill="#303030" points="380.7292,1024.192,384.8958,1034.6087,389.0625,1024.192,384.8958,1028.3587" style="stroke:#303030;stroke-width:3.125;"/><line style="stroke:#303030;stroke-width:3.125;" x1="384.8958" x2="384.8958" y1="762.9351" y2="1270.6863"/><line style="stroke:#303030;stroke-width:3.125;" x1="384.8958" x2="268.75" y1="1270.6863" y2="1270.6863"/><polygon fill="#303030" points="279.1667,1266.5196,268.75,1270.6863,279.1667,1274.853,275,1270.6863" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="1224.853" y2="1258.1863"/><polygon fill="#303030" points="252.0833,1247.7696,256.25,1258.1863,260.4167,1247.7696,256.25,1251.9363" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="728.185" y2="749.2142"/><polygon fill="#303030" points="252.0833,738.7976,256.25,749.2142,260.4167,738.7976,256.25,742.9642" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="170.8333" x2="170.8333" y1="1355.9406" y2="1375.2114"/><polygon fill="#303030" points="166.6667,1364.7948,170.8333,1375.2114,175,1364.7948,170.8333,1368.9614" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="351.5625" x2="351.5625" y1="1355.9406" y2="1375.2114"/><polygon fill="#303030" points="347.3958,1364.7948,351.5625,1375.2114,355.7292,1364.7948,351.5625,1368.9614" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="170.8333" x2="170.8333" y1="1415.1532" y2="1435.9865"/><polygon fill="#303030" points="166.6667,1425.5699,170.8333,1435.9865,175,1425.5699,170.8333,1429.7365" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="351.5625" x2="351.5625" y1="1415.1532" y2="1435.9865"/><polygon fill="#303030" points="347.3958,1425.5699,351.5625,1435.9865,355.7292,1425.5699,351.5625,1429.7365" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="1437.549" y2="1456.8199"/><polygon fill="#303030" points="252.0833,1446.4032,256.25,1456.8199,260.4167,1446.4032,256.25,1450.5699" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="1496.7617" y2="1517.595"/><polygon fill="#303030" points="252.0833,1507.1783,256.25,1517.595,260.4167,1507.1783,256.25,1511.345" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="1283.1863" y2="1354.3781"/><polygon fill="#303030" points="252.0833,1343.9614,256.25,1354.3781,260.4167,1343.9614,256.25,1348.1281" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="274.6005" y2="333.2922"/><polygon fill="#303030" points="252.0833,322.8756,256.25,333.2922,260.4167,322.8756,256.25,327.0422" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="593.75" x2="593.75" y1="274.6005" y2="924.2311"/><polygon fill="#303030" points="589.5833,913.8144,593.75,924.2311,597.9167,913.8144,593.75,917.9811" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="256.25" x2="256.25" y1="1557.5368" y2="1590.8701"/><polygon fill="#303030" points="252.0833,1580.4535,256.25,1590.8701,260.4167,1580.4535,256.25,1584.6201" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="593.75" x2="593.75" y1="981.198" y2="1590.8701"/><polygon fill="#303030" points="589.5833,1580.4535,593.75,1590.8701,597.9167,1580.4535,593.75,1584.6201" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="388.0208" x2="388.0208" y1="231.5337" y2="268.3505"/><polygon fill="#303030" points="383.8542,257.9338,388.0208,268.3505,392.1875,257.9338,388.0208,262.1005" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="388.0208" x2="388.0208" y1="1695.7537" y2="1716.587"/><polygon fill="#303030" points="383.8542,1706.1704,388.0208,1716.587,392.1875,1706.1704,388.0208,1710.337" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="388.0208" x2="388.0208" y1="1756.5288" y2="1777.3621"/><polygon fill="#303030" points="383.8542,1766.9455,388.0208,1777.3621,392.1875,1766.9455,388.0208,1771.1121" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="388.0208" x2="388.0208" y1="1817.3039" y2="1838.1373"/><polygon fill="#303030" points="383.8542,1827.7206,388.0208,1838.1373,392.1875,1827.7206,388.0208,1831.8873" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="388.0208" x2="388.0208" y1="1597.1201" y2="1655.8119"/><polygon fill="#303030" points="383.8542,1645.3952,388.0208,1655.8119,392.1875,1645.3952,388.0208,1649.5619" style="stroke:#303030;stroke-width:1.0416666666666667;"/><line style="stroke:#303030;stroke-width:3.125;" x1="388.0208" x2="388.0208" y1="1878.079" y2="1911.4124"/><polygon fill="#303030" points="383.8542,1900.9957,388.0208,1911.4124,392.1875,1900.9957,388.0208,1905.1624" style="stroke:#303030;stroke-width:1.0416666666666667;"/><!--MD5=[7e253bcabc747f084122cc3b25c595fc]
+@startuml
+!theme black-knight
+
+title "Generic Troubleshooting Guide"
+
+start
+:Check Alert;
+:Read Runbook;
+note left
+    The runbook may give a way of solving
+    the alert right away, but it is recommended
+    to ensure that there are no piggybacking issue.
+end note
+
+fork
+    Partition Analysis {
+        :Define Scope and Criticality;
+
+        :Check Host Metrics
+        (CPU, RAM, Load, Disk state);
+        :Check Process Metrics
+        (CPU, RAM);
+        :Check Applicative Metrics
+        (Requests per second, Queued Operations, ...);
+
+        :Check Applicative Logs;
+        :Check Network State (Ports Open, Listening, Load);
+
+        if (Anomaly With Known Fix Detected) is (false) then
+            :Check Extended Logs
+            (Kernel, Related Applications);
+            Partition "Optional Checks" {
+                :Check Process Configuration
+                 (Files, Environment);
+                :Check Open File Handles;
+                :Check Remote Connections;
+                :Check Memory Profile;
+                :Attach Debugger;
+            }
+        else (true)
+        endif
+    }
+
+    Partition Correction {
+        split
+            :Isolate From Production;
+        split again
+            :Apply Temporary Fix;
+        endsplit
+
+        :Deeper Analysis To Find Root Cause;
+
+        :Apply Long Term Fix;
+    }
+fork again
+    :Keep Track Of All Events and Actions
+    (with precise timestamp);
+endfork
+
+Partition Post-Mortem {
+    :Write Down All Events From Server Side;
+    :Write Down All Actions Taken;
+    :Describe Root Cause & Corrective Actions;
+    :Update Runbook & Alerts;
+}
+stop
+@enduml
+
+@startuml
+!assume transparent dark
+skinparam backgroundColor transparent
+skinparam useBetaStyle false
+
+skinparam  {
+    defaultFontName   "Verdana"
+    defaultFontSize   12
+    defaultTextAlignment center
+    shadowing false
+    RoundCorner 10
+    TitleFontSize 18
+}
+<style>
+  root {
+    BackgroundColor transparent
+    FontColor #fff200
+    HyperLinkColor $ORANGE
+    LineColor #262626
+    LineThickness 1
+    Margin 10
+    Padding 6
+    Shadowing 0.0
+  }
+  node {
+   Padding 15
+   roundcorner 20
+   BackgroundColor #303030-#262626
+  }
+  caption {
+    LineThickness 0
+  }
+  footer {
+    LineThickness 0
+  }
+  groupHeader {
+    BackgroundColor #484848
+    FontColor #0060a8
+    FontStyle bold
+  }
+  header {
+    LineThickness 0
+  }
+  referenceHeader {
+    BackgroundColor transparent
+    FontColor #484848
+    FontStyle bold
+  }
+  separator {
+    BackgroundColor $FGCOLOR
+    FontColor transparent
+    FontStyle bold
+  }
+  title {
+	FontSize 20
+	BorderRoundCorner            8
+	BorderThickness 	         1
+	BackgroundColor  #565656-#484848
+	FontColor #303030
+	BorderColor #484848
+  }
+  nwdiagDiagram {
+	network {
+			FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626    
+		LineColor #303030
+		LineThickness 1.0
+		FontColor #3A3A3A
+	}
+	server {
+			FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	}
+	arrow {
+		FontColor #3A3A3A
+		LineColor #3A3A3A
+	}
+	group {
+		BackGroundColor #fff200
+		LineColor $LIGHT_DARK
+		LineThickness 2.0
+		Margin 5
+		Padding 5
+	}
+  }
+  ganttDiagram {
+	task {
+			FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+		LineColor #303030
+		Margin 10
+		Padding 6
+	}
+	note {
+		FontColor ffffff
+		LineColor #004D86
+		BackGroundColor #0060a8
+	}
+	separator {
+		LineColor #484848
+		BackGroundColor #484848-#3A3A3A
+		FontColor #fefefe
+	}
+	milestone {
+		FontColor #0060a8
+		FontSize 16
+		FontStyle italic
+		BackGroundColor #484848
+		LineColor #3A3A3A
+	}
+	timeline {
+		BackgroundColor #484848
+		FontColor #fefefe
+	}
+	closed {
+		BackgroundColor #CC6600
+		FontColor #222222
+	}
+  }
+</style>
+skinparam defaultFontName       "Verdana"
+skinparam defaultFontSize       12
+skinparam dpi                   100
+skinparam shadowing             false
+skinparam roundcorner           8
+skinparam ParticipantPadding    40
+skinparam BoxPadding            40
+skinparam Padding               5
+skinparam ArrowColor            #484848
+skinparam stereotype {
+    CBackgroundColor #3A3A3A
+    CBorderColor #565656
+    ABackgroundColor #33FF33
+    ABorderColor #00CC00
+    IBackgroundColor #FF3333
+    IBorderColor #CC0000
+    EBackgroundColor #FF9933
+    EBorderColor #CC6600
+    NBackgroundColor #0073CA
+    NBorderColor #004D86
+}
+
+skinparam title {
+	FontColor	                 #fefefe
+	BorderColor	                 #3A3A3A
+	FontSize	    	         20
+	BorderRoundCorner            8
+	BorderThickness 	         1
+	BackgroundColor              #565656-#484848
+}
+
+skinparam legend {
+	BackgroundColor #303030
+	BorderColor #262626
+	FontColor #fff200
+}
+
+skinparam swimlane {
+	BorderColor #0060a8
+	BorderThickness 2
+	TitleBackgroundColor  #565656-#484848
+	TitleFontColor #303030
+}
+
+skinparam activity {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	BarColor #00FF00
+	StartColor #0060a8
+	EndColor #0060a8
+	DiamondBackgroundColor #565656-#3A3A3A
+  	DiamondBorderColor #3A3A3A
+  	DiamondFontColor #fefefe
+}
+
+skinparam participant {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	ParticipantBorderThickness 2
+}
+
+skinparam actor {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+}
+
+skinparam arrow {
+	Thickness 3
+	Color #303030
+	FontColor $FGCOLOR
+}
+
+skinparam sequence {
+	BorderColor #303030
+	TitleFontColor #303030
+	BackgroundColor transparent
+	StartColor #303030
+	EndColor #303030
+	BoxBackgroundColor transparent
+	BoxBorderColor #484848
+	BoxFontColor #484848
+	DelayFontColor #484848
+	LifeLineBorderColor #484848
+	LifeLineBorderThickness 2
+	LifeLineBackgroundColor #3A3A3A
+	GroupBorderColor #484848
+	GroupFontColor #484848
+	GroupHeaderFontColor #0060a8
+	GroupBackgroundColor #484848
+	GroupBodyBackgroundColor transparent
+	GroupHeaderBackgroundColor transparent
+	DividerBackgroundColor #484848
+    DividerBorderColor #484848
+    DividerBorderThickness 2
+    DividerFontColor #fff200
+	ReferenceBackgroundColor transparent
+	ReferenceBorderColor #484848
+	ReferenceFontColor #fefefe
+	ReferenceHeaderBackgroundColor #484848
+	StereotypeFontColor #fff200
+}
+
+skinparam partition {
+	BorderColor #303030
+	FontColor #3A3A3A
+	BackgroundColor transparent
+}
+
+skinparam collections {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+}
+
+skinparam control {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+}
+
+skinparam entity {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+}
+
+skinparam boundary {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+}
+
+skinparam agent {
+	BackgroundColor #ff8000
+	BorderColor #FF9933
+	FontColor #484848
+}
+
+skinparam note {
+	BorderThickness 1
+	BackgroundColor #0060a8
+	BorderColor #004D86
+	FontColor ffffff
+}
+
+skinparam artifact {
+	BackgroundColor #565656-#3A3A3A
+	BorderColor #fff200
+	FontColor #fff200
+}
+
+skinparam component {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+}
+
+skinparam interface {
+	BackgroundColor  #CC0000
+	BorderColor  #ff0000
+	FontColor #484848
+}
+
+skinparam storage {
+	BackgroundColor #FF9933-#CC6600
+  	BorderColor #CC6600
+	FontColor #222222
+}
+
+skinparam node {
+	BackgroundColor transparent
+	BorderColor #3A3A3A
+	FontColor #fff200
+}
+
+skinparam cloud {
+	BackgroundColor transparent
+	BorderColor #3A3A3A
+	FontColor #fff200
+}
+
+skinparam database {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	BackgroundColor  transparent
+}
+
+skinparam class {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	HeaderBackgroundColor #3A3A3A-#484848
+	StereotypeFontColor #484848
+	BorderThickness 1
+	AttributeFontColor #fff200
+	AttributeFontSize 11
+}
+
+skinparam object {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	StereotypeFontColor #484848
+	BorderThickness 1
+	AttributeFontColor #fefefe
+	AttributeFontSize 11
+}
+
+skinparam usecase {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	BorderThickness 2
+	StereotypeFontColor #303030
+}
+
+skinparam rectangle {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	BackgroundColor transparent
+	BorderThickness 2
+	StereotypeFontColor #303030
+}
+
+skinparam package {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	BackgroundColor transparent
+	BorderThickness 2
+}
+
+skinparam folder {
+	BackgroundColor #565656
+  	BorderColor #ff8000
+	FontColor #ff8000
+	BorderThickness 2
+}
+
+skinparam frame {
+	BackgroundColor #565656
+  	BorderColor #0060a8
+	FontColor #0060a8
+	BorderThickness 2
+}
+
+skinparam state {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+	StartColor #0060a8
+	EndColor #0060a8
+	AttributeFontColor #fefefe
+	AttributeFontSize 11
+}
+
+skinparam queue {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+}
+
+skinparam card {
+	BackgroundColor #0073CA-#004D86
+	BorderColor #004D86
+	FontColor ffffff
+}
+
+skinparam file {
+	BackgroundColor #565656-#3A3A3A
+	BorderColor #0060a8
+	FontColor #fefefe
+}
+
+skinparam stack {
+		FontColor #fff200
+	BorderColor #262626
+	BackgroundColor #3A3A3A-#262626
+}
+
+
+title "Generic Troubleshooting Guide"
+
+start
+:Check Alert;
+:Read Runbook;
+note left
+    The runbook may give a way of solving
+    the alert right away, but it is recommended
+    to ensure that there are no piggybacking issue.
+end note
+
+fork
+    Partition Analysis {
+        :Define Scope and Criticality;
+
+        :Check Host Metrics
+        (CPU, RAM, Load, Disk state);
+        :Check Process Metrics
+        (CPU, RAM);
+        :Check Applicative Metrics
+        (Requests per second, Queued Operations, ...);
+
+        :Check Applicative Logs;
+        :Check Network State (Ports Open, Listening, Load);
+
+        if (Anomaly With Known Fix Detected) is (false) then
+            :Check Extended Logs
+            (Kernel, Related Applications);
+            Partition "Optional Checks" {
+                :Check Process Configuration
+                 (Files, Environment);
+                :Check Open File Handles;
+                :Check Remote Connections;
+                :Check Memory Profile;
+                :Attach Debugger;
+            }
+        else (true)
+        endif
+    }
+
+    Partition Correction {
+        split
+            :Isolate From Production;
+        split again
+            :Apply Temporary Fix;
+        endsplit
+
+        :Deeper Analysis To Find Root Cause;
+
+        :Apply Long Term Fix;
+    }
+fork again
+    :Keep Track Of All Events and Actions
+    (with precise timestamp);
+endfork
+
+Partition Post-Mortem {
+    :Write Down All Events From Server Side;
+    :Write Down All Actions Taken;
+    :Describe Root Cause & Corrective Actions;
+    :Update Runbook & Alerts;
+}
+stop
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 13:01:30 EDT 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>

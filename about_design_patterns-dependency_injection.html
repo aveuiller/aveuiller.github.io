@@ -8,7 +8,7 @@
  | Antoine Veuiller</title>
 
         <meta name="author" content="Antoine Veuiller">
-        <meta name="generator" content="Pelican v4.7.1">
+        <meta name="generator" content="Pelican v4.8.0">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
@@ -140,51 +140,48 @@
 <p><img alt="Weather service without IoC" src="https://raw.githubusercontent.com/aveuiller/design-tutorials/master/dependencyinjection/specs/classes_without_ioc.svg" class="img-fluid border rounded shadow"></p>
 <p>As you can see on the diagram, the <em>WeatherService</em> is relying on a <em>Thermometer</em>, which can be configured with a <em>TemperatureUnit</em>. 
 Not using dependency injection will result in a code creating a new instance of <em>Thermometer</em> in the service, and a <em>Thermometer</em> configuring the <em>TemperatureUnit</em> to use:</p>
-<p></p><div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Thermometer</span> {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">final</span> TemperatureUnit unit;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">Thermometer</span>() {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">unit</span> <span style="color: #666666">=</span> TemperatureUnit.<span style="color: #687822">CELSIUS</span>;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>}
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">WeatherService</span> <span style="color: #008000; font-weight: bold">implements</span> WeatherContract {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">final</span> Thermometer thermometer;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>  <span style="color: #3D7B7B; font-style: italic">// This constructor is not using dependency injection</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">WeatherService</span>() {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">thermometer</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Thermometer();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>}
-</code></pre></div>
-Now let’s imagine that we want to use a <em>Thermometer</em> configured to use Fahrenheit degrees instead of Celsius. For this, we add a parameter to switch between both units.
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">Thermometer</span>(<span style="color: #B00040">boolean</span> useCelsius) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>  <span style="color: #008000; font-weight: bold">if</span> (useCelsius) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">unit</span> <span style="color: #666666">=</span> TemperatureUnit.<span style="color: #687822">CELSIUS</span>;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>  } <span style="color: #008000; font-weight: bold">else</span> {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">unit</span> <span style="color: #666666">=</span> TemperatureUnit.<span style="color: #687822">FAHRENHEIT</span>;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span>}
-</code></pre></div>
+<p>````java
+public class Thermometer {
+  private final TemperatureUnit unit;</p>
+<p>public Thermometer() {
+    this.unit = TemperatureUnit.CELSIUS;
+  }
+}</p>
+<p>public class WeatherService implements WeatherContract {</p>
+<p>private final Thermometer thermometer;</p>
+<p>// This constructor is not using dependency injection
+  public WeatherService() {
+    this.thermometer = new Thermometer();
+  }
+}
+````
+Now let’s imagine that we want to use a <em>Thermometer</em> configured to use Fahrenheit degrees instead of Celsius. For this, we add a parameter to switch between both units.</p>
+<p><code>java
+public Thermometer(boolean useCelsius) {
+  if (useCelsius) {
+    this.unit = TemperatureUnit.CELSIUS;
+  } else {
+    this.unit = TemperatureUnit.FAHRENHEIT;
+  }
+}</code></p>
 <p>One can also argue that the user of our program won’t always have access to an actual thermometer on their device, thus you may want to be able to fall back to another implementation in this case. 
 For instance, an API sending the current temperature in your area. Integrating multiple implementations inside the service could be done as shown below.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">WeatherService</span>(<span style="color: #B00040">boolean</span> useRealDevice, 
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>                      <span style="color: #B00040">boolean</span> useCelsius,
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>                      String apiKey) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>  <span style="color: #008000; font-weight: bold">if</span> (useRealDevice) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">thermometer</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Thermometer(useCelsius);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>  } <span style="color: #008000; font-weight: bold">else</span> {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span>    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">thermometer</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ThermometerWebService(useCelsius, apiKey);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">8</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">9</span>}
-</code></pre></div>
+<p><code>java
+public WeatherService(boolean useRealDevice, 
+                      boolean useCelsius,
+                      String apiKey) {
+  if (useRealDevice) {
+    this.thermometer = new Thermometer(useCelsius);
+  } else {
+    this.thermometer = new ThermometerWebService(useCelsius, apiKey);
+  }
+}</code></p>
 <p>As a result, initializing the service can be done as follows:</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>  <span style="color: #3D7B7B; font-style: italic">// Not using dependency injection</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>  WeatherContract weather <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> WeatherService(<span style="color: #008000; font-weight: bold">true</span>, <span style="color: #008000; font-weight: bold">true</span>, <span style="color: #008000; font-weight: bold">null</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>}
-</code></pre></div>
+<p><code>java
+public static void main(String[] args) {
+  // Not using dependency injection
+  WeatherContract weather = new WeatherService(true, true, null);
+}</code></p>
 <p>Even if it is easy to use, our current version of the <em>WeatherService</em> is not evolutive. If we take a closer look at its constructor, we can see multiple design flaws that will haunt us in the long run:</p>
 <ul>
 <li>The constructor is choosing its <em>Thermometer</em>. Adding a new type of Thermometer would require some parameter tricks to guess the implementation to use.</li>
@@ -196,24 +193,24 @@ For instance, an API sending the current temperature in your area. Integrating m
 <p><img alt="Weather service using IoC" src="https://raw.githubusercontent.com/aveuiller/design-tutorials/master/dependencyinjection/specs/classes_using_ioc.svg" class="img-fluid border rounded shadow"></p>
 <p>The <strong>inversion of control</strong> is represented in this diagram by the fact that our <em>WeatherService</em> implementation is linked to <em>ThermometerContract</em> rather than any of its implementations. That’s nothing more than this.</p>
 <p>As for <strong>dependency injection</strong>, <em>WeatherService</em> will now take a <em>ThermometerContract</em> in its constructor, requiring the block using the service to build an instance filling this contract:</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">WeatherService</span> <span style="color: #008000; font-weight: bold">implements</span> WeatherContract {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>  <span style="color: #3D7B7B; font-style: italic">// We now use the Interface   </span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">final</span> ThermometerContract thermometer;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>  <span style="color: #3D7B7B; font-style: italic">// New constructor using dependency injection    </span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">WeatherService</span>(ThermometerContract thermometer) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span>    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">thermometer</span> <span style="color: #666666">=</span> thermometer;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">8</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">9</span>}
-</code></pre></div>
+<p>````java
+public class WeatherService implements WeatherContract {
+  // We now use the Interface <br>
+  private final ThermometerContract thermometer;</p>
+<p>// New constructor using dependency injection  <br>
+  public WeatherService(ThermometerContract thermometer) {
+    this.thermometer = thermometer;
+  }
+}
+````</p>
 <p>As a result, the initialization of a <em>WeatherService</em> for both constructors will look like the following:</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>  <span style="color: #3D7B7B; font-style: italic">// Using dependency injection</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>  TemperatureUnit celsius <span style="color: #666666">=</span> TemperatureUnit.<span style="color: #687822">CELSIUS</span>;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>  ThermometerContract thermometer <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Thermometer(celsius);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>  WeatherContract weather <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> WeatherService(thermometer);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>}
-</code></pre></div>
+<p><code>java
+public static void main(String[] args) {
+  // Using dependency injection
+  TemperatureUnit celsius = TemperatureUnit.CELSIUS;
+  ThermometerContract thermometer = new Thermometer(celsius);
+  WeatherContract weather = new WeatherService(thermometer);
+}</code></p>
 <p>Now, our <em>ThermometerContract</em> can be fully configured by an external part of the software. More important so, the <em>WeatherService</em> doesn’t need to know any of the available implementations of <em>ThermometerContract</em>, thus decoupling your software packages.</p>
 <p>This could seem like nothing important, but this simple switch of responsibility is critical leverage for multiple aspects of software design. It enables you to control the instance creation from your software entry point by chaining dependencies. You won’t have to take care of the instantiation until it is necessary. This behaviour could be compared to raised exceptions, that are ignored until taken care of in a significant context.</p>
 <h3>That’s all there is to dependency injection?</h3>
@@ -221,78 +218,74 @@ For instance, an API sending the current temperature in your area. Integrating m
 <p>Those libraries tend to cover a lot of cases thus be offputting to developers not comfortable with the pattern in the first place. In reality, they simply ease the instantiation of complex dependency trees and are not required at all.</p>
 <p>The following section is an example of injecting our service using <a href="https://github.com/google/guice/wiki">Guice</a>, a dependency injection framework for Java made by Google. The concept is to reference bindings of every component you can inject in your program, so that the library can generate a class of any type, automatically.</p>
 <p>Let’s consider that we have two implementations with the following constructors:</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">WeatherService</span> <span style="color: #008000; font-weight: bold">implements</span> WeatherContract {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">final</span> ThermometerContract thermometer;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>  <span style="color: #AA22FF">@Inject</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">WeatherService</span>(ThermometerContract thermometer) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">thermometer</span> <span style="color: #666666">=</span> thermometer;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>}
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Thermometer</span> <span style="color: #008000; font-weight: bold">implements</span> ThermometerContract {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">final</span> TemperatureUnit unit;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>  <span style="color: #AA22FF">@Inject</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">Thermometer</span>(<span style="color: #AA22FF">@Named</span>(WeatherModule.<span style="color: #687822">TEMPERATURE_UNIT</span>) 
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>                     TemperatureUnit unit) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">unit</span> <span style="color: #666666">=</span> unit;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>}
-</code></pre></div>
+<p>```java
+public class WeatherService implements WeatherContract {
+  private final ThermometerContract thermometer;</p>
+<p>@Inject
+  public WeatherService(ThermometerContract thermometer) {
+    this.thermometer = thermometer;
+  }
+}</p>
+<p>public class Thermometer implements ThermometerContract {
+  private final TemperatureUnit unit;</p>
+<p>@Inject
+  public Thermometer(@Named(WeatherModule.TEMPERATURE_UNIT) 
+                     TemperatureUnit unit) {
+    this.unit = unit;
+  }
+}
+```</p>
 <p>The <em>injection module</em> should be configured to bind all needed interfaces to a given implementation.
 It should also be able to inject any object without a specific interface, such as the enumerate <em>TemperatureUnit</em>. 
 The injection will then be bound to a specific name, “<em>temp_unit”</em> in this case.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">WeatherModule</span> <span style="color: #008000; font-weight: bold">extends</span> AbstractModule {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #008000; font-weight: bold">final</span> String TEMPERATURE_UNIT <span style="color: #666666">=</span> <span style="color: #BA2121">"temp_unit"</span>;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>  <span style="color: #AA22FF">@Override</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>  <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">configure</span>() {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    <span style="color: #3D7B7B; font-style: italic">// Named input configuration bindings</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    bind(TemperatureUnit.<span style="color: #687822">class</span>)
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>      .<span style="color: #687822">annotatedWith</span>(Names.<span style="color: #687822">named</span>(TEMPERATURE_UNIT))
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>      .<span style="color: #687822">toInstance</span>(TemperatureUnit.<span style="color: #687822">CELSIUS</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    <span style="color: #3D7B7B; font-style: italic">// Interface - Implementation bindings</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>    bind(ThermometerContract.<span style="color: #687822">class</span>).<span style="color: #687822">to</span>(Thermometer.<span style="color: #687822">class</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>    bind(WeatherContract.<span style="color: #687822">class</span>).<span style="color: #687822">to</span>(WeatherService.<span style="color: #687822">class</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>}
-</code></pre></div>
+<p>````java
+public class WeatherModule extends AbstractModule {
+  public static final String TEMPERATURE_UNIT = "temp_unit";</p>
+<p>@Override
+  protected void configure() {
+    // Named input configuration bindings
+    bind(TemperatureUnit.class)
+      .annotatedWith(Names.named(TEMPERATURE_UNIT))
+      .toInstance(TemperatureUnit.CELSIUS);</p>
+<p>// Interface - Implementation bindings
+    bind(ThermometerContract.class).to(Thermometer.class);
+    bind(WeatherContract.class).to(WeatherService.class);
+  }
+}
+````</p>
 <p>Ultimately, the module can be used as follow, here instantiating a <em>WeatherContract</em>.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>  <span style="color: #3D7B7B; font-style: italic">// Creating the injection module configured above.</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>  Injector injector <span style="color: #666666">=</span> Guice.<span style="color: #687822">createInjector</span>(<span style="color: #008000; font-weight: bold">new</span> WeatherModule());
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>  <span style="color: #3D7B7B; font-style: italic">// We ask for the injection of a WeatherContract, </span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>  <span style="color: #3D7B7B; font-style: italic">// which will create an instance of ThermometerContract</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span>  <span style="color: #3D7B7B; font-style: italic">// with the named TemperatureUnit under the hood.</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">8</span>  WeatherContract weather <span style="color: #666666">=</span> injector.<span style="color: #687822">getInstance</span>(WeatherContract.<span style="color: #687822">class</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">9</span>}
-</code></pre></div>
+<p>```java
+public static void main(String[] args) {
+  // Creating the injection module configured above.
+  Injector injector = Guice.createInjector(new WeatherModule());</p>
+<p>// We ask for the injection of a WeatherContract, 
+  // which will create an instance of ThermometerContract
+  // with the named TemperatureUnit under the hood.
+  WeatherContract weather = injector.getInstance(WeatherContract.class);
+}
+```</p>
 <p>Such modules usually provide a good power of customization to the injected elements, thus we can consider configuring the injection depending on the available implementations.</p>
 <p>As a result, using a library is not required when integrating dependency injection. However, this could save a lot of time and cumbersome code in big projects.</p>
 <h3>Show me some tests!</h3>
 <p>As a side effect of decoupling your code, the dependency injection pattern is a real asset to improve unit testability of each component. This section contains an example of unit tests for our <em>WeatherService</em>.</p>
 <p>As said above, making <em>WeatherService</em> asking for a <em>ThermometerContract</em> enables us to use any implementation we want. Hence, we can send a <em>mock</em> in the constructor, then control its behaviour from the outside.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">testTemperatureStatus</span>() {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>  ThermometerContract thermometer <span style="color: #666666">=</span> Mockito.<span style="color: #687822">mock</span>(ThermometerContract.<span style="color: #687822">class</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>  Mockito.<span style="color: #687822">doReturn</span>(TemperatureUnit.<span style="color: #687822">CELSIUS</span>).<span style="color: #687822">when</span>(thermometer).<span style="color: #687822">getUnit</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>  WeatherContract weather <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> WeatherService(thermometer);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>  Mockito.<span style="color: #687822">doReturn</span>(<span style="color: #666666">-50</span>f).<span style="color: #687822">when</span>(thermometer).<span style="color: #687822">getTemperature</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>  assertEquals(
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    TemperatureStatus.<span style="color: #687822">COLD</span>,
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    weather.<span style="color: #687822">getTemperatureStatus</span>()
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>  );
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>  Mockito.<span style="color: #687822">doReturn</span>(<span style="color: #666666">10</span>f).<span style="color: #687822">when</span>(thermometer).<span style="color: #687822">getTemperature</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>  assertEquals(
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>    TemperatureStatus.<span style="color: #687822">MODERATE</span>,
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    weather.<span style="color: #687822">getTemperatureStatus</span>()
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>  );
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>}
-</code></pre></div>
+<p>```java
+public void testTemperatureStatus() {
+  ThermometerContract thermometer = Mockito.mock(ThermometerContract.class);
+  Mockito.doReturn(TemperatureUnit.CELSIUS).when(thermometer).getUnit();
+  WeatherContract weather = new WeatherService(thermometer);</p>
+<p>Mockito.doReturn(-50f).when(thermometer).getTemperature();
+  assertEquals(
+    TemperatureStatus.COLD,
+    weather.getTemperatureStatus()
+  );</p>
+<p>Mockito.doReturn(10f).when(thermometer).getTemperature();
+  assertEquals(
+    TemperatureStatus.MODERATE,
+    weather.getTemperatureStatus()
+  );
+}
+```</p>
 <p>As you can see, we can then control our thermometer without a struggle from outside our tested class.</p>
 <h3>Conclusion</h3>
 <p><em>Dependency injection</em> is a way of thinking your code architecture and can be simple to implement by yourself. In bigger projects, integrating a dependency injection framework can save you a lot of time in the long run.</p>
@@ -324,8 +317,8 @@ The injection will then be bound to a specific name, “<em>temp_unit”</em> in
                 </li>
 
                 <li class="list-group-item">
-                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="5 articles in this category">Software Engineering</a>
-                            <a href="/tag/best-practice.html" data-toggle="tooltip" class="badge badge-secondary" title="2 articles with this tag">Best Practice</a>
+                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="6 articles in this category">Software Engineering</a>
+                            <a href="/tag/best-practice.html" data-toggle="tooltip" class="badge badge-secondary" title="3 articles with this tag">Best Practice</a>
                             <a href="/tag/design-patterns.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Design Patterns</a>
                             <a href="/tag/software-architecture.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Software Architecture</a>
                 </li>
@@ -382,7 +375,7 @@ The injection will then be bound to a specific name, “<em>temp_unit”</em> in
                     <h6>Copyright notice</h6>
                     <p class="small">
                         © Copyright
-                        2020-2021
+                        2020-2022
                         Antoine Veuiller.
                     </p>
                 </div>

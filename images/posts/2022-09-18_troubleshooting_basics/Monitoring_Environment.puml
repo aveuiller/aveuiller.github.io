@@ -1,0 +1,24 @@
+@startuml
+
+!theme cerulean
+
+title "Monitoring Environment"
+
+node "Production Server" as host {
+    agent "Production Service" as svc
+}
+
+agent "Prometheus" as prom
+agent "Alert Manager" as am
+agent "Grafana" as gra
+actor "On-Call Engineer" as eng
+
+svc <.. prom: Applicative Metrics
+host <.. prom: Host Metrics
+prom <-- gra
+prom -> am: Publish Alert
+am -> eng: Notify
+
+eng .> gra: Read Dashboards
+
+@enduml

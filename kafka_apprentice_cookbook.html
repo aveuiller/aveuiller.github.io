@@ -8,7 +8,7 @@
  | Antoine Veuiller</title>
 
         <meta name="author" content="Antoine Veuiller">
-        <meta name="generator" content="Pelican v4.7.1">
+        <meta name="generator" content="Pelican v4.8.0">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
@@ -227,81 +227,72 @@ As a result, even if a library is an abstraction layer above another, it is not 
 which help develop a producer and consumer easily.
 We will use Java for the example below, but the concept remains identical for other languages.</p>
 <p>The producer concept is to publish messages at any moment, so the code is pretty simple.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Main</span> {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) <span style="color: #008000; font-weight: bold">throws</span> Exception {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>    <span style="color: #3D7B7B; font-style: italic">// Configure your producer</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>    Properties producerProperties <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Properties();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    producerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"bootstrap.servers"</span>, <span style="color: #BA2121">"localhost:29092"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    producerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"acks"</span>, <span style="color: #BA2121">"all"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    producerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"retries"</span>, <span style="color: #666666">0</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>    producerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"linger.ms"</span>, <span style="color: #666666">1</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    producerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"key.serializer"</span>, <span style="color: #BA2121">"org.apache.kafka.common.serialization.LongSerializer"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>    producerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"value.serializer"</span>, <span style="color: #BA2121">"io.confluent.kafka.serializers.KafkaAvroSerializer"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    producerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"schema.registry.url"</span>, <span style="color: #BA2121">"http://localhost:8081"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>    <span style="color: #3D7B7B; font-style: italic">// Initialize a producer</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>    Producer<span style="color: #666666">&lt;</span>Long, AvroHelloMessage<span style="color: #666666">&gt;</span> producer <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> KafkaProducer<span style="color: #666666">&lt;&gt;</span>(producerProperties);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>    <span style="color: #3D7B7B; font-style: italic">// Use it whenever you need</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>    producer.<span style="color: #687822">send</span>(<span style="color: #008000; font-weight: bold">new</span> AvroHelloMessage(<span style="color: #666666">1L</span>, <span style="color: #BA2121">"this is a message"</span>, <span style="color: #666666">2.4f</span>, <span style="color: #666666">1</span>));
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>}
-</code></pre></div>
+<p>```java
+public class Main {
+  public static void main(String[] args) throws Exception {
+    // Configure your producer
+    Properties producerProperties = new Properties();
+    producerProperties.put("bootstrap.servers", "localhost:29092");
+    producerProperties.put("acks", "all");
+    producerProperties.put("retries", 0);
+    producerProperties.put("linger.ms", 1);
+    producerProperties.put("key.serializer", "org.apache.kafka.common.serialization.LongSerializer");
+    producerProperties.put("value.serializer", "io.confluent.kafka.serializers.KafkaAvroSerializer");
+    producerProperties.put("schema.registry.url", "http://localhost:8081");</p>
+<p>// Initialize a producer
+    Producer<long avrohellomessage> producer = new KafkaProducer&lt;&gt;(producerProperties);</long></p>
+<p>// Use it whenever you need
+    producer.send(new AvroHelloMessage(1L, "this is a message", 2.4f, 1));
+  }
+}
+```</p>
 <p>The code is a bit more complex on the consumer part since the consumption loop needs to be created manually.
 On the other hand, this gives more control over its behaviour.
 The consumer state is automatically handled by the Kafka library.
 As a result, restarting the worker will start at the most recent offset he encountered.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Main</span> {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> Properties <span style="color: #0000FF">configureConsumer</span>() {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>        Properties consumerProperties <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Properties();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>        consumerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"bootstrap.servers"</span>, <span style="color: #BA2121">"localhost:29092"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>        consumerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"group.id"</span>, <span style="color: #BA2121">"HelloConsumer"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>        consumerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"key.deserializer"</span>, <span style="color: #BA2121">"org.apache.kafka.common.serialization.LongDeserializer"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>        consumerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"value.deserializer"</span>, <span style="color: #BA2121">"io.confluent.kafka.serializers.KafkaAvroDeserializer"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>        consumerProperties.<span style="color: #687822">put</span>(<span style="color: #BA2121">"schema.registry.url"</span>, <span style="color: #BA2121">"http://localhost:8081"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>        <span style="color: #3D7B7B; font-style: italic">// Configure Avro deserializer to convert the received data to a SpecificRecord (i.e. AvroHelloMessage)</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>        <span style="color: #3D7B7B; font-style: italic">// instead of a GenericRecord (i.e. schema + array of deserialized data).</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>        consumerProperties.<span style="color: #687822">put</span>(KafkaAvroDeserializerConfig.<span style="color: #687822">SPECIFIC_AVRO_READER_CONFIG</span>, <span style="color: #008000; font-weight: bold">true</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>        <span style="color: #008000; font-weight: bold">return</span> consumerProperties;
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>    }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) <span style="color: #008000; font-weight: bold">throws</span> Exception {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>        <span style="color: #3D7B7B; font-style: italic">// Initialize a consumer</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>        <span style="color: #008000; font-weight: bold">final</span> Consumer<span style="color: #666666">&lt;</span>Long, AvroHelloMessage<span style="color: #666666">&gt;</span> consumer <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> KafkaConsumer<span style="color: #666666">&lt;&gt;</span>(configureConsumer());
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>        <span style="color: #3D7B7B; font-style: italic">// Chose the topics you will be polling from.</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>        <span style="color: #3D7B7B; font-style: italic">// You can subscribe to all topics matching a Regex.</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>        consumer.<span style="color: #687822">subscribe</span>(Pattern.<span style="color: #687822">compile</span>(<span style="color: #BA2121">"hello_topic_avro"</span>));
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>        <span style="color: #3D7B7B; font-style: italic">// Poll will return all messages from the current consumer offset</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>        <span style="color: #008000; font-weight: bold">final</span> AtomicBoolean shouldStop <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> AtomicBoolean(<span style="color: #008000; font-weight: bold">false</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>        Thread consumerThread <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Thread(() <span style="color: #666666">-&gt;</span> {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>            <span style="color: #008000; font-weight: bold">final</span> Duration timeout <span style="color: #666666">=</span> Duration.<span style="color: #687822">ofSeconds</span>(<span style="color: #666666">5</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>            <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>shouldStop) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>                <span style="color: #008000; font-weight: bold">for</span> (ConsumerRecord<span style="color: #666666">&lt;</span>Long, AvroHelloMessage<span style="color: #666666">&gt;</span> record : consumer.<span style="color: #687822">poll</span>(timeout)) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>                    <span style="color: #3D7B7B; font-style: italic">// Use your record</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>                    AvroHelloMessage value <span style="color: #666666">=</span> record.<span style="color: #687822">value</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>                }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>                <span style="color: #3D7B7B; font-style: italic">// Be kind to the broker while polling</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>                Thread.<span style="color: #687822">sleep</span>(<span style="color: #666666">5</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>            }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>            consumer.<span style="color: #687822">close</span>(timeout);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>        });
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>        <span style="color: #3D7B7B; font-style: italic">// Start consuming &amp;&amp; do other things</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>        consumerThread.<span style="color: #687822">start</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>        <span style="color: #3D7B7B; font-style: italic">// [...]</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>        <span style="color: #3D7B7B; font-style: italic">// End consumption from customer</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>        shouldStop.<span style="color: #687822">set</span>(<span style="color: #008000; font-weight: bold">true</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>        consumerThread.<span style="color: #687822">join</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>    }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>}
-</code></pre></div>
+<p>```java
+public class Main {
+    public static Properties configureConsumer() {
+        Properties consumerProperties = new Properties();</p>
+<p>consumerProperties.put("bootstrap.servers", "localhost:29092");
+        consumerProperties.put("group.id", "HelloConsumer");
+        consumerProperties.put("key.deserializer", "org.apache.kafka.common.serialization.LongDeserializer");
+        consumerProperties.put("value.deserializer", "io.confluent.kafka.serializers.KafkaAvroDeserializer");
+        consumerProperties.put("schema.registry.url", "http://localhost:8081");
+        // Configure Avro deserializer to convert the received data to a SpecificRecord (i.e. AvroHelloMessage)
+        // instead of a GenericRecord (i.e. schema + array of deserialized data).
+        consumerProperties.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);</p>
+<p>return consumerProperties;
+    }</p>
+<p>public static void main(String[] args) throws Exception {
+        // Initialize a consumer
+        final Consumer<long avrohellomessage> consumer = new KafkaConsumer&lt;&gt;(configureConsumer());</long></p>
+<p>// Chose the topics you will be polling from.
+        // You can subscribe to all topics matching a Regex.
+        consumer.subscribe(Pattern.compile("hello_topic_avro"));</p>
+<p>// Poll will return all messages from the current consumer offset
+        final AtomicBoolean shouldStop = new AtomicBoolean(false);
+        Thread consumerThread = new Thread(() -&gt; {
+            final Duration timeout = Duration.ofSeconds(5);</p>
+<p>while (!shouldStop) {
+                for (ConsumerRecord<long avrohellomessage> record : consumer.poll(timeout)) {
+                    // Use your record
+                    AvroHelloMessage value = record.value();
+                }
+                // Be kind to the broker while polling
+                Thread.sleep(5);
+            }</long></p>
+<p>consumer.close(timeout);
+        });</p>
+<p>// Start consuming &amp;&amp; do other things
+        consumerThread.start();
+        // [...]</p>
+<p>// End consumption from customer
+        shouldStop.set(true);
+        consumerThread.join();
+    }
+}
+```</p>
 <blockquote class="blockquote border-left border-primary pl-3">
 <p>Further Reading:</p>
 <p><a href="https://docs.confluent.io/platform/current/clients/index.html">Available Libraries</a></p>
@@ -325,42 +316,38 @@ The few lines configuring the <code>StreamsBuilder</code> will:</p>
 <li>Count the number of tokens for each group and save the changes to a KTable named <code>counts-store</code>.</li>
 <li>Stream the changes in this Ktable to send the values in a KStream named <code>streams-wordcount-output</code>.</li>
 </ol>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Main</span> {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) <span style="color: #008000; font-weight: bold">throws</span> Exception {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>    Properties props <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Properties();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>    props.<span style="color: #687822">put</span>(StreamsConfig.<span style="color: #687822">APPLICATION_ID_CONFIG</span>, <span style="color: #BA2121">"streams-wordcount"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>    props.<span style="color: #687822">put</span>(StreamsConfig.<span style="color: #687822">BOOTSTRAP_SERVERS_CONFIG</span>, <span style="color: #BA2121">"localhost:29092"</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>    props.<span style="color: #687822">put</span>(StreamsConfig.<span style="color: #687822">DEFAULT_KEY_SERDE_CLASS_CONFIG</span>, Serdes.<span style="color: #687822">String</span>().<span style="color: #687822">getClass</span>());
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>    props.<span style="color: #687822">put</span>(StreamsConfig.<span style="color: #687822">DEFAULT_VALUE_SERDE_CLASS_CONFIG</span>, Serdes.<span style="color: #687822">String</span>().<span style="color: #687822">getClass</span>());
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>    <span style="color: #008000; font-weight: bold">final</span> StreamsBuilder builder <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> StreamsBuilder();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>    builder.<span style="color: #666666">&lt;</span>String, String<span style="color: #666666">&gt;</span>stream(<span style="color: #BA2121">"streams-plaintext-input"</span>)
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>            .<span style="color: #687822">flatMapValues</span>(value <span style="color: #666666">-&gt;</span> Arrays.<span style="color: #687822">asList</span>(value.<span style="color: #687822">toLowerCase</span>(Locale.<span style="color: #687822">getDefault</span>()).<span style="color: #687822">split</span>(<span style="color: #BA2121">"\\W+"</span>)))
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>            .<span style="color: #687822">groupBy</span>((key, value) <span style="color: #666666">-&gt;</span> value)
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>            .<span style="color: #687822">count</span>(Materialized.<span style="color: #666666">&lt;</span>String, Long, KeyValueStore<span style="color: #666666">&lt;</span>Bytes, <span style="color: #B00040">byte</span><span style="color: #666666">[]&gt;&gt;</span>as(<span style="color: #BA2121">"counts-store"</span>))
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>            .<span style="color: #687822">toStream</span>()
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>            .<span style="color: #687822">to</span>(<span style="color: #BA2121">"streams-wordcount-output"</span>, Produced.<span style="color: #687822">with</span>(Serdes.<span style="color: #687822">String</span>(), Serdes.<span style="color: #687822">Long</span>()));
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>    <span style="color: #008000; font-weight: bold">final</span> Topology topology <span style="color: #666666">=</span> builder.<span style="color: #687822">build</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>    <span style="color: #008000; font-weight: bold">final</span> KafkaStreams streams <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> KafkaStreams(topology, props);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>    <span style="color: #008000; font-weight: bold">final</span> CountDownLatch latch <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> CountDownLatch(<span style="color: #666666">1</span>);
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>    <span style="color: #3D7B7B; font-style: italic">// attach shutdown handler to catch control-c</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>    Runtime.<span style="color: #687822">getRuntime</span>().<span style="color: #687822">addShutdownHook</span>(<span style="color: #008000; font-weight: bold">new</span> Thread(<span style="color: #BA2121">"streams-shutdown-hook"</span>) {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>      <span style="color: #AA22FF">@Override</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>      <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">run</span>() {
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>        streams.<span style="color: #687822">close</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>        latch.<span style="color: #687822">countDown</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>      }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>    });
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>    <span style="color: #3D7B7B; font-style: italic">// The consumer loop is handled by the library</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>    streams.<span style="color: #687822">start</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>    latch.<span style="color: #687822">await</span>();
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>  }
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>}
-</code></pre></div>
+<p>```java
+public class Main {
+  public static void main(String[] args) throws Exception {
+    Properties props = new Properties();
+    props.put(StreamsConfig.APPLICATION_ID_CONFIG, "streams-wordcount");
+    props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
+    props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+    props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());</p>
+<p>final StreamsBuilder builder = new StreamsBuilder();</p>
+<p>builder.<string string>stream("streams-plaintext-input")
+            .flatMapValues(value -&gt; Arrays.asList(value.toLowerCase(Locale.getDefault()).split("\W+")))
+            .groupBy((key, value) -&gt; value)
+            .count(Materialized.<string long keyvaluestore byte>&gt;as("counts-store"))
+            .toStream()
+            .to("streams-wordcount-output", Produced.with(Serdes.String(), Serdes.Long()));</string></string></p>
+<p>final Topology topology = builder.build();
+    final KafkaStreams streams = new KafkaStreams(topology, props);
+    final CountDownLatch latch = new CountDownLatch(1);</p>
+<p>// attach shutdown handler to catch control-c
+    Runtime.getRuntime().addShutdownHook(new Thread("streams-shutdown-hook") {
+      @Override
+      public void run() {
+        streams.close();
+        latch.countDown();
+      }
+    });</p>
+<p>// The consumer loop is handled by the library
+    streams.start();
+    latch.await();
+  }
+}
+```</p>
 <blockquote class="blockquote border-left border-primary pl-3">
 <p>Further Reading:</p>
 <p><a href="https://docs.confluent.io/platform/current/streams/concepts.html">Kafka Streams Concepts</a></p>
@@ -384,29 +371,29 @@ Each connector can run in the same or a distinct worker, and workers can be grou
 The file below is a configuration of the <a href="https://www.confluent.io/hub/mongodb/kafka-connect-mongodb">MongoDB connector</a>.
 It asks to fetch all messages from the topic <code>mongo-source</code> to insert them into the collection <code>sink</code> of the database named <code>kafka-connect</code>.
 The credentials are provided from an external file, which is a feature of Kafka Connect to <a href="https://docs.confluent.io/platform/current/connect/security.html#externalizing-secrets">protect secrets</a>.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>{<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">"name"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"mongo-sink"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">"config"</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"topics"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"mongo-source"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"tasks.max"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"1"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"connector.class"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"com.mongodb.kafka.connect.MongoSinkConnector"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"connection.uri"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"mongodb://${file:/auth.properties:username}:${file:/auth.properties:password}@mongo:27017"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"database"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"kafka_connect"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"collection"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"sink"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"max.num.retries"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"1"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"retries.defer.timeout"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"5000"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"document.id.strategy"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"com.mongodb.kafka.connect.sink.processor.id.strategy.BsonOidStrategy"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"post.processor.chain"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"com.mongodb.kafka.connect.sink.processor.DocumentIdAdder"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"delete.on.null.values"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"false"</span>,<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">"writemodel.strategy"</span>:<span style="color: #bbbbbb"> </span><span style="color: #BA2121">"com.mongodb.kafka.connect.sink.writemodel.strategy.ReplaceOneDefaultStrategy"</span><span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span><span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>}<span style="color: #bbbbbb"></span>
-</code></pre></div>
+<p><code>json
+{
+  "name": "mongo-sink",
+  "config": {
+    "topics": "mongo-source",
+    "tasks.max": "1",
+    "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+    "connection.uri": "mongodb://${file:/auth.properties:username}:${file:/auth.properties:password}@mongo:27017",
+    "database": "kafka_connect",
+    "collection": "sink",
+    "max.num.retries": "1",
+    "retries.defer.timeout": "5000",
+    "document.id.strategy": "com.mongodb.kafka.connect.sink.processor.id.strategy.BsonOidStrategy",
+    "post.processor.chain": "com.mongodb.kafka.connect.sink.processor.DocumentIdAdder",
+    "delete.on.null.values": "false",
+    "writemodel.strategy": "com.mongodb.kafka.connect.sink.writemodel.strategy.ReplaceOneDefaultStrategy"
+  }
+}</code></p>
 <p>Once the configuration complete, registering the connector is as easy as an HTTP call on the running <a href="https://docs.confluent.io/home/connect/userguide.html#configuring-and-running-workers">Kafka Connect instance</a>.
 Afterwards, the service will automatically watch the data without further work required.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>$ curl -i -X POST -H <span style="color: #BA2121">"Accept:application/json"</span> -H  <span style="color: #BA2121">"Content-Type:application/json"</span> <span style="color: #AA5D1F; font-weight: bold">\</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>  http://localhost:8083/connectors -d @sink-conf.json
-</code></pre></div>
+<p><code>shell
+$ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" \
+  http://localhost:8083/connectors -d @sink-conf.json</code></p>
 <blockquote class="blockquote border-left border-primary pl-3">
 <p>Further Reading:</p>
 <p><a href="https://docs.confluent.io/platform/current/connect/userguide.html#connect-userguide">Getting Started Documentation</a></p>
@@ -424,48 +411,46 @@ Those two concepts behave in the same way as a KStream or KTable from Kafka Stre
 <li><strong>Push Query</strong> (<em>e.g.</em> <code>SELECT * FROM &lt;table|stream&gt; EMIT CHANGES</code>): Requests a persistent connection to the server, asynchronously pushing updated values.</li>
 </ol>
 <p>The database can be used to browse the brokers' content. Topics can be discovered through the command <code>list topics</code>, and their content displayed using <code>print &lt;name&gt;</code>.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>ksql<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span>topics;<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span><span style="color: #bbbbbb"> </span>Kafka<span style="color: #bbbbbb"> </span>Topic<span style="color: #bbbbbb">      </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>Partitions<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>Partition<span style="color: #bbbbbb"> </span>Replicas<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span><span style="color: #3D7B7B; font-style: italic">----------------------------------------------------</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span><span style="color: #bbbbbb"> </span>hello_topic_json<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb">          </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #3D7B7B; font-style: italic">----------------------------------------------------</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>ksql<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>print<span style="color: #bbbbbb"> </span><span style="color: #BA2121">'hello_topic_json'</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">from</span><span style="color: #bbbbbb"> </span>beginning;<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span><span style="color: #008000; font-weight: bold">Key</span><span style="color: #bbbbbb"> </span>format:<span style="color: #bbbbbb"> </span>KAFKA_BIGINT<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">or</span><span style="color: #bbbbbb"> </span>KAFKA_DOUBLE<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">or</span><span style="color: #bbbbbb"> </span>KAFKA_STRING<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>Value<span style="color: #bbbbbb"> </span>format:<span style="color: #bbbbbb"> </span>JSON<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">or</span><span style="color: #bbbbbb"> </span>KAFKA_STRING<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>rowtime:<span style="color: #bbbbbb"> </span><span style="color: #666666">2021/05/25</span><span style="color: #bbbbbb"> </span><span style="color: #666666">08</span>:<span style="color: #666666">44</span>:<span style="color: #666666">20</span>.<span style="color: #666666">922</span><span style="color: #bbbbbb"> </span>Z,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>value:<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">{</span><span style="color: #19177C">"user_id"</span>:<span style="color: #666666">1</span>,<span style="color: #19177C">"message"</span>:<span style="color: #19177C">"this is a message"</span>,<span style="color: #19177C">"value"</span>:<span style="color: #666666">2</span>.<span style="color: #666666">4</span>,<span style="color: #19177C">"version"</span>:<span style="color: #666666">1</span><span style="border: 1px solid #FF0000">}</span><span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>rowtime:<span style="color: #bbbbbb"> </span><span style="color: #666666">2021/05/25</span><span style="color: #bbbbbb"> </span><span style="color: #666666">08</span>:<span style="color: #666666">44</span>:<span style="color: #666666">20</span>.<span style="color: #666666">967</span><span style="color: #bbbbbb"> </span>Z,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>value:<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">{</span><span style="color: #19177C">"user_id"</span>:<span style="color: #666666">1</span>,<span style="color: #19177C">"message"</span>:<span style="color: #19177C">"this is another message"</span>,<span style="color: #19177C">"value"</span>:<span style="color: #666666">2</span>.<span style="color: #666666">4</span>,<span style="color: #19177C">"version"</span>:<span style="color: #666666">2</span><span style="border: 1px solid #FF0000">}</span><span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>rowtime:<span style="color: #bbbbbb"> </span><span style="color: #666666">2021/05/25</span><span style="color: #bbbbbb"> </span><span style="color: #666666">08</span>:<span style="color: #666666">44</span>:<span style="color: #666666">20</span>.<span style="color: #666666">970</span><span style="color: #bbbbbb"> </span>Z,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span>value:<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">{</span><span style="color: #19177C">"user_id"</span>:<span style="color: #666666">2</span>,<span style="color: #19177C">"message"</span>:<span style="color: #19177C">"this is another message"</span>,<span style="color: #19177C">"value"</span>:<span style="color: #666666">2</span>.<span style="color: #666666">6</span>,<span style="color: #19177C">"version"</span>:<span style="color: #666666">1</span><span style="border: 1px solid #FF0000">}</span><span style="color: #bbbbbb"></span>
-</code></pre></div>
+<p>```sql
+ksql&gt; list topics;
+ Kafka Topic      | Partitions | Partition Replicas</p>
+<hr>
+<h2>hello_topic_json | 1          | 1</h2>
+<p>ksql&gt; print 'hello_topic_json' from beginning;
+Key format: KAFKA_BIGINT or KAFKA_DOUBLE or KAFKA_STRING
+Value format: JSON or KAFKA_STRING
+rowtime: 2021/05/25 08:44:20.922 Z, key: 1, value: {"user_id":1,"message":"this is a message","value":2.4,"version":1}
+rowtime: 2021/05/25 08:44:20.967 Z, key: 1, value: {"user_id":1,"message":"this is another message","value":2.4,"version":2}
+rowtime: 2021/05/25 08:44:20.970 Z, key: 2, value: {"user_id":2,"message":"this is another message","value":2.6,"version":1}
+```</p>
 <p>The syntax to create and query a stream, or a table is very close to SQL.</p>
-<div class="highlight pygments-style-emacs rounded shadow-sm mb-3" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span><span style="color: #3D7B7B; font-style: italic">-- Let's create a table from the previous topic</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>ksql<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">CREATE</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">TABLE</span><span style="color: #bbbbbb"> </span>messages<span style="color: #bbbbbb"> </span>(user_id<span style="color: #bbbbbb"> </span><span style="color: #008000">BIGINT</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">PRIMARY</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">KEY</span>,<span style="color: #bbbbbb"> </span>message<span style="color: #bbbbbb"> </span><span style="color: #008000">VARCHAR</span>)<span style="color: #bbbbbb"> </span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">WITH</span><span style="color: #bbbbbb"> </span>(KAFKA_TOPIC<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">'hello_topic_json'</span>,<span style="color: #bbbbbb"> </span>VALUE_FORMAT<span style="color: #666666">=</span><span style="color: #BA2121">'JSON'</span>);<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span><span style="color: #3D7B7B; font-style: italic">-- We can see the list and details of each table</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>ksql<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span>tables;<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">Table</span><span style="color: #bbbbbb"> </span>Name<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>Kafka<span style="color: #bbbbbb"> </span>Topic<span style="color: #bbbbbb">      </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">Key</span><span style="color: #bbbbbb"> </span>Format<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>Value<span style="color: #bbbbbb"> </span>Format<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>Windowed<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span><span style="color: #3D7B7B; font-style: italic">----------------------------------------------------------------------</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span><span style="color: #bbbbbb"> </span>MESSAGES<span style="color: #bbbbbb">   </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>hello_topic_json<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>KAFKA<span style="color: #bbbbbb">      </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>JSON<span style="color: #bbbbbb">         </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">false</span><span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span><span style="color: #3D7B7B; font-style: italic">----------------------------------------------------------------------</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>ksql<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">describe</span><span style="color: #bbbbbb"> </span>messages;<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>Name<span style="color: #bbbbbb">                 </span>:<span style="color: #bbbbbb"> </span>MESSAGES<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span><span style="color: #bbbbbb"> </span>Field<span style="color: #bbbbbb">   </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">Type</span><span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span><span style="color: #3D7B7B; font-style: italic">------------------------------------------</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span><span style="color: #bbbbbb"> </span>USER_ID<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span><span style="color: #008000">BIGINT</span><span style="color: #bbbbbb">           </span>(<span style="color: #008000; font-weight: bold">primary</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">key</span>)<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span><span style="color: #bbbbbb"> </span>MESSAGE<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span><span style="color: #008000">VARCHAR</span>(STRING)<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span><span style="color: #3D7B7B; font-style: italic">------------------------------------------</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span><span style="color: #008000; font-weight: bold">For</span><span style="color: #bbbbbb"> </span>runtime<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">statistics</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">and</span><span style="color: #bbbbbb"> </span>query<span style="color: #bbbbbb"> </span>details<span style="color: #bbbbbb"> </span>run:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">DESCRIBE</span><span style="color: #bbbbbb"> </span>EXTENDED<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span>Stream,<span style="color: #008000; font-weight: bold">Table</span><span style="color: #666666">&gt;</span>;<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span><span style="color: #3D7B7B; font-style: italic">-- Appart from some additions to the language, the queries are almost declared in standard SQL. </span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>ksql<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">select</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">from</span><span style="color: #bbbbbb"> </span>messages<span style="color: #bbbbbb"> </span>EMIT<span style="color: #bbbbbb"> </span>CHANGES;<span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span><span style="color: #666666">+</span><span style="color: #3D7B7B; font-style: italic">--------+------------------------+</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span><span style="color: #666666">|</span>USER_ID<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span>MESSAGE<span style="color: #bbbbbb">                 </span><span style="color: #666666">|</span><span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span><span style="color: #666666">+</span><span style="color: #3D7B7B; font-style: italic">--------+------------------------+</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span><span style="color: #666666">|1</span><span style="color: #bbbbbb">       </span><span style="color: #666666">|</span>this<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">is</span><span style="color: #bbbbbb"> </span>another<span style="color: #bbbbbb"> </span>message<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span><span style="color: #666666">|2</span><span style="color: #bbbbbb">       </span><span style="color: #666666">|</span>this<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">is</span><span style="color: #bbbbbb"> </span>another<span style="color: #bbbbbb"> </span>message<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"></span>
-</code></pre></div>
+<p>```sql
+-- Let's create a table from the previous topic
+ksql&gt; CREATE TABLE messages (user_id BIGINT PRIMARY KEY, message VARCHAR) </p>
+<blockquote class="blockquote border-left border-primary pl-3">
+<p>WITH (KAFKA_TOPIC = 'hello_topic_json', VALUE_FORMAT='JSON');</p>
+</blockquote>
+<p>-- We can see the list and details of each table
+ksql&gt; list tables;
+ Table Name | Kafka Topic      | Key Format | Value Format | Windowed</p>
+<hr>
+<h2>MESSAGES   | hello_topic_json | KAFKA      | JSON         | false</h2>
+<p>ksql&gt; describe messages;
+Name                 : MESSAGES
+ Field   | Type</p>
+<hr>
+<p>USER_ID | BIGINT           (primary key)
+ MESSAGE | VARCHAR(STRING)</p>
+<hr>
+<p>For runtime statistics and query details run: DESCRIBE EXTENDED <stream>;</stream></p>
+<p>-- Appart from some additions to the language, the queries are almost declared in standard SQL. 
+ksql&gt; select * from messages EMIT CHANGES;
++--------+------------------------+
+|USER_ID |MESSAGE                 |
++--------+------------------------+
+|1       |this is another message |
+|2       |this is another message |
+```</p>
 <p>Kafka recommends using a <a href="https://www.confluent.io/blog/deep-dive-ksql-deployment-options/">headless ksqlDB server</a>
 for production, with a file declaring all streams and tables to create.
 This avoids any modification to the definitions.</p>
@@ -512,7 +497,7 @@ Here are a few supplementary resources to dig further into Kafka:</p>
                 </li>
 
                 <li class="list-group-item">
-                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="5 articles in this category">Software Engineering</a>
+                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="6 articles in this category">Software Engineering</a>
                             <a href="/tag/cheat-sheet.html" data-toggle="tooltip" class="badge badge-secondary" title="3 articles with this tag">Cheat sheet</a>
                             <a href="/tag/kafka.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Kafka</a>
                 </li>
@@ -569,7 +554,7 @@ Here are a few supplementary resources to dig further into Kafka:</p>
                     <h6>Copyright notice</h6>
                     <p class="small">
                         © Copyright
-                        2020-2021
+                        2020-2022
                         Antoine Veuiller.
                     </p>
                 </div>
