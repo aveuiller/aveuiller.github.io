@@ -4,7 +4,7 @@ Date: 2022-09-18
 Category: Software Engineering
 Tags: Best Practice, System Engineering
 Author: Antoine Veuiller
-Summary: 
+Summary: This article aims to provide a baseline of investigation in case of a generic production incident
 -----
 
 ### Availability Disclaimer
@@ -12,8 +12,8 @@ Summary:
 This article can be found on other sources:
 
 - Hacker Noon: [TODO](#TODO)
-- Medium: [TODO](#TODO)
-- Dev.to: [TODO](#TODO)
+- Medium: [link](https://aveuiller.medium.com/a-generic-approach-to-troubleshooting-dda764fbbb6)
+- Dev.to: [link](https://dev.to/aveuiller/a-generic-approach-to-troubleshooting-14jp)
 
 -----
 
@@ -143,3 +143,5 @@ The procedure will not show you the error if you don't ask the right questions b
 As a picture is worth a thousand words, here is a summary of the article through a simple flow chart.
 
 ![Troubleshooting Operations Flowchart](/images/posts/2022-09-18_troubleshooting_basics/Generic_Troubleshooting_Guide.svg)
+
+_Thanks to Sarra Habchi for the review_
