@@ -304,18 +304,19 @@ As those entries are not used in the core behavior of Kubernetes,
 you can use any name you want, even if Kubernetes defines some <a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/">best practices recommendations</a>.</p>
 <p>Finally, you can also create an <span class="docutils literal">annotations</span> section, which is almost identical to <span class="docutils literal">labels</span> but not used by Kubernetes at all.
 Those can be used on the applicative side to trigger behaviors or simply add data to ease debugging.</p>
-<pre class="code yaml literal-block"><code><span class="c1"># &lt;metadata&gt; narrows down selection and identify the resource</span><span class="w">
-</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-  </span><span class="c1"># The &lt;name&gt; entry is required and used to identify the resource</span><span class="w">
-  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-resource</span><span class="w">
-  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-namespace-or-default</span><span class="w">
-  </span><span class="c1"># &lt;labels&gt; is optional but often needed for resource selection</span><span class="w">
-  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">application-name</span><span class="w">
-    </span><span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">back</span><span class="w">
-  </span><span class="c1"># &lt;annotations&gt; is optional and not needed for the configuration of Kubernetes</span><span class="w">
-  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
-    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">4.2</span></code></pre>
+<pre class="code literal-block"><code># &lt;metadata&gt; narrows down selection and identify the resource
+metadata:
+  # The &lt;name&gt; entry is required and used to identify the resource
+  name: my-resource
+  namespace: my-namespace-or-default
+  # &lt;labels&gt; is optional but often needed for resource selection
+  labels:
+    app: application-name
+    category: back
+  # &lt;annotations&gt; is optional and not needed for the configuration of Kubernetes
+  annotations:
+    version: 4.2
+</code></pre>
 <blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
 <p class="p-2">Further reading:</p>
 <p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/">Naming and Identification</a></p>
@@ -328,29 +329,31 @@ Those can be used on the applicative side to trigger behaviors or simply add dat
 <p>Those files define key-value mappings that can be used later in other resources.
 Usually, those resources (<em>i.e.</em> Secrets and ConfigMap) are loaded before anything else,
 as it is more likely than not that your infrastructure files are dependent on them.</p>
-<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
-</span><span class="c1"># &lt;kind&gt; defines the resource described in this file</span><span class="w">
-</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">ConfigMap</span><span class="w">
-</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-config</span><span class="w">
-</span><span class="nt">data</span><span class="p">:</span><span class="w">
-  </span><span class="c1"># &lt;data&gt; configures data to load</span><span class="w">
-  </span><span class="nt">configuration_key</span><span class="p">:</span><span class="w"> </span><s>"configuration_value"</s><span class="w">
-  </span><span class="nt">properties_entry</span><span class="p">:</span><span class="w"> </span><span class="p-Indicator">|</span><span class="w">
-    </span><span class="no"># Any multiline content is accepted</span><span class="w">
-    </span><span class="no">multiline_config=true</span></code></pre>
+<pre class="code literal-block"><code>apiVersion: v1
+# &lt;kind&gt; defines the resource described in this file
+kind: ConfigMap
+metadata:
+  name: my-config
+data:
+  # &lt;data&gt; configures data to load
+  configuration_key: "configuration_value"
+  properties_entry: |
+    # Any multiline content is accepted
+    multiline_config=true
+</code></pre>
 </section>
 <section id="infrastructure-centric-configuration-files">
 <h3>Infrastructure centric configuration files</h3>
 <p>Those files define the infrastructure to deploy on the cluster, potentially using content from the data files.</p>
-<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
-</span><span class="c1"># &lt;kind&gt; defines the resource described in this file</span><span class="w">
-</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Pod</span><span class="w">
-</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-web-server</span><span class="w">
-</span><span class="nt">spec</span><span class="p">:</span><span class="w">
-  </span><span class="c1"># &lt;spec&gt; is a domain specific description of the resource.</span><span class="w">
-  </span><span class="c1"># The specification entries will be very different from one kind to another</span></code></pre>
+<pre class="code literal-block"><code>apiVersion: v1
+# &lt;kind&gt; defines the resource described in this file
+kind: Pod
+metadata:
+  name: my-web-server
+spec:
+  # &lt;spec&gt; is a domain specific description of the resource.
+  # The specification entries will be very different from one kind to another
+</code></pre>
 </section>
 </section>
 <section id="resources-definition">
@@ -363,18 +366,20 @@ The following diagram summarizes the intended state:</p>
 <section id="configmap">
 <h3>ConfigMap</h3>
 <p>ConfigMap is used to hold properties that can be used later in your resources.</p>
-<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
-</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">ConfigMap</span><span class="w">
-</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-config</span><span class="w">
-  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">default</span><span class="w">
-</span><span class="nt">data</span><span class="p">:</span><span class="w">
-  </span><span class="nt">configuration_key</span><span class="p">:</span><span class="w"> </span><s>"Configuration</s><span class="nv"> </span><s>value"</s></code></pre>
+<pre class="code literal-block"><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: simple-web-config
+  namespace: default
+data:
+  configuration_key: "Configuration value"
+</code></pre>
 <p>The configuration defined above can then be <a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods">selected from another resource definition</a> with the following snippet:</p>
-<pre class="code yaml literal-block"><code><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
-  </span><span class="nt">configMapKeyRef</span><span class="p">:</span><span class="w">
-    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-config</span><span class="w">
-    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">configuration_key</span></code></pre>
+<pre class="code literal-block"><code>valueFrom:
+  configMapKeyRef:
+    name: simple-web-config
+    key: configuration_key
+</code></pre>
 <p><em>Note: ConfigMaps are only available in the namespace in which they are defined.</em></p>
 <blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
 <p class="p-2">Further reading:</p>
@@ -390,20 +395,22 @@ However, Kubernetes proposes ways of mitigating leakage risks by
 or <a class="reference external" href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/">encrypting secrets</a>.</p>
 <p>The Secret file defines a <span class="docutils literal">type</span> key at its root, which can be used to add validation on the keys declared in the <span class="docutils literal">data</span> entry.
 By default, the type is set to <span class="docutils literal">Opaque</span> which does not validate the entries at all.</p>
-<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
-</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Secret</span><span class="w">
-</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-secrets</span><span class="w">
-</span><span class="c1"># Opaque &lt;type&gt; can hold generic secrets, so no validation will be done.</span><span class="w">
-</span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Opaque</span><span class="w">
-</span><span class="nt">data</span><span class="p">:</span><span class="w">
-  </span><span class="c1"># Secrets should be encoded in base64</span><span class="w">
-  </span><span class="nt">secret_configuration_key</span><span class="p">:</span><span class="w"> </span><s>"c2VjcmV0IHZhbHVl"</s></code></pre>
+<pre class="code literal-block"><code>apiVersion: v1
+kind: Secret
+metadata:
+  name: simple-web-secrets
+# Opaque &lt;type&gt; can hold generic secrets, so no validation will be done.
+type: Opaque
+data:
+  # Secrets should be encoded in base64
+  secret_configuration_key: "c2VjcmV0IHZhbHVl"
+</code></pre>
 <p>The secret defined above can then be <a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables">selected from another resource definition</a> with the following snippet:</p>
-<pre class="code yaml literal-block"><code><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
-  </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w">
-    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-secrets</span><span class="w">
-    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">secret_configuration_key</span></code></pre>
+<pre class="code literal-block"><code>valueFrom:
+  secretKeyRef:
+    name: simple-web-secrets
+    key: secret_configuration_key
+</code></pre>
 <p><em>Note: Secrets are only available in the namespace in which they are defined.</em></p>
 <blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
 <p class="p-2">Further reading:</p>
@@ -424,32 +431,33 @@ The <span class="docutils literal">name</span> and <span class="docutils literal
 as the best practice indicates to <a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/pods/#working-with-pods">use pod as part of higher level definition</a>
 (<em>e.g.</em> Deployment).
 In those cases, the Pod file's content will simply be embedded in the other resource's file.</p>
-<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
-</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Pod</span><span class="w">
-</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-web-server</span><span class="w">
-</span><span class="nt">spec</span><span class="p">:</span><span class="w">
-  </span><span class="c1"># &lt;containers&gt; is a list of container definition to embed in the pod</span><span class="w">
-  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-    </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">web</span><span class="w">
-      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">nginx</span><span class="w">
-      </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-        </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">web</span><span class="w">
-          </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span><span class="w">
-          </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">TCP</span><span class="w">
-      </span><span class="nt">env</span><span class="p">:</span><span class="w">
-        </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">SOME_CONFIG</span><span class="w">
-          </span><span class="c1"># Create a line "value: &lt;config_entry&gt;" from the ConfigMap data</span><span class="w">
-          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
-            </span><span class="nt">configMapKeyRef</span><span class="p">:</span><span class="w">
-              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-config</span><span class="w">
-              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">configuration_key</span><span class="w">
-        </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">SOME_SECRET</span><span class="w">
-          </span><span class="c1"># Create a line "value: &lt;config_entry&gt;" from the Secret data</span><span class="w">
-          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
-            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w">
-              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-secrets</span><span class="w">
-              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">secret_configuration_key</span></code></pre>
+<pre class="code literal-block"><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: my-web-server
+spec:
+  # &lt;containers&gt; is a list of container definition to embed in the pod
+  containers:
+    - name: web
+      image: nginx
+      ports:
+        - name: web
+          containerPort: 80
+          protocol: TCP
+      env:
+        - name: SOME_CONFIG
+          # Create a line "value: &lt;config_entry&gt;" from the ConfigMap data
+          valueFrom:
+            configMapKeyRef:
+              name: simple-web-config
+              key: configuration_key
+        - name: SOME_SECRET
+          # Create a line "value: &lt;config_entry&gt;" from the Secret data
+          valueFrom:
+            secretKeyRef:
+              name: simple-web-secrets
+              key: secret_configuration_key
+</code></pre>
 <p><em>Note: Pods are only available in the namespace in which they are defined.</em></p>
 <blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
 <p class="p-2">Further reading:</p>
@@ -468,50 +476,51 @@ In those cases, the Pod file's content will simply be embedded in the other reso
 </ul>
 <p>The following file requests 3 instances of an Nginx server running at all times.
 The file may look a bit heavy, but most of it is the Pod definition copied from above.</p>
-<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">apps/v1</span><span class="w">
-</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Deployment</span><span class="w">
-</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-web-server-deployment</span><span class="w">
-  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">default</span><span class="w">
-  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">webserver</span><span class="w">
-</span><span class="nt">spec</span><span class="p">:</span><span class="w">
-  </span><span class="c1"># &lt;selector&gt; should retrieve the Pod defined below, and possibly more</span><span class="w">
-  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
-    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
-      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">webserver</span><span class="w">
-      </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">nginx-ws-deployment</span><span class="w">
-  </span><span class="c1"># &lt;replicas&gt; asks for 3 pods running in parallel at all time</span><span class="w">
-  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">3</span><span class="w">
-  </span><span class="c1"># The content of &lt;template&gt; is a Pod definition file, without &lt;apiVersion&gt; nor &lt;kind&gt;</span><span class="w">
-  </span><span class="nt">template</span><span class="p">:</span><span class="w">
-    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-web-server</span><span class="w">
-      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">default</span><span class="w">
-      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">webserver</span><span class="w">
-        </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">nginx-ws-deployment</span><span class="w">
-    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
-      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-        </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">web</span><span class="w">
-          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">nginx</span><span class="w">
-          </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-            </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">web</span><span class="w">
-              </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span><span class="w">
-              </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">TCP</span><span class="w">
-          </span><span class="nt">env</span><span class="p">:</span><span class="w">
-            </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">SOME_CONFIG</span><span class="w">
-              </span><span class="c1"># Create a line "value: &lt;config_entry&gt;" from the ConfigMap data</span><span class="w">
-              </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
-                </span><span class="nt">configMapKeyRef</span><span class="p">:</span><span class="w">
-                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-config</span><span class="w">
-                  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">configuration_key</span><span class="w">
-            </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">SOME_SECRET</span><span class="w">
-              </span><span class="c1"># Create a line "value: &lt;config_entry&gt;" from the Secret data</span><span class="w">
-              </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
-                </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w">
-                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-secrets</span><span class="w">
-                  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">secret_configuration_key</span></code></pre>
+<pre class="code literal-block"><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web-server-deployment
+  namespace: default
+  labels:
+    app: webserver
+spec:
+  # &lt;selector&gt; should retrieve the Pod defined below, and possibly more
+  selector:
+    matchLabels:
+      app: webserver
+      instance: nginx-ws-deployment
+  # &lt;replicas&gt; asks for 3 pods running in parallel at all time
+  replicas: 3
+  # The content of &lt;template&gt; is a Pod definition file, without &lt;apiVersion&gt; nor &lt;kind&gt;
+  template:
+    metadata:
+      name: my-web-server
+      namespace: default
+      labels:
+        app: webserver
+        instance: nginx-ws-deployment
+    spec:
+      containers:
+        - name: web
+          image: nginx
+          ports:
+            - name: web
+              containerPort: 80
+              protocol: TCP
+          env:
+            - name: SOME_CONFIG
+              # Create a line "value: &lt;config_entry&gt;" from the ConfigMap data
+              valueFrom:
+                configMapKeyRef:
+                  name: simple-web-config
+                  key: configuration_key
+            - name: SOME_SECRET
+              # Create a line "value: &lt;config_entry&gt;" from the Secret data
+              valueFrom:
+                secretKeyRef:
+                  name: simple-web-secrets
+                  key: secret_configuration_key
+</code></pre>
 <p><em>Note: Deployments are only available in the namespace in which they are defined.</em></p>
 <blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
 <p class="p-2">Further reading:</p>
@@ -537,23 +546,24 @@ instance from the cloud service provider on which the cluster is running.
 This load balancer is created outside the cluster but will automatically be bound to the nodes hosting the selected pods.</p>
 <p>This is an easy way to expose your service but can end up being costly as each service will be managed by a single load balancer.</p>
 <p>If you are setting up your own Ingress as we will do here, you may want to use a <span class="docutils literal">ClusterIp</span> service, as other services are made for specific use cases.</p>
-<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
-</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Service</span><span class="w">
-</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-service-clusterip</span><span class="w">
-</span><span class="nt">spec</span><span class="p">:</span><span class="w">
-  </span><span class="c1"># ClusterIP is the default service &lt;type&gt;</span><span class="w">
-  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">ClusterIP</span><span class="w">
-  </span><span class="c1"># Select all pods declaring a &lt;label&gt; entry "app: webserver"</span><span class="w">
-  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
-    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">webserver</span><span class="w">
-  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-    </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">http</span><span class="w">
-      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">TCP</span><span class="w">
-      </span><span class="c1"># &lt;port&gt; is the port to bind on the service side</span><span class="w">
-      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span><span class="w">
-      </span><span class="c1"># &lt;targetPort&gt; is the port to bind on the Pod side</span><span class="w">
-      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span></code></pre>
+<pre class="code literal-block"><code>apiVersion: v1
+kind: Service
+metadata:
+  name: simple-web-service-clusterip
+spec:
+  # ClusterIP is the default service &lt;type&gt;
+  type: ClusterIP
+  # Select all pods declaring a &lt;label&gt; entry "app: webserver"
+  selector:
+    app: webserver
+  ports:
+    - name: http
+      protocol: TCP
+      # &lt;port&gt; is the port to bind on the service side
+      port: 80
+      # &lt;targetPort&gt; is the port to bind on the Pod side
+      targetPort: 80
+</code></pre>
 <p><em>Note: Services are defined in a namespace but can be contacted from other namespaces.</em></p>
 <blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
 <p class="p-2">Further reading:</p>
@@ -571,35 +581,36 @@ A backend will typically be an internally routed <span class="docutils literal">
 As a result, you will have to choose and install an <a class="reference external" href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Ingress Controller</a>
 before using any ingress resource.
 On the other hand, it makes the ingress resource customizable depending on the needs of your cluster.</p>
-<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">networking.k8s.io/v1</span><span class="w">
-</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Ingress</span><span class="w">
-</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-ingress</span><span class="w">
-  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
-    </span><span class="nt">nginx.ingress.kubernetes.io/rewrite-target</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">/</span><span class="w">
-</span><span class="nt">spec</span><span class="p">:</span><span class="w">
-  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
-    </span><span class="c1"># Using &lt;host&gt; redirects all request matching the given DNS name to this rule</span><span class="w">
-    </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><s>"*.minikube.internal"</s><span class="w">
-      </span><span class="nt">http</span><span class="p">:</span><span class="w">
-        </span><span class="nt">paths</span><span class="p">:</span><span class="w">
-          </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">/welcome</span><span class="w">
-            </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Prefix</span><span class="w">
-            </span><span class="nt">backend</span><span class="p">:</span><span class="w">
-              </span><span class="nt">service</span><span class="p">:</span><span class="w">
-                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-service-clusterip</span><span class="w">
-                </span><span class="nt">port</span><span class="p">:</span><span class="w">
-                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span><span class="w">
-    </span><span class="c1"># All other requests will be redirected through this rule</span><span class="w">
-    </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">http</span><span class="p">:</span><span class="w">
-        </span><span class="nt">paths</span><span class="p">:</span><span class="w">
-          </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">/</span><span class="w">
-            </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Prefix</span><span class="w">
-            </span><span class="nt">backend</span><span class="p">:</span><span class="w">
-              </span><span class="nt">service</span><span class="p">:</span><span class="w">
-                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-service-clusterip</span><span class="w">
-                </span><span class="nt">port</span><span class="p">:</span><span class="w">
-                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span></code></pre>
+<pre class="code literal-block"><code>apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-web-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    # Using &lt;host&gt; redirects all request matching the given DNS name to this rule
+    - host: "*.minikube.internal"
+      http:
+        paths:
+          - path: /welcome
+            pathType: Prefix
+            backend:
+              service:
+                name: simple-web-service-clusterip
+                port:
+                  number: 80
+    # All other requests will be redirected through this rule
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: simple-web-service-clusterip
+                port:
+                  number: 80
+</code></pre>
 <p><em>Note: Ingresses are defined in the namespace but may contact services from other namespaces and are publicly accessible outside the cluster.</em></p>
 <blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
 <p class="p-2">Further reading:</p>
