@@ -17,6 +17,8 @@ pelican-syntax-highlighting = "^0.4.2"
 
 #TODO: dev deps
 #pymarkdownlnt = "0.9.11"
+markdownify = "^0.11.6"
+click = "^8.1.6"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
