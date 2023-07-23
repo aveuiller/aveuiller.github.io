@@ -1,11 +1,12 @@
-Title: Spring Boot: Apprentice Cookbook
+---
+Title: "Spring Boot: Apprentice Cookbook"
 Slug: spring_boot_apprentice_cookbook
 Date: 2021-01-27
-Category: Software Engineering
+Category: "Software Engineering"
 Tags: Cheat sheet, Java, Spring Boot
-Author: Antoine Veuiller
-Summary: Spring Boot cheat sheet to bootstrap an API
------
+Author: "Antoine Veuiller"
+Summary: "Spring Boot cheat sheet to bootstrap an API"
+---
 
 ### Availability Disclaimer
 
@@ -53,7 +54,7 @@ dependencies {
 
 The application’s main method should be contained in any class, on which we should apply the annotation `@SpringBootApplication`. This annotation is responsible for a lot of automatic configurations, namely the components injection and web server startup.
 
-```java
+```
 @SpringBootApplication
 public class MyApplication {
     public static void main(String[] args) {
@@ -81,7 +82,7 @@ It can be applied both on a class and a method, the configurations applied on th
 
 To control our endpoint status codes we will return a`ResponseEntity`, holding both the response message and `HttpStatus`.
 
-```java
+```
 @RestController
 @RequestMapping(value = "/hello",
         consumes = MediaType.ALL_VALUE,
@@ -124,7 +125,7 @@ Now that we have a controller, we may want to define dynamic HTTP endpoints. To 
 
 The controller below showcases the three annotations with two endpoints, each returning a custom “Hello World” depending on the query.
 
-````java
+```
 @RestController
 @RequestMapping(value = "/hello",
         consumes = MediaType.ALL_VALUE,
@@ -166,7 +167,7 @@ class HelloBody {
         return this.name;
     }
 }
-````
+```
 
 The endpoints defined above can be used as follows:
 
@@ -197,7 +198,7 @@ To do so, we will define custom API exceptions that will be automatically transf
 This transformation is done by a class extending `ResponseEntityExceptionHandler` and annotated with `@ControllerAdvice`. 
 In this class, we can define methods to handle exceptions using the annotations `@ExceptionHandler` and `@ResponseStatus`.
 
-```java
+```
 @ControllerAdvice
 public class MyApplicationControllerAdvice extends ResponseEntityExceptionHandler {
 
@@ -221,7 +222,7 @@ public class NotFoundException extends ApiException {
 
 After defining the `ControllerAdvice` in your project, any exception thrown by your controllers will be parsed and transformed to the bound `ResponseStatus`.
 
-```java
+```
 @RestController
 @RequestMapping(value = "/exception")
 public class ExceptionController {
@@ -319,7 +320,7 @@ For instance, the code below creates a _Delivery_ entity. Our entity identifier 
 
 _Note: All attributes publicly available will be set into the JSON representation of the entity in the API responses._
 
-```java
+```
 @Entity
 @Table(name = "delivery")
 public class Delivery {
@@ -395,7 +396,7 @@ dependencies {
 To interact with our models, we have to define a [Repository](https://docs.spring.io/spring-data/commons/docs/2.4.2/api/org/springframework/data/repository/Repository.html), for instance, a `CrudRepository`.
 Doing so is as easy as extending the class with an empty class. Spring Boot will automatically implement functions to interact with the entity.
 
-```java
+```
 @Repository
 public interface DeliveryRepository extends CrudRepository<Delivery, Long> {
 }
@@ -407,7 +408,7 @@ Using`@Autowired` will automatically retrieve the `@Repository` declared above_.
 
 _Note:_ `_@Repository_` _and_ `_@Service_` _behave exactly as the main injection annotation_`_@Component_`_, it simply enables to mark a semantic difference._
 
-```java
+```
 @RestController
 @RequestMapping(value = "/delivery",
         consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -477,7 +478,7 @@ _Note: H2 is an in-memory database so the data will be wiped out at each server 
 This section illustrates how well Spring Boot integrates some classic features of a web API. 
 To paginate the access to our previous entity _Delivery,_ we simply have to change the repository’s extended class from `CrudRepository` to `PagingAndSortingRepository`.
 
-```java
+```
 @Repository
 public interface DeliveryRepository extends PagingAndSortingRepository<Delivery, Long> {
 }
@@ -486,7 +487,7 @@ public interface DeliveryRepository extends PagingAndSortingRepository<Delivery,
 This repository implementation provides a new method `findAll(Pageable)` returning a `Page`. 
 The class `Pageable` configures the page and page size to return.
 
-```java
+```
 @RestController
 @RequestMapping(value = "/delivery",
         consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -565,7 +566,7 @@ As an example, we are testing the _POST_ endpoint from the section above. One of
 
 To avoid relying on a physical instance of a persistence layer, we injected our DeliveryRepository instance using `@MockBean`, which creates and injects a mock of our component.
 
-```java
+```
 @SpringBootTest
 @AutoConfigureMockMvc
 class DeliveryControllerTest {

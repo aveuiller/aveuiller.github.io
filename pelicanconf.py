@@ -2,7 +2,10 @@
 # -*- coding: utf-8 -*- #
 
 import plumage
+
 THEME = plumage.get_path()
+
+WITH_FUTURE_DATES = False
 
 STATIC_PATHS = [
     'static/ads.txt',
@@ -13,17 +16,14 @@ EXTRA_PATH_METADATA = {
     "static/ads.txt": {"path": "ads.txt"},
 }
 
-PLUGINS = [
-    "pelican_webassets",
-]
-
 AUTHOR = 'Antoine Veuiller'
 SITENAME = AUTHOR
 SITEURL = 'http://localhost:8000'
 RELATIVE_URLS = False
 
 PATH = 'content'
-OUTPUT_PATH = 'output'
+# OUTPUT_PATH = 'output'
+DELETE_OUTPUT_DIRECTORY = True
 
 TIMEZONE = 'Europe/Paris'
 DEFAULT_LANG = 'en'
@@ -42,23 +42,15 @@ SOCIAL = (('Twitter', 'http://twitter.com/AVeuiller'),
           ('Medium', 'https://aveuiller.medium.com/'),
           ('Dev.to', 'https://dev.to/aveuiller/'),)
 
+LINKS_WIDGET_NAME = "Professional"
+LINKS = (
+    ("LinkedIn", "https://linkedin.com/in/antoine-veuiller"),
+)
+
 DEFAULT_PAGINATION = 10
 
 # Style
-CODE_STYLE = "emacs"
-MARKDOWN = {
-    "extension_configs": {
-        'markdown.extensions.extra': {},
-        "pymdownx.highlight": {
-            "linenums": True,
-            "linenums_style": "pymdownx-inline",
-            "noclasses": True
-        },
-        "pymdownx.superfences": {
-            "disable_indented_code_blocks": True,
-        },
-    },
-}
+CODE_STYLE = "monokai"
 
 # Content
 SITE_THUMBNAIL = "/images/profile.jpg"
@@ -67,4 +59,4 @@ SITE_THUMBNAIL = "/images/profile.jpg"
 # RIGHT_SIDEBAR = open('right_sidebar.html', 'r').read()
 
 # Custom Home page
-DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives', 'search']
+DIRECT_TEMPLATES = ['index', 'categories', 'authors']

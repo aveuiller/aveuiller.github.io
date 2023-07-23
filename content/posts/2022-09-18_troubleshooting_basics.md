@@ -1,17 +1,17 @@
-Title: A Generic Approach to Troubleshooting
+---
+Title: "A Generic Approach to Troubleshooting"
 Slug: troubleshooting_generic_approach
 Date: 2022-09-18
 Category: Software Engineering
 Tags: Best Practice, System Engineering
 Author: Antoine Veuiller
-Summary: This article aims to provide a baseline of investigation in case of a generic production incident
------
+Summary: "This article aims to provide a baseline of investigation in case of a generic production incident"
+---
 
 ### Availability Disclaimer
 
 This article can be found on other sources:
 
-- Hacker Noon: [TODO](#TODO)
 - Medium: [link](https://aveuiller.medium.com/a-generic-approach-to-troubleshooting-dda764fbbb6)
 - Dev.to: [link](https://dev.to/aveuiller/a-generic-approach-to-troubleshooting-14jp)
 
@@ -49,7 +49,7 @@ Your response might differ if the issue is impacting one or hundreds of hosts.
 Likewise, an issue crippling production will require a low response time to issue corrective action,
 while a less critical issue, like a decrease in performance, may give you more time for analysis.
 
-While your production servers should behave in the same way, 
+While your production servers should behave in the same way,
 in some cases you will need to investigate the error before being able to determine the actual number of impacted hosts.
 
 
@@ -83,7 +83,7 @@ On the system side, you can take a look at:
   [netstat](https://man7.org/linux/man-pages/man8/netstat.8.html),
   [telnet](https://www.commandlinux.com/man-page/man1/telnet.1.html),
   [mtr](https://www.commandlinux.com/man-page/man8/mtr.8.html)).
-- The Kernel and related logs (e.g. 
+- The Kernel and related logs (e.g.
   [journalctl](https://man7.org/linux/man-pages/man1/journalctl.1.html),
   [dmesg](https://man7.org/linux/man-pages/man1/dmesg.1.html), …)
 

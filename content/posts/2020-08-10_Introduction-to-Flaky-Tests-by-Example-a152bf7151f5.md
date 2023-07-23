@@ -1,11 +1,12 @@
-Title: Introduction to Flaky Tests by Example
+---
+Title: "Introduction to Flaky Tests by Example"
 Slug: introduction_to_flaky_tests_by_example
 Date: 2020-08-10
 Category: Software Engineering
 Tags: Testing, Best Practice
 Author: Antoine Veuiller
-Summary: Some real world examples of flaky tests
------
+Summary: "Some real world examples of flaky tests"
+---
 
 ### Availability Disclaimer
 
@@ -79,7 +80,7 @@ Fortunately, and thanks to some previously well-thought environment on the proje
 
 By mixing this method to the awesome [patch decorator](https://docs.python.org/3/library/unittest.mock.html#the-patchers) of python mock library (which is part of the standard _unittest_ library since 3.3), we solved the issue with a simple modification.
 
-````python
+```python
 def add_data(input_datetime, data):
     # Store the data along with the input date
     # [...]
@@ -103,7 +104,7 @@ def test_compute_stats():
     stat = compute_stats()
     
     assert stat == 2, "We retrieve the two data input"
-````
+```
 
 By sandboxing the execution to a given point in time, we ensured the reproducibility of the build at any given time.
 
@@ -137,7 +138,7 @@ Either the new test was injecting something new to the global state, or removing
 
 The test cases below were always run in the specific order _ConfiguredFeatureTest, ExistingFeatureTestCase_ before integrating the new feature, then in the order _ConfiguredFeatureTest, NewFeatureTestCase, ExistingFeatureTestCase._
 
-````python
+```python
 class ConfiguredFeatureTest(unittest.TestCase):
     def setUp(self):
         config["entry"] = "anything"
@@ -160,7 +161,7 @@ class NewFeatureTestCase(unittest.TestCase):
 
     def test_new_feature(self):
         self.assertTrue(our_new_feature())
-````
+```
 
 In order to understand the behaviour of the existing test, we ran it alone, both with and without the new changes. It appeared that the test was failing in both cases. This gave us the information that this test was using an existing global state, and that we might be cleaning this state. So we took a deeper interest in the _tearDown_ method.
 

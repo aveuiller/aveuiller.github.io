@@ -1,11 +1,12 @@
-Title: Is GitHub Copilot a Threat to Developers? (Spoiler: It's Not)
+---
+Title: "Is GitHub Copilot a Threat to Developers? (Spoiler: It's Not)"
 Slug: is_copilot_a_threat
 Date: 2021-07-26
 Category: Around Computer Science
 Tags: showerthoughs
 Author: Antoine Veuiller
-Summary: GitHub Copilot provides potentially scary possibilities but can be a fine addition to the developers' tools.
------
+Summary: "GitHub Copilot provides potentially scary possibilities but can be a fine addition to the developers' tools."
+---
 
 ### Availability Disclaimer
 

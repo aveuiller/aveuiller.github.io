@@ -1,11 +1,12 @@
-Title: Apache Kafka: Apprentice Cookbook
+---
+Title: "Apache Kafka: Apprentice Cookbook"
 Slug: kafka_apprentice_cookbook
 Date: 2021-06-29
 Category: Software Engineering
 Tags: Cheat sheet, Kafka
 Author: Antoine Veuiller
-Summary: Apache Kafka is a distributed event streaming platform built over strong concepts. Let's dive into the possibilities it offers.
------
+Summary: "Apache Kafka is a distributed event streaming platform built over strong concepts. Let's dive into the possibilities it offers."
+---
 
 ### Availability Disclaimer
 
@@ -147,7 +148,7 @@ We will use Java for the example below, but the concept remains identical for ot
 
 The producer concept is to publish messages at any moment, so the code is pretty simple.
 
-```java
+```
 public class Main {
   public static void main(String[] args) throws Exception {
     // Configure your producer
@@ -174,7 +175,7 @@ On the other hand, this gives more control over its behaviour.
 The consumer state is automatically handled by the Kafka library.
 As a result, restarting the worker will start at the most recent offset he encountered.
 
-```java
+```
 public class Main {
     public static Properties configureConsumer() {
         Properties consumerProperties = new Properties();
@@ -255,7 +256,7 @@ The few lines configuring the `StreamsBuilder` will:
 1.  Count the number of tokens for each group and save the changes to a KTable named `counts-store`.
 1.  Stream the changes in this Ktable to send the values in a KStream named `streams-wordcount-output`.
 
-```java
+```
 public class Main {
   public static void main(String[] args) throws Exception {
     Properties props = new Properties();

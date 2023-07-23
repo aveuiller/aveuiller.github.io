@@ -1,5 +1,5 @@
 ---
-title: Collaborations
+Title: Collaborations
 ---
 
 Some articles I wrote were in collaboration with companies, and won't be duplicated to my personal website.

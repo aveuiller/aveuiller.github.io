@@ -1,11 +1,12 @@
-Title: About design patterns: Dependency Injection
+---
+Title: "About design patterns: Dependency Injection"
 Slug: about_design_patterns-dependency_injection
 Date: 2020-01-05
 Category: Software Engineering
 Tags: Design Patterns, Best Practice, Software Architecture
 Author: Antoine Veuiller
-Summary: A walk through dependency injection
------
+Summary: "A walk through dependency injection"
+---
 
 ### Availability Disclaimer
 
@@ -36,7 +37,7 @@ We will present a weather service that shows an intelligible representation of t
 As you can see on the diagram, the _WeatherService_ is relying on a _Thermometer_, which can be configured with a _TemperatureUnit_. 
 Not using dependency injection will result in a code creating a new instance of _Thermometer_ in the service, and a _Thermometer_ configuring the _TemperatureUnit_ to use:
 
-````java
+```
 public class Thermometer {
   private final TemperatureUnit unit;
   
@@ -54,10 +55,10 @@ public class WeatherService implements WeatherContract {
     this.thermometer = new Thermometer();
   }
 }
-````
+```
 Now let’s imagine that we want to use a _Thermometer_ configured to use Fahrenheit degrees instead of Celsius. For this, we add a parameter to switch between both units.
 
-````java
+```
 public Thermometer(boolean useCelsius) {
   if (useCelsius) {
     this.unit = TemperatureUnit.CELSIUS;
@@ -65,12 +66,12 @@ public Thermometer(boolean useCelsius) {
     this.unit = TemperatureUnit.FAHRENHEIT;
   }
 }
-````
+```
 
 One can also argue that the user of our program won’t always have access to an actual thermometer on their device, thus you may want to be able to fall back to another implementation in this case. 
 For instance, an API sending the current temperature in your area. Integrating multiple implementations inside the service could be done as shown below.
 
-````java
+```
 public WeatherService(boolean useRealDevice, 
                       boolean useCelsius,
                       String apiKey) {
@@ -80,16 +81,16 @@ public WeatherService(boolean useRealDevice,
     this.thermometer = new ThermometerWebService(useCelsius, apiKey);
   }
 }
-````
+```
 
 As a result, initializing the service can be done as follows:
 
-````java
+```
 public static void main(String[] args) {
   // Not using dependency injection
   WeatherContract weather = new WeatherService(true, true, null);
 }
-````
+```
 
 Even if it is easy to use, our current version of the _WeatherService_ is not evolutive. If we take a closer look at its constructor, we can see multiple design flaws that will haunt us in the long run:
 
@@ -108,7 +109,7 @@ The **inversion of control** is represented in this diagram by the fact that our
 
 As for **dependency injection**, _WeatherService_ will now take a _ThermometerContract_ in its constructor, requiring the block using the service to build an instance filling this contract:
 
-````java
+```
 public class WeatherService implements WeatherContract {
   // We now use the Interface   
   private final ThermometerContract thermometer;
@@ -118,18 +119,18 @@ public class WeatherService implements WeatherContract {
     this.thermometer = thermometer;
   }
 }
-````
+```
 
 As a result, the initialization of a _WeatherService_ for both constructors will look like the following:
 
-````java
+```
 public static void main(String[] args) {
   // Using dependency injection
   TemperatureUnit celsius = TemperatureUnit.CELSIUS;
   ThermometerContract thermometer = new Thermometer(celsius);
   WeatherContract weather = new WeatherService(thermometer);
 }
-````
+```
 
 Now, our _ThermometerContract_ can be fully configured by an external part of the software. More important so, the _WeatherService_ doesn’t need to know any of the available implementations of _ThermometerContract_, thus decoupling your software packages.
 
@@ -145,7 +146,7 @@ The following section is an example of injecting our service using [Guice](https
 
 Let’s consider that we have two implementations with the following constructors:
 
-```java
+```
 public class WeatherService implements WeatherContract {
   private final ThermometerContract thermometer;
 
@@ -170,7 +171,7 @@ The _injection module_ should be configured to bind all needed interfaces to a g
 It should also be able to inject any object without a specific interface, such as the enumerate _TemperatureUnit_. 
 The injection will then be bound to a specific name, “_temp\_unit”_ in this case.
 
-````java
+```
 public class WeatherModule extends AbstractModule {
   public static final String TEMPERATURE_UNIT = "temp_unit";
 
@@ -186,11 +187,11 @@ public class WeatherModule extends AbstractModule {
     bind(WeatherContract.class).to(WeatherService.class);
   }
 }
-````
+```
 
 Ultimately, the module can be used as follow, here instantiating a _WeatherContract_.
 
-```java
+```
 public static void main(String[] args) {
   // Creating the injection module configured above.
   Injector injector = Guice.createInjector(new WeatherModule());
@@ -212,7 +213,7 @@ As a side effect of decoupling your code, the dependency injection pattern is a 
 
 As said above, making _WeatherService_ asking for a _ThermometerContract_ enables us to use any implementation we want. Hence, we can send a _mock_ in the constructor, then control its behaviour from the outside.
 
-```java
+```
 public void testTemperatureStatus() {
   ThermometerContract thermometer = Mockito.mock(ThermometerContract.class);
   Mockito.doReturn(TemperatureUnit.CELSIUS).when(thermometer).getUnit();

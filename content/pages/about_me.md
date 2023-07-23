@@ -1,6 +1,6 @@
----
-title: About Me
----
+-----
+Title: "About Me"
+-----
 
 I am a software engineer specialized in backend development, but I try to keep an eye on every aspect
 of the information technology spectrum.
@@ -22,7 +22,7 @@ I already wrote a few articles, and am actively looking for subject to write abo
 
 You can find my articles on the following websites, chose the one that suits you most:
 
-- [This blog](/)
+- [This blog](https://aveuiller.github.io/)
 - [Medium](https://aveuiller.medium.com/)
 - [Dev.to](https://dev.to/aveuiller)
 - [Hacker Noon](https://hackernoon.com/u/aveuiller)
@@ -35,16 +35,16 @@ Thanks to that, I feel that I can be comfortable in any company size, and work o
 
 My experience in reverse chronological order can be summarized as follows:
 
- - __DevOps Engineer__ at [Squarepoint Capital](https://www.squarepoint-capital.com/)
-   <img style="position:relative;width:220px;height:60px;" src="/images/about_me/squarepoint_logo.png" alt="Logo SFEIR">
- - __Software engineering consultant__ at [SFEIR](https://www.sfeir.com/)
-   <img style="position:relative;width:140px;height:80px;" src="/images/about_me/sfeir_logo.png" alt="Logo SFEIR">
- - __Software engineer__ and __Technical leader__ at [Scaleway](https://www.scaleway.com/)
-   <img style="position:relative;width:160px;height:80px;" src="/images/about_me/scaleway_logo.svg" alt="Logo Scaleway">
- - __Research Engineer__ at [Inria](https://inria.fr/)
-   <img style="position:relative;width:160px;height:80px;" src="/images/about_me/inria_logo.png" alt="Logo Inria">
- - __System Administration Intern__ at [Worldline](https://uk.worldline.com/en/home.html)
-   <img style="position:relative;width:200px;height:60px;" src="/images/about_me/worldline_logo.png" alt="Logo Inria">
+- __DevOps Engineer__ at [Squarepoint Capital](https://www.squarepoint-capital.com/)
+  <img style="position:relative;width:220px;height:60px;" src="/images/about_me/squarepoint_logo.png" alt="Logo SFEIR">
+- __Software engineering consultant__ at [SFEIR](https://www.sfeir.com/)
+  <img style="position:relative;width:140px;height:80px;" src="/images/about_me/sfeir_logo.png" alt="Logo SFEIR">
+- __Software engineer__ and __Technical leader__ at [Scaleway](https://www.scaleway.com/)
+  <img style="position:relative;width:160px;height:80px;" src="/images/about_me/scaleway_logo.svg" alt="Logo Scaleway">
+- __Research Engineer__ at [Inria](https://inria.fr/)
+  <img style="position:relative;width:160px;height:80px;" src="/images/about_me/inria_logo.png" alt="Logo Inria">
+- __System Administration Intern__ at [Worldline](https://uk.worldline.com/en/home.html)
+  <img style="position:relative;width:200px;height:60px;" src="/images/about_me/worldline_logo.png" alt="Logo Inria">
 
 You can find my complete resume on [LinkedIn](https://www.linkedin.com/in/antoine-veuiller/)
 or as a [PDF File](https://drive.google.com/file/d/18Lm4dn1O8c_p7bGqfuzS1TnvGb3LntGc/view).
