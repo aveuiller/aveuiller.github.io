@@ -1,0 +1,252 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="robots" content="index, follow">
+        <title>
+Reducing System Design Anxiety — Part 2: Define Features, Contracts, and Metrics        | Antoine Veuiller</title>
+        <meta name="author" content="Antoine Veuiller">
+        <meta name="generator" content="Pelican v4.8.0">
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?4566fab6">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9565WT2VE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-F9565WT2VE');
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
+            <script src="https://aveuiller.github.io/theme/js/main.min.js?b6b3f836"></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="theme-color" content="#ffffff">
+        <!-- Feeds -->
+            <link href="https://aveuiller.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - All posts - Atom Feed">
+            <link href="https://aveuiller.github.io/feeds/software-engineering.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - Category: Software Engineering - Atom Feed">
+        <meta name="keywords" content="TODO">
+    </head>
+    <body class="bg-transparent pt-4">
+        <div class="container">
+                <a href="https://aveuiller.github.io" class="avatar-container float-start mx-4">
+                    <div class="avatar ">
+                        <div class="side">
+                            <img src="/images/profile.jpg" class="img-fluid">
+                        </div>
+                    </div>
+                </a>
+            <h1>
+                <a href="https://aveuiller.github.io" class="text-body-emphasis text-decoration-none">Antoine Veuiller</a>
+                <small class="text-body-tertiary"><small></small></small>
+            </h1>
+            <nav class="navbar d-block navbar-expand-lg bg-body-tertiary shadow rounded-3">
+                <a class="navbar-brand d-none" href="https://aveuiller.github.io" title="">Antoine Veuiller</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mx-4" id="plumage-navbar-collapse-1">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/pages/about-me.html">
+                                        About Me
+                                    </a>
+                                </li>
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/pages/collaborations.html">
+                                        Collaborations
+                                    </a>
+                                </li>
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/category/around-computer-science.html">
+                                        Around Computer Science
+                                    </a>
+                                </li>
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/category/software-engineering.html">
+                                        Software Engineering
+<span class="visually-hidden">(current)</span>                                    </a>
+                                </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="  col-md-9  ">
+    <h1>
+        <a href="https://aveuiller.github.io/drafts/Reducing-System-Design-Anxiety-Part-2--Define-Features-Contracts-and-Metrics.html" rel="bookmark" title="Permalink to Reducing System Design Anxiety — Part 2: Define Features, Contracts, and Metrics">Reducing System Design Anxiety — Part 2: Define Features, Contracts, and Metrics</a>
+    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <main id="content" role="main" class="  col-md-9 ">
+    
+    <hr class="docutils">
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*pe9aftaGRqQKCiW_trG_bA.jpeg" class="img-fluid border rounded shadow"><a class="reference external" href="https://www.freepik.com/free-vector/illustration-document-icon_2945058.htm#page=1&amp;amp;query=contract&amp;amp;position=3">Designed by rawpixel.com / Freepik</a></p>
+<p>As for any project, before digging into the technicals you need to define your goal clearly. This means defining the features, the interactions, as well as the metrics to declare the project a success. The more you formalize your specifications, the more data you will have to work with during the next steps.</p>
+<p><em>This article is not specific to distributed systems and can be applied to any kind of project.</em></p>
+<section id="define-features-through-intended-user-experience">
+<h2>Define Features Through Intended User Experience</h2>
+<p>Any application solves an initial <em>problem</em>, the term being used here in a broad sense. It can vary from very concrete (<em>e.g.</em> generating subtitles from a video) to more abstract ideas (<em>e.g.</em> improving privacy on the internet).</p>
+<p>The first operation to perform here will be to uniformize all problems to concrete and <a class="reference external" href="https://iq-inc.com/writing-meaningful-user-stories/">meaningful user stories</a>. As the name hints, those stories should always start from the point of view of your users since you are designing the application for them. <em>A user story will take the form of “As a …, I want to … so that …”</em>.As a side note, starting from the customer's point of view is the first <a class="reference external" href="https://www.amazon.jobs/en/principles">principle of Amazon</a> and is often relayed as the key to their success.</p>
+<p>Once you have a list of applicable user stories, you need to sort the stories into two categories: the ones critical to your application (a.k.a. must have) and those that can wait before being integrated (a.k.a. nice to have). The collection of your <em>must-have</em> stories will constitute the minimal viable product (MVP).</p>
+<p><em>Note For Interviews:</em> The MVP should be defined along with the interviewer, which will select a scope of features that can be analyzed during the session.</p>
+</section>
+<section id="extract-components-from-created-domains">
+<h2>Extract Components From Created Domains</h2>
+<p>From your user stories, you should be able to group features semantically tied together. Such a group can be considered as a domain in the concepts of <a class="reference external" href="https://martinfowler.com/bliki/DomainDrivenDesign.html">Domain-Driven Design</a>. The number of domains depends solely on the complexity of your project and there is no silver bullet when it comes to separating a project into domains. Too many domains can slow down your development and make it cumbersome, while too few puts you at risk of having tightly coupled code, which decreases maintainability in the long run. Usually, starting with a few domains is the right call, as it will help you quickly draft your system while giving you time to find the right abstraction.</p>
+<p>This extraction of domains will define the segregated components in your software that should communicate through a public interface. Nowadays, this is often represented as independent micro-services, but it can also simply be done through packages inside the same component of a monolith.</p>
+<p><em>Note:</em> The choice is not critical at this point, but the advantages and drawbacks of each architecture are discussed in <a class="reference external" href="https://articles.microservices.com/monolithic-vs-microservices-architecture-5c4848858f59"><em>Monolithic vs. Microservices Architecture</em> by</a> <a class="reference external" href="https://medium.com/@antonkharenko?source=post_page-----5c4848858f59--------------------------------">Anton Kharenko</a>.</p>
+</section>
+<section id="explicit-contracts-between-components">
+<h2>Explicit Contracts Between Components</h2>
+<p>It is important to be clear from the beginning about your system's public inputs and outputs. On top of the interactions with the end-user, every interaction between domains should be considered a public interaction. Hence, a contract should exist defining common methods and data models for communication. Those interactions can take multiple forms depending on the implementation, so the interaction contracts can be formatted with abstract model definitions at first.</p>
+<p>The public models will usually match the internal ones, and it could be enticing to use the same models with both private and public code. However, the internal model will most likely change over time, and potentially break compatibility with the existing contract. To ensure that external interactions will not be affected by such changes, you should segregate internal and external representations of your domain. One way of ensuring this is using a <a class="reference external" href="https://en.wikipedia.org/wiki/Hexagonal_architecture_%28software%29">hexagonal architecture</a>. <a class="reference external" href="https://en.wikipedia.org/wiki/Hexagonal_architecture_%28software%29">Netflix wrote a very informative post</a> about their migration to such architecture.</p>
+<p>As a matter of representation, let’s consider a web service accessible through both a user interface on a browser and an API. The reason why the API should not change is pretty clear, even if you can change the web interface according to your new API, if you do not hold a clear and immutable contract, customers will have trouble keeping their scripted calls alive. In the same fashion, interactions between your components are the same. Indeed, when your application will grow, you may have different teams working on each component, one team becoming the customer of the other.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*EpL1Wfbl-aZ8H2Kpf9-o9A.png" class="img-fluid border rounded shadow">Example of Interactions in a Distributed System### Build the Present, Keep an Eye on the Future</p>
+<p>Even if they are not implemented at the moment, the <em>nice-to-have</em> user stories are important in a way. They define the long-term goal you want to achieve and could be significant while defining the technological stack or integrating some <em>must-have</em> user stories.</p>
+<p>As a trivial example, let’s say that we want to integrate a feature transforming <span class="docutils literal">.svg</span> files to <span class="docutils literal">.png</span>. Maybe this is the only transformation that will take place ever in the project, in which case it’s fine to do a specific implementation. On the other hand, you may have planned to transform multiple formats to <span class="docutils literal">.png</span>. In this case, you will most likely consider a modular approach from the start, to reduce the cost of further integration.</p>
+<p>Sometimes it will be too costly to prepare for the future, and that’s okay, as long as you are aware of the technical debt you create and integrate the cost of removing this debt in future work.</p>
+</section>
+<section id="define-metrics-to-assert-success">
+<h2>Define Metrics to Assert Success</h2>
+<p>Defining the right metrics is critical to know the health of your project, both on the technical and applicative side. It will give you directions to further enhance your product.</p>
+<p>On the technical side, you can consider some out-of-the-box metrics. For instance, Google defines the <a class="reference external" href="https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals">Golden Signals</a> as Latency, Traffic, Errors, and Saturation. A view on at least those four metrics should give a good status of the application’s technical health at any time, and combining them with alerts will help you keep your business available and responsive.</p>
+<p>On the applicative side, the metrics will be more specific to the features. The main objective will be to ensure that the users are using the features as expected, in other words, that you correctly foresaw their needs and that your design is intuitive. Among the tips that are usually given, the ones that seem the most important are:</p>
+<ul class="simple">
+<li><p>Choose a few metrics, if not only one. Too many of them may be correlated and less actionable if you have mixed signals.</p></li>
+<li><p>Avoid metrics that are here to make you feel good but give no real insight into your product's health.</p></li>
+</ul>
+<p>This is definitely a hard subject to master, so I can only recommend you to dive deeper into the subject, starting with <a class="reference external" href="https://zepel.io/blog/measure-metrics-for-feature-success/">How To Measure The Success Of Your Feature?</a> and <a class="reference external" href="https://www.sequoiacap.com/article/defining-product-success-metrics-and-goals">Defining Product Success: Metrics and Goals</a>.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion</h2>
+<p>We saw the non-technical decision process to make while designing a system. This process will end up creating features that should mostly:</p>
+<ul class="simple">
+<li><p>Initiate from a customer need.</p></li>
+<li><p>Follow the <a class="reference external" href="https://en.wikipedia.org/wiki/KISS_principle"><em>Keep It Simple, Stupid</em> principle</a> as much as possible.</p></li>
+<li><p>Have a feedback loop to detect issues and improve usage.</p></li>
+</ul>
+<p>You will end up with a set of contracts that you will have to honour during the next step: the technical design.</p>
+</section>
+                </main>
+                    <div class="col-md-3">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <abbr title="2023-08-02T00:00:00+02:00">
+                <i class="bi bi-calendar-event-fill"></i>
+                mer. 02 août 2023
+            </abbr>
+        </li>
+            <li class="list-group-item">
+                <address>
+                    <i class="bi bi-person-circle"></i> By
+                        <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
+                </address>
+            </li>
+            <li class="list-group-item">
+                <ul class="list-inline">
+                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="6 articles with this category">Software Engineering</a></li>
+                </ul>
+            </li>
+    </ul>
+                        
+                    </div>
+            </div>
+        </div>
+        <footer class="container-fluid mt-5 p-4 small fw-light">
+            <div class="row mx-5">
+                    <div class="col-md-2">
+                            <h6>Social</h6>
+                            <ul class="list-unstyled">
+<li>    <a href="http://twitter.com/AVeuiller">
+            <i class="bi bi-twitter"></i>
+        Twitter
+    </a></li><li>    <a href="https://stackoverflow.com/users/2564085/aveuiller">
+            <i class="bi bi-stack-overflow"></i>
+        StackOverflow
+    </a></li><li>    <a href="http://github.com/aveuiller">
+            <i class="bi bi-github"></i>
+        GitHub
+    </a></li><li>    <a href="https://aveuiller.medium.com/">
+            <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
+        Medium
+    </a></li><li>    <a href="https://dev.to/aveuiller/">
+            <img src="https://www.google.com/s2/favicons?domain=dev.to" width="16" height="16" class="link-icon" alt="dev.to icon">
+        Dev.to
+    </a></li>                            </ul>
+                    </div>
+                    <div class="col-md-2">
+                            <h6>Professional</h6>
+                            <ul class="list-unstyled">
+<li>    <a href="https://linkedin.com/in/antoine-veuiller">
+            <i class="bi bi-linkedin"></i>
+        LinkedIn
+    </a></li>                            </ul>
+                    </div>
+                <div class="col-md-2">
+                    <h6>Browse content by</h6>
+                    <ul class="list-unstyled">
+                    </ul>
+                </div>
+                <div class="col-md-2 text-body-tertiary">
+                    <h6>Copyright notice</h6>
+                    <p class="small">
+                        © Copyright
+                        2020-2022
+                        Antoine Veuiller.
+                    </p>
+                </div>
+                <div class="col-md-2 text-body-tertiary">
+                    <h6>Disclaimer</h6>
+                    <p class="small">
+                            All opinions expressed in this site are my own
+                            personal opinions and are not endorsed by, nor
+                            do they represent the opinions of my previous,
+                            current and future employers or any of its
+                            affiliates, partners or customers.
+                    </p>
+                </div>
+                <div class="col-md-2">
+                        <h6>Feeds</h6>
+                        <ul class="list-unstyled small">
+                                <li>
+                                    <a href="https://aveuiller.github.io/feeds/all.atom.xml">
+                                        <i class="bi  bi-rss "></i>
+                                        All posts (Atom)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://aveuiller.github.io/feeds/software-engineering.atom.xml">
+                                        <i class="bi  bi-rss "></i>
+                                        Category: Software Engineering (Atom)
+                                    </a>
+                                </li>
+                        </ul>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="offset-3 col-6 small text-muted text-center">
+                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.
+                    <br>
+                    <a class="text-dark" href="https://github.com/kdeldycke/plumage">Plumage</a>
+                    theme by <a class="text-dark" href="https://kevin.deldycke.com">Kevin Deldycke</a>.
+                </div>
+                <div class="col-3 text-end d-flex flex-column">
+                    <a class="mt-auto" href="#"><i class="bi bi-arrow-bar-up"></i> Back to top</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

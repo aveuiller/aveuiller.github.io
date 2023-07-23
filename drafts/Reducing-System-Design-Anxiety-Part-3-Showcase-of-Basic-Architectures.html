@@ -1,0 +1,254 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="robots" content="index, follow">
+        <title>
+Reducing System Design Anxiety — Part 3: Showcase of Basic Architectures        | Antoine Veuiller</title>
+        <meta name="author" content="Antoine Veuiller">
+        <meta name="generator" content="Pelican v4.8.0">
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?4566fab6">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9565WT2VE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-F9565WT2VE');
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
+            <script src="https://aveuiller.github.io/theme/js/main.min.js?b6b3f836"></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="theme-color" content="#ffffff">
+        <!-- Feeds -->
+            <link href="https://aveuiller.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - All posts - Atom Feed">
+            <link href="https://aveuiller.github.io/feeds/software-engineering.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - Category: Software Engineering - Atom Feed">
+        <meta name="keywords" content="TODO">
+    </head>
+    <body class="bg-transparent pt-4">
+        <div class="container">
+                <a href="https://aveuiller.github.io" class="avatar-container float-start mx-4">
+                    <div class="avatar ">
+                        <div class="side">
+                            <img src="/images/profile.jpg" class="img-fluid">
+                        </div>
+                    </div>
+                </a>
+            <h1>
+                <a href="https://aveuiller.github.io" class="text-body-emphasis text-decoration-none">Antoine Veuiller</a>
+                <small class="text-body-tertiary"><small></small></small>
+            </h1>
+            <nav class="navbar d-block navbar-expand-lg bg-body-tertiary shadow rounded-3">
+                <a class="navbar-brand d-none" href="https://aveuiller.github.io" title="">Antoine Veuiller</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mx-4" id="plumage-navbar-collapse-1">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/pages/about-me.html">
+                                        About Me
+                                    </a>
+                                </li>
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/pages/collaborations.html">
+                                        Collaborations
+                                    </a>
+                                </li>
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/category/around-computer-science.html">
+                                        Around Computer Science
+                                    </a>
+                                </li>
+<li class="nav-item ">
+                                    <a class="nav-link" href="https://aveuiller.github.io/category/software-engineering.html">
+                                        Software Engineering
+<span class="visually-hidden">(current)</span>                                    </a>
+                                </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="  col-md-9  ">
+    <h1>
+        <a href="https://aveuiller.github.io/drafts/Reducing-System-Design-Anxiety-Part-3-Showcase-of-Basic-Architectures.html" rel="bookmark" title="Permalink to Reducing System Design Anxiety — Part 3: Showcase of Basic Architectures">Reducing System Design Anxiety — Part 3: Showcase of Basic Architectures</a>
+    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <main id="content" role="main" class="  col-md-9 ">
+    
+    <hr class="docutils">
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*9AKYPl6dT_5MtM032nZ6PQ.jpeg" class="img-fluid border rounded shadow"></p>
+<p>This article presents the core concepts behind a well-designed system. I will focus on distributed web services, as they are the most present systems nowadays. As before, the concepts can be used for any other kind of software system.</p>
+<section id="goals-of-a-distributed-system">
+<h2>Goals of a Distributed System</h2>
+<p>A distributed system aims to maximize availability, reliability and performance through well-known concepts that you will need to consider while designing a system. For a start, let’s define those goals:</p>
+<ul class="simple">
+<li><p><strong>Availability:</strong> The capacity of your system to keep working at any time, even if something goes wrong.</p></li>
+<li><p><strong>Reliability:</strong> The capacity for things to not go wrong on your system during a long period of time.</p></li>
+<li><p><strong>Performance:</strong> The capacity of your system to work quickly and efficiently.</p></li>
+</ul>
+<p>As you may have noticed, there is a correlation between reliability and availability, but the concepts should not be confused. A system with poor availability will probably be unreliable, but an unreliable system can sometimes remain available given enough resources.</p>
+</section>
+<section id="availability">
+<h2>Availability</h2>
+<p>In order to keep a system available, the main concept to keep in mind is <em>redundancy.</em> In a perfect world, everything in your system should be duplicated in order to palliate a dysfunction. Fortunately, thanks to the <a class="reference external" href="https://medium.com/geekculture/towards-abstraction-of-computer-science-cc68e4c30654">abstraction of computer science</a>, you will be able to rely on the availability of the underlying systems you use, namely for cloud environments.</p>
+<p>On your side of the system, availability will be mainly driven by using <a class="reference external" href="https://www.nginx.com/resources/glossary/load-balancing/">load balancing</a> in front of your services, and <a class="reference external" href="https://searchdatamanagement.techtarget.com/definition/database-replication">replication</a> for your databases.</p>
+<p>The load balancing will redirect calls directed towards any service to a reliably working instance. This keeps your service responding even if a few instances are down. It also optimizes the load received by each instance, hence can impact positively the performances of your services. The load balancer is a component of our system, and as such we also need to create multiple instances of it.</p>
+<p>Replication on a database system intends to keep your data safe from system failure, and also improve access capabilities through load balancing. Depending on the data criticality, you may also consider replicating your data on multiple physical locations. This is becoming easier thanks to cloud providers and can be very helpful.</p>
+</section>
+<section id="reliability">
+<h2>Reliability</h2>
+<p>Reliability won’t necessarily be represented by actual components. However, there are some actionable that can help to ensure the production of a reliable system.</p>
+<p>For service to remain reliable in the long run, it should be maintainable. Maintainability comes with clean code and a sensible codebase size. A service doing too many things will cost a lot to scale and may become cumbersome to maintain. While services too atomic will add complexity to your deployments and debugging processes. Uber published a <a class="reference external" href="https://eng.uber.com/microservice-architecture/">good article</a> on the advantages of finding the right sizing.</p>
+</section>
+<section id="performances">
+<h2>Performances</h2>
+<p>One of the advantages of a distributed is to ease the <a class="reference external" href="https://www.section.io/blog/scaling-horizontally-vs-vertically/">horizontal scaling</a>, <em>i.e.</em> adding more instances of a service to serve more requests. This means that your services can evolve independently depending on their load.</p>
+<p>Having said that, scaling is a costly solution, and even if it can help for short-term spikes, you may want to try optimizing before resorting to it in the long run. If you intend to send a lot of times the same data, the main way of improving your performance will be through using a <a class="reference external" href="https://aws.amazon.com/caching"><em>Cache</em></a>.</p>
+<p>A Cache is basically storing the results of a request, and sending this result to any further request that matches, until invalidation. It will be your main ally to reduce loads over services and databases but may be counterproductive for queries that are requiring live data, as you want to see the changes and not be locked on a snapshot. A good example of a cached system is a <a class="reference external" href="https://www.cloudflare.com/learning/cdn/what-is-a-cdn"><em>Content Delivery Network</em></a> (CDN), which is widely used to deliver static content as fast as possible.</p>
+<p>The performance of a single component becomes more and more important with the number of dependencies others have on it. A component that becomes central in your architecture is named a <em>Single Point Of Failure</em> (SPOF). A SPOF will slow or bring down all your system if it has performance issues. You may want to avoid those as much as possible, but if that is a requirement of your systems, take extra care of the performance and availability of this component.</p>
+</section>
+<section id="distributed-system-template">
+<h2>Distributed System Template</h2>
+<p>In order to apply the three concepts above, the main course of action is to almost always have at least two instances of each component. You may also need to push it further by having instances of each component in at least two geographical regions.</p>
+<p>To be able to do so, your software should be stateless as much as possible, having a state will significantly increase the complexity of replicating components across multiple instances of regions.</p>
+<p>The following schema represents a template of a system designed to be available, reliable, and performant.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*QMfcuCYGKMiQqKUNIEAv-A.png" class="img-fluid border rounded shadow">Detailed Typical Distributed System ArchitectureIn this design, the <em>API Gateway</em> have the advantage of providing a single, standardized, entry point on both sides of communications. For instance, you can use the gateway to provide an authentication layer on every incoming request, making it easier for services to handle authorization levels. On the other hand, you may have recognized a <em>SPOF</em> in this component. If the gateway goes down, your entire infrastructure will be unavailable, making the component critical in regard to code quality and performance.</p>
+</section>
+<section id="ensure-that-the-goals-are-reached">
+<h2>Ensure That The Goals Are Reached</h2>
+<p>In order to ensure that your system is indeed up to standard, you will need to monitor its behaviour in real time. Hopefully, a lot of tools exist to do so, exporting metrics, logs, and traces from your software and underlying systems. Depending on your needs, you can rely on open-source software like <a class="reference external" href="https://prometheus.io/">Prometheus</a> &amp; <a class="reference external" href="https://grafana.com/">Grafana</a>, or enterprise solutions like <a class="reference external" href="https://www.datadoghq.com/">Datadog</a>.</p>
+<p>Having a well-designed observability stack above your systems will help you pin down issues with more ease, thus greatly <a class="reference external" href="https://aveuiller.medium.com/a-generic-approach-to-troubleshooting-dda764fbbb6">improving your response time in case of any issue on your system</a>.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion</h2>
+<p>There is no silver bullet in system design. However, it can be helpful to have a template in mind whenever designing a new system. This will help efficiently create something relevant with only a few tweaks depending on the requirements of your system.</p>
+<p>As I said before, this template design is highly personal and may vary.</p>
+<p>Now that we defined the coarse-grained design, let’s discuss the details. First, we will see how to do some back-of-the-envelope calculations to scale correctly.</p>
+</section>
+                </main>
+                    <div class="col-md-3">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <abbr title="2023-08-03T00:00:00+02:00">
+                <i class="bi bi-calendar-event-fill"></i>
+                jeu. 03 août 2023
+            </abbr>
+        </li>
+            <li class="list-group-item">
+                <address>
+                    <i class="bi bi-person-circle"></i> By
+                        <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
+                </address>
+            </li>
+            <li class="list-group-item">
+                <ul class="list-inline">
+                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="6 articles with this category">Software Engineering</a></li>
+                </ul>
+            </li>
+    </ul>
+                        
+                    </div>
+            </div>
+        </div>
+        <footer class="container-fluid mt-5 p-4 small fw-light">
+            <div class="row mx-5">
+                    <div class="col-md-2">
+                            <h6>Social</h6>
+                            <ul class="list-unstyled">
+<li>    <a href="http://twitter.com/AVeuiller">
+            <i class="bi bi-twitter"></i>
+        Twitter
+    </a></li><li>    <a href="https://stackoverflow.com/users/2564085/aveuiller">
+            <i class="bi bi-stack-overflow"></i>
+        StackOverflow
+    </a></li><li>    <a href="http://github.com/aveuiller">
+            <i class="bi bi-github"></i>
+        GitHub
+    </a></li><li>    <a href="https://aveuiller.medium.com/">
+            <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
+        Medium
+    </a></li><li>    <a href="https://dev.to/aveuiller/">
+            <img src="https://www.google.com/s2/favicons?domain=dev.to" width="16" height="16" class="link-icon" alt="dev.to icon">
+        Dev.to
+    </a></li>                            </ul>
+                    </div>
+                    <div class="col-md-2">
+                            <h6>Professional</h6>
+                            <ul class="list-unstyled">
+<li>    <a href="https://linkedin.com/in/antoine-veuiller">
+            <i class="bi bi-linkedin"></i>
+        LinkedIn
+    </a></li>                            </ul>
+                    </div>
+                <div class="col-md-2">
+                    <h6>Browse content by</h6>
+                    <ul class="list-unstyled">
+                    </ul>
+                </div>
+                <div class="col-md-2 text-body-tertiary">
+                    <h6>Copyright notice</h6>
+                    <p class="small">
+                        © Copyright
+                        2020-2022
+                        Antoine Veuiller.
+                    </p>
+                </div>
+                <div class="col-md-2 text-body-tertiary">
+                    <h6>Disclaimer</h6>
+                    <p class="small">
+                            All opinions expressed in this site are my own
+                            personal opinions and are not endorsed by, nor
+                            do they represent the opinions of my previous,
+                            current and future employers or any of its
+                            affiliates, partners or customers.
+                    </p>
+                </div>
+                <div class="col-md-2">
+                        <h6>Feeds</h6>
+                        <ul class="list-unstyled small">
+                                <li>
+                                    <a href="https://aveuiller.github.io/feeds/all.atom.xml">
+                                        <i class="bi  bi-rss "></i>
+                                        All posts (Atom)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://aveuiller.github.io/feeds/software-engineering.atom.xml">
+                                        <i class="bi  bi-rss "></i>
+                                        Category: Software Engineering (Atom)
+                                    </a>
+                                </li>
+                        </ul>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="offset-3 col-6 small text-muted text-center">
+                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.
+                    <br>
+                    <a class="text-dark" href="https://github.com/kdeldycke/plumage">Plumage</a>
+                    theme by <a class="text-dark" href="https://kevin.deldycke.com">Kevin Deldycke</a>.
+                </div>
+                <div class="col-3 text-end d-flex flex-column">
+                    <a class="mt-auto" href="#"><i class="bi bi-arrow-bar-up"></i> Back to top</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

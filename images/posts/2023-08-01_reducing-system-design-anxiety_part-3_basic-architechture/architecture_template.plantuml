@@ -1,0 +1,96 @@
+@startuml
+<style>
+componentDiagram {
+    LineColor darkblue
+    TextColor blue
+    BackGroundColor white
+    arrow {
+        LineColor black
+    }
+}
+note {
+  BackGroundColor white
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+package "System" {
+    component "Main Component" as main_component {
+        component "Load Balancing" as main_lb {
+            agent "LB 1" as main_lb_1
+            agent "LB 2" as main_lb_2
+        }
+        component "Service" as main_service {
+            agent "Instance 1" as main_s_1
+            agent "Instance 2" as main_s_2
+        }
+
+        component "Database" as main_db {
+            database "Master" as main_db_master
+            database "Replica" as main_db_replica
+
+            main_db_master .> main_db_replica: Replication
+        }
+
+        ' Agent to Agent
+        main_lb_1 --> main_s_1
+        main_lb_1 --> main_s_2
+        main_lb_2 --> main_s_1
+        main_lb_2 --> main_s_2
+        main_s_1 --> main_db_master
+        main_s_2 --> main_db_master
+        main_s_1 ..> main_db_replica
+        main_s_2 ..> main_db_replica
+        
+        ' Component to Component
+'        main_lb --> main_service
+'        main_service --> main_db_master: RW
+'        main_service ..> main_db_replica: RO
+    }
+
+    component "Auth Component" as auth_component {
+        component "Load Balancing" as auth_lb {
+            agent "LB 1" as auth_lb_1
+            agent "LB 2" as auth_lb_2
+        }
+
+        component "Service" as auth_service {
+            agent "Instance 1" as auth_s_1
+            agent "Instance 2" as auth_s_2
+        }
+        component "Database" as auth_db {
+            database "Master" as auth_db_master
+            database "Replica" as auth_db_replica
+
+            auth_db_master .> auth_db_replica: Replication
+        }
+        
+        ' Agent to Agent
+        auth_lb_1 --> auth_s_1
+        auth_lb_1 --> auth_s_2
+        auth_lb_2 --> auth_s_1
+        auth_lb_2 --> auth_s_2
+        auth_s_1 --> auth_db_master
+        auth_s_2 --> auth_db_master
+        auth_s_1 ..> auth_db_replica
+        auth_s_2 ..> auth_db_replica
+    }
+
+    ' Useless if API GW
+'    auth_service <.. main_service: Depending on the Gateway
+    agent "API Gateway" as gw
+    note left
+        An API Gateway can be overkill in lots of cases,
+        so the redirection to services may be done
+        using DNS entries.
+    end note
+    gw --> auth_lb
+    gw --> main_lb
+}
+
+actor "User via website/API" as user
+user --> gw
+
+@enduml
