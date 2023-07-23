@@ -3,34 +3,28 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>    About design patterns: Dependency Injection
- | Antoine Veuiller</title>
-
+            <meta name="robots" content="index, follow">
+        <title>
+About design patterns: Dependency Injection        | Antoine Veuiller</title>
         <meta name="author" content="Antoine Veuiller">
         <meta name="generator" content="Pelican v4.8.0">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous">
-
-            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?c73fffa6">
-
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?4566fab6">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9565WT2VE"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-F9565WT2VE');
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-F9565WT2VE');
     </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js" integrity="sha512-iceXjjbmB2rwoX93Ka6HAHP+B76IY1z0o3h+N1PeDtRSsyeetU3/0QKJqGyPJcX63zysNehggFwMC/bi7dvMig==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha512-/2sZKAsHDmHNoevKR/xsUKe+Bpf692q4tHNQs9VWWz0ujJ9JBM67iFYbIEdfDV9I2BaodgT5MIg/FTUmUv3oyQ==" crossorigin="anonymous"></script>
-
-            <script src="https://aveuiller.github.io/theme/js/main.min.js?86e1c044"></script>
-
-
+            <script src="https://aveuiller.github.io/theme/js/main.min.js?b6b3f836"></script>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,40 +32,31 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#ffc40d">
         <meta name="theme-color" content="#ffffff">
-
         <!-- Feeds -->
             <link href="https://aveuiller.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - All posts - Atom Feed">
             <link href="https://aveuiller.github.io/feeds/software-engineering.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - Category: Software Engineering - Atom Feed">
-
         <meta name="keywords" content="Design Patterns, Best Practice, Software Architecture">
-
     </head>
-
     <body class="bg-transparent pt-4">
-
         <div class="container">
-
-                <a href="https://aveuiller.github.io" class="avatar-container float-left mx-4">
+                <a href="https://aveuiller.github.io" class="avatar-container float-start mx-4">
                     <div class="avatar ">
-                        <div class="side"><img src="/images/profile.jpg" class="img-fluid"></div>
+                        <div class="side">
+                            <img src="/images/profile.jpg" class="img-fluid">
+                        </div>
                     </div>
                 </a>
-
             <h1>
-                <a href="https://aveuiller.github.io" class="text-dark text-decoration-none">Antoine Veuiller</a>
-                <small class="text-secondary"><small></small></small>
+                <a href="https://aveuiller.github.io" class="text-body-emphasis text-decoration-none">Antoine Veuiller</a>
+                <small class="text-body-tertiary"><small></small></small>
             </h1>
-
-            <nav class="navbar d-block navbar-expand-lg navbar-light bg-light shadow rounded-lg">
-
+            <nav class="navbar d-block navbar-expand-lg bg-body-tertiary shadow rounded-3">
                 <a class="navbar-brand d-none" href="https://aveuiller.github.io" title="">Antoine Veuiller</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="plumage-navbar-collapse-1">
-
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <div class="collapse navbar-collapse mx-4" id="plumage-navbar-collapse-1">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item ">
                                     <a class="nav-link" href="https://aveuiller.github.io/pages/about-me.html">
                                         About Me
@@ -90,84 +75,76 @@
 <li class="nav-item ">
                                     <a class="nav-link" href="https://aveuiller.github.io/category/software-engineering.html">
                                         Software Engineering
-<span class="sr-only">(current)</span>                                    </a>
+<span class="visually-hidden">(current)</span>                                    </a>
                                 </li>
                     </ul>
-
-
                 </div>
-
             </nav>
-
         </div>
-
-
         <div class="container mt-5">
-
-
             <div class="row">
-                <div class="
-                        col-md-9
-">
+                <div class="  col-md-9  ">
     <h1>
         <a href="https://aveuiller.github.io/about_design_patterns-dependency_injection.html" rel="bookmark" title="Permalink to About design patterns: Dependency Injection">About design patterns: Dependency Injection</a>
     </h1>
                 </div>
             </div>
-
             <div class="row">
-
-
-                <div id="content" role="main" class="
-                        col-md-9
-">
+                <main id="content" role="main" class="  col-md-9 ">
     
-
-    <h3>Availability Disclaimer</h3>
+    <section id="availability-disclaimer">
+<h2>Availability Disclaimer</h2>
 <p>This article can be found on other sources:</p>
-<ul>
-<li>Medium: <a href="https://medium.com/@aveuiller/about-design-patterns-dependency-injection-ab9c1742d4aa">link</a></li>
+<ul class="simple">
+<li><p>Medium: <a class="reference external" href="https://medium.com/@aveuiller/about-design-patterns-dependency-injection-ab9c1742d4aa">link</a></p></li>
 </ul>
-<hr>
+<hr class="docutils">
 <p><img alt="credit photo: Bamboo Complexity, taufuuu" src="/images/posts/2020-01-05_About-design-patterns--Dependency-Injection/bamboo_complexity.jpeg" class="img-fluid border rounded shadow image-process-article-photo"></p>
-<h3>What is dependency injection?</h3>
+</section>
+<section id="what-is-dependency-injection">
+<h2>What is dependency injection?</h2>
 <p><em>Dependency injection</em> (DI) is a very simple concept that aims to decouple components of your software and ease their integration and testing. It does so by asking for their sub-components instead of creating them.</p>
 <p>During this article, we will also mention <em>inversion of control</em> (IoC), which is commonly used along with dependency injection. This pattern aims to avoid asking for implementations but rather interfaces while injecting dependencies.</p>
 <p>This article will use a simple example in Java to present dependency injection but aims towards a technology-agnostic explanation of the concept and its advantages. Moreover, even if it is an object-oriented design pattern, you can still adapt the behaviour in many programming languages.</p>
-<h3>Let’s clarify all this using an example!</h3>
+</section>
+<section id="lets-clarify-all-this-using-an-example">
+<h2>Let’s clarify all this using an example!</h2>
 <p>We will present a weather service that shows an intelligible representation of the weather. In the current implementation, we rely solely on a thermometer.</p>
-<h4>Let’s start without dependency injection.</h4>
+<section id="lets-start-without-dependency-injection">
+<h3>Let’s start without dependency injection.</h3>
 <p><img alt="Weather service without IoC" src="https://raw.githubusercontent.com/aveuiller/design-tutorials/master/dependencyinjection/specs/classes_without_ioc.svg" class="img-fluid border rounded shadow"></p>
-<p>As you can see on the diagram, the <em>WeatherService</em> is relying on a <em>Thermometer</em>, which can be configured with a <em>TemperatureUnit</em>. 
+<p>As you can see on the diagram, the <em>WeatherService</em> is relying on a <em>Thermometer</em>, which can be configured with a <em>TemperatureUnit</em>.
 Not using dependency injection will result in a code creating a new instance of <em>Thermometer</em> in the service, and a <em>Thermometer</em> configuring the <em>TemperatureUnit</em> to use:</p>
-<p>````java
-public class Thermometer {
-  private final TemperatureUnit unit;</p>
-<p>public Thermometer() {
+<pre class="code literal-block"><code>public class Thermometer {
+  private final TemperatureUnit unit;
+  
+  public Thermometer() {
     this.unit = TemperatureUnit.CELSIUS;
   }
-}</p>
-<p>public class WeatherService implements WeatherContract {</p>
-<p>private final Thermometer thermometer;</p>
-<p>// This constructor is not using dependency injection
+}
+
+public class WeatherService implements WeatherContract {
+
+  private final Thermometer thermometer;
+ 
+  // This constructor is not using dependency injection
   public WeatherService() {
     this.thermometer = new Thermometer();
   }
 }
-````
-Now let’s imagine that we want to use a <em>Thermometer</em> configured to use Fahrenheit degrees instead of Celsius. For this, we add a parameter to switch between both units.</p>
-<p><code>java
-public Thermometer(boolean useCelsius) {
+</code></pre>
+<p>Now let’s imagine that we want to use a <em>Thermometer</em> configured to use Fahrenheit degrees instead of Celsius. For this, we add a parameter to switch between both units.</p>
+<pre class="code literal-block"><code>public Thermometer(boolean useCelsius) {
   if (useCelsius) {
     this.unit = TemperatureUnit.CELSIUS;
   } else {
     this.unit = TemperatureUnit.FAHRENHEIT;
   }
-}</code></p>
-<p>One can also argue that the user of our program won’t always have access to an actual thermometer on their device, thus you may want to be able to fall back to another implementation in this case. 
+}
+</code></pre>
+<p>One can also argue that the user of our program won’t always have access to an actual thermometer on their device, thus you may want to be able to fall back to another implementation in this case.
 For instance, an API sending the current temperature in your area. Integrating multiple implementations inside the service could be done as shown below.</p>
-<p><code>java
-public WeatherService(boolean useRealDevice, 
+<pre class="code literal-block"><code>public WeatherService(boolean useRealDevice, 
                       boolean useCelsius,
                       String apiKey) {
   if (useRealDevice) {
@@ -175,203 +152,216 @@ public WeatherService(boolean useRealDevice,
   } else {
     this.thermometer = new ThermometerWebService(useCelsius, apiKey);
   }
-}</code></p>
+}
+</code></pre>
 <p>As a result, initializing the service can be done as follows:</p>
-<p><code>java
-public static void main(String[] args) {
+<pre class="code literal-block"><code>public static void main(String[] args) {
   // Not using dependency injection
   WeatherContract weather = new WeatherService(true, true, null);
-}</code></p>
+}
+</code></pre>
 <p>Even if it is easy to use, our current version of the <em>WeatherService</em> is not evolutive. If we take a closer look at its constructor, we can see multiple design flaws that will haunt us in the long run:</p>
-<ul>
-<li>The constructor is choosing its <em>Thermometer</em>. Adding a new type of Thermometer would require some parameter tricks to guess the implementation to use.</li>
-<li>The constructor is managing the <em>Thermometer</em> constructor parameters. Adding the <em>ThermometerWebService</em> forced us to add a new <em>apiKey</em> parameter to it, even if unrelated to the <em>WeatherService</em>.</li>
+<ul class="simple">
+<li><p>The constructor is choosing its <em>Thermometer</em>. Adding a new type of Thermometer would require some parameter tricks to guess the implementation to use.</p></li>
+<li><p>The constructor is managing the <em>Thermometer</em> constructor parameters. Adding the <em>ThermometerWebService</em> forced us to add a new <em>apiKey</em> parameter to it, even if unrelated to the <em>WeatherService</em>.</p></li>
 </ul>
 <p>As a result, any change to any <em>Thermometer</em> implementation may require changes on the <em>WeatherService</em> constructors. This behaviour is unwanted and breaks the <em>Separation of Concerns</em> principle.</p>
-<h4>Will dependency injection improve my project?</h4>
+</section>
+<section id="will-dependency-injection-improve-my-project">
+<h3>Will dependency injection improve my project?</h3>
 <p>Dependency injection, associated with inversion of control, is a good way to cover this use case. It allows you to choose which kind of thermometer you want in your program depending on the situation. The following diagram gives a quick overview of our new architecture:</p>
 <p><img alt="Weather service using IoC" src="https://raw.githubusercontent.com/aveuiller/design-tutorials/master/dependencyinjection/specs/classes_using_ioc.svg" class="img-fluid border rounded shadow"></p>
 <p>The <strong>inversion of control</strong> is represented in this diagram by the fact that our <em>WeatherService</em> implementation is linked to <em>ThermometerContract</em> rather than any of its implementations. That’s nothing more than this.</p>
 <p>As for <strong>dependency injection</strong>, <em>WeatherService</em> will now take a <em>ThermometerContract</em> in its constructor, requiring the block using the service to build an instance filling this contract:</p>
-<p>````java
-public class WeatherService implements WeatherContract {
-  // We now use the Interface <br>
-  private final ThermometerContract thermometer;</p>
-<p>// New constructor using dependency injection  <br>
+<pre class="code literal-block"><code>public class WeatherService implements WeatherContract {
+  // We now use the Interface   
+  private final ThermometerContract thermometer;
+
+  // New constructor using dependency injection    
   public WeatherService(ThermometerContract thermometer) {
     this.thermometer = thermometer;
   }
 }
-````</p>
+</code></pre>
 <p>As a result, the initialization of a <em>WeatherService</em> for both constructors will look like the following:</p>
-<p><code>java
-public static void main(String[] args) {
+<pre class="code literal-block"><code>public static void main(String[] args) {
   // Using dependency injection
   TemperatureUnit celsius = TemperatureUnit.CELSIUS;
   ThermometerContract thermometer = new Thermometer(celsius);
   WeatherContract weather = new WeatherService(thermometer);
-}</code></p>
+}
+</code></pre>
 <p>Now, our <em>ThermometerContract</em> can be fully configured by an external part of the software. More important so, the <em>WeatherService</em> doesn’t need to know any of the available implementations of <em>ThermometerContract</em>, thus decoupling your software packages.</p>
 <p>This could seem like nothing important, but this simple switch of responsibility is critical leverage for multiple aspects of software design. It enables you to control the instance creation from your software entry point by chaining dependencies. You won’t have to take care of the instantiation until it is necessary. This behaviour could be compared to raised exceptions, that are ignored until taken care of in a significant context.</p>
-<h3>That’s all there is to dependency injection?</h3>
+</section>
+</section>
+<section id="thats-all-there-is-to-dependency-injection">
+<h2>That’s all there is to dependency injection?</h2>
 <p>It is important to know that even if you can find libraries that help you manage your dependency injection, it is not always necessary to use them.</p>
 <p>Those libraries tend to cover a lot of cases thus be offputting to developers not comfortable with the pattern in the first place. In reality, they simply ease the instantiation of complex dependency trees and are not required at all.</p>
-<p>The following section is an example of injecting our service using <a href="https://github.com/google/guice/wiki">Guice</a>, a dependency injection framework for Java made by Google. The concept is to reference bindings of every component you can inject in your program, so that the library can generate a class of any type, automatically.</p>
+<p>The following section is an example of injecting our service using <a class="reference external" href="https://github.com/google/guice/wiki">Guice</a>, a dependency injection framework for Java made by Google. The concept is to reference bindings of every component you can inject in your program, so that the library can generate a class of any type, automatically.</p>
 <p>Let’s consider that we have two implementations with the following constructors:</p>
-<p>```java
-public class WeatherService implements WeatherContract {
-  private final ThermometerContract thermometer;</p>
-<p>@Inject
+<pre class="code literal-block"><code>public class WeatherService implements WeatherContract {
+  private final ThermometerContract thermometer;
+
+  @Inject
   public WeatherService(ThermometerContract thermometer) {
     this.thermometer = thermometer;
   }
-}</p>
-<p>public class Thermometer implements ThermometerContract {
-  private final TemperatureUnit unit;</p>
-<p>@Inject
+}
+
+public class Thermometer implements ThermometerContract {
+  private final TemperatureUnit unit;
+  
+  @Inject
   public Thermometer(@Named(WeatherModule.TEMPERATURE_UNIT) 
                      TemperatureUnit unit) {
     this.unit = unit;
   }
 }
-```</p>
+</code></pre>
 <p>The <em>injection module</em> should be configured to bind all needed interfaces to a given implementation.
-It should also be able to inject any object without a specific interface, such as the enumerate <em>TemperatureUnit</em>. 
+It should also be able to inject any object without a specific interface, such as the enumerate <em>TemperatureUnit</em>.
 The injection will then be bound to a specific name, “<em>temp_unit”</em> in this case.</p>
-<p>````java
-public class WeatherModule extends AbstractModule {
-  public static final String TEMPERATURE_UNIT = "temp_unit";</p>
-<p>@Override
+<pre class="code literal-block"><code>public class WeatherModule extends AbstractModule {
+  public static final String TEMPERATURE_UNIT = "temp_unit";
+
+  @Override
   protected void configure() {
     // Named input configuration bindings
     bind(TemperatureUnit.class)
       .annotatedWith(Names.named(TEMPERATURE_UNIT))
-      .toInstance(TemperatureUnit.CELSIUS);</p>
-<p>// Interface - Implementation bindings
+      .toInstance(TemperatureUnit.CELSIUS);
+      
+    // Interface - Implementation bindings
     bind(ThermometerContract.class).to(Thermometer.class);
     bind(WeatherContract.class).to(WeatherService.class);
   }
 }
-````</p>
+</code></pre>
 <p>Ultimately, the module can be used as follow, here instantiating a <em>WeatherContract</em>.</p>
-<p>```java
-public static void main(String[] args) {
+<pre class="code literal-block"><code>public static void main(String[] args) {
   // Creating the injection module configured above.
-  Injector injector = Guice.createInjector(new WeatherModule());</p>
-<p>// We ask for the injection of a WeatherContract, 
+  Injector injector = Guice.createInjector(new WeatherModule());
+
+  // We ask for the injection of a WeatherContract, 
   // which will create an instance of ThermometerContract
   // with the named TemperatureUnit under the hood.
   WeatherContract weather = injector.getInstance(WeatherContract.class);
 }
-```</p>
+</code></pre>
 <p>Such modules usually provide a good power of customization to the injected elements, thus we can consider configuring the injection depending on the available implementations.</p>
 <p>As a result, using a library is not required when integrating dependency injection. However, this could save a lot of time and cumbersome code in big projects.</p>
-<h3>Show me some tests!</h3>
+</section>
+<section id="show-me-some-tests">
+<h2>Show me some tests!</h2>
 <p>As a side effect of decoupling your code, the dependency injection pattern is a real asset to improve unit testability of each component. This section contains an example of unit tests for our <em>WeatherService</em>.</p>
 <p>As said above, making <em>WeatherService</em> asking for a <em>ThermometerContract</em> enables us to use any implementation we want. Hence, we can send a <em>mock</em> in the constructor, then control its behaviour from the outside.</p>
-<p>```java
-public void testTemperatureStatus() {
+<pre class="code literal-block"><code>public void testTemperatureStatus() {
   ThermometerContract thermometer = Mockito.mock(ThermometerContract.class);
   Mockito.doReturn(TemperatureUnit.CELSIUS).when(thermometer).getUnit();
-  WeatherContract weather = new WeatherService(thermometer);</p>
-<p>Mockito.doReturn(-50f).when(thermometer).getTemperature();
+  WeatherContract weather = new WeatherService(thermometer);
+  
+  Mockito.doReturn(-50f).when(thermometer).getTemperature();
   assertEquals(
     TemperatureStatus.COLD,
     weather.getTemperatureStatus()
-  );</p>
-<p>Mockito.doReturn(10f).when(thermometer).getTemperature();
+  );
+  
+  Mockito.doReturn(10f).when(thermometer).getTemperature();
   assertEquals(
     TemperatureStatus.MODERATE,
     weather.getTemperatureStatus()
   );
 }
-```</p>
+</code></pre>
 <p>As you can see, we can then control our thermometer without a struggle from outside our tested class.</p>
-<h3>Conclusion</h3>
+</section>
+<section id="conclusion">
+<h2>Conclusion</h2>
 <p><em>Dependency injection</em> is a way of thinking your code architecture and can be simple to implement by yourself. In bigger projects, integrating a dependency injection framework can save you a lot of time in the long run.</p>
 <p><em>Dependency injection</em> provides multiple non-negligible advantages such as:</p>
-<ul>
-<li><em>Code decoupling</em>: use the contracts and ignore implementation specificities.</li>
-<li><em>Enhanced testability</em>: Unit tests almost become a pleasure to write.</li>
-<li><em>Configurability</em>: you can more easily swap injected instances.</li>
+<ul class="simple">
+<li><p><em>Code decoupling</em>: use the contracts and ignore implementation specificities.</p></li>
+<li><p><em>Enhanced testability</em>: Unit tests almost become a pleasure to write.</p></li>
+<li><p><em>Configurability</em>: you can more easily swap injected instances.</p></li>
 </ul>
-<p><a href="https://github.com/aveuiller/design-tutorials">You can find the full code example in my design tutorials repository on GitHub</a></p>
-
-
-
-                </div>
-
+<p><a class="reference external" href="https://github.com/aveuiller/design-tutorials">You can find the full code example in my design tutorials repository on GitHub</a></p>
+</section>
+                </main>
                     <div class="col-md-3">
-    <div class="card bg-light text-dark">
-        <ul class="list-group list-group-flush">
-
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <abbr title="2020-01-05T00:00:00+01:00">
+                <i class="bi bi-calendar-event-fill"></i>
+                dim. 05 janvier 2020
+            </abbr>
+        </li>
             <li class="list-group-item">
-                <abbr title="2020-01-05T00:00:00+01:00"><i class="fas fa-calendar"></i> dim. 05 janvier 2020</abbr>
+                <address>
+                    <i class="bi bi-person-circle"></i> By
+                        <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
+                </address>
             </li>
-
-                <li class="list-group-item">
-                    <address>
-                        <i class="fas fa-user"></i> By
-                            <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
-                    </address>
-                </li>
-
-                <li class="list-group-item">
-                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="6 articles in this category">Software Engineering</a>
-                            <a href="/tag/best-practice.html" data-toggle="tooltip" class="badge badge-secondary" title="3 articles with this tag">Best Practice</a>
-                            <a href="/tag/design-patterns.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Design Patterns</a>
-                            <a href="/tag/software-architecture.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Software Architecture</a>
-                </li>
-
-
-
-        </ul>
-    </div>
+            <li class="list-group-item">
+                <ul class="list-inline">
+                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="6 articles with this category">Software Engineering</a></li>
+                            <li class="list-inline-item">    <a href="/tag/best-practice.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Best Practice</a></li>
+                            <li class="list-inline-item">    <a href="/tag/design-patterns.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Design Patterns</a></li>
+                            <li class="list-inline-item">    <a href="/tag/software-architecture.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Software Architecture</a></li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <nav class="nav nav-underline nav-justified">
+                    <a class="nav-link disabled" rel="prev">
+                        <span aria-hidden="true">←</span> Older
+                    </a>
+                    <a class="nav-link " href="https://aveuiller.github.io/introduction_to_flaky_tests_by_example.html" title="Introduction to Flaky Tests by Example" rel="next">
+                        Newer <span aria-hidden="true">→</span>
+                    </a>
+                </nav>
+            </li>
+    </ul>
                         
                     </div>
-
             </div>
-
         </div>
-
-        <footer class="container-fluid mt-5 p-4 small">
+        <footer class="container-fluid mt-5 p-4 small fw-light">
             <div class="row mx-5">
-
                     <div class="col-md-2">
                             <h6>Social</h6>
                             <ul class="list-unstyled">
-                                        <li><a href="http://twitter.com/AVeuiller">
-        <i class="fab fa-twitter fa-fw"></i>
-    Twitter
-</a></li>
-                                        <li><a href="https://stackoverflow.com/users/2564085/aveuiller">
-        <i class="fab fa-stack-overflow fa-fw"></i>
-    StackOverflow
-</a></li>
-                                        <li><a href="http://github.com/aveuiller">
-        <i class="fab fa-github fa-fw"></i>
-    GitHub
-</a></li>
-                                        <li><a href="https://aveuiller.medium.com/">
-        <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
-    Medium
-</a></li>
-                                        <li><a href="https://dev.to/aveuiller/">
-        <img src="https://www.google.com/s2/favicons?domain=dev.to" width="16" height="16" class="link-icon" alt="dev.to icon">
-    Dev.to
-</a></li>
-                            </ul>
+<li>    <a href="http://twitter.com/AVeuiller">
+            <i class="bi bi-twitter"></i>
+        Twitter
+    </a></li><li>    <a href="https://stackoverflow.com/users/2564085/aveuiller">
+            <i class="bi bi-stack-overflow"></i>
+        StackOverflow
+    </a></li><li>    <a href="http://github.com/aveuiller">
+            <i class="bi bi-github"></i>
+        GitHub
+    </a></li><li>    <a href="https://aveuiller.medium.com/">
+            <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
+        Medium
+    </a></li><li>    <a href="https://dev.to/aveuiller/">
+            <img src="https://www.google.com/s2/favicons?domain=dev.to" width="16" height="16" class="link-icon" alt="dev.to icon">
+        Dev.to
+    </a></li>                            </ul>
                     </div>
                     <div class="col-md-2">
+                            <h6>Professional</h6>
+                            <ul class="list-unstyled">
+<li>    <a href="https://linkedin.com/in/antoine-veuiller">
+            <i class="bi bi-linkedin"></i>
+        LinkedIn
+    </a></li>                            </ul>
                     </div>
-
                 <div class="col-md-2">
                     <h6>Browse content by</h6>
                     <ul class="list-unstyled">
                     </ul>
                 </div>
-
-                <div class="col-md-2 text-muted">
+                <div class="col-md-2 text-body-tertiary">
                     <h6>Copyright notice</h6>
                     <p class="small">
                         © Copyright
@@ -379,8 +369,7 @@ public void testTemperatureStatus() {
                         Antoine Veuiller.
                     </p>
                 </div>
-
-                <div class="col-md-2 text-muted">
+                <div class="col-md-2 text-body-tertiary">
                     <h6>Disclaimer</h6>
                     <p class="small">
                             All opinions expressed in this site are my own
@@ -390,38 +379,35 @@ public void testTemperatureStatus() {
                             affiliates, partners or customers.
                     </p>
                 </div>
-
                 <div class="col-md-2">
                         <h6>Feeds</h6>
                         <ul class="list-unstyled small">
                                 <li>
                                     <a href="https://aveuiller.github.io/feeds/all.atom.xml">
-                                        <i class="fas fa-atom fa-fw"></i> All posts (Atom)
+                                        <i class="bi  bi-rss "></i>
+                                        All posts (Atom)
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://aveuiller.github.io/feeds/software-engineering.atom.xml">
-                                        <i class="fas fa-atom fa-fw"></i> Category: Software Engineering (Atom)
+                                        <i class="bi  bi-rss "></i>
+                                        Category: Software Engineering (Atom)
                                     </a>
                                 </li>
                         </ul>
                 </div>
-
             </div>
             <div class="row mt-3">
-
                 <div class="offset-3 col-6 small text-muted text-center">
-                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.<br>
+                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.
+                    <br>
                     <a class="text-dark" href="https://github.com/kdeldycke/plumage">Plumage</a>
                     theme by <a class="text-dark" href="https://kevin.deldycke.com">Kevin Deldycke</a>.
                 </div>
-
-                <div class="col-3 text-right d-flex flex-column">
-                    <a class="mt-auto" href="#"><i class="fas fa-arrow-up"></i> Back to top</a>
+                <div class="col-3 text-end d-flex flex-column">
+                    <a class="mt-auto" href="#"><i class="bi bi-arrow-bar-up"></i> Back to top</a>
                 </div>
-
             </div>
         </footer>
-
     </body>
 </html>

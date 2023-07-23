@@ -3,34 +3,28 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>    Kubernetes: Apprentice Cookbook
- | Antoine Veuiller</title>
-
+            <meta name="robots" content="index, follow">
+        <title>
+Kubernetes: Apprentice Cookbook        | Antoine Veuiller</title>
         <meta name="author" content="Antoine Veuiller">
         <meta name="generator" content="Pelican v4.8.0">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous">
-
-            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?c73fffa6">
-
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?4566fab6">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9565WT2VE"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-F9565WT2VE');
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-F9565WT2VE');
     </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js" integrity="sha512-iceXjjbmB2rwoX93Ka6HAHP+B76IY1z0o3h+N1PeDtRSsyeetU3/0QKJqGyPJcX63zysNehggFwMC/bi7dvMig==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha512-/2sZKAsHDmHNoevKR/xsUKe+Bpf692q4tHNQs9VWWz0ujJ9JBM67iFYbIEdfDV9I2BaodgT5MIg/FTUmUv3oyQ==" crossorigin="anonymous"></script>
-
-            <script src="https://aveuiller.github.io/theme/js/main.min.js?86e1c044"></script>
-
-
+            <script src="https://aveuiller.github.io/theme/js/main.min.js?b6b3f836"></script>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,40 +32,31 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#ffc40d">
         <meta name="theme-color" content="#ffffff">
-
         <!-- Feeds -->
             <link href="https://aveuiller.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - All posts - Atom Feed">
             <link href="https://aveuiller.github.io/feeds/software-engineering.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - Category: Software Engineering - Atom Feed">
-
         <meta name="keywords" content="Cheat sheet, DevOps, Kubernetes, Cloud">
-
     </head>
-
     <body class="bg-transparent pt-4">
-
         <div class="container">
-
-                <a href="https://aveuiller.github.io" class="avatar-container float-left mx-4">
+                <a href="https://aveuiller.github.io" class="avatar-container float-start mx-4">
                     <div class="avatar ">
-                        <div class="side"><img src="/images/profile.jpg" class="img-fluid"></div>
+                        <div class="side">
+                            <img src="/images/profile.jpg" class="img-fluid">
+                        </div>
                     </div>
                 </a>
-
             <h1>
-                <a href="https://aveuiller.github.io" class="text-dark text-decoration-none">Antoine Veuiller</a>
-                <small class="text-secondary"><small></small></small>
+                <a href="https://aveuiller.github.io" class="text-body-emphasis text-decoration-none">Antoine Veuiller</a>
+                <small class="text-body-tertiary"><small></small></small>
             </h1>
-
-            <nav class="navbar d-block navbar-expand-lg navbar-light bg-light shadow rounded-lg">
-
+            <nav class="navbar d-block navbar-expand-lg bg-body-tertiary shadow rounded-3">
                 <a class="navbar-brand d-none" href="https://aveuiller.github.io" title="">Antoine Veuiller</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="plumage-navbar-collapse-1">
-
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <div class="collapse navbar-collapse mx-4" id="plumage-navbar-collapse-1">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item ">
                                     <a class="nav-link" href="https://aveuiller.github.io/pages/about-me.html">
                                         About Me
@@ -90,477 +75,455 @@
 <li class="nav-item ">
                                     <a class="nav-link" href="https://aveuiller.github.io/category/software-engineering.html">
                                         Software Engineering
-<span class="sr-only">(current)</span>                                    </a>
+<span class="visually-hidden">(current)</span>                                    </a>
                                 </li>
                     </ul>
-
-
                 </div>
-
             </nav>
-
         </div>
-
-
         <div class="container mt-5">
-
-
             <div class="row">
-                <div class="
-                        col-md-9
-">
+                <div class="  col-md-9  ">
     <h1>
         <a href="https://aveuiller.github.io/kubernetes_apprentice_cookbook.html" rel="bookmark" title="Permalink to Kubernetes: Apprentice Cookbook">Kubernetes: Apprentice Cookbook</a>
     </h1>
                 </div>
             </div>
-
             <div class="row">
-
-
-                <div id="content" role="main" class="
-                        col-md-9
-">
+                <main id="content" role="main" class="  col-md-9 ">
     
-
-    <h3>Availability Disclaimer</h3>
+    <section id="availability-disclaimer">
+<h2>Availability Disclaimer</h2>
 <p>This article can be found on other sources:</p>
-<ul>
-<li>Hacker Noon: <a href="https://hackernoon.com/the-apprentices-guide-to-kubernetes-qp3k3443">link</a></li>
-<li>Medium: <a href="https://medium.com/@aveuiller/kubernetes-apprentice-cookbook-90d8c11ccfc3">link</a></li>
-<li>Dev.to: <a href="https://dev.to/aveuiller/kubernetes-apprentice-cookbook-4j6h">link</a></li>
+<ul class="simple">
+<li><p>Hacker Noon: <a class="reference external" href="https://hackernoon.com/the-apprentices-guide-to-kubernetes-qp3k3443">link</a></p></li>
+<li><p>Medium: <a class="reference external" href="https://medium.com/@aveuiller/kubernetes-apprentice-cookbook-90d8c11ccfc3">link</a></p></li>
+<li><p>Dev.to: <a class="reference external" href="https://dev.to/aveuiller/kubernetes-apprentice-cookbook-4j6h">link</a></p></li>
 </ul>
-<hr>
+<hr class="docutils">
 <p><img alt="Kubernetes Logo" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_logo.png" class="img-fluid border rounded shadow image-process-article-photo"></p>
-<p>You probably already heard of <strong>Kubernetes</strong>, a powerful <a href="https://www.redhat.com/en/topics/automation/what-is-orchestration">orchestrator</a>
+<p>You probably already heard of <strong>Kubernetes</strong>, a powerful <a class="reference external" href="https://www.redhat.com/en/topics/automation/what-is-orchestration">orchestrator</a>
 that will ease deployment and automatically manage your applications on a set of machines, called a <em>Cluster</em>.</p>
-<p>With great power comes great complexity, <a href="https://www.theregister.com/2021/02/25/google_kubernetes_autopilot/">even in the eyes of Google</a>.
+<p>With great power comes great complexity, <a class="reference external" href="https://www.theregister.com/2021/02/25/google_kubernetes_autopilot/">even in the eyes of Google</a>.
 Thus, learning Kubernetes is oftentimes considered as cumbersome and complex, namely because of the number of new concepts you have to learn.
 On the other hand, those very same concepts can be found in other orchestrators.
-As a result, mastering them will ease your onboarding on other orchestrators, such as <a href="https://docs.docker.com/engine/swarm/">Docker Swarm</a>.</p>
+As a result, mastering them will ease your onboarding on other orchestrators, such as <a class="reference external" href="https://docs.docker.com/engine/swarm/">Docker Swarm</a>.</p>
 <p>The aim of this article is to explain the most used concepts of Kubernetes relying on basic system administration concepts,
 then use some of these to deploy a simple web server and showcase the interactions between the different resources.
 Lastly, I will lay out the usual CLI interactions while working with Kubernetes.</p>
 <p>This article mainly focuses on the developer side of a Kubernetes cluster, but I will leave some resources about cluster administration at the end.</p>
+</section>
+<section id="terminology-and-concepts">
 <h2>Terminology and concepts</h2>
+<section id="architecture">
 <h3>Architecture</h3>
 <p>The Kubernetes realm is the <strong>cluster</strong>, everything needed is contained within this cluster.
 Inside it, you will find two types of nodes:
-the <a href="https://kubernetes.io/docs/concepts/overview/components/#control-plane-components">Control Plane</a> 
-and the <a href="https://kubernetes.io/docs/concepts/architecture/nodes/">Worker Nodes</a>.</p>
+the <a class="reference external" href="https://kubernetes.io/docs/concepts/overview/components/#control-plane-components">Control Plane</a>
+and the <a class="reference external" href="https://kubernetes.io/docs/concepts/architecture/nodes/">Worker Nodes</a>.</p>
 <p>The <strong>control plane</strong> is a centralized set of processes that manages the cluster resources, load balance, health, and more.
 A Kubernetes cluster usually has multiple controller nodes for availability and load balancing purposes.
 As a developer, you will most likely interact through the API gateway for interactions.</p>
-<p>The <strong>worker node</strong> is any kind of host running a local Kubernetes agent <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/">Kubelet</a>
-and a communication process <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/">Kube-Proxy</a>.
+<p>The <strong>worker node</strong> is any kind of host running a local Kubernetes agent <a class="reference external" href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/">Kubelet</a>
+and a communication process <a class="reference external" href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/">Kube-Proxy</a>.
 The former handles the operations commanded by the <strong>control plane</strong> on the local container runtime (<em>e.g.</em> docker),
 while the latter redirects connectivity to the right pods.</p>
 <p><img alt="Kubernetes Architecture" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_components.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
+</section>
+<section id="namespaces">
 <h3>Namespaces</h3>
 <p>After some time, a Kubernetes cluster may become huge and heavily used.
 In order to keep things well organized, Kubernetes created the concept of <strong>Namespace</strong>.
 A namespace is basically a virtual cluster inside the actual cluster.</p>
 <p>Most of the resources will be contained inside a namespace, thus unaware of resources from other namespaces.
 Only a few kinds of resources are completely agnostic of namespaces, and they define computational power or storage sources (<em>i.e.</em> Nodes and PersistentVolumes).
-However, access to those can be limited by namespace using <a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">Quotas</a>.</p>
+However, access to those can be limited by namespace using <a class="reference external" href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">Quotas</a>.</p>
 <p>Namespace-aware resources will always be contained in a namespace as Kubernetes creates and uses a namespace named <em>default</em> if nothing is specified.</p>
 <p><img alt="Namespace Organization" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_namespace.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
 <p>There is no silver bullet on the way to use namespaces, as it widely depends on your organization and needs.
 However, we can note some usual namespaces usages:</p>
-<ol>
-<li>Divide the cluster by team or project, to avoid naming conflict and help repartition of resources.</li>
-<li>Divide the cluster by environment (<em>i.e.</em> dev, staging, prod), to keep a consistent architecture.</li>
-<li>Deploy with more granularity (<em>e.g.</em> <a href="https://martinfowler.com/bliki/BlueGreenDeployment.html">blue/green deployment</a>), to quickly fall back on an untouched working environment in case of issue.</li>
+<ol class="arabic simple">
+<li><p>Divide the cluster by team or project, to avoid naming conflict and help repartition of resources.</p></li>
+<li><p>Divide the cluster by environment (<em>i.e.</em> dev, staging, prod), to keep a consistent architecture.</p></li>
+<li><p>Deploy with more granularity (<em>e.g.</em> <a class="reference external" href="https://martinfowler.com/bliki/BlueGreenDeployment.html">blue/green deployment</a>), to quickly fall back on an untouched working environment in case of issue.</p></li>
 </ol>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespace Documentation</a></p>
-<p><a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/">Manage The Cluster Namespaces</a></p>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespace Documentation</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/">Manage The Cluster Namespaces</a></p>
 </blockquote>
+</section>
+<section id="glossary">
 <h3>Glossary</h3>
 <p>Kubernetes did a great work of remaining agnostic of any technology in their design.
-This means two things:  <a href="https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/">handle multiple technologies under the hood</a>
+This means two things:  <a class="reference external" href="https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/">handle multiple technologies under the hood</a>
 and there is a whole new terminology to learn.</p>
 <p>Fortunately, these concepts are pretty straightforward and can most of the time be compared to a unit element of classic system infrastructure.
 The table below will summarize the binding of the most basic concepts.
 The comparison might not be a hundred per cent accurate but rather here to help understand the need behind each concept.</p>
 <table class="table table-hover">
 <thead>
-<tr>
-<th scope="col">Abstraction Layer</th>
-<th scope="col">Physical Layer</th>
-<th scope="col">Uses Namespace</th>
-<th scope="col">Description</th>
+<tr><th class="head" scope="col"><p>Abstraction Layer</p></th>
+<th class="head" scope="col"><p>Physical Layer</p></th>
+<th class="head" scope="col"><p>Uses Namespace</p></th>
+<th class="head" scope="col"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod</a></td>
-<td>Container</td>
-<td>✅</td>
-<td>A Pod is the minimal work unit of Kubernetes, it is generally equivalent to one applicative container but it can be composed of multiple ones.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod</a></p></td>
+<td><p>Container</p></td>
+<td><p>✅</p></td>
+<td><p>A Pod is the minimal work unit of Kubernetes, it is generally equivalent to one applicative container but it can be composed of multiple ones.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">Replicaset</a></td>
-<td>Load Balancing</td>
-<td>✅</td>
-<td>A ReplicaSet keeps track of and maintain the amount of instances expected and running for a given pod.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">Replicaset</a></p></td>
+<td><p>Load Balancing</p></td>
+<td><p>✅</p></td>
+<td><p>A ReplicaSet keeps track of and maintain the amount of instances expected and running for a given pod.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployment</a></td>
-<td>-</td>
-<td>✅</td>
-<td>A Deployment keeps track of and maintain the required configuration for a pod and replicaset.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployment</a></p></td>
+<td><p>-</p></td>
+<td><p>✅</p></td>
+<td><p>A Deployment keeps track of and maintain the required configuration for a pod and replicaset.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/">StatefulSet</a></td>
-<td>-</td>
-<td>✅</td>
-<td>A StatefulSet is a Deployment with insurance on the start order and volume binding, to keep state consistent in time.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/">StatefulSet</a></p></td>
+<td><p>-</p></td>
+<td><p>✅</p></td>
+<td><p>A StatefulSet is a Deployment with insurance on the start order and volume binding, to keep state consistent in time.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/architecture/nodes/">Node</a></td>
-<td>Host</td>
-<td>❌</td>
-<td>A Node can be a physical or virtual machine that is ready to host pods.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/architecture/nodes/">Node</a></p></td>
+<td><p>Host</p></td>
+<td><p>❌</p></td>
+<td><p>A Node can be a physical or virtual machine that is ready to host pods.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Service</a></td>
-<td>Network</td>
-<td>✅</td>
-<td>A Service will define an entrypoint to a set of pods semantically tied together.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/services-networking/service/">Service</a></p></td>
+<td><p>Network</p></td>
+<td><p>✅</p></td>
+<td><p>A Service will define an entrypoint to a set of pods semantically tied together.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a></td>
-<td>Reverse Proxy</td>
-<td>✅</td>
-<td>An Ingress publishes Services outside the Cluster.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a></p></td>
+<td><p>Reverse Proxy</p></td>
+<td><p>✅</p></td>
+<td><p>An Ingress publishes Services outside the Cluster.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/architecture/cloud-controller/#design">Cluster</a></td>
-<td>Datacenter</td>
-<td>❌</td>
-<td>A Cluster is the set of available nodes, including the Kubernetes controllers.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/architecture/cloud-controller/#design">Cluster</a></p></td>
+<td><p>Datacenter</p></td>
+<td><p>❌</p></td>
+<td><p>A Cluster is the set of available nodes, including the Kubernetes controllers.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespace</a></td>
-<td>-</td>
-<td>➖</td>
-<td>A Namespace defines an isolated pseudo cluster in the current cluster.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespace</a></p></td>
+<td><p>-</p></td>
+<td><p>➖</p></td>
+<td><p>A Namespace defines an isolated pseudo cluster in the current cluster.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">StorageClass</a></td>
-<td>Disk</td>
-<td>❌</td>
-<td>A StorageClass configures filesystems sources that can be used to dynamically create PersistentVolumes.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/storage/storage-classes/">StorageClass</a></p></td>
+<td><p>Disk</p></td>
+<td><p>❌</p></td>
+<td><p>A StorageClass configures filesystems sources that can be used to dynamically create PersistentVolumes.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">PersistentVolume</a></td>
-<td>Disk Partition</td>
-<td>❌</td>
-<td>A PersistentVolume describe any kind of filesystem ready to be mounted on a pod.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">PersistentVolume</a></p></td>
+<td><p>Disk Partition</p></td>
+<td><p>❌</p></td>
+<td><p>A PersistentVolume describe any kind of filesystem ready to be mounted on a pod.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims">PersistentVolumeClaim</a></td>
-<td>-</td>
-<td>✅</td>
-<td>A PersistentVolumeClaim binds a PersistentVolume to a pod, which can then actively use it while running.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims">PersistentVolumeClaim</a></p></td>
+<td><p>-</p></td>
+<td><p>✅</p></td>
+<td><p>A PersistentVolumeClaim binds a PersistentVolume to a pod, which can then actively use it while running.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/configuration/configmap/">ConfigMap</a></td>
-<td>Environment Variables</td>
-<td>✅</td>
-<td>A ConfigMap defines widely accessible properties.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/configmap/">ConfigMap</a></p></td>
+<td><p>Environment Variables</p></td>
+<td><p>✅</p></td>
+<td><p>A ConfigMap defines widely accessible properties.</p></td>
 </tr>
-<tr>
-<td><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secret</a></td>
-<td>Secured Env. Var.</td>
-<td>✅</td>
-<td>A Secret defines widely accessible properties with potential encryption and access limitations.</td>
+<tr><td><p><a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/secret/">Secret</a></p></td>
+<td><p>Secured Env. Var.</p></td>
+<td><p>✅</p></td>
+<td><p>A Secret defines widely accessible properties with potential encryption and access limitations.</p></td>
 </tr>
 </tbody>
 </table>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/reference/glossary/?all=true">Official Kubernetes Glossary</a></p>
-<p><a href="https://kubernetes.io/docs/concepts/">Official Concepts Documentation</a></p>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/reference/glossary/?all=true">Official Kubernetes Glossary</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/">Official Concepts Documentation</a></p>
 </blockquote>
+</section>
+</section>
+<section id="definition-files">
 <h2>Definition files</h2>
 <p>The resources in Kubernetes are created in a declarative fashion, and while it is possible to configure your application deployment through the command line,
 a good practice is to keep track of the resource definitions in a versioned environment.
-Sometimes named <a href="https://www.gitops.tech/">GitOps</a>, this practice is not only applicable for Kubernetes but widely applied for delivery systems,
-backed up by the <a href="https://aws.amazon.com/devops/what-is-devops/">DevOps</a> movement.</p>
-<p>To this effect, Kubernetes proposes a <a href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html">YAML</a> representation of the resource declaration, and its structure can be summarized as follow:</p>
+Sometimes named <a class="reference external" href="https://www.gitops.tech/">GitOps</a>, this practice is not only applicable for Kubernetes but widely applied for delivery systems,
+backed up by the <a class="reference external" href="https://aws.amazon.com/devops/what-is-devops/">DevOps</a> movement.</p>
+<p>To this effect, Kubernetes proposes a <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html">YAML</a> representation of the resource declaration, and its structure can be summarized as follow:</p>
 <table class="table table-hover">
 <thead>
-<tr>
-<th scope="col">Field</th>
-<th scope="col">File type</th>
-<th scope="col">Content</th>
+<tr><th class="head" scope="col"><p>Field</p></th>
+<th class="head" scope="col"><p>File type</p></th>
+<th class="head" scope="col"><p>Content</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><code>apiVersion</code></td>
-<td>All files</td>
-<td>Version to use while parsing the file.</td>
+<tr><td><p><span class="docutils literal">apiVersion</span></p></td>
+<td><p>All files</p></td>
+<td><p>Version to use while parsing the file.</p></td>
 </tr>
-<tr>
-<td><code>kind</code></td>
-<td>All files</td>
-<td>Type of resource that the file is describing.</td>
+<tr><td><p><span class="docutils literal">kind</span></p></td>
+<td><p>All files</p></td>
+<td><p>Type of resource that the file is describing.</p></td>
 </tr>
-<tr>
-<td><code>metadata</code></td>
-<td>All files</td>
-<td>Resource identification and labeling.</td>
+<tr><td><p><span class="docutils literal">metadata</span></p></td>
+<td><p>All files</p></td>
+<td><p>Resource identification and labeling.</p></td>
 </tr>
-<tr>
-<td><code>data</code></td>
-<td>Data centric files (Secret, ConfigMap)</td>
-<td>Content entry point for data mapping.</td>
+<tr><td><p><span class="docutils literal">data</span></p></td>
+<td><p>Data centric files (Secret, ConfigMap)</p></td>
+<td><p>Content entry point for data mapping.</p></td>
 </tr>
-<tr>
-<td><code>spec</code></td>
-<td>Most files (Pod, Deployment, Ingress, ...)</td>
-<td>Content entry point for resource configuration.</td>
+<tr><td><p><span class="docutils literal">spec</span></p></td>
+<td><p>Most files (Pod, Deployment, Ingress, ...)</p></td>
+<td><p>Content entry point for resource configuration.</p></td>
 </tr>
 </tbody>
 </table>
 <p><em>Watch out: some resources such as StorageClass do no use a single entry point as described above</em></p>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-apiversion-definition-guide.html">Guide on apiVersion</a></p>
-<p><a href="https://yaml.org/spec/1.2/spec.html">Yaml Specifications</a></p>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-apiversion-definition-guide.html">Guide on apiVersion</a></p>
+<p class="p-2"><a class="reference external" href="https://yaml.org/spec/1.2/spec.html">Yaml Specifications</a></p>
 </blockquote>
+<section id="metadata-and-labels">
 <h3>Metadata and labels</h3>
 <p>The metadata entry is critical while creating any resource as it will enable Kubernetes and yourself to easily identify and select the resource.</p>
-<p>In this entry, you will define a <code>name</code> and a <code>namespace</code> (defaults to <code>default</code>),
+<p>In this entry, you will define a <span class="docutils literal">name</span> and a <span class="docutils literal">namespace</span> (defaults to <span class="docutils literal">default</span>),
 thanks to which the control plane will automatically be able to tell if the file is a new addition to the cluster or the revision of a previously loaded file.</p>
-<p>On top of those elements, you can define a <code>labels</code> section.
+<p>On top of those elements, you can define a <span class="docutils literal">labels</span> section.
 It is composed of a set of key-value pairs to narrow down the context and content of your resource.
-Those labels can later be used in almost any CLI commands through <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors">Selectors</a>.
+Those labels can later be used in almost any CLI commands through <a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors">Selectors</a>.
 As those entries are not used in the core behavior of Kubernetes,
-you can use any name you want, even if Kubernetes defines some <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/">best practices recommendations</a>.</p>
-<p>Finally, you can also create an <code>annotations</code> section, which is almost identical to <code>labels</code> but not used by Kubernetes at all.
+you can use any name you want, even if Kubernetes defines some <a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/">best practices recommendations</a>.</p>
+<p>Finally, you can also create an <span class="docutils literal">annotations</span> section, which is almost identical to <span class="docutils literal">labels</span> but not used by Kubernetes at all.
 Those can be used on the applicative side to trigger behaviors or simply add data to ease debugging.</p>
-<p>```yaml</p>
-<h1><metadata> narrows down selection and identify the resource</metadata></h1>
-<p>metadata:
-  # The <name> entry is required and used to identify the resource
-  name: my-resource
-  namespace: my-namespace-or-default
-  # <labels> is optional but often needed for resource selection
-  labels:
-    app: application-name
-    category: back
-  # <annotations> is optional and not needed for the configuration of Kubernetes
-  annotations:
-    version: 4.2
-```</annotations></labels></name></p>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/">Naming and Identification</a></p>
-<p><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">Labels and Selectors</a></p>
-<p><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/">Annotations</a></p>
+<pre class="code yaml literal-block"><code><span class="c1"># &lt;metadata&gt; narrows down selection and identify the resource</span><span class="w">
+</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+  </span><span class="c1"># The &lt;name&gt; entry is required and used to identify the resource</span><span class="w">
+  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-resource</span><span class="w">
+  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-namespace-or-default</span><span class="w">
+  </span><span class="c1"># &lt;labels&gt; is optional but often needed for resource selection</span><span class="w">
+  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">application-name</span><span class="w">
+    </span><span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">back</span><span class="w">
+  </span><span class="c1"># &lt;annotations&gt; is optional and not needed for the configuration of Kubernetes</span><span class="w">
+  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">4.2</span></code></pre>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/">Naming and Identification</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">Labels and Selectors</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/">Annotations</a></p>
 </blockquote>
+</section>
+<section id="data-centric-configuration-files">
 <h3>Data centric configuration files</h3>
 <p>Those files define key-value mappings that can be used later in other resources.
-Usually, those resources (<em>i.e.</em> Secrets and ConfigMap) are loaded before anything else, 
+Usually, those resources (<em>i.e.</em> Secrets and ConfigMap) are loaded before anything else,
 as it is more likely than not that your infrastructure files are dependent on them.</p>
-<p>```yaml
-apiVersion: v1</p>
-<h1><kind> defines the resource described in this file</kind></h1>
-<p>kind: ConfigMap
-metadata:
-  name: my-config
-data:
-  # <data> configures data to load
-  configuration_key: "configuration_value"
-  properties_entry: |
-    # Any multiline content is accepted
-    multiline_config=true
-```</data></p>
+<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
+</span><span class="c1"># &lt;kind&gt; defines the resource described in this file</span><span class="w">
+</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">ConfigMap</span><span class="w">
+</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-config</span><span class="w">
+</span><span class="nt">data</span><span class="p">:</span><span class="w">
+  </span><span class="c1"># &lt;data&gt; configures data to load</span><span class="w">
+  </span><span class="nt">configuration_key</span><span class="p">:</span><span class="w"> </span><s>"configuration_value"</s><span class="w">
+  </span><span class="nt">properties_entry</span><span class="p">:</span><span class="w"> </span><span class="p-Indicator">|</span><span class="w">
+    </span><span class="no"># Any multiline content is accepted</span><span class="w">
+    </span><span class="no">multiline_config=true</span></code></pre>
+</section>
+<section id="infrastructure-centric-configuration-files">
 <h3>Infrastructure centric configuration files</h3>
 <p>Those files define the infrastructure to deploy on the cluster, potentially using content from the data files.</p>
-<p>```yaml
-apiVersion: v1</p>
-<h1><kind> defines the resource described in this file</kind></h1>
-<p>kind: Pod
-metadata:
-  name: my-web-server
-spec:
-  # <spec> is a domain specific description of the resource.
-  # The specification entries will be very different from one kind to another
-```</spec></p>
+<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
+</span><span class="c1"># &lt;kind&gt; defines the resource described in this file</span><span class="w">
+</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Pod</span><span class="w">
+</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-web-server</span><span class="w">
+</span><span class="nt">spec</span><span class="p">:</span><span class="w">
+  </span><span class="c1"># &lt;spec&gt; is a domain specific description of the resource.</span><span class="w">
+  </span><span class="c1"># The specification entries will be very different from one kind to another</span></code></pre>
+</section>
+</section>
+<section id="resources-definition">
 <h2>Resources definition</h2>
 <p>In this section, we will take a closer look at the configuration of the most used resources on a Kubernetes application.
 This is also the occasion to showcase the interactions between resources.</p>
 <p>At the end of the section, we will have a running Nginx server and will be able to contact the server from outside the cluster.
 The following diagram summarizes the intended state:</p>
 <p><img alt="Intended Deployment" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_nginx.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<section id="configmap">
 <h3>ConfigMap</h3>
 <p>ConfigMap is used to hold properties that can be used later in your resources.</p>
-<p><code>yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: simple-web-config
-  namespace: default
-data:
-  configuration_key: "Configuration value"</code></p>
-<p>The configuration defined above can then be <a href="https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods">selected from another resource definition</a> with the following snippet:
-<code>yaml
-valueFrom:
-  configMapKeyRef:
-    name: simple-web-config
-    key: configuration_key</code></p>
+<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
+</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">ConfigMap</span><span class="w">
+</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-config</span><span class="w">
+  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">default</span><span class="w">
+</span><span class="nt">data</span><span class="p">:</span><span class="w">
+  </span><span class="nt">configuration_key</span><span class="p">:</span><span class="w"> </span><s>"Configuration</s><span class="nv"> </span><s>value"</s></code></pre>
+<p>The configuration defined above can then be <a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods">selected from another resource definition</a> with the following snippet:</p>
+<pre class="code yaml literal-block"><code><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+  </span><span class="nt">configMapKeyRef</span><span class="p">:</span><span class="w">
+    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-config</span><span class="w">
+    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">configuration_key</span></code></pre>
 <p><em>Note: ConfigMaps are only available in the namespace in which they are defined.</em></p>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/concepts/configuration/configmap/">ConfigMap Documentation</a></p>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/configmap/">ConfigMap Documentation</a></p>
 </blockquote>
+</section>
+<section id="secret">
 <h3>Secret</h3>
-<p>All sensitive data should be put in Secret files (e.g. API keys, passphrases, …). 
-By default, the data is simply held as base64 encoded values without encryption. 
+<p>All sensitive data should be put in Secret files (e.g. API keys, passphrases, …).
+By default, the data is simply held as base64 encoded values without encryption.
 However, Kubernetes proposes ways of mitigating leakage risks by
-<a href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/">integrating a Role-Based Access Control</a>
-or <a href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/">encrypting secrets</a>.</p>
-<p>The Secret file defines a <code>type</code> key at its root, which can be used to add validation on the keys declared in the <code>data</code> entry.
-By default, the type is set to <code>Opaque</code> which does not validate the entries at all.</p>
-<p>```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: simple-web-secrets</p>
-<h1>Opaque <type> can hold generic secrets, so no validation will be done.</type></h1>
-<p>type: Opaque
-data:
-  # Secrets should be encoded in base64
-  secret_configuration_key: "c2VjcmV0IHZhbHVl"
-```</p>
-<p>The secret defined above can then be <a href="https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables">selected from another resource definition</a> with the following snippet:
-<code>yaml
-valueFrom:
-  secretKeyRef:
-    name: simple-web-secrets
-    key: secret_configuration_key</code></p>
+<a class="reference external" href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/">integrating a Role-Based Access Control</a>
+or <a class="reference external" href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/">encrypting secrets</a>.</p>
+<p>The Secret file defines a <span class="docutils literal">type</span> key at its root, which can be used to add validation on the keys declared in the <span class="docutils literal">data</span> entry.
+By default, the type is set to <span class="docutils literal">Opaque</span> which does not validate the entries at all.</p>
+<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
+</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Secret</span><span class="w">
+</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-secrets</span><span class="w">
+</span><span class="c1"># Opaque &lt;type&gt; can hold generic secrets, so no validation will be done.</span><span class="w">
+</span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Opaque</span><span class="w">
+</span><span class="nt">data</span><span class="p">:</span><span class="w">
+  </span><span class="c1"># Secrets should be encoded in base64</span><span class="w">
+  </span><span class="nt">secret_configuration_key</span><span class="p">:</span><span class="w"> </span><s>"c2VjcmV0IHZhbHVl"</s></code></pre>
+<p>The secret defined above can then be <a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables">selected from another resource definition</a> with the following snippet:</p>
+<pre class="code yaml literal-block"><code><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+  </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w">
+    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-secrets</span><span class="w">
+    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">secret_configuration_key</span></code></pre>
 <p><em>Note: Secrets are only available in the namespace in which they are defined.</em></p>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets Documentation</a></p>
-<p><a href="https://kubernetes.io/docs/concepts/configuration/secret/#secret-types">Available Secret Types</a></p>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets Documentation</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/secret/#secret-types">Available Secret Types</a></p>
 </blockquote>
+</section>
+<section id="pod">
 <h3>Pod</h3>
 <p>A Pod definition file is pretty straightforward but can become pretty big due to the quantity of configuration available.
-The <code>name</code> and <code>image</code> fields are the only mandatory ones, but you might commonly use:</p>
-<ul>
-<li><code>ports</code> to define the ports to open on both the container and pod. </li>
-<li><code>env</code> to define the environment variables to load on the container.</li>
-<li><code>args</code> and <code>entrypoint</code> to customize the container startup sequence.</li>
+The <span class="docutils literal">name</span> and <span class="docutils literal">image</span> fields are the only mandatory ones, but you might commonly use:</p>
+<ul class="simple">
+<li><p><span class="docutils literal">ports</span> to define the ports to open on both the container and pod.</p></li>
+<li><p><span class="docutils literal">env</span> to define the environment variables to load on the container.</p></li>
+<li><p><span class="docutils literal">args</span> and <span class="docutils literal">entrypoint</span> to customize the container startup sequence.</p></li>
 </ul>
 <p>Pods are usually not created as standalone resources on Kubernetes,
-as the best practice indicates to <a href="https://kubernetes.io/docs/concepts/workloads/pods/#working-with-pods">use pod as part of higher level definition</a>
+as the best practice indicates to <a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/pods/#working-with-pods">use pod as part of higher level definition</a>
 (<em>e.g.</em> Deployment).
 In those cases, the Pod file's content will simply be embedded in the other resource's file.</p>
-<p><code>yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: my-web-server
-spec:
-  # &lt;containers&gt; is a list of container definition to embed in the pod
-  containers:
-    - name: web
-      image: nginx
-      ports:
-        - name: web
-          containerPort: 80
-          protocol: TCP
-      env:
-        - name: SOME_CONFIG
-          # Create a line "value: &lt;config_entry&gt;" from the ConfigMap data
-          valueFrom:
-            configMapKeyRef:
-              name: simple-web-config
-              key: configuration_key
-        - name: SOME_SECRET
-          # Create a line "value: &lt;config_entry&gt;" from the Secret data
-          valueFrom:
-            secretKeyRef:
-              name: simple-web-secrets
-              key: secret_configuration_key</code></p>
+<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
+</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Pod</span><span class="w">
+</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-web-server</span><span class="w">
+</span><span class="nt">spec</span><span class="p">:</span><span class="w">
+  </span><span class="c1"># &lt;containers&gt; is a list of container definition to embed in the pod</span><span class="w">
+  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+    </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">web</span><span class="w">
+      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">nginx</span><span class="w">
+      </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+        </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">web</span><span class="w">
+          </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span><span class="w">
+          </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">TCP</span><span class="w">
+      </span><span class="nt">env</span><span class="p">:</span><span class="w">
+        </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">SOME_CONFIG</span><span class="w">
+          </span><span class="c1"># Create a line "value: &lt;config_entry&gt;" from the ConfigMap data</span><span class="w">
+          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+            </span><span class="nt">configMapKeyRef</span><span class="p">:</span><span class="w">
+              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-config</span><span class="w">
+              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">configuration_key</span><span class="w">
+        </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">SOME_SECRET</span><span class="w">
+          </span><span class="c1"># Create a line "value: &lt;config_entry&gt;" from the Secret data</span><span class="w">
+          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w">
+              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-secrets</span><span class="w">
+              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">secret_configuration_key</span></code></pre>
 <p><em>Note: Pods are only available in the namespace in which they are defined.</em></p>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod Documentation</a></p>
-<p><a href="https://kubernetes.io/docs/tasks/configure-pod-container/">Advanced Pod Configuration</a></p>
-<p><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core">Fields available in Pod &lt;spec&gt; entry</a></p>
-<p><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#container-v1-core">Fields available in Pod &lt;containers&gt; entry</a></p>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod Documentation</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/tasks/configure-pod-container/">Advanced Pod Configuration</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core">Fields available in Pod &lt;spec&gt; entry</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#container-v1-core">Fields available in Pod &lt;containers&gt; entry</a></p>
 </blockquote>
+</section>
+<section id="deployment">
 <h3>Deployment</h3>
 <p>The Deployment is generally used as the atomic working unit since it will automatically:</p>
-<ul>
-<li>Create a pod definition based on the <code>template</code> entry.</li>
-<li>Create a ReplicaSet on pods selected by the <code>selector</code> entry, with the value of <code>replicas</code> as a count of pods that should be running.</li>
+<ul class="simple">
+<li><p>Create a pod definition based on the <span class="docutils literal">template</span> entry.</p></li>
+<li><p>Create a ReplicaSet on pods selected by the <span class="docutils literal">selector</span> entry, with the value of <span class="docutils literal">replicas</span> as a count of pods that should be running.</p></li>
 </ul>
 <p>The following file requests 3 instances of an Nginx server running at all times.
 The file may look a bit heavy, but most of it is the Pod definition copied from above.</p>
-<p><code>yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-web-server-deployment
-  namespace: default
-  labels:
-    app: webserver
-spec:
-  # &lt;selector&gt; should retrieve the Pod defined below, and possibly more
-  selector:
-    matchLabels:
-      app: webserver
-      instance: nginx-ws-deployment
-  # &lt;replicas&gt; asks for 3 pods running in parallel at all time
-  replicas: 3
-  # The content of &lt;template&gt; is a Pod definition file, without &lt;apiVersion&gt; nor &lt;kind&gt;
-  template:
-    metadata:
-      name: my-web-server
-      namespace: default
-      labels:
-        app: webserver
-        instance: nginx-ws-deployment
-    spec:
-      containers:
-        - name: web
-          image: nginx
-          ports:
-            - name: web
-              containerPort: 80
-              protocol: TCP
-          env:
-            - name: SOME_CONFIG
-              # Create a line "value: &lt;config_entry&gt;" from the ConfigMap data
-              valueFrom:
-                configMapKeyRef:
-                  name: simple-web-config
-                  key: configuration_key
-            - name: SOME_SECRET
-              # Create a line "value: &lt;config_entry&gt;" from the Secret data
-              valueFrom:
-                secretKeyRef:
-                  name: simple-web-secrets
-                  key: secret_configuration_key</code></p>
+<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">apps/v1</span><span class="w">
+</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Deployment</span><span class="w">
+</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-web-server-deployment</span><span class="w">
+  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">default</span><span class="w">
+  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">webserver</span><span class="w">
+</span><span class="nt">spec</span><span class="p">:</span><span class="w">
+  </span><span class="c1"># &lt;selector&gt; should retrieve the Pod defined below, and possibly more</span><span class="w">
+  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">webserver</span><span class="w">
+      </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">nginx-ws-deployment</span><span class="w">
+  </span><span class="c1"># &lt;replicas&gt; asks for 3 pods running in parallel at all time</span><span class="w">
+  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">3</span><span class="w">
+  </span><span class="c1"># The content of &lt;template&gt; is a Pod definition file, without &lt;apiVersion&gt; nor &lt;kind&gt;</span><span class="w">
+  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">my-web-server</span><span class="w">
+      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">default</span><span class="w">
+      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">webserver</span><span class="w">
+        </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">nginx-ws-deployment</span><span class="w">
+    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+        </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">web</span><span class="w">
+          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">nginx</span><span class="w">
+          </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+            </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">web</span><span class="w">
+              </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span><span class="w">
+              </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">TCP</span><span class="w">
+          </span><span class="nt">env</span><span class="p">:</span><span class="w">
+            </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">SOME_CONFIG</span><span class="w">
+              </span><span class="c1"># Create a line "value: &lt;config_entry&gt;" from the ConfigMap data</span><span class="w">
+              </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+                </span><span class="nt">configMapKeyRef</span><span class="p">:</span><span class="w">
+                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-config</span><span class="w">
+                  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">configuration_key</span><span class="w">
+            </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">SOME_SECRET</span><span class="w">
+              </span><span class="c1"># Create a line "value: &lt;config_entry&gt;" from the Secret data</span><span class="w">
+              </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+                </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w">
+                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-secrets</span><span class="w">
+                  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">secret_configuration_key</span></code></pre>
 <p><em>Note: Deployments are only available in the namespace in which they are defined.</em></p>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployment Documentation</a></p>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployment Documentation</a></p>
 </blockquote>
+</section>
+<section id="service">
 <h3>Service</h3>
 <p>A pod might be deleted and recreated at any time.
 When it occurs the pod's IP address will change, which could result in a loss of connection if you are directly contacting it.
 To solve this issue, a Service provides a stable contact point to a set of Pods, while remaining agnostic of their state and configuration.
-Usually, Pods are chosen to be part of a Service through a <code>selector</code> entry, thus based on its <code>labels</code>.
+Usually, Pods are chosen to be part of a Service through a <span class="docutils literal">selector</span> entry, thus based on its <span class="docutils literal">labels</span>.
 A Pod is selected if and only if all the labels in the selector are worn by the pod.</p>
 <p>There are three types of services that are acting quite differently, among which you can select using the type entry.</p>
 <p>The <strong>ClusterIP</strong> service is bound to an internal IP from the cluster, hence only internally reachable.
@@ -569,329 +532,336 @@ This is the type of service created by default and is suitable for binding diffe
 This enables you to contact the service directly through the node IP.
 That also means that your service will be as accessible as the virtual or physical machines hosting those pods.</p>
 <p><em>Note: Using NodePort can pose security risks, as it enables a direct connection from outside the cluster.</em></p>
-<p>A <strong>LoadBalancer</strong> service will automatically create a <a href="https://www.nginx.com/resources/glossary/load-balancing/">load balancer</a>
+<p>A <strong>LoadBalancer</strong> service will automatically create a <a class="reference external" href="https://www.nginx.com/resources/glossary/load-balancing/">load balancer</a>
 instance from the cloud service provider on which the cluster is running.
 This load balancer is created outside the cluster but will automatically be bound to the nodes hosting the selected pods.</p>
 <p>This is an easy way to expose your service but can end up being costly as each service will be managed by a single load balancer.</p>
-<p>If you are setting up your own Ingress as we will do here, you may want to use a <code>ClusterIp</code> service, as other services are made for specific use cases.</p>
-<p><code>yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: simple-web-service-clusterip
-spec:
-  # ClusterIP is the default service &lt;type&gt;
-  type: ClusterIP
-  # Select all pods declaring a &lt;label&gt; entry "app: webserver"
-  selector:
-    app: webserver
-  ports:
-    - name: http
-      protocol: TCP
-      # &lt;port&gt; is the port to bind on the service side
-      port: 80
-      # &lt;targetPort&gt; is the port to bind on the Pod side
-      targetPort: 80</code></p>
+<p>If you are setting up your own Ingress as we will do here, you may want to use a <span class="docutils literal">ClusterIp</span> service, as other services are made for specific use cases.</p>
+<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">v1</span><span class="w">
+</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Service</span><span class="w">
+</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-service-clusterip</span><span class="w">
+</span><span class="nt">spec</span><span class="p">:</span><span class="w">
+  </span><span class="c1"># ClusterIP is the default service &lt;type&gt;</span><span class="w">
+  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">ClusterIP</span><span class="w">
+  </span><span class="c1"># Select all pods declaring a &lt;label&gt; entry "app: webserver"</span><span class="w">
+  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">webserver</span><span class="w">
+  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+    </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">http</span><span class="w">
+      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">TCP</span><span class="w">
+      </span><span class="c1"># &lt;port&gt; is the port to bind on the service side</span><span class="w">
+      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span><span class="w">
+      </span><span class="c1"># &lt;targetPort&gt; is the port to bind on the Pod side</span><span class="w">
+      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span></code></pre>
 <p><em>Note: Services are defined in a namespace but can be contacted from other namespaces.</em></p>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Service Documentation</a></p>
-<p><a href="https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0">In Depth Service Comparison</a></p>
-<p><a href="https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/">Create an External Load Balancer</a></p>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/services-networking/service/">Service Documentation</a></p>
+<p class="p-2"><a class="reference external" href="https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0">In Depth Service Comparison</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/">Create an External Load Balancer</a></p>
 </blockquote>
+</section>
+<section id="ingress">
 <h3>Ingress</h3>
 <p>Ingress enables you to publish internal services without necessarily using a load balancer from cloud service providers.
-You usually need only one ingress per namespace, where you can bind as many routing <code>rules</code> and <code>backends</code> as you want.
-A backend will typically be an internally routed <code>ClusterIP</code> service.</p>
+You usually need only one ingress per namespace, where you can bind as many routing <span class="docutils literal">rules</span> and <span class="docutils literal">backends</span> as you want.
+A backend will typically be an internally routed <span class="docutils literal">ClusterIP</span> service.</p>
 <p>Please note that Kubernetes does not handle ingress resources by itself and relies on third-party implementations.
-As a result, you will have to choose and install an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Ingress Controller</a>
+As a result, you will have to choose and install an <a class="reference external" href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Ingress Controller</a>
 before using any ingress resource.
 On the other hand, it makes the ingress resource customizable depending on the needs of your cluster.</p>
-<p><code>yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: simple-web-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-    # Using &lt;host&gt; redirects all request matching the given DNS name to this rule
-    - host: "*.minikube.internal"
-      http:
-        paths:
-          - path: /welcome
-            pathType: Prefix
-            backend:
-              service:
-                name: simple-web-service-clusterip
-                port:
-                  number: 80
-    # All other requests will be redirected through this rule
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: simple-web-service-clusterip
-                port:
-                  number: 80</code></p>
+<pre class="code yaml literal-block"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">networking.k8s.io/v1</span><span class="w">
+</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Ingress</span><span class="w">
+</span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-ingress</span><span class="w">
+  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+    </span><span class="nt">nginx.ingress.kubernetes.io/rewrite-target</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">/</span><span class="w">
+</span><span class="nt">spec</span><span class="p">:</span><span class="w">
+  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+    </span><span class="c1"># Using &lt;host&gt; redirects all request matching the given DNS name to this rule</span><span class="w">
+    </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><s>"*.minikube.internal"</s><span class="w">
+      </span><span class="nt">http</span><span class="p">:</span><span class="w">
+        </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+          </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">/welcome</span><span class="w">
+            </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Prefix</span><span class="w">
+            </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+              </span><span class="nt">service</span><span class="p">:</span><span class="w">
+                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-service-clusterip</span><span class="w">
+                </span><span class="nt">port</span><span class="p">:</span><span class="w">
+                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span><span class="w">
+    </span><span class="c1"># All other requests will be redirected through this rule</span><span class="w">
+    </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">http</span><span class="p">:</span><span class="w">
+        </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+          </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">/</span><span class="w">
+            </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Prefix</span><span class="w">
+            </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+              </span><span class="nt">service</span><span class="p">:</span><span class="w">
+                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">simple-web-service-clusterip</span><span class="w">
+                </span><span class="nt">port</span><span class="p">:</span><span class="w">
+                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">80</span></code></pre>
 <p><em>Note: Ingresses are defined in the namespace but may contact services from other namespaces and are publicly accessible outside the cluster.</em></p>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress Documentation</a></p>
-<p><a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Available Ingress Controllers</a></p>
-<p><a href="https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/">Enable Ingress on Minikube</a></p>
-<p><a href="https://kubernetes.github.io/ingress-nginx/examples/rewrite/">Nginx Ingress Annotations</a></p>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress Documentation</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Available Ingress Controllers</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/">Enable Ingress on Minikube</a></p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.github.io/ingress-nginx/examples/rewrite/">Nginx Ingress Annotations</a></p>
 </blockquote>
+</section>
+</section>
+<section id="cli-usage">
 <h2>CLI Usage</h2>
+<section id="create-and-manage-resources">
 <h3>Create and manage resources</h3>
-<p>This section showcases the basic CLI commands to manipulate resources. 
+<p>This section showcases the basic CLI commands to manipulate resources.
 As said before, while it is possible to manually manage resources, a better practice is to use files.</p>
-<p>```shell</p>
-<h1><kind> is the type of resource to create (e.g. deployment, secret, namespace, quota, ...)</kind></h1>
-<p>$ kubectl create <kind> <name>
-$ kubectl edit   <kind> <name>
-$ kubectl delete <kind> <name></name></kind></name></kind></name></kind></p>
-<h1>All those commands can be used through a description file.</h1>
-<p>$ kubectl create -f <resource>.yaml
-$ kubectl edit   -f <resource>.yaml
-$ kubectl delete -f <resource>.yaml
-```</resource></resource></resource></p>
+<pre class="code shell literal-block"><code><span class="c1"># &lt;kind&gt; is the type of resource to create (e.g. deployment, secret, namespace, quota, ...)
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>create<span class="w"> </span>&lt;kind&gt;<span class="w"> </span>&lt;name&gt;<span class="w">
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>edit<span class="w">   </span>&lt;kind&gt;<span class="w"> </span>&lt;name&gt;<span class="w">
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>delete<span class="w"> </span>&lt;kind&gt;<span class="w"> </span>&lt;name&gt;<span class="w">
+
+</span><span class="c1"># All those commands can be used through a description file.
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>&lt;resource&gt;.yaml<span class="w">
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>edit<span class="w">   </span>-f<span class="w"> </span>&lt;resource&gt;.yaml<span class="w">
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span>&lt;resource&gt;.yaml</code></pre>
 <p>To ease resources manipulations through files, you can reduce the interactions to the CLI to the two following commands:</p>
-<p>```shell</p>
-<h1>Create and update any resource</h1>
-<p>$ kubectl apply   -f <resource>.yaml</resource></p>
-<h1>Delete any resource</h1>
-<p>$ kubectl delete  -f <resource>.yaml
-```</resource></p>
-<blockquote class="blockquote border-left border-primary pl-3">
-<p>Further reading:</p>
-<p><a href="https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/">Managing Resources</a></p>
+<pre class="code shell literal-block"><code><span class="c1"># Create and update any resource
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>apply<span class="w">   </span>-f<span class="w"> </span>&lt;resource&gt;.yaml<span class="w">
+</span><span class="c1"># Delete any resource
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>delete<span class="w">  </span>-f<span class="w"> </span>&lt;resource&gt;.yaml</code></pre>
+<blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
+<p class="p-2">Further reading:</p>
+<p class="p-2"><a class="reference external" href="https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/">Managing Resources</a></p>
 </blockquote>
+</section>
+<section id="monitor-and-debug">
 <h3>Monitor and Debug</h3>
+<section id="fetch-resources">
 <h4>Fetch resources</h4>
-<p>You can see all resources running through the CLI using <code>kubectl get &lt;kind&gt;</code>.
+<p>You can see all resources running through the CLI using <span class="docutils literal">kubectl get &lt;kind&gt;</span>.
 This command is pretty powerful and lets you filter the kind of resources to display or select the resources you want to see.</p>
-<p><em>Note: if not specified, Kubernetes will work on the <code>default</code> namespace. You can specify <code>-n &lt;namespace&gt;</code> to work on a specific namespace or <code>-A</code> to show every namespace.</em></p>
-<p>```shell</p>
-<h1>Fetch everything</h1>
-<p>$ kubectl get all
-NAME                                            READY   STATUS    RESTARTS   AGE
-pod/my-web-server-deployment-58c4fd887f-5vm2b   1/1     Running   0          128m
-pod/my-web-server-deployment-58c4fd887f-gq6lr   1/1     Running   0          128m
-pod/my-web-server-deployment-58c4fd887f-gs6qb   1/1     Running   0          128m</p>
-<p>NAME                                   TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
-service/simple-web-service-clusterip   ClusterIP      10.96.96.241     <none>        80/TCP,443/TCP               60m
-service/simple-web-service-lb          LoadBalancer   10.108.182.232   <pending>     80:31095/TCP,443:31940/TCP   60m
-service/simple-web-service-np          NodePort       10.101.77.203    <none>        80:31899/TCP,443:31522/TCP   60m</none></pending></none></p>
-<p>NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/my-web-server-deployment   3/3     3            3           136m</p>
-<p>NAME                                                  DESIRED   CURRENT   READY   AGE
-replicaset.apps/my-web-server-deployment-58c4fd887f   3         3         3       128m</p>
-<h1>We can ask for more details</h1>
-<p>$ kubectl get deployment -o wide
-NAME                       READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES  SELECTOR
-my-web-server-deployment   3/3     3            3           121m   web          nginx   app=webserver</p>
-<h1>Some resources are not visible using "all" but available</h1>
-<p>$ kubectl get configmap
-NAME                DATA   AGE
-kube-root-ca.crt    1      38d
-simple-web-config   3      3h17m
-```</p>
+<p><em>Note: if not specified, Kubernetes will work on the <span class="docutils literal">default</span> namespace. You can specify <span class="docutils literal"><span class="pre">-n</span> &lt;namespace&gt;</span> to work on a specific namespace or <span class="docutils literal"><span class="pre">-A</span></span> to show every namespace.</em></p>
+<pre class="code shell literal-block"><code><span class="c1"># Fetch everything
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>all<span class="w">
+</span>NAME<span class="w">                                            </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">   </span>AGE<span class="w">
+</span>pod/my-web-server-deployment-58c4fd887f-5vm2b<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>128m<span class="w">
+</span>pod/my-web-server-deployment-58c4fd887f-gq6lr<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>128m<span class="w">
+</span>pod/my-web-server-deployment-58c4fd887f-gs6qb<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>128m<span class="w">
+
+</span>NAME<span class="w">                                   </span>TYPE<span class="w">           </span>CLUSTER-IP<span class="w">       </span>EXTERNAL-IP<span class="w">   </span>PORT<span class="o">(</span>S<span class="o">)</span><span class="w">                      </span>AGE<span class="w">
+</span>service/simple-web-service-clusterip<span class="w">   </span>ClusterIP<span class="w">      </span><span class="m">10</span>.96.96.241<span class="w">     </span>&lt;none&gt;<span class="w">        </span><span class="m">80</span>/TCP,443/TCP<span class="w">               </span>60m<span class="w">
+</span>service/simple-web-service-lb<span class="w">          </span>LoadBalancer<span class="w">   </span><span class="m">10</span>.108.182.232<span class="w">   </span>&lt;pending&gt;<span class="w">     </span><span class="m">80</span>:31095/TCP,443:31940/TCP<span class="w">   </span>60m<span class="w">
+</span>service/simple-web-service-np<span class="w">          </span>NodePort<span class="w">       </span><span class="m">10</span>.101.77.203<span class="w">    </span>&lt;none&gt;<span class="w">        </span><span class="m">80</span>:31899/TCP,443:31522/TCP<span class="w">   </span>60m<span class="w">
+
+</span>NAME<span class="w">                                       </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE<span class="w">
+</span>deployment.apps/my-web-server-deployment<span class="w">   </span><span class="m">3</span>/3<span class="w">     </span><span class="m">3</span><span class="w">            </span><span class="m">3</span><span class="w">           </span>136m<span class="w">
+
+</span>NAME<span class="w">                                                  </span>DESIRED<span class="w">   </span>CURRENT<span class="w">   </span>READY<span class="w">   </span>AGE<span class="w">
+</span>replicaset.apps/my-web-server-deployment-58c4fd887f<span class="w">   </span><span class="m">3</span><span class="w">         </span><span class="m">3</span><span class="w">         </span><span class="m">3</span><span class="w">       </span>128m<span class="w">
+
+</span><span class="c1"># We can ask for more details
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>-o<span class="w"> </span>wide<span class="w">
+</span>NAME<span class="w">                       </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE<span class="w">    </span>CONTAINERS<span class="w">   </span>IMAGES<span class="w">  </span>SELECTOR<span class="w">
+</span>my-web-server-deployment<span class="w">   </span><span class="m">3</span>/3<span class="w">     </span><span class="m">3</span><span class="w">            </span><span class="m">3</span><span class="w">           </span>121m<span class="w">   </span>web<span class="w">          </span>nginx<span class="w">   </span><span class="nv">app</span><span class="o">=</span>webserver<span class="w">
+
+</span><span class="c1"># Some resources are not visible using "all" but available
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>configmap<span class="w">
+</span>NAME<span class="w">                </span>DATA<span class="w">   </span>AGE<span class="w">
+</span>kube-root-ca.crt<span class="w">    </span><span class="m">1</span><span class="w">      </span>38d<span class="w">
+</span>simple-web-config<span class="w">   </span><span class="m">3</span><span class="w">      </span>3h17m</code></pre>
+</section>
+<section id="dig-into-a-particular-resource">
 <h4>Dig into a particular resource</h4>
 <p>This section will show you how to dig into resources.
 Most of the required day-to-day operations are doable through the three following commands.</p>
-<p>The first command will give you the resource's complete configuration, using <code>kubectl describe &lt;kind&gt;/&lt;name&gt;</code>.</p>
-<p>```shell</p>
-<h1>Let's describe the ingress for the sake of example</h1>
-<p>$ kubectl describe ingress/simple-web-ingress
-Name:             simple-web-ingress
-Namespace:        default
-Address:          192.168.64.2
-Default backend:  default-http-backend:80 (<error: endpoints not found>)
-Rules:
-  Host                 Path  Backends
-  ----                 ----  --------
-  *.minikube.internal
-                       /welcome   simple-web-service-clusterip:80 (172.17.0.4:80,172.17.0.5:80,172.17.0.6:80 + 1 more...)
-  *
-                       /   simple-web-service-clusterip:80 (172.17.0.4:80,172.17.0.5:80,172.17.0.6:80 + 1 more...)
-Annotations:           nginx.ingress.kubernetes.io/rewrite-target: /
-Events:
-  Type    Reason  Age                 From                      Message
-  ----    ------  ----                ----                      -------
-  Normal  UPDATE  7m6s (x6 over 23h)  nginx-ingress-controller  Ingress default/simple-web-ingress
-```</error:></p>
-<p>Another important command is <code>kubectl logs &lt;kind&gt;/&lt;name&gt;</code>, as you might expect it shows you the resources' logs if applicable.
+<p>The first command will give you the resource's complete configuration, using <span class="docutils literal">kubectl describe <span class="pre">&lt;kind&gt;/&lt;name&gt;</span></span>.</p>
+<pre class="code shell literal-block"><code><span class="c1"># Let's describe the ingress for the sake of example
+</span>$<span class="w"> </span>kubectl<span class="w"> </span>describe<span class="w"> </span>ingress/simple-web-ingress<span class="w">
+</span>Name:<span class="w">             </span>simple-web-ingress<span class="w">
+</span>Namespace:<span class="w">        </span>default<span class="w">
+</span>Address:<span class="w">          </span><span class="m">192</span>.168.64.2<span class="w">
+</span>Default<span class="w"> </span>backend:<span class="w">  </span>default-http-backend:80<span class="w"> </span><span class="o">(</span>&lt;error:<span class="w"> </span>endpoints<span class="w"> </span><span class="s2">"default-http-backend"</span><span class="w"> </span>not<span class="w"> </span>found&gt;<span class="o">)</span><span class="w">
+</span>Rules:<span class="w">
+  </span>Host<span class="w">                 </span>Path<span class="w">  </span>Backends<span class="w">
+  </span>----<span class="w">                 </span>----<span class="w">  </span>--------<span class="w">
+  </span>*.minikube.internal<span class="w">
+                       </span>/welcome<span class="w">   </span>simple-web-service-clusterip:80<span class="w"> </span><span class="o">(</span><span class="m">172</span>.17.0.4:80,172.17.0.5:80,172.17.0.6:80<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="w"> </span>more...<span class="o">)</span><span class="w">
+  </span>*<span class="w">
+                       </span>/<span class="w">   </span>simple-web-service-clusterip:80<span class="w"> </span><span class="o">(</span><span class="m">172</span>.17.0.4:80,172.17.0.5:80,172.17.0.6:80<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="w"> </span>more...<span class="o">)</span><span class="w">
+</span>Annotations:<span class="w">           </span>nginx.ingress.kubernetes.io/rewrite-target:<span class="w"> </span>/<span class="w">
+</span>Events:<span class="w">
+  </span>Type<span class="w">    </span>Reason<span class="w">  </span>Age<span class="w">                 </span>From<span class="w">                      </span>Message<span class="w">
+  </span>----<span class="w">    </span>------<span class="w">  </span>----<span class="w">                </span>----<span class="w">                      </span>-------<span class="w">
+  </span>Normal<span class="w">  </span>UPDATE<span class="w">  </span>7m6s<span class="w"> </span><span class="o">(</span>x6<span class="w"> </span>over<span class="w"> </span>23h<span class="o">)</span><span class="w">  </span>nginx-ingress-controller<span class="w">  </span>Ingress<span class="w"> </span>default/simple-web-ingress</code></pre>
+<p>Another important command is <span class="docutils literal">kubectl logs <span class="pre">&lt;kind&gt;/&lt;name&gt;</span></span>, as you might expect it shows you the resources' logs if applicable.
 As the logs are produced by Pods,
 running such a command on a resource above a Pod will dig through Kubernetes to display the logs of a randomly chosen Pod underneath it.</p>
-<p>```shell
-$ kubectl logs deployments/my-web-server-deployment
-Found 3 pods, using pod/my-web-server-deployment-755b499f77-4n5vn</p>
-<h1>[logs]</h1>
-<p>```</p>
-<p>Finally, it is sometimes useful to connect on a pod, you can do so with the command kubectl <code>exec -it &lt;pod_name&gt; -- /bin/bash</code>.
+<pre class="code shell literal-block"><code>$<span class="w"> </span>kubectl<span class="w"> </span>logs<span class="w"> </span>deployments/my-web-server-deployment<span class="w">
+</span>Found<span class="w"> </span><span class="m">3</span><span class="w"> </span>pods,<span class="w"> </span>using<span class="w"> </span>pod/my-web-server-deployment-755b499f77-4n5vn<span class="w">
+</span><span class="c1"># [logs]</span></code></pre>
+<p>Finally, it is sometimes useful to connect on a pod, you can do so with the command kubectl <span class="docutils literal">exec <span class="pre">-it</span> &lt;pod_name&gt; <span class="pre">--</span> /bin/bash</span>.
 This will open an interactive shell on the pod, enabling you to interact with its content.</p>
-<p>```shell</p>
-<h1>As for logs, when called on any resource enclosing Pods,</h1>
-<h1>Kubernetes will randomly chose one to  execute the action</h1>
-<p>$ kubectl exec -it deployment/my-web-server-deployment -- /bin/bash
-root@my-web-server-deployment-56c4554cf9-qwtm6:/# ls</p>
-<h1>[...]</h1>
-<p>```</p>
+<pre class="code shell literal-block"><code><span class="c1"># As for logs, when called on any resource enclosing Pods,
+# Kubernetes will randomly chose one to  execute the action
+</span>$<span class="w"> </span>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>deployment/my-web-server-deployment<span class="w"> </span>--<span class="w"> </span>/bin/bash<span class="w">
+</span>root@my-web-server-deployment-56c4554cf9-qwtm6:/#<span class="w"> </span>ls<span class="w">
+</span><span class="c1"># [...]</span></code></pre>
+</section>
+</section>
+</section>
+<section id="conclusion">
 <h2>Conclusion</h2>
 <p>During this article, we saw the fundamentals behind deploying and publishing stateless services using Kubernetes.
 But you can do a lot more complex things with Kubernetes.
 If you want to learn more about it, I can recommend you to look at these resources:</p>
-<ul>
-<li>Read the <a href="https://kubernetes.io/docs/reference/">Kubernetes reference documentation</a>.</li>
-<li>Install a sandbox locally with <a href="https://kubernetes.io/fr/docs/setup/learning-environment/minikube/">Minikube</a>, and play with it.</li>
-<li>Watch the video <a href="https://youtu.be/X48VuDVv0do">Kubernetes Tutorial for Beginners - <em>TechWorld with Nana</em></a>.</li>
-<li>Manually bootstrap a Kubernetes cluster: <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">Kubernetes The Hard Way</a>.</li>
+<ul class="simple">
+<li><p>Read the <a class="reference external" href="https://kubernetes.io/docs/reference/">Kubernetes reference documentation</a>.</p></li>
+<li><p>Install a sandbox locally with <a class="reference external" href="https://kubernetes.io/fr/docs/setup/learning-environment/minikube/">Minikube</a>, and play with it.</p></li>
+<li><p>Watch the video <a class="reference external" href="https://youtu.be/X48VuDVv0do">Kubernetes Tutorial for Beginners - <em>TechWorld with Nana</em></a>.</p></li>
+<li><p>Manually bootstrap a Kubernetes cluster: <a class="reference external" href="https://github.com/kelseyhightower/kubernetes-the-hard-way">Kubernetes The Hard Way</a>.</p></li>
 </ul>
 <p>Incidentally, there are multiple subjects I could not deeply talk about in this article and that may be of interest.</p>
 <p><strong>On the developer side:</strong></p>
-<ul>
-<li><a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volumes</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/">StatefulSets</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors/">Selectors</a></li>
+<ul class="simple">
+<li><p><a class="reference external" href="https://kubernetes.io/docs/concepts/storage/volumes/">Volumes</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/">StatefulSets</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors/">Selectors</a></p></li>
 </ul>
 <p><strong>On the cluster administrator side:</strong></p>
-<ul>
-<li><a href="https://kubernetes.io/docs/concepts/extend-kubernetes/operator/">Operators</a></li>
-<li><a href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/">Access control</a></li>
-<li><a href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/">Secret encryption</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">Quotas</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/">Network Plugins</a>
-  (<em>e.g.</em> <a href="https://github.com/contiv/vpp/blob/master/docs/ARCHITECTURE.md">VPP</a> and <a href="https://github.com/weaveworks/weave">Weaveworks</a>)</li>
+<ul class="simple">
+<li><p><a class="reference external" href="https://kubernetes.io/docs/concepts/extend-kubernetes/operator/">Operators</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/">Access control</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/">Secret encryption</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">Quotas</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/">Network Plugins</a>
+(<em>e.g.</em> <a class="reference external" href="https://github.com/contiv/vpp/blob/master/docs/ARCHITECTURE.md">VPP</a> and <a class="reference external" href="https://github.com/weaveworks/weave">Weaveworks</a>)</p></li>
 </ul>
 <p>Furthermore, if you are interested in the ecosystem around Kubernetes,
 you may want to take a look at the following technologies:</p>
-<ul>
-<li><a href="https://www.openshift.com/blog/enterprise-kubernetes-with-openshift-part-one">Openshift</a>
-  is wrapping Kubernetes with production friendly features. </li>
-<li><a href="https://helm.sh/">Helm</a>
-  is a charts manager for Kubernetes helping improve re-usability of configuration files.</li>
-<li><a href="https://argoproj.github.io/argo-cd/">ArgoCD</a>
-  is keeping your Kubernetes Cluster up to date with your configurations from Git.</li>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.openshift.com/blog/enterprise-kubernetes-with-openshift-part-one">Openshift</a>
+is wrapping Kubernetes with production friendly features.</p></li>
+<li><p><a class="reference external" href="https://helm.sh/">Helm</a>
+is a charts manager for Kubernetes helping improve re-usability of configuration files.</p></li>
+<li><p><a class="reference external" href="https://argoproj.github.io/argo-cd/">ArgoCD</a>
+is keeping your Kubernetes Cluster up to date with your configurations from Git.</p></li>
 </ul>
+</section>
+<section id="appendix">
 <h2>Appendix</h2>
+<section id="resources-repository">
 <h3>Resources' repository</h3>
-<p>The resources definitions used in this article are available in the following <a href="https://github.com/aveuiller/frameworks-bootstrap/tree/feat_integrate_kube/Kubernetes">GitHub repository</a>.</p>
+<p>The resources definitions used in this article are available in the following <a class="reference external" href="https://github.com/aveuiller/frameworks-bootstrap/tree/feat_integrate_kube/Kubernetes">GitHub repository</a>.</p>
+</section>
+<section id="cli-equivalents-docker-and-kubernetes">
 <h3>CLI equivalents - Docker and Kubernetes</h3>
 <p>Managing containers with Docker and pods with Kubernetes is very similar,
 as you can see on the following table describing equivalent operations between both technologies.</p>
 <table class="table table-hover">
 <thead>
-<tr>
-<th scope="col">Operation</th>
-<th scope="col">Docker</th>
-<th scope="col">Kubernetes</th>
+<tr><th class="head" scope="col"><p>Operation</p></th>
+<th class="head" scope="col"><p>Docker</p></th>
+<th class="head" scope="col"><p>Kubernetes</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Running containers</td>
-<td><code>docker ps</code></td>
-<td><code>kubectl get pods</code></td>
+<tr><td><p>Running containers</p></td>
+<td><p><span class="docutils literal">docker ps</span></p></td>
+<td><p><span class="docutils literal">kubectl get pods</span></p></td>
 </tr>
-<tr>
-<td>Configuration details</td>
-<td><code>docker inspect &lt;name&gt;</code></td>
-<td><code>kubectl describe &lt;name&gt;</code></td>
+<tr><td><p>Configuration details</p></td>
+<td><p><span class="docutils literal">docker inspect &lt;name&gt;</span></p></td>
+<td><p><span class="docutils literal">kubectl describe &lt;name&gt;</span></p></td>
 </tr>
-<tr>
-<td>Show logs</td>
-<td><code>docker logs &lt;name&gt;</code></td>
-<td><code>kubectl logs &lt;name&gt;</code></td>
+<tr><td><p>Show logs</p></td>
+<td><p><span class="docutils literal">docker logs &lt;name&gt;</span></p></td>
+<td><p><span class="docutils literal">kubectl logs &lt;name&gt;</span></p></td>
 </tr>
-<tr>
-<td>Enter container</td>
-<td><code>docker exec -it &lt;name&gt; /bin/bash</code></td>
-<td><code>kubectl exec -it &lt;name&gt; -- /bin/bash</code></td>
+<tr><td><p>Enter container</p></td>
+<td><p><span class="docutils literal">docker exec <span class="pre">-it</span> &lt;name&gt; /bin/bash</span></p></td>
+<td><p><span class="docutils literal">kubectl exec <span class="pre">-it</span> &lt;name&gt; <span class="pre">--</span> /bin/bash</span></p></td>
 </tr>
 </tbody>
 </table>
 <p><em>Thanks to Sarra Habchi, Dimitri Delabroye, and Alexis Geffroy for the reviews</em></p>
-
-
-
-                </div>
-
+</section>
+</section>
+                </main>
                     <div class="col-md-3">
-    <div class="card bg-light text-dark">
-        <ul class="list-group list-group-flush">
-
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <abbr title="2021-05-10T00:00:00+02:00">
+                <i class="bi bi-calendar-event-fill"></i>
+                lun. 10 mai 2021
+            </abbr>
+        </li>
             <li class="list-group-item">
-                <abbr title="2021-05-10T00:00:00+02:00"><i class="fas fa-calendar"></i> lun. 10 mai 2021</abbr>
+                <address>
+                    <i class="bi bi-person-circle"></i> By
+                        <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
+                </address>
             </li>
-
-                <li class="list-group-item">
-                    <address>
-                        <i class="fas fa-user"></i> By
-                            <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
-                    </address>
-                </li>
-
-                <li class="list-group-item">
-                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="6 articles in this category">Software Engineering</a>
-                            <a href="/tag/cheat-sheet.html" data-toggle="tooltip" class="badge badge-secondary" title="3 articles with this tag">Cheat sheet</a>
-                            <a href="/tag/cloud.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Cloud</a>
-                            <a href="/tag/devops.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">DevOps</a>
-                            <a href="/tag/kubernetes.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Kubernetes</a>
-                </li>
-
-
-
-        </ul>
-    </div>
+            <li class="list-group-item">
+                <ul class="list-inline">
+                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="6 articles with this category">Software Engineering</a></li>
+                            <li class="list-inline-item">    <a href="/tag/cheat-sheet.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Cheat sheet</a></li>
+                            <li class="list-inline-item">    <a href="/tag/cloud.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Cloud</a></li>
+                            <li class="list-inline-item">    <a href="/tag/devops.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">DevOps</a></li>
+                            <li class="list-inline-item">    <a href="/tag/kubernetes.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Kubernetes</a></li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <nav class="nav nav-underline nav-justified">
+                    <a class="nav-link " href="https://aveuiller.github.io/spring_boot_apprentice_cookbook.html" title="Spring Boot: Apprentice Cookbook" rel="prev">
+                        <span aria-hidden="true">←</span> Older
+                    </a>
+                    <a class="nav-link " href="https://aveuiller.github.io/kafka_apprentice_cookbook.html" title="Apache Kafka: Apprentice Cookbook" rel="next">
+                        Newer <span aria-hidden="true">→</span>
+                    </a>
+                </nav>
+            </li>
+    </ul>
                         
                     </div>
-
             </div>
-
         </div>
-
-        <footer class="container-fluid mt-5 p-4 small">
+        <footer class="container-fluid mt-5 p-4 small fw-light">
             <div class="row mx-5">
-
                     <div class="col-md-2">
                             <h6>Social</h6>
                             <ul class="list-unstyled">
-                                        <li><a href="http://twitter.com/AVeuiller">
-        <i class="fab fa-twitter fa-fw"></i>
-    Twitter
-</a></li>
-                                        <li><a href="https://stackoverflow.com/users/2564085/aveuiller">
-        <i class="fab fa-stack-overflow fa-fw"></i>
-    StackOverflow
-</a></li>
-                                        <li><a href="http://github.com/aveuiller">
-        <i class="fab fa-github fa-fw"></i>
-    GitHub
-</a></li>
-                                        <li><a href="https://aveuiller.medium.com/">
-        <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
-    Medium
-</a></li>
-                                        <li><a href="https://dev.to/aveuiller/">
-        <img src="https://www.google.com/s2/favicons?domain=dev.to" width="16" height="16" class="link-icon" alt="dev.to icon">
-    Dev.to
-</a></li>
-                            </ul>
+<li>    <a href="http://twitter.com/AVeuiller">
+            <i class="bi bi-twitter"></i>
+        Twitter
+    </a></li><li>    <a href="https://stackoverflow.com/users/2564085/aveuiller">
+            <i class="bi bi-stack-overflow"></i>
+        StackOverflow
+    </a></li><li>    <a href="http://github.com/aveuiller">
+            <i class="bi bi-github"></i>
+        GitHub
+    </a></li><li>    <a href="https://aveuiller.medium.com/">
+            <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
+        Medium
+    </a></li><li>    <a href="https://dev.to/aveuiller/">
+            <img src="https://www.google.com/s2/favicons?domain=dev.to" width="16" height="16" class="link-icon" alt="dev.to icon">
+        Dev.to
+    </a></li>                            </ul>
                     </div>
                     <div class="col-md-2">
+                            <h6>Professional</h6>
+                            <ul class="list-unstyled">
+<li>    <a href="https://linkedin.com/in/antoine-veuiller">
+            <i class="bi bi-linkedin"></i>
+        LinkedIn
+    </a></li>                            </ul>
                     </div>
-
                 <div class="col-md-2">
                     <h6>Browse content by</h6>
                     <ul class="list-unstyled">
                     </ul>
                 </div>
-
-                <div class="col-md-2 text-muted">
+                <div class="col-md-2 text-body-tertiary">
                     <h6>Copyright notice</h6>
                     <p class="small">
                         © Copyright
@@ -899,8 +869,7 @@ as you can see on the following table describing equivalent operations between b
                         Antoine Veuiller.
                     </p>
                 </div>
-
-                <div class="col-md-2 text-muted">
+                <div class="col-md-2 text-body-tertiary">
                     <h6>Disclaimer</h6>
                     <p class="small">
                             All opinions expressed in this site are my own
@@ -910,38 +879,35 @@ as you can see on the following table describing equivalent operations between b
                             affiliates, partners or customers.
                     </p>
                 </div>
-
                 <div class="col-md-2">
                         <h6>Feeds</h6>
                         <ul class="list-unstyled small">
                                 <li>
                                     <a href="https://aveuiller.github.io/feeds/all.atom.xml">
-                                        <i class="fas fa-atom fa-fw"></i> All posts (Atom)
+                                        <i class="bi  bi-rss "></i>
+                                        All posts (Atom)
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://aveuiller.github.io/feeds/software-engineering.atom.xml">
-                                        <i class="fas fa-atom fa-fw"></i> Category: Software Engineering (Atom)
+                                        <i class="bi  bi-rss "></i>
+                                        Category: Software Engineering (Atom)
                                     </a>
                                 </li>
                         </ul>
                 </div>
-
             </div>
             <div class="row mt-3">
-
                 <div class="offset-3 col-6 small text-muted text-center">
-                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.<br>
+                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.
+                    <br>
                     <a class="text-dark" href="https://github.com/kdeldycke/plumage">Plumage</a>
                     theme by <a class="text-dark" href="https://kevin.deldycke.com">Kevin Deldycke</a>.
                 </div>
-
-                <div class="col-3 text-right d-flex flex-column">
-                    <a class="mt-auto" href="#"><i class="fas fa-arrow-up"></i> Back to top</a>
+                <div class="col-3 text-end d-flex flex-column">
+                    <a class="mt-auto" href="#"><i class="bi bi-arrow-bar-up"></i> Back to top</a>
                 </div>
-
             </div>
         </footer>
-
     </body>
 </html>

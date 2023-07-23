@@ -3,34 +3,28 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>    Introduction to Flaky Tests by Example
- | Antoine Veuiller</title>
-
+            <meta name="robots" content="index, follow">
+        <title>
+Introduction to Flaky Tests by Example        | Antoine Veuiller</title>
         <meta name="author" content="Antoine Veuiller">
         <meta name="generator" content="Pelican v4.8.0">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous">
-
-            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?c73fffa6">
-
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?4566fab6">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9565WT2VE"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-F9565WT2VE');
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-F9565WT2VE');
     </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js" integrity="sha512-iceXjjbmB2rwoX93Ka6HAHP+B76IY1z0o3h+N1PeDtRSsyeetU3/0QKJqGyPJcX63zysNehggFwMC/bi7dvMig==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha512-/2sZKAsHDmHNoevKR/xsUKe+Bpf692q4tHNQs9VWWz0ujJ9JBM67iFYbIEdfDV9I2BaodgT5MIg/FTUmUv3oyQ==" crossorigin="anonymous"></script>
-
-            <script src="https://aveuiller.github.io/theme/js/main.min.js?86e1c044"></script>
-
-
+            <script src="https://aveuiller.github.io/theme/js/main.min.js?b6b3f836"></script>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,40 +32,31 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#ffc40d">
         <meta name="theme-color" content="#ffffff">
-
         <!-- Feeds -->
             <link href="https://aveuiller.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - All posts - Atom Feed">
             <link href="https://aveuiller.github.io/feeds/software-engineering.atom.xml" type="application/atom+xml" rel="alternate" title="Antoine Veuiller - Category: Software Engineering - Atom Feed">
-
         <meta name="keywords" content="Testing, Best Practice">
-
     </head>
-
     <body class="bg-transparent pt-4">
-
         <div class="container">
-
-                <a href="https://aveuiller.github.io" class="avatar-container float-left mx-4">
+                <a href="https://aveuiller.github.io" class="avatar-container float-start mx-4">
                     <div class="avatar ">
-                        <div class="side"><img src="/images/profile.jpg" class="img-fluid"></div>
+                        <div class="side">
+                            <img src="/images/profile.jpg" class="img-fluid">
+                        </div>
                     </div>
                 </a>
-
             <h1>
-                <a href="https://aveuiller.github.io" class="text-dark text-decoration-none">Antoine Veuiller</a>
-                <small class="text-secondary"><small></small></small>
+                <a href="https://aveuiller.github.io" class="text-body-emphasis text-decoration-none">Antoine Veuiller</a>
+                <small class="text-body-tertiary"><small></small></small>
             </h1>
-
-            <nav class="navbar d-block navbar-expand-lg navbar-light bg-light shadow rounded-lg">
-
+            <nav class="navbar d-block navbar-expand-lg bg-body-tertiary shadow rounded-3">
                 <a class="navbar-brand d-none" href="https://aveuiller.github.io" title="">Antoine Veuiller</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#plumage-navbar-collapse-1" aria-controls="plumage-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="plumage-navbar-collapse-1">
-
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <div class="collapse navbar-collapse mx-4" id="plumage-navbar-collapse-1">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item ">
                                     <a class="nav-link" href="https://aveuiller.github.io/pages/about-me.html">
                                         About Me
@@ -90,251 +75,260 @@
 <li class="nav-item ">
                                     <a class="nav-link" href="https://aveuiller.github.io/category/software-engineering.html">
                                         Software Engineering
-<span class="sr-only">(current)</span>                                    </a>
+<span class="visually-hidden">(current)</span>                                    </a>
                                 </li>
                     </ul>
-
-
                 </div>
-
             </nav>
-
         </div>
-
-
         <div class="container mt-5">
-
-
             <div class="row">
-                <div class="
-                        col-md-9
-">
+                <div class="  col-md-9  ">
     <h1>
         <a href="https://aveuiller.github.io/introduction_to_flaky_tests_by_example.html" rel="bookmark" title="Permalink to Introduction to Flaky Tests by Example">Introduction to Flaky Tests by Example</a>
     </h1>
                 </div>
             </div>
-
             <div class="row">
-
-
-                <div id="content" role="main" class="
-                        col-md-9
-">
+                <main id="content" role="main" class="  col-md-9 ">
     
-
-    <h3>Availability Disclaimer</h3>
+    <section id="availability-disclaimer">
+<h2>Availability Disclaimer</h2>
 <p>This article can be found on other sources:</p>
-<ul>
-<li>Medium: <a href="https://medium.com/@aveuiller/stories-of-flaky-test-encounters-in-the-wild-a152bf7151f5">link</a></li>
+<ul class="simple">
+<li><p>Medium: <a class="reference external" href="https://medium.com/@aveuiller/stories-of-flaky-test-encounters-in-the-wild-a152bf7151f5">link</a></p></li>
 </ul>
-<hr>
+<hr class="docutils">
 <p><img alt="Flakiness effect" src="/images/posts/2020-08-10_Introduction-to-Flaky-Tests-by-Example/red_light.gif" class="img-fluid border rounded shadow image-process-article-photo"></p>
 <p>Tests are an essential part of software development as they give a ground truth about the code sanity. As developers, we reasonably expect our unit tests to give the same results if the source code does not change. It can happen, however, that the result of a unit test changes over multiple executions of a test suite without any change in the code. Such a test is named a flaky test.</p>
 <p>A flaky test is not dangerous <em>per se</em> but reduces the confidence a developer can give to his test suite, diminishing the benefits of the latter. It is thus recommended to eradicate such issue as soon as possible.</p>
 <p>However, depending on the origin of the flakiness, one may find out only a few days, months or even years later that the tests are flaky.
-It may be hard to dive back into those and find the root causes, <a href="https://martinfowler.com/articles/nonDeterminism.html">so usually, we tend to put those tests aside to make them less annoying or we rerun them until success</a>.</p>
+It may be hard to dive back into those and find the root causes, <a class="reference external" href="https://martinfowler.com/articles/nonDeterminism.html">so usually, we tend to put those tests aside to make them less annoying or we rerun them until success</a>.</p>
 <p><img alt="Fingers crossed" src="/images/posts/2020-08-10_Introduction-to-Flaky-Tests-by-Example/fingers_crossed.gif" class="img-fluid border rounded shadow image-process-article-photo"></p>
 <p>As a real-world example of flaky tests and the logic behind their resolution. I will talk about two interesting cases I had the opportunity to fix during my career.</p>
-<h3>Storytime!</h3>
+</section>
+<section id="storytime">
+<h2>Storytime!</h2>
 <p>During my career, I stumbled onto a couple of flaky tests issues. There are two instances that, in my opinion, are quite symptomatic of test flakiness, with quite different contexts.</p>
 <p>The examples are voluntary adapted to a simpler context than the original ones to keep a short and focused article.</p>
-<h4>Story 1: 5 days a month isn’t a big deal</h4>
-<p>I entered a project where continuous integration was broken during the 5 first days of each month. 
+<section id="story-1-5-days-a-month-isnt-a-big-deal">
+<h3>Story 1: 5 days a month isn’t a big deal</h3>
+<p>I entered a project where continuous integration was broken during the 5 first days of each month.
 I was told that this wasn’t a big deal since we don’t need to deploy this project at the beginning of a month.
 The priority of fixing those tests was so low that it has remained like this for years before we took the time to tackle this issue.</p>
-<p>```python
-def add_data(input_datetime, data):
-    # Store the data along with the input date
-    # [...]</p>
-<p>def retrieve_data(lower_date):
-    # Retrieve all data from lower date to now 
-    # [...]</p>
-<p>def compute_stats():
-    # Compute some statistics about stored data
-    month = arrow.get().floor('month') 
-    data = retrieve_data(month)
-    return len(data)</p>
-<p>def test_compute_stats():
-    # Test method checking the behaviour of compute_stats
-    now = arrow.get()</p>
-<p>add_data(now.shift(days=-5))
-    add_data(now.shift(days=-1))
-    stat = compute_stats()</p>
-<p>assert stat == 2, "We retrieve the two data input"
-```
-The faulty feature was computing statistics about the current month. As the developer creating the initial tests wanted to take all cases into consideration, he created a test that gave as input multiple dates relative to the current <em>datetime</em>.</p>
+<pre class="code python literal-block"><code><span class="k">def</span> <span class="nf">add_data</span><span class="p">(</span><span class="n">input_datetime</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span><span class="w">
+</span>    <span class="c1"># Store the data along with the input date</span><span class="w">
+</span>    <span class="c1"># [...]</span><span class="w">
+
+</span><span class="k">def</span> <span class="nf">retrieve_data</span><span class="p">(</span><span class="n">lower_date</span><span class="p">):</span><span class="w">
+</span>    <span class="c1"># Retrieve all data from lower date to now </span><span class="w">
+</span>    <span class="c1"># [...]</span><span class="w">
+
+</span><span class="k">def</span> <span class="nf">compute_stats</span><span class="p">():</span><span class="w">
+</span>    <span class="c1"># Compute some statistics about stored data</span><span class="w">
+</span>    <span class="n">month</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="s1">'month'</span><span class="p">)</span> <span class="w">
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">retrieve_data</span><span class="p">(</span><span class="n">month</span><span class="p">)</span><span class="w">
+</span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w">
+
+</span><span class="k">def</span> <span class="nf">test_compute_stats</span><span class="p">():</span><span class="w">
+</span>    <span class="c1"># Test method checking the behaviour of compute_stats</span><span class="w">
+</span>    <span class="n">now</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="w">
+</span>    <span class="w">
+</span>    <span class="n">add_data</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">days</span><span class="o">=-</span><span class="mi">5</span><span class="p">))</span><span class="w">
+</span>    <span class="n">add_data</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">days</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span><span class="w">
+</span>    <span class="n">stat</span> <span class="o">=</span> <span class="n">compute_stats</span><span class="p">()</span><span class="w">
+</span>    <span class="w">
+</span>    <span class="k">assert</span> <span class="n">stat</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"We retrieve the two data input"</span></code></pre>
+<p>The faulty feature was computing statistics about the current month. As the developer creating the initial tests wanted to take all cases into consideration, he created a test that gave as input multiple dates relative to the current <em>datetime</em>.</p>
 <p>Among those inputs, one was <em>5 days before the current date,</em> and the test was always computing the statistics as if it was part of the same month. As a result, it led to the tests being faulty at the beginning of each month. We can then imagine that the flakiness was detected under one to three weeks after the feature development and from then on, ignored.</p>
 <p>This test is time-dependent because <em>compute_stats</em> will call for the date of analysis itself. As a result, the computation will always be dependent on the current date. One way of fixing such issues would be to sandbox the execution of the tests in order to control the current date.</p>
-<p>At first, we wanted to rely on <a href="https://medium.com/swlh/about-design-patterns-dependency-injection-ab9c1742d4aa">dependency injection</a> and make <em>compute_stats</em> ask for a month to compute the statistics. This would create an easy way of sandboxing the execution and also potentially open the door to new features. However, in this project, this wasn’t trivial to implement because there was a lot of code dependent on this feature.</p>
-<p>Another way of doing so would be to inject the value directly to the method. Python has a very good library to sandbox the tests when using the built-in <em>datetime</em> objects: <a href="https://github.com/spulec/freezegun">freezegun</a>. Once again, and unfortunately for us, the project was using <a href="https://github.com/crsmithdev/arrow">arrow</a> so this was not a possibility.</p>
+<p>At first, we wanted to rely on <a class="reference external" href="https://medium.com/swlh/about-design-patterns-dependency-injection-ab9c1742d4aa">dependency injection</a> and make <em>compute_stats</em> ask for a month to compute the statistics. This would create an easy way of sandboxing the execution and also potentially open the door to new features. However, in this project, this wasn’t trivial to implement because there was a lot of code dependent on this feature.</p>
+<p>Another way of doing so would be to inject the value directly to the method. Python has a very good library to sandbox the tests when using the built-in <em>datetime</em> objects: <a class="reference external" href="https://github.com/spulec/freezegun">freezegun</a>. Once again, and unfortunately for us, the project was using <a class="reference external" href="https://github.com/crsmithdev/arrow">arrow</a> so this was not a possibility.</p>
 <p>Fortunately, and thanks to some previously well-thought environment on the project, we had a central method to provide the current date, which was initially intended to prevent the use of a wrong timezone.</p>
-<p>By mixing this method to the awesome <a href="https://docs.python.org/3/library/unittest.mock.html#the-patchers">patch decorator</a> of python mock library (which is part of the standard <em>unittest</em> library since 3.3), we solved the issue with a simple modification.</p>
-<p>````python
-def add_data(input_datetime, data):
-    # Store the data along with the input date
-    # [...]</p>
-<p>def retrieve_data(lower_date):
-    # Retrieve all data from lower date to now 
-    # [...]</p>
-<p>def compute_stats():
-    # Compute some statistics about stored data
-    month = arrow.get().floor('month') 
-    data = retrieve_data(month)
-    return len(data)</p>
-<p>def test_compute_stats():
-    # Test method checking the behaviour of compute_stats
-    now = arrow.get()</p>
-<p>add_data(now.shift(days=-5))
-    add_data(now.shift(days=-1))
-    stat = compute_stats()</p>
-<p>assert stat == 2, "We retrieve the two data input"
-````</p>
+<p>By mixing this method to the awesome <a class="reference external" href="https://docs.python.org/3/library/unittest.mock.html#the-patchers">patch decorator</a> of python mock library (which is part of the standard <em>unittest</em> library since 3.3), we solved the issue with a simple modification.</p>
+<pre class="code python literal-block"><code><span class="k">def</span> <span class="nf">add_data</span><span class="p">(</span><span class="n">input_datetime</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span><span class="w">
+</span>    <span class="c1"># Store the data along with the input date</span><span class="w">
+</span>    <span class="c1"># [...]</span><span class="w">
+
+</span><span class="k">def</span> <span class="nf">retrieve_data</span><span class="p">(</span><span class="n">lower_date</span><span class="p">):</span><span class="w">
+</span>    <span class="c1"># Retrieve all data from lower date to now </span><span class="w">
+</span>    <span class="c1"># [...]</span><span class="w">
+
+</span><span class="k">def</span> <span class="nf">compute_stats</span><span class="p">():</span><span class="w">
+</span>    <span class="c1"># Compute some statistics about stored data</span><span class="w">
+</span>    <span class="n">month</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="s1">'month'</span><span class="p">)</span> <span class="w">
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">retrieve_data</span><span class="p">(</span><span class="n">month</span><span class="p">)</span><span class="w">
+</span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w">
+
+</span><span class="k">def</span> <span class="nf">test_compute_stats</span><span class="p">():</span><span class="w">
+</span>    <span class="c1"># Test method checking the behaviour of compute_stats</span><span class="w">
+</span>    <span class="n">now</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="w">
+</span>    <span class="w">
+</span>    <span class="n">add_data</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">days</span><span class="o">=-</span><span class="mi">5</span><span class="p">))</span><span class="w">
+</span>    <span class="n">add_data</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">days</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span><span class="w">
+</span>    <span class="n">stat</span> <span class="o">=</span> <span class="n">compute_stats</span><span class="p">()</span><span class="w">
+</span>    <span class="w">
+</span>    <span class="k">assert</span> <span class="n">stat</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"We retrieve the two data input"</span></code></pre>
 <p>By sandboxing the execution to a given point in time, we ensured the reproducibility of the build at any given time.</p>
-<h4>Story 2: We use that configuration!</h4>
+</section>
+<section id="story-2-we-use-that-configuration">
+<h3>Story 2: We use that configuration!</h3>
 <p>In another project, while creating a new feature we happened to break tests unrelated to our changes. This case could have been tedious to pinpoint, fortunately, due to the project organization, we were certain that the new feature did not affect the code covered by the now failing tests.</p>
 <p>The code below is a synthetic representation of what happened, a global <em>config</em> object was interacting with both the existing and new features.</p>
-<p>```python</p>
-<h1>Global state configuration</h1>
-<p>config = {}</p>
-<p>def existing_feature():
-    if "common_entry" not in config:
-        raise ValueError("Not configured")</p>
-<p># Process [...]
-    return True</p>
-<p>def our_new_feature():
-    if "common_entry" not in config:
-        raise ValueError("Not configured")</p>
-<p># Process [...]
-    return True
-```</p>
+<pre class="code python literal-block"><code><span class="c1"># Global state configuration</span><span class="w">
+</span><span class="n">config</span> <span class="o">=</span> <span class="p">{}</span><span class="w">
+
+</span><span class="k">def</span> <span class="nf">existing_feature</span><span class="p">():</span><span class="w">
+</span>    <span class="k">if</span> <span class="s2">"common_entry"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span><span class="w">
+</span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Not configured"</span><span class="p">)</span><span class="w">
+
+</span>    <span class="c1"># Process [...]</span><span class="w">
+</span>    <span class="k">return</span> <span class="kc">True</span><span class="w">
+
+</span><span class="k">def</span> <span class="nf">our_new_feature</span><span class="p">():</span><span class="w">
+</span>    <span class="k">if</span> <span class="s2">"common_entry"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span><span class="w">
+</span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Not configured"</span><span class="p">)</span><span class="w">
+
+</span>    <span class="c1"># Process [...]</span><span class="w">
+</span>    <span class="k">return</span> <span class="kc">True</span></code></pre>
 <p>From the isolation of the two features, we knew that the new tests had to be the ones creating a faulty global state. There were globally two possibilities for the faulty state.
 Either the new test was injecting something new to the global state, or removing something essential to the existing test.</p>
 <p>The test cases below were always run in the specific order <em>ConfiguredFeatureTest, ExistingFeatureTestCase</em> before integrating the new feature, then in the order <em>ConfiguredFeatureTest, NewFeatureTestCase, ExistingFeatureTestCase.</em></p>
-<p>````python
-class ConfiguredFeatureTest(unittest.TestCase):
-    def setUp(self):
-        config["entry"] = "anything"</p>
-<p>def test_configured(self):
-        self.assertIsNotNone(config.get("entry"))</p>
-<p>class ExistingFeatureTestCase(unittest.TestCase):
-    def test_feature_one(self):
-        self.assertTrue(existing_feature())</p>
-<p>class NewFeatureTestCase(unittest.TestCase):
-    def setUp(self):
-        config["entry"] = "anything"</p>
-<p>def tearDown(self):
-        config.clear()</p>
-<p>def test_new_feature(self):
-        self.assertTrue(our_new_feature())
-````</p>
+<pre class="code python literal-block"><code><span class="k">class</span> <span class="nc">ConfiguredFeatureTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span><span class="w">
+</span>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="w">
+</span>        <span class="n">config</span><span class="p">[</span><span class="s2">"entry"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"anything"</span><span class="w">
+
+</span>    <span class="k">def</span> <span class="nf">test_configured</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="w">
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNotNone</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"entry"</span><span class="p">))</span><span class="w">
+
+
+</span><span class="k">class</span> <span class="nc">ExistingFeatureTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span><span class="w">
+</span>    <span class="k">def</span> <span class="nf">test_feature_one</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="w">
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">existing_feature</span><span class="p">())</span><span class="w">
+
+
+</span><span class="k">class</span> <span class="nc">NewFeatureTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span><span class="w">
+</span>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="w">
+</span>        <span class="n">config</span><span class="p">[</span><span class="s2">"entry"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"anything"</span><span class="w">
+
+</span>    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="w">
+</span>        <span class="n">config</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span><span class="w">
+
+</span>    <span class="k">def</span> <span class="nf">test_new_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="w">
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">our_new_feature</span><span class="p">())</span></code></pre>
 <p>In order to understand the behaviour of the existing test, we ran it alone, both with and without the new changes. It appeared that the test was failing in both cases. This gave us the information that this test was using an existing global state, and that we might be cleaning this state. So we took a deeper interest in the <em>tearDown</em> method.</p>
 <p>It happened that the global configuration was injected and cleared in our new test suite. This configuration was used but rarely cleared in other tests. As a result, the existing test was relying on the execution of the previous ones to succeed. Clearing the configuration removed the context required by the existing test, thus made it fail.</p>
-<p>By “chance” the tests were always run in the right order for years. This situation could have been detected way earlier by using a random execution order for tests. <a href="https://github.com/pytest-dev/pytest-randomly">It happens that python has simple modules to do so</a>.</p>
+<p>By “chance” the tests were always run in the right order for years. This situation could have been detected way earlier by using a random execution order for tests. <a class="reference external" href="https://github.com/pytest-dev/pytest-randomly">It happens that python has simple modules to do so</a>.</p>
 <p>To fix the tests and avoid this situation to happen in the future, we decided to force the configuration clearing in the project’s test suite superclass. This meant to fix a bunch of other tests failing after this but also enforced a clean state for all new tests.</p>
-<h4>Bonus story: A good flakiness</h4>
+</section>
+<section id="bonus-story-a-good-flakiness">
+<h3>Bonus story: A good flakiness</h3>
 <p>On top of the previous stories, where flakiness is obviously a bad thing, I also stumbled into a case where I found flakiness somehow beneficial to the codebase.</p>
 <p>In this particular case, the test intended to assert some data consistency for any instances of the same class. To do so, the test was generating numerous instances of the class with randomized inputs.</p>
 <p>This test happened to fail during some executions as the inputs were creating a behaviour not accounted for by the feature. That enabled to extract a specific test case for the input and fix the behaviour in this case.</p>
 <p>While I agree that edge cases should be analyzed during the development process, sometimes the input scope is too wide to consider all of them, let alone test all possibilities.</p>
 <p>In those cases, randomizing the input of a method that should keep a consistent output is a good way to assert the codebase sanity in the long run.</p>
-<h3>Conclusion</h3>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion</h2>
 <p>This article showed some real-life examples of flaky tests. They were not the worst to track down, but they pinpoint the fact that flakiness can resurface at any time, even years after their introduction!</p>
 <p>Once they appear, the flaky tests need to be fixed as soon as possible out of fear that the failing test suite will be considered as a normal state. The developers may then not rely on the tests suites anymore.</p>
 <p>Flakiness is mostly due to non-deterministic behaviour in the code, in this article we had an example of:</p>
-<ul>
-<li><em>Specific execution time</em>. If the code is dependent on time, there may be failing tests at specific dates.</li>
-<li><em>Randomness.</em> Using random values in the main code or in the tests needs extra care or the behaviour may vary depending on those random values.</li>
-<li><em>Modified global state.</em> Using a global state in a project can create inconsistencies in tests if the state is not managed correctly.</li>
+<ul class="simple">
+<li><p><em>Specific execution time</em>. If the code is dependent on time, there may be failing tests at specific dates.</p></li>
+<li><p><em>Randomness.</em> Using random values in the main code or in the tests needs extra care or the behaviour may vary depending on those random values.</p></li>
+<li><p><em>Modified global state.</em> Using a global state in a project can create inconsistencies in tests if the state is not managed correctly.</p></li>
 </ul>
 <p>Some behaviour can help to limit the amount of flakiness that hides in the tests, such as:</p>
-<ul>
-<li><em>Control your test execution environment</em> to keep reproducible execution.</li>
-<li><em>Avoid global states</em> to minimize the side effects of environment settings.</li>
-<li><em>Randomize the test execution order</em> to determine dependencies between tests.</li>
+<ul class="simple">
+<li><p><em>Control your test execution environment</em> to keep reproducible execution.</p></li>
+<li><p><em>Avoid global states</em> to minimize the side effects of environment settings.</p></li>
+<li><p><em>Randomize the test execution order</em> to determine dependencies between tests.</p></li>
 </ul>
-<h4>Continue on the subject:</h4>
-<ul>
-<li><a href="https://hackernoon.com/flaky-tests-a-war-that-never-ends-9aa32fdef359">https://hackernoon.com/flaky-tests-a-war-that-never-ends-9aa32fdef359</a></li>
-<li><a href="https://martinfowler.com/articles/nonDeterminism.html">https://martinfowler.com/articles/nonDeterminism.html</a></li>
-<li><a href="https://docs.pytest.org/en/stable/flaky.html">https://docs.pytest.org/en/stable/flaky.html</a></li>
+<section id="continue-on-the-subject">
+<h3>Continue on the subject:</h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hackernoon.com/flaky-tests-a-war-that-never-ends-9aa32fdef359">https://hackernoon.com/flaky-tests-a-war-that-never-ends-9aa32fdef359</a></p></li>
+<li><p><a class="reference external" href="https://martinfowler.com/articles/nonDeterminism.html">https://martinfowler.com/articles/nonDeterminism.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.pytest.org/en/stable/flaky.html">https://docs.pytest.org/en/stable/flaky.html</a></p></li>
 </ul>
-<p>If you are curious about the context that led to the apparition of those flaky tests, my former manager <a href="https://kevin.deldycke.com/">Kevin Deldycke</a> provides a more detailed view in a very interesting post: <a href="https://kevin.deldycke.com/2020/10/billing-pipeline-critical-time-sensitive-system/"><em>Billing Pipeline: A Critical Time Sensitive System</em></a>.</p>
-
-
-
-                </div>
-
+<p>If you are curious about the context that led to the apparition of those flaky tests, my former manager <a class="reference external" href="https://kevin.deldycke.com/">Kevin Deldycke</a> provides a more detailed view in a very interesting post: <a class="reference external" href="https://kevin.deldycke.com/2020/10/billing-pipeline-critical-time-sensitive-system/"><em>Billing Pipeline: A Critical Time Sensitive System</em></a>.</p>
+</section>
+</section>
+                </main>
                     <div class="col-md-3">
-    <div class="card bg-light text-dark">
-        <ul class="list-group list-group-flush">
-
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <abbr title="2020-08-10T00:00:00+02:00">
+                <i class="bi bi-calendar-event-fill"></i>
+                lun. 10 août 2020
+            </abbr>
+        </li>
             <li class="list-group-item">
-                <abbr title="2020-08-10T00:00:00+02:00"><i class="fas fa-calendar"></i> lun. 10 août 2020</abbr>
+                <address>
+                    <i class="bi bi-person-circle"></i> By
+                        <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
+                </address>
             </li>
-
-                <li class="list-group-item">
-                    <address>
-                        <i class="fas fa-user"></i> By
-                            <a href="https://aveuiller.github.io/author/antoine-veuiller.html" rel="author">Antoine Veuiller</a>
-                    </address>
-                </li>
-
-                <li class="list-group-item">
-                                <a href="https://aveuiller.github.io/category/software-engineering.html" rel="tag" data-toggle="tooltip" class="badge badge-info" title="6 articles in this category">Software Engineering</a>
-                            <a href="/tag/best-practice.html" data-toggle="tooltip" class="badge badge-secondary" title="3 articles with this tag">Best Practice</a>
-                            <a href="/tag/testing.html" data-toggle="tooltip" class="badge badge-secondary" title="1 article with this tag">Testing</a>
-                </li>
-
-
-
-        </ul>
-    </div>
+            <li class="list-group-item">
+                <ul class="list-inline">
+                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="6 articles with this category">Software Engineering</a></li>
+                            <li class="list-inline-item">    <a href="/tag/best-practice.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Best Practice</a></li>
+                            <li class="list-inline-item">    <a href="/tag/testing.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Testing</a></li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <nav class="nav nav-underline nav-justified">
+                    <a class="nav-link " href="https://aveuiller.github.io/about_design_patterns-dependency_injection.html" title="About design patterns: Dependency Injection" rel="prev">
+                        <span aria-hidden="true">←</span> Older
+                    </a>
+                    <a class="nav-link " href="https://aveuiller.github.io/spring_boot_apprentice_cookbook.html" title="Spring Boot: Apprentice Cookbook" rel="next">
+                        Newer <span aria-hidden="true">→</span>
+                    </a>
+                </nav>
+            </li>
+    </ul>
                         
                     </div>
-
             </div>
-
         </div>
-
-        <footer class="container-fluid mt-5 p-4 small">
+        <footer class="container-fluid mt-5 p-4 small fw-light">
             <div class="row mx-5">
-
                     <div class="col-md-2">
                             <h6>Social</h6>
                             <ul class="list-unstyled">
-                                        <li><a href="http://twitter.com/AVeuiller">
-        <i class="fab fa-twitter fa-fw"></i>
-    Twitter
-</a></li>
-                                        <li><a href="https://stackoverflow.com/users/2564085/aveuiller">
-        <i class="fab fa-stack-overflow fa-fw"></i>
-    StackOverflow
-</a></li>
-                                        <li><a href="http://github.com/aveuiller">
-        <i class="fab fa-github fa-fw"></i>
-    GitHub
-</a></li>
-                                        <li><a href="https://aveuiller.medium.com/">
-        <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
-    Medium
-</a></li>
-                                        <li><a href="https://dev.to/aveuiller/">
-        <img src="https://www.google.com/s2/favicons?domain=dev.to" width="16" height="16" class="link-icon" alt="dev.to icon">
-    Dev.to
-</a></li>
-                            </ul>
+<li>    <a href="http://twitter.com/AVeuiller">
+            <i class="bi bi-twitter"></i>
+        Twitter
+    </a></li><li>    <a href="https://stackoverflow.com/users/2564085/aveuiller">
+            <i class="bi bi-stack-overflow"></i>
+        StackOverflow
+    </a></li><li>    <a href="http://github.com/aveuiller">
+            <i class="bi bi-github"></i>
+        GitHub
+    </a></li><li>    <a href="https://aveuiller.medium.com/">
+            <img src="https://www.google.com/s2/favicons?domain=aveuiller.medium.com" width="16" height="16" class="link-icon" alt="aveuiller.medium.com icon">
+        Medium
+    </a></li><li>    <a href="https://dev.to/aveuiller/">
+            <img src="https://www.google.com/s2/favicons?domain=dev.to" width="16" height="16" class="link-icon" alt="dev.to icon">
+        Dev.to
+    </a></li>                            </ul>
                     </div>
                     <div class="col-md-2">
+                            <h6>Professional</h6>
+                            <ul class="list-unstyled">
+<li>    <a href="https://linkedin.com/in/antoine-veuiller">
+            <i class="bi bi-linkedin"></i>
+        LinkedIn
+    </a></li>                            </ul>
                     </div>
-
                 <div class="col-md-2">
                     <h6>Browse content by</h6>
                     <ul class="list-unstyled">
                     </ul>
                 </div>
-
-                <div class="col-md-2 text-muted">
+                <div class="col-md-2 text-body-tertiary">
                     <h6>Copyright notice</h6>
                     <p class="small">
                         © Copyright
@@ -342,8 +336,7 @@ class ConfiguredFeatureTest(unittest.TestCase):
                         Antoine Veuiller.
                     </p>
                 </div>
-
-                <div class="col-md-2 text-muted">
+                <div class="col-md-2 text-body-tertiary">
                     <h6>Disclaimer</h6>
                     <p class="small">
                             All opinions expressed in this site are my own
@@ -353,38 +346,35 @@ class ConfiguredFeatureTest(unittest.TestCase):
                             affiliates, partners or customers.
                     </p>
                 </div>
-
                 <div class="col-md-2">
                         <h6>Feeds</h6>
                         <ul class="list-unstyled small">
                                 <li>
                                     <a href="https://aveuiller.github.io/feeds/all.atom.xml">
-                                        <i class="fas fa-atom fa-fw"></i> All posts (Atom)
+                                        <i class="bi  bi-rss "></i>
+                                        All posts (Atom)
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://aveuiller.github.io/feeds/software-engineering.atom.xml">
-                                        <i class="fas fa-atom fa-fw"></i> Category: Software Engineering (Atom)
+                                        <i class="bi  bi-rss "></i>
+                                        Category: Software Engineering (Atom)
                                     </a>
                                 </li>
                         </ul>
                 </div>
-
             </div>
             <div class="row mt-3">
-
                 <div class="offset-3 col-6 small text-muted text-center">
-                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.<br>
+                    Site generated by <a class="text-dark" href="https://getpelican.com">Pelican</a>.
+                    <br>
                     <a class="text-dark" href="https://github.com/kdeldycke/plumage">Plumage</a>
                     theme by <a class="text-dark" href="https://kevin.deldycke.com">Kevin Deldycke</a>.
                 </div>
-
-                <div class="col-3 text-right d-flex flex-column">
-                    <a class="mt-auto" href="#"><i class="fas fa-arrow-up"></i> Back to top</a>
+                <div class="col-3 text-end d-flex flex-column">
+                    <a class="mt-auto" href="#"><i class="bi bi-arrow-bar-up"></i> Back to top</a>
                 </div>
-
             </div>
         </footer>
-
     </body>
 </html>

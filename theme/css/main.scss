@@ -1,40 +1,47 @@
+// Import the whole Bootstrap framework.
+// See: https://getbootstrap.com/docs/5.3/customize/sass/#importing
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Custom Plumage CSS is below.
+// TODO: replace hard-coded styling with bootstrap's own class names for consistency.
+
 html {
-  background: rgb(236, 236, 236) url(/theme/img/fabric_plaid.jpeg);
+  background: rgb(236, 236, 236) url("/theme/img/fabric_plaid.jpeg");
   box-shadow: inset 0 1rem 6rem -2rem rgba(0, 0, 0, 0.5);
 }
 
-a {
-  transition: all 0.2s ease-out;
 
-  /* Style title headers anchors produced by Python's Markdown module. See:
-   * https://python-markdown.github.io/extensions/toc/#usage
-   */
+a {
+  // Do not underline links but on hover.
+  @extend .text-decoration-none;
+
+  &:hover {
+    @extend .text-decoration-underline;
+  }
+
+  // Style title headers anchors
   &.headerlink {
     visibility: hidden;
-    @each $tag in 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'dt' {
-      #{$tag}:hover > & {
+    @extend .fs-4;
+
+    @each $tag in 'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'dt' {
+      #{$tag}:hover>& {
         visibility: visible !important;
       }
     }
   }
 }
 
-/* Style to support pymdown-extensions' emoji:
- * https://facelessuser.github.io/pymdown-extensions/extensions/emoji/#default-emoji-generators
- */
-img.emojione {
-  $size: 1.3rem;
-  height: $size;
-  width: $size;
-}
 
 .avatar-container {
   $size: 6rem;
   height: $size;
-  -webkit-perspective: 600;
-  -moz-perspective: 600;
-  -ms-perspective: 600;
-  -o-perspective: 600;
   perspective: 600;
   position: relative;
   width: $size;
@@ -44,79 +51,211 @@ img.emojione {
     $size: 100%;
     height: $size;
     position: absolute;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     width: $size;
 
     .side {
       $size: 100%;
+      backface-visibility: hidden;
+
       border: solid 0.2rem white {
         radius: 1rem;
       }
+
       box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.25);
       height: $size;
       overflow: hidden;
       position: absolute;
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      -o-backface-visibility: hidden;
-      backface-visibility: hidden;
       width: $size;
     }
 
     .back {
-      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eee), color-stop(100%, #ddd));
-      background-image: -webkit-linear-gradient(#eee, #ddd);
-      background-image: -moz-linear-gradient(#eee, #ddd);
-      background-image: -o-linear-gradient(#eee, #ddd);
       background-image: linear-gradient(#eee, #ddd);
-      -webkit-box-shadow: inset 0 0 1.5rem rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: inset 0 0 1.5rem rgba(0, 0, 0, 0.1);
       box-shadow: inset 0 0 1.5rem rgba(0, 0, 0, 0.1);
     }
 
     .side:hover,
     .back {
-      border-color: #005580;
+      @extend .border-primary;
     }
 
     &.animate:hover,
     &.animate .back {
-      -webkit-transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-      -ms-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg);
       transform: rotateY(180deg);
     }
   }
 }
+
+
+// Custom styling of the DOM produced by Stork's default Javascript.
+// See: https://github.com/jameslittle230/stork/blob/master/js/entityDom.ts
+//
+// All customization is performed by aliasing the default Stork classes to Bootstrap's own default classes.
+.stork-close-button {
+  // Place the reset button on the right side of the search box.
+  @extend .position-absolute, .top-50, .end-0, .translate-middle-y;
+  // Use Bootstrap's default SVG-based close button.
+  @extend .btn-close;
+  // Shape the button into a circle.
+  @extend .rounded-circle;
+  // Work around the default close button styling.
+  // XXX btn-close-white is deprecated in Bootstrap 5.3.0.
+  // XXX Try playing with --bs-btn-close-color: $white; or something.
+  @extend .btn-close-white, .bg-dark-subtle;
+  // Reduce button's size.
+  @extend .me-2, .p-1;
+  @extend .btn; // Required to override the font size below.
+  --bs-btn-font-size: .3rem;
+
+  // Hide default SVG close button.
+  &>svg {
+    @extend .invisible;
+  }
+}
+
+.stork-progress {
+  @extend .progress, .progress-bar;
+  height: 2px;
+}
+
+// Special customization for the search box.
+.navbar .dropdown {
+  .dropdown-menu {
+    --bs-dropdown-padding-y: 0;
+    --bs-dropdown-link-hover-bg: var(--bs-primary-bg-subtle);
+    width: 50em;
+  }
+
+  // Reduce text size for any kind of dropdown item.
+  .dropdown-item,
+  .dropdown-item-text {
+    @extend .small;
+  }
+
+  .dropdown-item {
+    @extend .text-wrap;
+  }
+
+  .stork-message {
+    // Do not make the message box selectable.
+    @extend .dropdown-item-text;
+    @extend .text-body-secondary;
+    // Separate the sticky message from the results.
+    @extend .border-bottom;
+    // Add visual clue that the message is sticky.
+    // TODO: find a way to only have the bottom shadow visible, as the box shadow bleeds at the top of the message.
+    @extend .shadow-sm;
+  }
+
+  ul.stork-results {
+    // Let the results list scroll.
+    @extend .overflow-y-scroll;
+
+    // Hard-code the max-height of the results list.
+    max-height: 30em;
+    //max-width: 200px;
+
+    // Neutralize effects of <ul> default spacing.
+    @extend .list-unstyled, .m-0;
+
+    // Remove paragraph extra-spacing.
+    p {
+      @extend .mb-1;
+    }
+
+    li.stork-result {
+      // Separate each result item.
+      @extend .border-bottom;
+
+      // Reduce content size to increase density of results.
+      //@extend .lh-1;
+
+      a {
+        // Allow each result item to be highlighted on hover.
+        @extend .dropdown-item;
+
+        // Aligns vertical padding to horizontal padding.
+        --bs-dropdown-item-padding-y: var(--bs-dropdown-item-padding-x);
+
+        .stork-title {
+          @extend .fw-bold;
+        }
+
+        .stork-excerpt-container {
+          // Make the excerpt text even smaller than the title.
+          @extend .small;
+        }
+
+        &:hover {
+          // Do not underline the linked excerpts text.
+          @extend .text-decoration-none;
+        }
+      }
+    }
+  }
+
+  .stork-attribution {
+    // Silence the search engine self-ads.
+    @extend .d-none;
+  }
+}
+
+
+// Custom style for the article's right sidebar
+.list-group.list-group-flush {
+  // Reduce text size and weight
+  @extend .small, .fw-light;
+  // Add a thick border on the left side of the sidebar
+  @extend .border-start, .border-5;
+
+  .list-group-item {
+    // Reduce text color
+    @extend .text-body-secondary;
+    // Remove the default white background
+    @extend .bg-transparent;
+    // Remove the default border
+    @extend .border-0;
+    // Aligns vertical padding to horizontal padding to double the top and bottom padding
+    --bs-list-group-item-padding-y: var(--bs-list-group-item-padding-x);
+
+    // Align the bottom of the sidebar with the bottom of the last item.
+    &:last-child {
+      @extend .pb-0;
+    }
+  }
+
+  // Do not underline the older and newer article links
+  .nav a:hover {
+    @extend .text-decoration-none;
+  }
+
+}
+
 
 h1,
 h2 {
   text-shadow: 0.1rem 0.1rem 0.1rem #ddd;
 }
 
-/* Typogrify's ampersands */
+
+// Typogrify's ampersands
 span.amp {
   font-family: cursive;
 }
 
-/* Overrides default border-left 1px width set by Bootstrap:
- * https://github.com/twbs/bootstrap/blob/bfb773d64be5f3c07628bb6e3f1295fd854c4514/scss/utilities/_borders.scss#L11
- * https://github.com/twbs/bootstrap/blob/bfb773d64be5f3c07628bb6e3f1295fd854c4514/scss/_variables.scss#L237
- * */
-blockquote.border-left {
-  border-left-width: thick !important;
+.badge {
+  @extend .btn, .btn-light, .rounded-pill;
+
+  &.category {
+    @extend .bg-primary-subtle, .text-primary-emphasis;
+  }
+
+  &.tag {
+    @extend .bg-secondary-subtle, .text-secondary-emphasis;
+  }
 }
+
 
 .card .corner-banner {
   font-size: 1rem;
@@ -128,8 +267,9 @@ blockquote.border-left {
   width: 12rem;
 }
 
+
 footer {
-  background: url(/theme/img/creampaper.jpeg);
+  background: url("/theme/img/creampaper.jpeg");
   box-shadow: inset 0 2rem 2rem -2rem rgba(0, 0, 0, 0.5);
   text-shadow: 0 0.1rem 0.1rem white;
 }
