@@ -156,7 +156,7 @@ you can use any name you want, even if Kubernetes defines some [best practices r
 Finally, you can also create an `annotations` section, which is almost identical to `labels` but not used by Kubernetes at all.
 Those can be used on the applicative side to trigger behaviors or simply add data to ease debugging.
 
-```yaml
+```
 # <metadata> narrows down selection and identify the resource
 metadata:
   # The <name> entry is required and used to identify the resource
@@ -186,7 +186,7 @@ Those files define key-value mappings that can be used later in other resources.
 Usually, those resources (_i.e._ Secrets and ConfigMap) are loaded before anything else, 
 as it is more likely than not that your infrastructure files are dependent on them.
 
-```yaml
+```
 apiVersion: v1
 # <kind> defines the resource described in this file
 kind: ConfigMap
@@ -204,7 +204,7 @@ data:
 
 Those files define the infrastructure to deploy on the cluster, potentially using content from the data files.
 
-```yaml
+```
 apiVersion: v1
 # <kind> defines the resource described in this file
 kind: Pod
@@ -229,7 +229,7 @@ The following diagram summarizes the intended state:
 
 ConfigMap is used to hold properties that can be used later in your resources.
 
-```yaml
+```
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -240,7 +240,7 @@ data:
 ```
 
 The configuration defined above can then be [selected from another resource definition](https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods) with the following snippet:
-```yaml
+```
 valueFrom:
   configMapKeyRef:
     name: simple-web-config
@@ -264,7 +264,7 @@ or [encrypting secrets](https://kubernetes.io/docs/tasks/administer-cluster/encr
 The Secret file defines a `type` key at its root, which can be used to add validation on the keys declared in the `data` entry.
 By default, the type is set to `Opaque` which does not validate the entries at all.
 
-```yaml
+```
 apiVersion: v1
 kind: Secret
 metadata:
@@ -277,7 +277,7 @@ data:
 ```
 
 The secret defined above can then be [selected from another resource definition](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables) with the following snippet:
-```yaml
+```
 valueFrom:
   secretKeyRef:
     name: simple-web-secrets
@@ -306,7 +306,7 @@ as the best practice indicates to [use pod as part of higher level definition](h
 (_e.g._ Deployment).
 In those cases, the Pod file's content will simply be embedded in the other resource's file.
 
-```yaml
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -357,7 +357,7 @@ The Deployment is generally used as the atomic working unit since it will automa
 The following file requests 3 instances of an Nginx server running at all times.
 The file may look a bit heavy, but most of it is the Pod definition copied from above.
 
-```yaml
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -437,7 +437,7 @@ This is an easy way to expose your service but can end up being costly as each s
 
 If you are setting up your own Ingress as we will do here, you may want to use a `ClusterIp` service, as other services are made for specific use cases.
 
-```yaml
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -478,7 +478,7 @@ As a result, you will have to choose and install an [Ingress Controller](https:/
 before using any ingress resource.
 On the other hand, it makes the ingress resource customizable depending on the needs of your cluster.
 
-```yaml
+```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
