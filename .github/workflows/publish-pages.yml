@@ -20,6 +20,8 @@ jobs:
       run: pip install poetry
     - name: install dependencies
       run: poetry install
+    - name: activate venv
+      run: source $(poetry env info --path)/bin/activate
     - name: Install dependencies
       run: make github
     - name: publish
