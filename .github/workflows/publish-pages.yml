@@ -1,0 +1,22 @@
+name: Publish GH Pages
+on:
+  push:
+    tags:        
+    - '*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      pages: write
+    steps:
+    - uses: actions/checkout@v4
+    - name: install poetry
+      run: pip install poetry
+    - name: install dependencies
+      run: poetry install
+    - name: Install dependencies
+      run: make github
+    - name: publish
+      run: make github
