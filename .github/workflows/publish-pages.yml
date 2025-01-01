@@ -22,9 +22,5 @@ jobs:
       run: pip install poetry
     - name: install dependencies
       run: poetry install
-    - name: venv bin
-      run: export PATH="$PATH:$(poetry env info --path)/bin"; echo "$PATH"; ls $(poetry env info --path)/bin
-    - name: Install dependencies
-      run: make github
     - name: publish
-      run: make github
+      run: export PATH="$PATH:$(poetry env info --path)/bin"; echo "$PATH"; make github
