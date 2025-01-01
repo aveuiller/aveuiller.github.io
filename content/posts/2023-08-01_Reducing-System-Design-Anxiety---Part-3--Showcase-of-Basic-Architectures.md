@@ -4,8 +4,8 @@ Slug: Reducing-System-Design-Anxiety-Part-3-Showcase-of-Basic-Architectures
 Date: 2023-08-03
 Author: Antoine Veuiller
 Category: Software Engineering
-Tags: TODO
-Summary: "TODO"
+Tags: System Design, Best Practices
+Summary: "Most systems will have to follow the same basic rules."
 ---
 
 ---

@@ -4,8 +4,8 @@ Slug: reducing-Software-Design-Anxiety-Part-1-Introduction-to-System-Design
 Date: 2023-08-01
 Author: Antoine Veuiller
 Category: Software Engineering
-Tags: TODO
-Summary: "TODO"
+Tags: System Design, Best Practices
+Summary: "Introduction to systems design!"
 ---
 
 ---

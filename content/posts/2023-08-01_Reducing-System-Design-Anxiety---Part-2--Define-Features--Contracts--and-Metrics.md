@@ -4,8 +4,8 @@ Slug: Reducing-System-Design-Anxiety-Part-2--Define-Features-Contracts-and-Metri
 Date: 2023-08-02
 Author: Antoine Veuiller
 Category: Software Engineering
-Tags: TODO
-Summary: "TODO"
+Tags: System Design, Best Practices
+Summary: "First step to design any system is writing down a contract, and criteria for success."
 ---
 
 
@@ -43,7 +43,9 @@ The public models will usually match the internal ones, and it could be enticing
 
 As a matter of representation, let’s consider a web service accessible through both a user interface on a browser and an API. The reason why the API should not change is pretty clear, even if you can change the web interface according to your new API, if you do not hold a clear and immutable contract, customers will have trouble keeping their scripted calls alive. In the same fashion, interactions between your components are the same. Indeed, when your application will grow, you may have different teams working on each component, one team becoming the customer of the other. 
 
-![](https://cdn-images-1.medium.com/max/800/1*EpL1Wfbl-aZ8H2Kpf9-o9A.png)Example of Interactions in a Distributed System### Build the Present, Keep an Eye on the Future
+![](https://cdn-images-1.medium.com/max/800/1*EpL1Wfbl-aZ8H2Kpf9-o9A.png)Example of Interactions in a Distributed System
+
+### Build the Present, Keep an Eye on the Future
 
 Even if they are not implemented at the moment, the *nice-to-have* user stories are important in a way. They define the long-term goal you want to achieve and could be significant while defining the technological stack or integrating some *must-have* user stories.
 
