@@ -1,16 +1,7 @@
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="robots" content="index, follow">
-        <title>
-Spring Boot: Apprentice Cookbook        | Antoine Veuiller</title>
-        <meta name="author" content="Antoine Veuiller">
-        <meta name="generator" content="Pelican v4.8.0">
-            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?4566fab6">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- To install the tag, copy and paste it into the code of every page on your website immediately after the <head> element.
+        Source: https://support.google.com/analytics/answer/12002338 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9565WT2VE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -21,10 +12,16 @@ Spring Boot: Apprentice Cookbook        | Antoine Veuiller</title>
         gtag('js', new Date());
         gtag('config', 'G-F9565WT2VE');
     </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
-            <script src="https://aveuiller.github.io/theme/js/main.min.js?b6b3f836"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="robots" content="index, follow">
+        <title>
+Spring Boot: Apprentice Cookbook        | Antoine Veuiller</title>
+        <meta name="author" content="Antoine Veuiller">
+        <meta name="generator" content="Pelican v4.10.2">
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?5f61ca51">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -347,20 +344,20 @@ First, let’s declare our dependencies:</p>
   </span><span class="n">implementation</span><span class="w"> </span><span class="s1">'com.h2database:h2:1.4.200'</span><span class="w">
 </span><span class="o">}</span></code></pre>
 <p>The second step is to configure the accesses in <span class="docutils literal">application.properties</span>. The property file is the first and the last time we will have to worry about our persistence configuration. In this file, the 3 lines commented out are the only part to change to switch from PostgreSQL to H2.</p>
-<pre class="code properties literal-block"><code><span class="na">spring.datasource.username</span><span class="o">=</span><s>user</s><span class="w">
-</span><span class="na">spring.datasource.password</span><span class="o">=</span><s>password</s><span class="w">
-</span><span class="na">spring.datasource.generate-unique-name</span><span class="o">=</span><s>true</s><span class="w">
+<pre class="code properties literal-block"><code><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">user</span><span class="w">
+</span><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">password</span><span class="w">
+</span><span class="na">spring.datasource.generate-unique-name</span><span class="o">=</span><span class="s">true</span><span class="w">
 </span><span class="c1"># Automatically create &amp; update the database schema from code.</span><span class="w">
-</span><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><s>update</s><span class="w">
+</span><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">update</span><span class="w">
 
 </span><span class="c1">#spring.datasource.url=jdbc:h2:mem:database_name</span><span class="w">
-</span><span class="na">spring.datasource.url</span><span class="o">=</span><s>jdbc:postgresql://localhost:5432/database_name</s><span class="w">
+</span><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:postgresql://localhost:5432/database_name</span><span class="w">
 
 </span><span class="c1">#spring.datasource.driver-class-name=org.h2.Driver</span><span class="w">
-</span><span class="na">spring.datasource.driver-class-name</span><span class="o">=</span><s>org.postgresql.Driver</s><span class="w">
+</span><span class="na">spring.datasource.driver-class-name</span><span class="o">=</span><span class="s">org.postgresql.Driver</span><span class="w">
 
 </span><span class="c1">#spring.jpa.database-platform=org.hibernate.dialect.H2Dialect</span><span class="w">
-</span><span class="na">spring.jpa.database-platform</span><span class="o">=</span><s>org.hibernate.dialect.PostgreSQL10Dialect</s></code></pre>
+</span><span class="na">spring.jpa.database-platform</span><span class="o">=</span><span class="s">org.hibernate.dialect.PostgreSQL10Dialect</span></code></pre>
 <blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
 <p class="p-2">Documentation links:</p>
 </blockquote>
@@ -706,7 +703,7 @@ This makes it a good framework to design proof of concepts while keeping room fo
         <li class="list-group-item">
             <abbr title="2021-01-27T00:00:00+01:00">
                 <i class="bi bi-calendar-event-fill"></i>
-                mer. 27 janvier 2021
+                Wed 27 January 2021
             </abbr>
         </li>
             <li class="list-group-item">
@@ -717,10 +714,10 @@ This makes it a good framework to design proof of concepts while keeping room fo
             </li>
             <li class="list-group-item">
                 <ul class="list-inline">
-                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="6 articles with this category">Software Engineering</a></li>
-                            <li class="list-inline-item">    <a href="/tag/cheat-sheet.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Cheat sheet</a></li>
-                            <li class="list-inline-item">    <a href="/tag/java.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Java</a></li>
-                            <li class="list-inline-item">    <a href="/tag/spring-boot.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Spring Boot</a></li>
+                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="9 articles with this category">Software Engineering</a></li>
+                            <li class="list-inline-item">    <a href="/tag/cheat-sheet.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="10 articles with this tag">Cheat sheet</a></li>
+                            <li class="list-inline-item">    <a href="/tag/java.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="10 articles with this tag">Java</a></li>
+                            <li class="list-inline-item">    <a href="/tag/spring-boot.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="10 articles with this tag">Spring Boot</a></li>
                 </ul>
             </li>
             <li class="list-group-item">
@@ -777,7 +774,7 @@ This makes it a good framework to design proof of concepts while keeping room fo
                     <h6>Copyright notice</h6>
                     <p class="small">
                         © Copyright
-                        2020-2022
+                        2020-2023
                         Antoine Veuiller.
                     </p>
                 </div>
@@ -821,5 +818,8 @@ This makes it a good framework to design proof of concepts while keeping room fo
                 </div>
             </div>
         </footer>
+        <!-- Scripts moved to the bottom of the page, as per Bootstrap and Stork canonical example -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://aveuiller.github.io/theme/js/main.js"></script>
     </body>
 </html>

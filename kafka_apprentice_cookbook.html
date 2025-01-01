@@ -1,16 +1,7 @@
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="robots" content="index, follow">
-        <title>
-Apache Kafka: Apprentice Cookbook        | Antoine Veuiller</title>
-        <meta name="author" content="Antoine Veuiller">
-        <meta name="generator" content="Pelican v4.8.0">
-            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?4566fab6">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- To install the tag, copy and paste it into the code of every page on your website immediately after the <head> element.
+        Source: https://support.google.com/analytics/answer/12002338 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9565WT2VE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -21,10 +12,16 @@ Apache Kafka: Apprentice Cookbook        | Antoine Veuiller</title>
         gtag('js', new Date());
         gtag('config', 'G-F9565WT2VE');
     </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
-            <script src="https://aveuiller.github.io/theme/js/main.min.js?b6b3f836"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="robots" content="index, follow">
+        <title>
+Apache Kafka: Apprentice Cookbook        | Antoine Veuiller</title>
+        <meta name="author" content="Antoine Veuiller">
+        <meta name="generator" content="Pelican v4.10.2">
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?5f61ca51">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -101,7 +98,7 @@ Apache Kafka: Apprentice Cookbook        | Antoine Veuiller</title>
 <li><p>Dev.to: <a class="reference external" href="https://dev.to/aveuiller/apache-kafka-apprentice-cookbook-26m">link</a></p></li>
 </ul>
 <hr class="docutils">
-<p><img alt="Apache Kafka Logo" src="/images/posts/2021-06-01_Kafka-Apprentice-Cookbook/kafka_logo.png" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p><img alt="Apache Kafka Logo" src="/images/posts/2021-06-01_Kafka-Apprentice-Cookbook/kafka_logo.png" class="img-fluid border rounded shadow"></p>
 <p>Apache Kafka is a distributed event streaming platform built over strong concepts.
 Let’s dive into the possibilities it offers.</p>
 <p><a class="reference external" href="https://kafka.apache.org/">Apache Kafka</a> is a distributed event streaming platform built with an emphasis on reliability,
@@ -136,7 +133,7 @@ Let’s see how it is achieved by this technology.</p>
 As a result, on typical production deployment, there will likely be multiple instances of each component.</p>
 <p>A <strong>Consumer Group</strong> is a cluster of the same consumer application.
 This concept is heavily used by Kafka to balance the load on the applicative side of things.</p>
-<p><img alt="Kafka Architecture" src="/images/posts/2021-06-01_Kafka-Apprentice-Cookbook/kafka_architecture.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p><img alt="Kafka Architecture" src="/images/posts/2021-06-01_Kafka-Apprentice-Cookbook/kafka_architecture.svg" class="img-fluid border rounded shadow"></p>
 <p><em>Note: The dependency on Zookeeper will be removed soon, Cf.</em> <a class="reference external" href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum"><em>KIP-500</em></a></p>
 <blockquote class="blockquote border-start border-primary-subtle bg-dark-subtle fs-6 border-4 ps-2">
 <p class="p-2">Further Reading:</p>
@@ -364,7 +361,7 @@ A single connector can even handle both connection sides:</p>
 <p>The source will read data from CSV files in the following schema then publish them into a topic.
 Concurrently, the sink will poll from the topic and insert the messages into a MongoDB database.
 Each connector can run in the same or a distinct worker, and workers can be grouped into a cluster for scalability.</p>
-<p><img alt="Kafka Connect Example" src="/images/posts/2021-06-01_Kafka-Apprentice-Cookbook/kafka_connect.png" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p><img alt="Kafka Connect Example" src="/images/posts/2021-06-01_Kafka-Apprentice-Cookbook/kafka_connect.png" class="img-fluid border rounded shadow"></p>
 <p>The connector instance is created through a configuration specific to the library.
 The file below is a configuration of the <a class="reference external" href="https://www.confluent.io/hub/mongodb/kafka-connect-mongodb">MongoDB connector</a>.
 It asks to fetch all messages from the topic <span class="docutils literal"><span class="pre">mongo-source</span></span> to insert them into the collection <span class="docutils literal">sink</span> of the database named <span class="docutils literal"><span class="pre">kafka-connect</span></span>.
@@ -484,7 +481,7 @@ Here are a few supplementary resources to dig further into Kafka:</p>
         <li class="list-group-item">
             <abbr title="2021-06-29T00:00:00+02:00">
                 <i class="bi bi-calendar-event-fill"></i>
-                mar. 29 juin 2021
+                Tue 29 June 2021
             </abbr>
         </li>
             <li class="list-group-item">
@@ -495,9 +492,9 @@ Here are a few supplementary resources to dig further into Kafka:</p>
             </li>
             <li class="list-group-item">
                 <ul class="list-inline">
-                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="6 articles with this category">Software Engineering</a></li>
-                            <li class="list-inline-item">    <a href="/tag/cheat-sheet.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Cheat sheet</a></li>
-                            <li class="list-inline-item">    <a href="/tag/kafka.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Kafka</a></li>
+                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="9 articles with this category">Software Engineering</a></li>
+                            <li class="list-inline-item">    <a href="/tag/cheat-sheet.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="10 articles with this tag">Cheat sheet</a></li>
+                            <li class="list-inline-item">    <a href="/tag/kafka.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="10 articles with this tag">Kafka</a></li>
                 </ul>
             </li>
             <li class="list-group-item">
@@ -554,7 +551,7 @@ Here are a few supplementary resources to dig further into Kafka:</p>
                     <h6>Copyright notice</h6>
                     <p class="small">
                         © Copyright
-                        2020-2022
+                        2020-2023
                         Antoine Veuiller.
                     </p>
                 </div>
@@ -598,5 +595,8 @@ Here are a few supplementary resources to dig further into Kafka:</p>
                 </div>
             </div>
         </footer>
+        <!-- Scripts moved to the bottom of the page, as per Bootstrap and Stork canonical example -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://aveuiller.github.io/theme/js/main.js"></script>
     </body>
 </html>

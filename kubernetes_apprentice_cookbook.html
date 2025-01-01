@@ -1,16 +1,7 @@
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="robots" content="index, follow">
-        <title>
-Kubernetes: Apprentice Cookbook        | Antoine Veuiller</title>
-        <meta name="author" content="Antoine Veuiller">
-        <meta name="generator" content="Pelican v4.8.0">
-            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?4566fab6">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- To install the tag, copy and paste it into the code of every page on your website immediately after the <head> element.
+        Source: https://support.google.com/analytics/answer/12002338 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9565WT2VE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -21,10 +12,16 @@ Kubernetes: Apprentice Cookbook        | Antoine Veuiller</title>
         gtag('js', new Date());
         gtag('config', 'G-F9565WT2VE');
     </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous"></script>
-            <script src="https://aveuiller.github.io/theme/js/main.min.js?b6b3f836"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="robots" content="index, follow">
+        <title>
+Kubernetes: Apprentice Cookbook        | Antoine Veuiller</title>
+        <meta name="author" content="Antoine Veuiller">
+        <meta name="generator" content="Pelican v4.10.2">
+            <link rel="stylesheet" href="https://aveuiller.github.io/theme/css/main.min.css?5f61ca51">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -101,7 +98,7 @@ Kubernetes: Apprentice Cookbook        | Antoine Veuiller</title>
 <li><p>Dev.to: <a class="reference external" href="https://dev.to/aveuiller/kubernetes-apprentice-cookbook-4j6h">link</a></p></li>
 </ul>
 <hr class="docutils">
-<p><img alt="Kubernetes Logo" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_logo.png" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p><img alt="Kubernetes Logo" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_logo.png" class="img-fluid border rounded shadow"></p>
 <p>You probably already heard of <strong>Kubernetes</strong>, a powerful <a class="reference external" href="https://www.redhat.com/en/topics/automation/what-is-orchestration">orchestrator</a>
 that will ease deployment and automatically manage your applications on a set of machines, called a <em>Cluster</em>.</p>
 <p>With great power comes great complexity, <a class="reference external" href="https://www.theregister.com/2021/02/25/google_kubernetes_autopilot/">even in the eyes of Google</a>.
@@ -128,7 +125,7 @@ As a developer, you will most likely interact through the API gateway for intera
 and a communication process <a class="reference external" href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/">Kube-Proxy</a>.
 The former handles the operations commanded by the <strong>control plane</strong> on the local container runtime (<em>e.g.</em> docker),
 while the latter redirects connectivity to the right pods.</p>
-<p><img alt="Kubernetes Architecture" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_components.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p><img alt="Kubernetes Architecture" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_components.svg" class="img-fluid border rounded shadow"></p>
 </section>
 <section id="namespaces">
 <h3>Namespaces</h3>
@@ -139,7 +136,7 @@ A namespace is basically a virtual cluster inside the actual cluster.</p>
 Only a few kinds of resources are completely agnostic of namespaces, and they define computational power or storage sources (<em>i.e.</em> Nodes and PersistentVolumes).
 However, access to those can be limited by namespace using <a class="reference external" href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">Quotas</a>.</p>
 <p>Namespace-aware resources will always be contained in a namespace as Kubernetes creates and uses a namespace named <em>default</em> if nothing is specified.</p>
-<p><img alt="Namespace Organization" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_namespace.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p><img alt="Namespace Organization" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_namespace.svg" class="img-fluid border rounded shadow"></p>
 <p>There is no silver bullet on the way to use namespaces, as it widely depends on your organization and needs.
 However, we can note some usual namespaces usages:</p>
 <ol class="arabic simple">
@@ -362,7 +359,7 @@ spec:
 This is also the occasion to showcase the interactions between resources.</p>
 <p>At the end of the section, we will have a running Nginx server and will be able to contact the server from outside the cluster.
 The following diagram summarizes the intended state:</p>
-<p><img alt="Intended Deployment" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_nginx.svg" class="img-fluid border rounded shadow image-process-article-photo"></p>
+<p><img alt="Intended Deployment" src="/images/posts/2021-05-10_Kubernetes-Apprentice-Cookbook/kube_nginx.svg" class="img-fluid border rounded shadow"></p>
 <section id="configmap">
 <h3>ConfigMap</h3>
 <p>ConfigMap is used to hold properties that can be used later in your resources.</p>
@@ -804,7 +801,7 @@ as you can see on the following table describing equivalent operations between b
         <li class="list-group-item">
             <abbr title="2021-05-10T00:00:00+02:00">
                 <i class="bi bi-calendar-event-fill"></i>
-                lun. 10 mai 2021
+                Mon 10 May 2021
             </abbr>
         </li>
             <li class="list-group-item">
@@ -815,11 +812,11 @@ as you can see on the following table describing equivalent operations between b
             </li>
             <li class="list-group-item">
                 <ul class="list-inline">
-                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="6 articles with this category">Software Engineering</a></li>
-                            <li class="list-inline-item">    <a href="/tag/cheat-sheet.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Cheat sheet</a></li>
-                            <li class="list-inline-item">    <a href="/tag/cloud.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Cloud</a></li>
-                            <li class="list-inline-item">    <a href="/tag/devops.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">DevOps</a></li>
-                            <li class="list-inline-item">    <a href="/tag/kubernetes.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="7 articles with this tag">Kubernetes</a></li>
+                                <li class="list-inline-item">    <a href="/category/software-engineering.html" rel="tag" class="badge category" data-bs-toggle="tooltip" title="9 articles with this category">Software Engineering</a></li>
+                            <li class="list-inline-item">    <a href="/tag/cheat-sheet.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="10 articles with this tag">Cheat sheet</a></li>
+                            <li class="list-inline-item">    <a href="/tag/cloud.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="10 articles with this tag">Cloud</a></li>
+                            <li class="list-inline-item">    <a href="/tag/devops.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="10 articles with this tag">DevOps</a></li>
+                            <li class="list-inline-item">    <a href="/tag/kubernetes.html" rel="tag" class="badge tag" data-bs-toggle="tooltip" title="10 articles with this tag">Kubernetes</a></li>
                 </ul>
             </li>
             <li class="list-group-item">
@@ -876,7 +873,7 @@ as you can see on the following table describing equivalent operations between b
                     <h6>Copyright notice</h6>
                     <p class="small">
                         © Copyright
-                        2020-2022
+                        2020-2023
                         Antoine Veuiller.
                     </p>
                 </div>
@@ -920,5 +917,8 @@ as you can see on the following table describing equivalent operations between b
                 </div>
             </div>
         </footer>
+        <!-- Scripts moved to the bottom of the page, as per Bootstrap and Stork canonical example -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://aveuiller.github.io/theme/js/main.js"></script>
     </body>
 </html>
