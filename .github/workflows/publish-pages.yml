@@ -24,8 +24,8 @@ jobs:
       run: pip install poetry
     - name: install dependencies
       run: poetry install
-    - name: activate venv
-      run: source $(poetry env info --path)/bin/activate
+    - name: bin pelican alias
+      run: alias pelican="$(poetry env info --path)/bin/pelican"
     - name: Install dependencies
       run: make github
     - name: publish
