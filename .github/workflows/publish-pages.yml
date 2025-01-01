@@ -22,8 +22,8 @@ jobs:
       run: pip install poetry
     - name: install dependencies
       run: poetry install
-    - name: bin pelican alias
-      run: alias pelican="$(poetry env info --path)/bin/pelican"
+    - name: venv bin
+      run: export PATH="$PATH:$(poetry env info --path)/bin"
     - name: Install dependencies
       run: make github
     - name: publish
