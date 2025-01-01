@@ -5,6 +5,7 @@ description = "Antoine Veuiller's blog."
 authors = ["Antoine Veuiller <aveuiller@gmail.com>"]
 homepage = 'https://aveuiller.github.io'
 repository = 'https://github.com/aveuiller/aveuiller.github.io'
+package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.11,<4.0"
@@ -19,6 +20,7 @@ pelican-syntax-highlighting = "^0.4.2"
 #pymarkdownlnt = "0.9.11"
 markdownify = "^0.11.6"
 click = "^8.1.6"
+ghp-import = "^2.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
