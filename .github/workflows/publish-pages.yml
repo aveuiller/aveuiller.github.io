@@ -1,10 +1,10 @@
 name: Publish GH Pages
 on:
   push:
-    #tags:
-    #- '*'
-    branches:
-    - "main"
+    tags:
+    - '*'
+    # branches:
+    # - "main"
 jobs:
   build:
     runs-on: ubuntu-latest
